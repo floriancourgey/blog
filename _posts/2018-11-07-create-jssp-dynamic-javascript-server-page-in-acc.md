@@ -52,7 +52,7 @@ response.setContentType("text/html;charset=utf-8");
 
 ## Develop a JSON API
 
-<pre class="lang:js decode:true ">&lt;% 
+<pre class="lang:js decode:true ">&lt;%
 response.setContentType('application/json');
 var x = {'a':'b'};
 document.write(JSON.stringify(x));
@@ -74,11 +74,11 @@ This is because the current operator is Anonymous:
 
 Displays
 
-<pre class="lang:default decode:true ">login: 
+<pre class="lang:default decode:true ">login:
 id: 0
 computeString: Anonymous account
-groups: 
-rights: 
+groups:
+rights:
 timezone: America/Los_Angeles
 locale: en-US
 home:</pre>
@@ -90,8 +90,8 @@ So we have to change the logon information with the <span class="lang:js decode:
 <pre class="lang:js decode:true">&lt;% var oldContext = logon('john-doe', 'password'); // login as john-doe
 for(var i in application.operator){ %&gt;
   &lt;%= i %&gt;: &lt;%= application.operator[i] %&gt;
-&lt;% } 
-logon(oldContext); // log back in as previous user 
+&lt;% }
+logon(oldContext); // log back in as previous user
 logon(sessionToken); // log in with token %&gt;
 </pre>
 
@@ -111,15 +111,17 @@ home:</pre>
 Database is now accessible 😉
 
 <div class="alert alert-warning">
-  logon is deprecated. Use <span class="lang:js decode:true crayon-inline">logonEscalation(&#8216;webapp&#8217;)</span> , <span class="lang:js decode:true crayon-inline ">logonWithUser(login, password)</span> , <span class="lang:js decode:true crayon-inline ">logonWithToken(token)</span> , <span class="lang:js decode:true crayon-inline ">logonWithContext(context)</span>  instead.</p> 
-  
+  logon is deprecated. Use <span class="lang:js decode:true crayon-inline">logonEscalation(&#8216;webapp&#8217;)</span> , <span class="lang:js decode:true crayon-inline ">logonWithUser(login, password)</span> , <span class="lang:js decode:true crayon-inline ">logonWithToken(token)</span> , <span class="lang:js decode:true crayon-inline ">logonWithContext(context)</span>  instead.</p>
+
   <p>
-    Original Adobe Campaign message (in Monitoring logs > web@default): The &#8216;logon&#8217; JavaScript method is deprecated. Please use &#8216;logonEscalation&#8217;, &#8216;logonWithUser&#8217;, &#8216;logonWithToken&#8217; or &#8216;logonWithContext&#8217; instead. </div> 
-    
+    Original Adobe Campaign message (in Monitoring logs > web@default): The &#8216;logon&#8217; JavaScript method is deprecated. Please use &#8216;logonEscalation&#8217;, &#8216;logonWithUser&#8217;, &#8216;logonWithToken&#8217; or &#8216;logonWithContext&#8217; instead.
+  </p>
+</div>
+
     <h2>
       Example of HttpServletRequest and HttpServletRequest
     </h2>
-    
+
     <pre class="lang:default decode:true ">&lt;%
 // disable cache
 response.addHeader("Pragma", "no-cache");
@@ -146,13 +148,13 @@ response.setContentType("text/html;charset=utf-8");
     getRemoteAddr(): &lt;%= request.getRemoteAddr() %&gt;&lt;br&gt;
   &lt;/body&gt;
 &lt;/html&gt;</pre>
-    
+
     <p>
       Gives us
     </p>
-    
+
     <pre class="lang:default decode:true ">URL param1: value1
-HTTP Body: getBodyAsString(): paramPost1=val1&paramPost2=val2 
+HTTP Body: getBodyAsString(): paramPost1=val1&paramPost2=val2
 --
 parameters : [object RequestParameters]
 cookies : [object Cookies]
@@ -160,7 +162,7 @@ requestURI : /my_nms/my-page.jssp
 requestURL : http://campaign.adobe.com/my_nms/my-page.jssp
 queryString : param1=value1
 servletPath : /my_nms/my-page.jssp
-contextPath : 
+contextPath :
 pathInfo : null
 serverName : campaign.adobe.com
 serverPort : 80
@@ -171,19 +173,19 @@ method : POST
 User-Agent: Mozilla...
 X-Forwarded-For: A.B.C.D, E.F.G.H
 getRemoteAddr(): E.F.G.H</pre>
-    
+
     <p>
       See <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">https://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a> for list of header names.
     </p>
-    
+
     <h2>
       Explore HttpServletResponse API
     </h2>
-    
+
     <p>
       Noticed that we used <span class="lang:js decode:true crayon-inline "><% response.[&#8230;] %></span> , what properties and methods are available? Response is of type <span class="lang:default decode:true crayon-inline ">HttpServletResponse</span> .
     </p>
-    
+
     <pre class="lang:js decode:true" title="JS doc for HttpServletRequest">// Methods
 /** Changes the document type of the response. */
 setContentType(string type)
@@ -196,11 +198,11 @@ addHeader(string key, string value)
 /** Returns an error response using the error code passed as a parameter. */
 sendError(int httpErrorCode)
 </pre>
-    
+
     <h2>
       Explore HttpServletRequest API
     </h2>
-    
+
     <pre class="lang:default decode:true ">// Methods
 /** Returns an attribute defined in the query header. */
 getHeader(string key)
@@ -241,11 +243,11 @@ pathInfo
 /** Returns a string of characters containing the HTTP method used to call up this query (GET, HEAD, POST, etc.). */
 method
 </pre>
-    
+
     <h2>
       Encode and decode URL
     </h2>
-    
+
     <pre class="lang:js decode:true ">/** Convert string to URL safe equivalent */
 encodeURI(string)
 encodeURI("Hello world?!'=-") // "Hello%20world?!'=-"
@@ -256,15 +258,15 @@ encodeURI("https://example.com?var1=val1&var2=val2") // "https://example.com?var
 decodeURI(string)
 decodeURI("Hello%20world?!'=-") // "Hello world?!'=-"
 </pre>
-    
+
     <p>
       &nbsp;
     </p>
-    
+
     <p>
       &nbsp;
     </p>
-    
+
     <p>
       <em>Source: <a href="http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html">http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html</a></em>
     </p>

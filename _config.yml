@@ -25,6 +25,8 @@ linkedin_username: floriancourgey
 github_username:  floriancourgey
 rss: rss
 
+permalink: /:year/:month/:title
+
 disqus:
   shortname: floriancourgey
 

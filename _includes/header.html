@@ -11,8 +11,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ "/" | relative_url }}">Home</a>
         </li>
         {%- for path in page_paths -%}
           {%- assign my_page = site.pages | where: "path", path | first -%}
@@ -22,6 +22,28 @@
             </li>
           {%- endif -%}
         {%- endfor -%}
+        <li class="nav-item">
+          <div class="btn-group">
+            <a class="nav-link" href="{{ "/categories?id=prestashop" | relative_url }}">Prestashop</a>
+            <a href="#" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ "/categories?id=prestashop 1.7" | relative_url }}">Prestashop 1.7</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="btn-group">
+            <a class="nav-link" href="{{ "/categories?id=adobe campaign" | relative_url }}">Adobe Campaign</a>
+            <a href="#" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ "/categories?id=neolane" | relative_url }}">Neolane</a>
+            </div>
+          </div>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

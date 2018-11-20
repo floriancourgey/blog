@@ -26,17 +26,17 @@ layout: default
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
-<section id="more-work">
+<section id="more-work" class="row">
     {% if page.previous %}
         {% assign previous = page.previous %}
     {% else %}
         {% assign previous = site.posts[0] %}
     {% endif %}
-    <div class="left">
-        <a class="equalize" href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
+    <div class="col-sm">
+        <a href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
             <div>
-                <h6> ← Previous Project </h6>
-                <h4> {{previous.title}} </h4>
+                <h6>← Previous Project</h6>
+                <h4>{{previous.title}}</h4>
             </div>
         </a>
     </div>
@@ -47,11 +47,11 @@ layout: default
         {% assign last lastPostIndex = site.posts | size | minus: 1 %}
         {% assign next = site.posts[lastPostIndex] %}
     {% endif %}
-    <div class="right">
-        <a class="equalize" href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
+    <div class="col-sm text-right">
+        <a href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
             <div>
-                <h6> Next Project →</h6>
-                <h4> {{next.title}}</h4>
+                <h6>Next Project →</h6>
+                <h4>{{next.title}}</h4>
             </div>
         </a>
     </div>

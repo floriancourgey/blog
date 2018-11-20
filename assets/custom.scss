@@ -1,0 +1,14 @@
+---
+---
+#results-container {
+  position: absolute;
+  margin: 0;
+  top: 55px;
+  &>li {
+    list-style: none;
+    &>a {
+      background: white;
+      display: inline-block;
+    }
+  }
+}

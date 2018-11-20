@@ -2,13 +2,10 @@
 ---
 // Booostrap  fix
 
-.container {
-  @media (min-width: 1200px){
-    max-width: 850px;
-  }
-  @media (min-width: 992px){
-    max-width: 850px;
-  }
+main {
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
 }
 // Jekyll search
 #results-container {

@@ -40,3 +40,54 @@ article.post {
     display: block;
   }
 }
+// lightgallery
+/******************************
+           LIGHTBOX
+ ******************************/
+.lg-container {
+  text-align:center;
+}
+.lg-link {
+  cursor: zoom-in;
+  display:inline-block;
+  position:relative;
+}
+.lg-overlay {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background */
+  background: rgba(255,255,255,.8);
+  /* visibility */
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+.lg-link:hover .lg-overlay{
+  opacity: 1;
+  z-index: 3;
+}
+.lg-overlay-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,0%);
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
+  color:#4c4c4c;
+}
+.lg-link:hover .lg-overlay-inner {
+  transform: translate(-50%,-50%);
+}
+.lg-img-wrap {
+  cursor: zoom-out;
+}
+.lg-img-wrap > *{
+  cursor: initial;
+}

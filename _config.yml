@@ -30,6 +30,8 @@ permalink: /:year/:month/:title
 disqus:
   shortname: floriancourgey
 
+gtm: GTM-PZGWZJG
+
 # Build settings
 markdown: kramdown
 theme: minima

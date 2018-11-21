@@ -32,3 +32,11 @@ main {
     }
   }
 }
+// posts
+article.post {
+  img {
+    max-height: 300px;
+    margin: auto;
+    display: block;
+  }
+}

@@ -1,7 +1,6 @@
 ---
 ---
 // Booostrap  fix
-
 main {
   max-width: 850px;
   margin-right: auto;
@@ -17,6 +16,19 @@ main {
     &>a {
       background: white;
       display: inline-block;
+    }
+  }
+}
+// home
+.home .post-list {
+  li {
+    margin-bottom: 0;
+    &>.post-link{
+      padding: 15px;
+      border: 1px solid transparent;
+      &:hover {
+        border-color: lightgrey;
+      }
     }
   }
 }

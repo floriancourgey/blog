@@ -9,7 +9,7 @@ bundle exec jekyll serve
 touch _posts/YYYY-mm-dd-slug-here.md
 ```
 ---
-title: Contribution a Qwant Answers
+title: New article
 author: Florian Courgey
 layout: post
 categories:

@@ -53,11 +53,31 @@ Double-clicking on the Debug node displays the configuration:
 ![todo](/assets/images/2018/11/node-red-node-details.png)
 
 ## Build the weather bot
+### Connect to Open Weather Map
 Create API key on [Open Weather Map](https://openweathermap.org) or use the default one for testing https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22
 
 Look for the node `http request`, set the endpoint and change the return to be a JSON object:
-node-red-http-request.png
+![todo](/assets/images/2018/11/node-red-http-request.png)
 
 Deploy and run!
-openweathermap-via-node-red.png
+![todo](/assets/images/2018/11/openweathermap-via-node-red.png)
 
+And it took what, 5 min? Sweeet...
+### Format
+Use the `template` node a little bit of moustache templating and here we are:
+![todo](/assets/images/2018/11/nodered-format-moustache.png)
+![todo](/assets/images/2018/11/node-red-open-weather-call.png)
+
+### Send to Slack
+Install the [Node red slack module](https://flows.nodered.org/node/node-red-contrib-slack)
+```bash
+npm install node-red-contrib-slack
+```
+Make sure you have a webhook configured on your slack, i.e. [https://floriancourgey.slack.com/apps/manage/custom-integrations](https://floriancourgey.slack.com/apps/manage/custom-integrations):
+![todo](/assets/images/2018/11/slack-webhook-config.png)
+
+### CRON it with Node RED
+Think of using it on a daily basis? Node RED has a much easier system than Linux's CRONs.
+
+Open up the `inject` node and define the Regular setting.
+![todo](/assets/images/2018/11/node-red-timestamp-cron.png)

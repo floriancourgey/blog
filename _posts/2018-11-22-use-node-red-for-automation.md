@@ -76,6 +76,9 @@ npm install node-red-contrib-slack
 Make sure you have a webhook configured on your slack, i.e. [https://floriancourgey.slack.com/apps/manage/custom-integrations](https://floriancourgey.slack.com/apps/manage/custom-integrations):
 ![todo](/assets/images/2018/11/slack-webhook-config.png)
 
+And use the `slack` node with the correct Webhook URL:
+![todo](/assets/images/2018/11/node-red-contrib-slack-how-to.png)
+
 ### CRON it with Node RED
 Think of using it on a daily basis? Node RED has a much easier system than Linux's CRONs.
 

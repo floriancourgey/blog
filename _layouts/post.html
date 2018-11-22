@@ -25,11 +25,16 @@ layout: default
         </a>
       </p>
     </div>
+    <div class="post-categories">
+      {% for category in page.categories %}
+        <a href="{{site.baseurl}}/categories?id={{category|slugize}}"
+          class="badge badge-info">
+          <i class="fas fa-tag"></i> {{category}}
+        </a>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+    </div>
   </header>
-
-  <div class="improve right hide-on-mobiles">
-
-  </div>
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
@@ -40,7 +45,24 @@ layout: default
   {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+  <div style="height:25px"></div>
+
+  <footer>
+    More in this category:
+    <div class="post-categories">
+      {% for category in page.categories %}
+        <a href="{{site.baseurl}}/categories?id={{category|slugize}}"
+          class="badge badge-info">
+          <i class="fas fa-tag"></i> {{category}}
+        </a>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+    </div>
+  </footer>
 </article>
+
+<div style="height:50px"></div>
 
 <section id="more-work" class="row">
     {% if page.previous %}

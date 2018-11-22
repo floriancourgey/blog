@@ -40,9 +40,8 @@ article.post {
     display: block;
   }
 }
-// lightgallery
 /******************************
-           LIGHTBOX
+           LIGHTGALLERY
  ******************************/
 .lg-container {
   text-align:center;
@@ -90,4 +89,24 @@ article.post {
 }
 .lg-img-wrap > *{
   cursor: initial;
+}
+/******************************
+         ANCHOR HEADER
+ ******************************/
+a.header-anchor {
+  float: left;
+  padding-right: 4px;
+  margin-left: -20px;
+  line-height: 1;
+  opacity: 0;
+}
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor,
+h5:hover .header-anchor {
+	opacity: 1;
+}
+a.header-anchor:hover > svg {
+  fill:#0366d6;
 }

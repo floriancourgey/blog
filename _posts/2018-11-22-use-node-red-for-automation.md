@@ -17,7 +17,7 @@ We'll cover a simple example of sending a slack message every morning to get the
 ![todo](/assets/images/2018/11/node-red-mobile-notification-slack.jpg)
 
 ## Intro
-The goal is to create an automated bot that sends weather information every morning on a slack channel with 0 code (or maybe a maximum of 20 lines).
+The goal is to create an automated bot that sends weather information every morning on a slack channel with 0 code (or maybe a maximum of 2 lines).
 To do so, we're going to use [Node-RED](https://nodered.org/), an automation tool based on a visual interface to query APIs and trigger external tools. See it like a free, highly customizable and self-hosted [IFTTT](https://ifttt.com/).
 Each action is a Node and is connected to another ones/ones with `wires`.
 
@@ -84,3 +84,6 @@ Think of using it on a daily basis? Node RED has a much easier system than Linux
 
 Open up the `inject` node and define the Regular setting.
 ![todo](/assets/images/2018/11/node-red-timestamp-cron.png)
+
+## Conclusion
+You now have a fully working bot sending weather information every morning! Going further: display an emoji based on `payload.weather[0].id` (see [https://openweathermap.org/weather-conditions](https://openweathermap.org/weather-conditions)), connect to your home IoT, your [smart mirror](https://www.google.fr/search?q=iot+smart+mirror&source=lnms&tbm=isch)...

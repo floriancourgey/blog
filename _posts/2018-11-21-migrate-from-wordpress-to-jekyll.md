@@ -3,10 +3,9 @@ title: Migrate from Wordpress to Jekyll
 author: Florian Courgey
 layout: post
 categories:
-  - prestashop
-  - google
+  - jekyll
   - opensource
-  - adobe campaign
+  - server
 ---
 ## Install Jekyll locally
 See [the Jekyll homepage](https://jekyllrb.com/)
@@ -146,3 +145,17 @@ Replace: ![todo](/assets/images$1)
 
 ## Customization
 ### Add Bootstrap 4
+
+## Pros and Cons
+Jekyll on Github compared to Wordpress is:
+- faster: no database access, no programming language, only raw html and images
+- cheaper: you only pay for the domain name (~$10/year) instead of paying for a VPS $5/mo
+- safer: no login or admin backoffice, no field and no form, no .htaccess and not on-premise so there's 0 security flaw
+- highly customizable: without being too complex to edit, Jekyll offers a quick way to extend its functionnalities
+- not bloated: I got sick of WP because of 5-10 sec page loads.. A quick look at the HTML source and some Lighthouse audits reveal a lot of useless JS+CSS
+
+But on the other hand, Wordpress is better for:
+- the setup: WP can be set up in 5-10 min, instead of 1-2 days for an extended Jekyll website
+- plugins: which are the reason of the bloat.. But for GA, GTM, SEO, RSS, code highlighting, etc. WP has some first-class and easy-to-install plugins, comparent to Jekyll where there's a need of writing raw HTML/Liquid
+- the ecosystem and the community: WP has more experience, runs on more websites and has many big brands support
+- private drafts: drafts are open source on Jekyll, which is a pain in the a**

@@ -83,24 +83,7 @@ _See https://github.com/floriancourgey/www/blob/master/categories.html_
 ### Add search
 This feature consists of creating a JSON object with all pages and posts, and then fetching in javascript this object to execute a search. It is amazingly fast.
 
-Create `/search.json`:
-```json
----
----
-[
-  {% for post in site.posts %}
-    {
-
-      "title"    : "{{ post.title | escape }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-      "date"     : "{{ post.date }}"
-
-    } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
-]
-```
+_See https://github.com/floriancourgey/www/blob/master/search.json
 
 Now each time the site is built, a search.json is created, containing every post along with its title, url, categories and tags.
 

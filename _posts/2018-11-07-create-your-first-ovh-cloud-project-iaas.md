@@ -28,7 +28,7 @@ Simple VPS provisionning with basic LAMP server via OVH Manager and [OVH Public 
 
 ## Add your SSH Key in the OVH Manager
 
-Refer to https://docs.ovh.com/gb/en/public-cloud/create-ssh-keys/ to create one. Have your public+private key saved somewhere as TXT format , no matter the extension.
+Refer to [https://docs.ovh.com/gb/en/public-cloud/create-ssh-keys/](https://docs.ovh.com/gb/en/public-cloud/create-ssh-keys/) to create one. Have your public+private key saved somewhere as TXT format, no matter the extension.
 
 In your OVH Manager, go to 'Cloud > Create new Project > Fill info > SSH Keys > Add > Add your public SSH Key'.
 
@@ -36,7 +36,7 @@ In your OVH Manager, go to 'Cloud > Create new Project > Fill info > SSH Keys > 
 
 ## Create the VPS instance!
 
-'Infrastructure > Actions > Add a server':
+`Infrastructure > Actions > Add a server`:
 
 ![todo](/assets/images/2018/11/ovh-manager-cloud-add-server-instance.jpg)
 
@@ -65,16 +65,16 @@ Server is up and running, great!!
 
 ## Install Apache and create a HTML test page
 
-<pre class="lang:sh decode:true">$ sudo apt update # refresh all repo
-$ sudo apt install apache2 vim # install apache and vim (or any other)
+```bash
+$ sudo apt update # refresh all repo
+$ sudo apt install apache2 # install apache
 $ cd # make sure we are in our home folder
 $ mkdir public_html && cd public_html # create public_html, per Apache convention
-$ vim index.html # create basic html file
-Hello world from OVH Cloud Iaas!
+$ touch index.html && echo "Hello world from OVH Cloud Iaas!" > index.html # create basic html file
 $ sudo chgrp www-data ~/public_html # edit permission to have www-data as group owner
 $ sudo a2enmod userdir # enable apache module "userdir"
 $ sudo service apache2 restart # restart apache
-</pre>
+```
 
 See [https://wiki.debian.org/LaMp](https://wiki.debian.org/LaMp) for details
 
@@ -100,7 +100,7 @@ Browse to your instances, and find an overview, the server log and an open stack
 
 ## Add alert with usage threshold (I ain't paying more than 1€ per month!!)
 
-'Project Management > Usage > Estimate of my next invoice > Create alert':
+`Project Management > Usage > Estimate of my next invoice > Create alert`:
 
 ![todo](/assets/images/2018/11/ovh-manager-add-alert.jpg)
 

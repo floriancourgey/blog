@@ -6,19 +6,16 @@ author: Florian Courgey
 layout: post
 guid: https://floriancourgey.com/?p=420
 permalink: /2018/04/use-db-the-database-class-in-prestashop-1-7/
-kc_data:
-  - 'a:7:{s:4:"mode";s:0:"";s:3:"css";s:0:"";s:9:"max_width";s:0:"";s:7:"classes";s:0:"";s:9:"thumbnail";s:0:"";s:9:"collapsed";s:0:"";s:9:"optimized";s:0:"";}'
-tinymce-comment-field_enabled:
-  - "1"
 categories:
   - prestashop
   - prestashop 1.7
 ---
-Tired of using raw SQL? <span class="lang:mysql decode:true crayon-inline ">SELECT * from _DB_PREFIX_.customer</span>  is dead! Use the chainable API provided by Prestashop with its DbQuery class:
+Tired of using raw SQL? `SELECT * from _DB_PREFIX_.customer` is dead! Use the chainable API provided by Prestashop with its `DbQuery` class:
 
 <!--more-->
 
-<pre class="lang:default decode:true ">// fetch Categories as array of array
+```php
+// fetch Categories as array of array
 $categoriesArray = (Db::getInstance())-&gt;executeS((new DbQuery())
   -&gt;from('category', 'c')
   -&gt;where('c.level_depth &gt; 2')
@@ -44,11 +41,12 @@ if(Tools::getValue('only-high-level-depth')){
 $categoriesArray = (Db::getInstance())-&gt;executeS($query);
 
 // want to debug the generated SQL code?
-$sql = $query-&gt;build(); // SELECT * from...</pre>
+$sql = $query-&gt;build(); // SELECT * from...
+```
 
-&nbsp;
-
-<pre class="lang:php decode:true " title="classes/db/DbQuery.php">DbQuery::select($fields)
+From classes/db/DbQuery.php
+```php
+DbQuery::select($fields)
 DbQuery::from($table, $alias = null) // will append _DP_PREFIX_ automatically
 DbQuery::join($fields)
 DbQuery::innerJoin($table, $alias = null, $on = null)// will append _DP_PREFIX_ automatically
@@ -57,26 +55,28 @@ DbQuery::where($restriction)
 DbQuery::having($restriction)
 DbQUery::orderBy($fields)
 DbQUery::groupBy($fields)
-DbQuery::limit($limit, $offset = 0)</pre>
+DbQuery::limit($limit, $offset = 0)
+```
 
 ## Perfom a COUNT query
 
-<pre class="lang:php decode:true "># raw
+```php
+# raw
 (Db::getInstance())-&gt;getValue('SELECT Count(*) from '._DB_PREFIX_.'category where level_depth&gt;2')
 # DbQuery
 (Db::getInstance())-&gt;executeS((new DbQuery()
   -&gt;from('category')
   -&gt;select('Count(*)')
   -&gt;where('level_depth&gt;2')
-))</pre>
-
-&nbsp;
+))
+```
 
 ## Full documentation
 
-Taken from Github
+Taken from Github classes/db/Db.php
 
-<pre class="lang:php decode:true " title="classes/db/Db.php">/**
+```php
+/**
 * Executes a query
 *
 * @param string|DbQuery $sql
@@ -158,10 +158,10 @@ public function build()
 public function Insert_ID() // returns the ID created during the latest INSERT query.
 public function Affected_Rows() // returns the number of lines impacted by the latest UPDATE or DELETE query.
 public function getMsgError() // returns the latest error message, if the query has failed.
-public function getNumberError() // returns the latest error number, if the query has failed.</pre>
+public function getNumberError() // returns the latest error number, if the query has failed.
+```
 
-## Physical data model &#8211; MPD<figure style="width: 3252px" class="wp-caption aligncenter">
+## Physical data model &#8211; MPD
+![Relationships (1-1 & 1-N) between Prestashop tables](/assets/images/2018/04/prestashop-mpd-large.gif)
 
-<img class="size-full" src="https://i2.wp.com/assets.prestashop2.com/images/blog/mpd-large.gif?resize=525%2C364&#038;ssl=1" alt="GIF from prestashop.com with relationship between tables" width="525" height="364" data-recalc-dims="1" /><figcaption class="wp-caption-text">Relationships (1-1 & 1-N) between Prestashop tables</figcaption></figure> 
-
-_Source: _[_https://www.prestashop.com/fr/blog/nouveaux\_outils\_pour\_les\_developpeurs_](https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs)
+*Source: [https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs](https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs)*

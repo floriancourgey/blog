@@ -125,6 +125,9 @@ Replace: ```$1\n$2
 Find:    \n?</pre>
 Replace: \n```
 
+Find:    <span class="lang:\w+ decode:true crayon-inline">([/\w\.\-]+)</span>
+Replace: `$1`
+
 Find:    (&#8216;|&#8217;|&#8220;|&#8221;)
 Replace: '
 

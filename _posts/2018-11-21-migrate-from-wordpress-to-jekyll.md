@@ -153,6 +153,7 @@ Jekyll on Github compared to Wordpress is:
 - safer: no login or admin backoffice, no field and no form, no .htaccess and not on-premise so there's 0 security flaw
 - highly customizable: without being too complex to edit, Jekyll offers a quick way to extend its functionnalities
 - not bloated: I got sick of WP because of 5-10 sec page loads.. A quick look at the HTML source and some Lighthouse audits reveal a lot of useless JS+CSS
+- bootstrap friendly: most of the WP themes will break when used with BS. As Jekyll is built with simplicity in mind, adding BS will keep everything in order. This way, components (alert, popover, icons...) and utilities (grid, show/hide...) are available
 
 But on the other hand, Wordpress is better for:
 - the setup: WP can be set up in 5-10 min, instead of 1-2 days for an extended Jekyll website

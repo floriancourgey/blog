@@ -36,7 +36,7 @@ Posts on old wordpress site were hosted on https://floriancourgey.com/2018/01/ti
 A quick Nginx rule did the trick, to ensure backward compatibility:
 ```nginx
 location ~ ^/2018 {
-	rewrite     ^ https://blog.floriancourgey.com$request_uri? permanent;
+	rewrite ^ https://blog.floriancourgey.com$request_uri? permanent;
 }
 ```
 
@@ -48,11 +48,11 @@ This one is easy and automatic as it comes as a Jekyll plugin. Jekyll plugins ar
 ### Add categories
 This one is a little bit more complicated. Categories in wordpress allow us to browse, search and display posts. This is not a native feature of Jekyll.
 
-First we need a page with all categories. I reused this [very good tutorial on Jekyll categories](https://blog.webjeda.com/jekyll-categories/) where the idea is to have a `/categories.html` with a Jekyll standard loop `{% for category in page.categories %}`.
+First we need a page with all categories. I reused this [very good tutorial on Jekyll categories](https://blog.webjeda.com/jekyll-categories/) where the idea is to have a `/categories.html` with a Jekyll standard loop {% raw %}`{% for category in page.categories %}`{% endraw %}.
 
 I also added this bit at the top and the bottom of each post, in order to display the categories of a post:
 ![todo](/assets/images/2018/11/wordpress-to-jekyll-categories-display.jpg)
-```
+{% raw %}```html
 {% for category in page.categories %}
   <a href="{{site.baseurl}}/categories?id={{category|slugize}}"
     class="badge badge-info">
@@ -60,8 +60,8 @@ I also added this bit at the top and the bottom of each post, in order to displa
   </a>
   {% unless forloop.last %}&nbsp;{% endunless %}
 {% endfor %}
-```
-_See https://github.com/floriancourgey/www/blob/master/_layouts/post.html_
+```{% endraw %}
+*See [https://github.com/floriancourgey/www/blob/master/_layouts/post.html](https://github.com/floriancourgey/www/blob/master/_layouts/post.html)*
 
 Noticed the `/categories?id=` part? With a bit of javascript, we are able to display a specific category:
 ![todo](/assets/images/2018/11/jekyll-display-categories-by-id.jpg)
@@ -76,18 +76,36 @@ if(location.search.match(/id=([^&]*)/i)){
   }
 }
 ```
-_See https://github.com/floriancourgey/www/blob/master/categories.html_
+*See [https://github.com/floriancourgey/www/blob/master/categories.html](https://github.com/floriancourgey/www/blob/master/categories.html)*
 
 ### Add Previous/Next
 ### Add comments
+### Add robots.txt
 ### Add search
 This feature consists of creating a JSON object with all pages and posts, and then fetching in javascript this object to execute a search. It is amazingly fast.
+{% raw %}```json
+---
+---
+[
+  {% for post in site.posts %}
+    {
 
-_See https://github.com/floriancourgey/www/blob/master/search.json
+      "title"    : "{{ post.title | escape }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "date"     : "{{ post.date }}"
+
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+
+```{% endraw %}
+*See [https://github.com/floriancourgey/www/blob/master/search.json](https://github.com/floriancourgey/www/blob/master/search.json) and [https://blog.floriancourgey.com/search.json](https://blog.floriancourgey.com/search.json)*
 
 Now each time the site is built, a search.json is created, containing every post along with its title, url, categories and tags.
 
-_Source https://blog.webjeda.com/instant-jekyll-search/_
+*Source [https://blog.webjeda.com/instant-jekyll-search](https://blog.webjeda.com/instant-jekyll-search)*
 ### Add the "Improve this page" link
 ```html
 <a href="https://github.com/floriancourgey/www/edit/master/{{ page.path }}" target="_blank">Improve this page</a>

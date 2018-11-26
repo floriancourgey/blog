@@ -13,7 +13,9 @@ Use the following prefixes:
 - \! for a fix
 
 Examples:
+
 |Commit name|Translation|
+|-|-|
 |+ header|Added the header feature|
 |* README with contributors name|Updated README with names|
 |! JIRA 136|Fixed JIRA issue #136|

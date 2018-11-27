@@ -82,8 +82,38 @@ if(location.search.match(/id=([^&]*)/i)){
 *See [https://github.com/floriancourgey/www/blob/master/categories.html](https://github.com/floriancourgey/www/blob/master/categories.html)*
 
 ### Add Previous/Next
+`_layouts/post.html`
+{% raw %}```html
+<!-- Previous post -->
+{% if page.previous %}
+    {% assign previous = page.previous %}
+{% else %}
+    {% assign previous = site.posts[0] %}
+{% endif %}
+<a href="{{site.baseurl}}{{previous.url}}">{{previous.title}}</a>
+
+<!-- Next post -->
+{% if page.next %}
+    {% assign next = page.next %}
+{% else %}
+    {% assign last lastPostIndex = site.posts | size | minus: 1 %}
+    {% assign next = site.posts[lastPostIndex] %}
+{% endif %}
+<a href="{{site.baseurl}}{{next.url}}">{{next.title}}</a>
+```{% endraw %}
+*See [https://stackoverflow.com/questions/29932644/looping-previous-and-next-post-in-jekyll](https://stackoverflow.com/questions/29932644/looping-previous-and-next-post-in-jekyll)*
 ### Add comments
+Disqus
 ### Add robots.txt
+`/robots.txt`
+```
+---
+---
+# www.robotstxt.org/
+User-agent: *
+Sitemap: {{ site.url }}/sitemap.xml
+```
+*See [https://github.com/floriancourgey/www/blob/master/robotx.txt](https://github.com/floriancourgey/www/blob/master/robotx.txt)*
 
 ### Add the "Improve this page" link
 ```html

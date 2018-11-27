@@ -36,7 +36,7 @@ The file is immediately available at [https://blog.floriancourgey.com/search.jso
 
 Now each time the site is built, a search.json is created, containing every post along with its title, url, categories and tags.
 
-XX developed a plugin to display the list of results, based on a simple text search:
+[Christian Fei](https://github.com/christian-fei/Simple-Jekyll-Search) developed a plugin to display the list of results, based on a simple text search:
 ```html
 <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 <ul id="results-container"></ul>
@@ -56,39 +56,58 @@ SimpleJekyllSearch({
 
 Following the method above, we can take a great advantage of the Jekyll automatic index building and link it to a Full text search library such as lunr.js. This way, we can have more natural langugage processing, all for free!
 
+The index is an object `documents` containing an entry per post, with its URL as the key.
+
 `/search-lunr.js`
 {% raw %}```js
 ---
 ---
-var documents = [
+var documents = {
   {% for post in site.posts %}
-    {
-      "path"     : "{{ post.path | escape }}",
+    "{{ site.baseurl }}{{ post.url }}": {
       "title"    : "{{ post.title | escape }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "categories" : "{{ post.category }}",
+      "categories" : "{{ post.categories | join: ', ' }}",
       "tags"     : "{{ post.tags | join: ', ' }}",
       "date"     : "{{ post.date }}",
       "excerpt"     : "{{ post.excerpt | strip | strip_newlines | strip_html }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
-];
+};
+
 ```{% endraw %}
 
-https://lunrjs.com/guides/getting_started.html
+[https://lunrjs.com/guides/getting_started.html](https://lunrjs.com/guides/getting_started.html)
 ```html
 <script src="https://unpkg.com/lunr/lunr.js"></script>
 <script>
-  var idx = lunr(function () {
-    this.ref('url');
+  // create lunr index
+  const idx = lunr(function () {
+    this.ref('url'); // the url will be used as the lunr id
     this.field('category');
     this.field('title');
     this.field('excerpt');
     this.field('date');
-
-    documents.forEach(function (doc) {
-      this.add(doc)
-    }, this)
+    for(var doc in documents) {
+      this.add(documents[doc]);
+    }
   });
+  // watch input
+  var $searchInput;
+  var $resultsContainer;
+  $(function(){
+    var $searchInput = $('#search-input');
+    var $resultsContainer = $('#results-container');
+    $searchInput.on('input', function() {
+      $resultsContainer.empty();
+      var val = $searchInput.val();
+      if(val.length < 2) return;
+      var results = idx.search(val);
+      for (result of results) {
+        var doc = documents[result.ref]; // get document via the lunr id
+        $resultsContainer.append('<li><a href="'+doc.url+'">'+doc.title+'</a></li>');
+      }
+    });
+  })
 </script>
 ```

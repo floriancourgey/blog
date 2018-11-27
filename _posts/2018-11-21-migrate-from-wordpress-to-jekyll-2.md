@@ -11,9 +11,9 @@ This post is the part 2 of the tutorial collection on how to migrate from Wordpr
 - [Part 1. Introduction]({{ site.baseurl }}{% post_url 2018-11-21-migrate-from-wordpress-to-jekyll %})
 - Part 2. Create the Search component
 
-## Simple method: text search in title and url with
+## Simple method: text search with SimpleJekyllSearch
 This feature consists of creating a JSON object with all pages and posts with Jekyll `site.posts` in the file `/search.json`:
-{% raw %}```json
+{% raw %}```js
 ---
 ---
 [

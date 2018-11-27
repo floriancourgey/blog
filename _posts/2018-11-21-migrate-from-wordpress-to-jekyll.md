@@ -1,5 +1,5 @@
 ---
-title: Migrate from Wordpress to Jekyll
+title: Migrate from Wordpress to Jekyll [Part 1/2]
 author: Florian Courgey
 layout: post
 categories:
@@ -7,6 +7,10 @@ categories:
   - opensource
   - server
 ---
+This post is the part 1 of the tutorial collection on how to migrate from Wordpress to Jekyll.
+- Part 1. Introduction
+- [Part 2. Create the Search component]({{ site.baseurl }}{% post_url 2018-11-21-migrate-from-wordpress-to-jekyll-2 %})
+
 ## Install Jekyll locally
 See [the Jekyll homepage](https://jekyllrb.com/)
 ```bash
@@ -80,31 +84,7 @@ if(location.search.match(/id=([^&]*)/i)){
 ### Add Previous/Next
 ### Add comments
 ### Add robots.txt
-### Add search
-This feature consists of creating a JSON object with all pages and posts, and then fetching in javascript this object to execute a search. It is amazingly fast.
-{% raw %}```json
----
----
-[
-  {% for post in site.posts %}
-    {
 
-      "title"    : "{{ post.title | escape }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-      "date"     : "{{ post.date }}"
-
-    } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
-]
-
-```{% endraw %}
-*See [https://github.com/floriancourgey/www/blob/master/search.json](https://github.com/floriancourgey/www/blob/master/search.json) and [https://blog.floriancourgey.com/search.json](https://blog.floriancourgey.com/search.json)*
-
-Now each time the site is built, a search.json is created, containing every post along with its title, url, categories and tags.
-
-*Source [https://blog.webjeda.com/instant-jekyll-search](https://blog.webjeda.com/instant-jekyll-search)*
 ### Add the "Improve this page" link
 ```html
 <a href="https://github.com/floriancourgey/www/edit/master/{{ page.path }}" target="_blank">Improve this page</a>

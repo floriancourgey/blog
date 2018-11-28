@@ -74,7 +74,8 @@ XTK-170019 Access denied.
 This is because the current operator is Anonymous:
 
 ```js
-<% for(var i in application.operator){ %>  <%= i %>: <%= application.operator[i] %>
+<% for(var i in application.operator){ %>
+  <%= i %>: <%= application.operator[i] %>
 <% } %>
 ```
 
@@ -97,6 +98,7 @@ So we have to change the logon information with the <span class="lang:js decode:
 
 ```js
 <% var oldContext = logon('john-doe', 'password'); // login as john-doefor(var i in application.operator){ %>
+<% for(var i in application.operator){ %>
   <%= i %>: <%= application.operator[i] %>
 <% }
 logon(oldContext); // log back in as previous user
@@ -115,8 +117,6 @@ timezone: America/Los_Angeles
 locale: en-US
 home:
 ```
-
-&nbsp;
 
 Database is now accessible 😉
 

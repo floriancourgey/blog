@@ -11,7 +11,7 @@ main {
   margin-right: auto;
   margin-left: auto;
 }
-// Jekyll search
+// Algolia search
 #modal-search {
   .modal-content {
     min-height: 100vh;
@@ -23,6 +23,9 @@ main {
         list-style: none;
         &>a {
           display: inline-block;
+        }
+        em.ais-Highlight {
+          background: antiquewhite;
         }
       }
     }

@@ -1,5 +1,10 @@
 ---
 ---
+// Minima theme fix
+html>body .highlight .err {
+  color: initial;
+  background-color: initial;
+}
 // Booostrap  fix
 main {
   max-width: 850px;

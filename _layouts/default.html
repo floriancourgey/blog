@@ -11,9 +11,11 @@
 
     {%- include header.html -%}
 
-    <main class="page-content" aria-label="Content">
-      {{ content }}
-    </main>
+    <div class="container my-4" aria-label="Content">
+      <main class="col-md-10 offset-md-1">
+        {{ content }}
+      </main>
+    </div>
 
     {%- include footer.html -%}
 

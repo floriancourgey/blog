@@ -10,7 +10,7 @@ categories:
   - prestashop
   - prestashop 1.7
 ---
-Execution order of the controller&#8217;s functions : <span class="lang:default decode:true crayon-inline">classes/controller/Controller.php</span> :
+Execution order of the controller&#8217;s functions : <span class="lang:default decode:true crayon-inline">classes/controller/Controller.php</span> :
 
   1. __construct()
   2. run() (called by par Dispatcher->dispatch) 
@@ -21,7 +21,7 @@ Execution order of the controller&#8217;s functions : <span class="lang:default 
               2. $this->initProcess(); 
                   1. <span class="pl-smi">if $_POST filter, $this</span><span class="pl-k">-></span><span class="pl-smi">filter</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
                   2. Define $this->action based on different conditions
-                  3. $this->action = delete\_image|delete|status|position|save|new|view|details|export|reset\_filters|toCamelCase <span class="pl-c1">Tools</span><span class="pl-k">::</span>getValue(<span class="pl-s"><span class="pl-pds">&#8216;</span>action<span class="pl-pds">&#8216;</span></span>)|update_fields|bulk|
+                  3. $this->action = delete\_image|delete|status|position|save|new|view|details|export|reset\_filters|toCamelCase <span class="pl-c1">Tools</span><span class="pl-k">::</span>getValue(<span class="pl-s"><span class="pl-pds">&#8216;</span>action<span class="pl-pds">&#8216;</span></span>)|update_fields|bulk|
                   4. can error <span style="color: #800000;">&#8216;You do not have permission to view/edit/add/delete this&#8217;</span>
               3. $this->initBreadcrumbs();
               4. $this->initModal();
@@ -30,12 +30,12 @@ Execution order of the controller&#8217;s functions : <span class="lang:default 
                   2. $this->initToolbar
                   3. $<span class="pl-smi">this</span><span class="pl-k">-></span>initTabModuleList
                   4. $<span class="pl-smi">this</span><span class="pl-k">-></span>initPageHeaderToolbar 
-                      1. <span style="color: #3366ff;">$this->loadObject</span> [in &#8216;view&#8217; or &#8216;edit&#8217;] can error <span style="color: #800000;"><span class="pl-pds">&#8216;</span>The object cannot be loaded (or found)</span><span class="pl-pds"><span style="color: #800000;">&#8216;</span> or <span style="color: #800000;">&#8216;The object cannot be loaded (the identifier is missing or invalid)&#8217;</span></span>
+                      1. <span style="color: #3366ff;">$this->loadObject</span> [in &#8216;view&#8217; or &#8216;edit&#8217;] can error <span style="color: #800000;"><span class="pl-pds">&#8216;</span>The object cannot be loaded (or found)</span><span class="pl-pds"><span style="color: #800000;">&#8216;</span> or <span style="color: #800000;">&#8216;The object cannot be loaded (the identifier is missing or invalid)&#8217;</span></span>
               6. $this->initNotifications();
           2. FrontController->init() 
               1. // todo
       3. setMedia() or setMobileMedia(): Adds all JavaScript and CSS specifics to the page so that they can be combined, compressed and cached (see PrestaShop&#8217;s CCC tool, in the back office &#8220;Performance&#8221; page, under the &#8220;Advanced preferences&#8221; menu).
-      4.  AdminController->setMedia() 
+      4.  AdminController->setMedia() 
           1. $this->addCSS(themes, css, public, vendor)
           2. $this->addJS(themes, css, public, vendor, public bundle)
       5. postProcess() 

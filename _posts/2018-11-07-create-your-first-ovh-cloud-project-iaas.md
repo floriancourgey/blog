@@ -23,12 +23,12 @@ Simple VPS provisionning with basic LAMP server via OVH Manager and [OVH Public 
 
   * OVH account with Manager Access
   * Basic Linux knowledge (SSH, vim, apt)
-  * Motivation 😃
+  * Motivation 😃
   * Estimated time of completion: 10 min
 
 ## Add your SSH Key in the OVH Manager
 
-Refer to [https://docs.ovh.com/gb/en/public-cloud/create-ssh-keys/](https://docs.ovh.com/gb/en/public-cloud/create-ssh-keys/) to create one. Have your public+private key saved somewhere as TXT format, no matter the extension.
+Refer to [https://docs.ovh.com/gb/en/public-cloud/create-ssh-keys/](https://docs.ovh.com/gb/en/public-cloud/create-ssh-keys/) to create one. Have your public+private key saved somewhere as TXT format, no matter the extension.
 
 In your OVH Manager, go to 'Cloud > Create new Project > Fill info > SSH Keys > Add > Add your public SSH Key'.
 
@@ -44,7 +44,7 @@ In your OVH Manager, go to 'Cloud > Create new Project > Fill info > SSH Keys > 
 
   * Select your closest geographic area, i.e. London UK 1
   * Select Debian 9
-  * Select the cheapest, S1-2, which stands for Server 1 vCore CPU  + 2BG RAM + 10 Go HDD
+  * Select the cheapest, S1-2, which stands for Server 1 vCore CPU  + 2BG RAM + 10 Go HDD
   * The SSH Key should be pre-selected
   * Leave Advanced options as is
   * Click **Launch Now**
@@ -78,7 +78,7 @@ $ sudo service apache2 restart # restart apache
 
 See [https://wiki.debian.org/LaMp](https://wiki.debian.org/LaMp) for details
 
-And that's it! Open `http://54.38.40.76/~debian/` in a browser:
+And that's it! Open `http://54.38.40.76/~debian/` in a browser:
 
 ![todo](/assets/images/2018/11/ovh-manager-instance-is-running.jpg)
 

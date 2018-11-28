@@ -122,7 +122,7 @@ Sitemap: {{ site.url }}/sitemap.xml
 
 ## Migrate HTML Headers to Markdown headers
 ```
-Find:    [ \t]*<h2>\s*([\w  \-]+)\s*</h2>
+Find:    [ \t]*<h2>\s*([\w  \-]+)\s*</h2>
 Replace: ## $1
 ```
 

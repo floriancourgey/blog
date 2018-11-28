@@ -25,7 +25,7 @@ This is the part 1 of a Series to customize Prestashop in depth. [Follow this li
 
 We are going to be able to create, read, update and delete a customized SQL table. Let&#8217;s take some pastas as an example.
 
-We will be using this SQL Dataset [setup.sql](https://floriancourgey.com/wp-content/uploads/2018/05/setup.sql_.txt) (taken from the CSV [dh\_product\_lookup.csv](https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv), from the website <https://www.dunnhumby.com/sourcefiles>).
+We will be using this SQL Dataset [setup.sql](https://floriancourgey.com/wp-content/uploads/2018/05/setup.sql_.txt) (taken from the CSV [dh\_product\_lookup.csv](https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv), from the website <https://www.dunnhumby.com/sourcefiles>).
 
 Let&#8217;s use the pasta database:
 
@@ -45,9 +45,9 @@ insert into pasta (sku,name) values ('601011294', 'BARILLA ARRABBIATA SPCY P');
 
 ## Step 1: Create your PHP class
 
-Folder does not matter, all properties as <span class="lang:php decode:true crayon-inline ">public</span> , <span class="lang:php decode:true crayon-inline ">extends ObjectModel</span> , use <span class="lang:php decode:true crayon-inline ">public static $definition</span>  to define your SQL fields.
+Folder does not matter, all properties as <span class="lang:php decode:true crayon-inline ">public</span> , <span class="lang:php decode:true crayon-inline ">extends ObjectModel</span> , use <span class="lang:php decode:true crayon-inline ">public static $definition</span>  to define your SQL fields.
 
-For example I like to use use <span class="lang:default decode:true crayon-inline">/override/classes/my_dir</span> . This way, it will stay even if Prestashop is updated, and can be included in a git repository.
+For example I like to use use <span class="lang:default decode:true crayon-inline">/override/classes/my_dir</span> . This way, it will stay even if Prestashop is updated, and can be included in a git repository.
 
 <pre class="lang:php decode:true " title="/override/classes/my_dir/Pasta.php">&lt;?php
 class Pasta extends ObjectModel {
@@ -71,7 +71,7 @@ class Pasta extends ObjectModel {
 
 ## Step 2: Create your Admin Controller
 
-AdminController can only be created inside a Module. Let&#8217;s create a dummy module first in <span class="lang:default decode:true crayon-inline ">modules/my_module/my_module.php</span> :
+AdminController can only be created inside a Module. Let&#8217;s create a dummy module first in <span class="lang:default decode:true crayon-inline ">modules/my_module/my_module.php</span> :
 
 <pre class="lang:php decode:true" title="modules/my_module/my_module.php">&lt;?php
 if (!defined('_PS_VERSION_')) {exit;}
@@ -94,7 +94,7 @@ Activate it through the PrestShop Backoffice by looking for &#8220;my_module&#82
 
 <img class="wp-image-621 size-full" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=525%2C279&#038;ssl=1" alt="3 easy steps to install the module locally" width="525" height="279" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1660&ssl=1 1660w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=300%2C160&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=768%2C409&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=1024%2C545&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" /><figcaption class="wp-caption-text">Install the module locally</figcaption></figure> 
 
-and then create the bare minimum in an Admincontroller in <span class="lang:default decode:true crayon-inline">modules/my_module/controllers/admin/AdminPastaController.php</span> , which <span class="lang:php decode:true crayon-inline">extends ModuleAdminController</span>
+and then create the bare minimum in an Admincontroller in <span class="lang:default decode:true crayon-inline">modules/my_module/controllers/admin/AdminPastaController.php</span> , which <span class="lang:php decode:true crayon-inline">extends ModuleAdminController</span>
 
 <pre class="lang:php decode:true" title="modules/my_module/controllers/admin/AdminPastaController.php">&lt;?php
 require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
@@ -110,13 +110,13 @@ class AdminPastaController extends ModuleAdminController {
   }
 }</pre>
 
-Head to <http://localhost/admin-dev/index.php?controller=AdminPasta> and you should now have an empty AdminController:
+Head to <http://localhost/admin-dev/index.php?controller=AdminPasta> and you should now have an empty AdminController:
 
 <img class="aligncenter size-full wp-image-623" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=525%2C217&#038;ssl=1" alt="" width="525" height="217" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?w=1305&ssl=1 1305w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=300%2C124&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=768%2C318&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=1024%2C424&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
 ## Step 3: Configure your Admin Controller
 
-Now all the customization will be executed in the AdminController only. Let&#8217;s start by adding the list with <span class="lang:php decode:true crayon-inline ">$this->fields_list</span> :
+Now all the customization will be executed in the AdminController only. Let&#8217;s start by adding the list with <span class="lang:php decode:true crayon-inline ">$this->fields_list</span> :
 
 <pre class="lang:php mark:13-20,23-26 decode:true" title="modules/my_module/controllers/admin/AdminPastaController.php">&lt;?php
 require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
@@ -153,7 +153,7 @@ This gives us a wonderful table with export, filters, orders and pagination:
 
 ## 4. Create, edit and delete your Custom Object
 
-But we still cannot create or edit our object. We have to add a new part in our controller with <span class="lang:php decode:true crayon-inline ">$this->fileds_form</span> :
+But we still cannot create or edit our object. We have to add a new part in our controller with <span class="lang:php decode:true crayon-inline ">$this->fileds_form</span> :
 
 <pre class="lang:default mark:22-37 decode:true">&lt;?php
 require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
@@ -212,7 +212,7 @@ So we now have a nice form when we click on Create:
 
 <img class="aligncenter size-full wp-image-638" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=525%2C118&#038;ssl=1" alt="" width="525" height="118" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?w=1917&ssl=1 1917w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=300%2C67&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=768%2C172&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=1024%2C230&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
-This is the error thrown here <https://github.com/PrestaShop/PrestaShop/blob/1.7.3.x/classes/controller/AdminController.php#L1655>
+This is the error thrown here <https://github.com/PrestaShop/PrestaShop/blob/1.7.3.x/classes/controller/AdminController.php#L1655>
 
 This is a limitation of PrestaShop: if you want to edit/create/delete an object, its SQL table <span style="text-decoration: underline;">MUST</span> use the \_DB\_PREFIX_.
 
@@ -220,7 +220,7 @@ So you have to rename your pasta table:
 
 <pre class="lang:mysql decode:true ">RENAME TABLE prestashop_pasta.pasta TO prestashop_pasta.ps_pasta; # adjust with your own _DB_PREFIX_</pre>
 
-And remove the whole <span class="lang:php decode:true crayon-inline ">function getFromClause</span> :
+And remove the whole <span class="lang:php decode:true crayon-inline ">function getFromClause</span> :
 
 <pre class="lang:php decode:true ">// protected function getFromClause() {
 //     return str_replace(_DB_PREFIX_, '', parent::getFromClause());

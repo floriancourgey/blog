@@ -10,7 +10,7 @@ categories:
   - adobe campaign
   - neolane
 ---
-You process then create variables in your Workflow and you would like to be able to use them in a delivery? You can! Adobe Campaign allows you to define Delivery Variables which are accessible from your workflow. For example, you can create a CSV in your workflow, and set it as attachment by using <span class="lang:js decode:true crayon-inline ">vars.filename</span>  in the Delivery.
+You process then create variables in your Workflow and you would like to be able to use them in a delivery? You can! Adobe Campaign allows you to define Delivery Variables which are accessible from your workflow. For example, you can create a CSV in your workflow, and set it as attachment by using <span class="lang:js decode:true crayon-inline ">vars.filename</span>  in the Delivery.
 
 <!--more-->
 
@@ -30,7 +30,7 @@ And also in the attachment definition:
 
 ## 2. Set variable value in your workflow
 
-In your wokflow, open your Delivery Activity, and use the Tab &#8220;Script&#8221;. In here, you can use <span class="lang:js decode:true crayon-inline ">delivery.variables._var[0]</span>  to set the value of the variables you defined before. <span class="lang:js decode:true crayon-inline ">delivery.variables._var</span>  is an EntityCollection 0-index based. So sadly you  <span style="text-decoration: underline;">cannot use</span> <span class="lang:js decode:true crayon-inline ">delivery.variables._var[&#8216;filename&#8217;]</span> &#8230;
+In your wokflow, open your Delivery Activity, and use the Tab &#8220;Script&#8221;. In here, you can use <span class="lang:js decode:true crayon-inline ">delivery.variables._var[0]</span>  to set the value of the variables you defined before. <span class="lang:js decode:true crayon-inline ">delivery.variables._var</span>  is an EntityCollection 0-index based. So sadly you  <span style="text-decoration: underline;">cannot use</span> <span class="lang:js decode:true crayon-inline ">delivery.variables._var[&#8216;filename&#8217;]</span> &#8230;
 
 <img class="aligncenter size-full wp-image-550" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Create-variables-in-the-WF.jpg?resize=525%2C157&#038;ssl=1" alt="" width="525" height="157" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Create-variables-in-the-WF.jpg?w=923&ssl=1 923w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Create-variables-in-the-WF.jpg?resize=300%2C90&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Create-variables-in-the-WF.jpg?resize=768%2C230&ssl=1 768w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
@@ -48,4 +48,4 @@ In your wokflow, open your Delivery Activity, and use the Tab &#8220;Script&#822
   </li>
 </ol>
 
-<span style="font-size: 10pt;"><em>Source: <a href="https://forums.adobe.com/thread/2380515">https://forums.adobe.com/thread/2380515</a> and <a href="https://forums.adobe.com/thread/2451509">https://forums.adobe.com/thread/2451509</a></em></span>
+<span style="font-size: 10pt;"><em>Source: <a href="https://forums.adobe.com/thread/2380515">https://forums.adobe.com/thread/2380515</a> and <a href="https://forums.adobe.com/thread/2451509">https://forums.adobe.com/thread/2451509</a></em></span>

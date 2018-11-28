@@ -14,7 +14,7 @@ categories:
 ---
 You have a list with a linked table? For example in the AdminController you display Customer, right? What if you want to separate first names and last names ; and then perform a simple search?
 
-It will trigger an error! You have to use the <span class="lang:default decode:true crayon-inline ">filter_key </span> parameter. Here&#8217;s how.
+It will trigger an error! You have to use the <span class="lang:default decode:true crayon-inline ">filter_key </span> parameter. Here&#8217;s how.
 
 <!--more-->
 

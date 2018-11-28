@@ -22,7 +22,7 @@ En francais : &#8220;T&#8217;es vraiment dans la merde, ton serveur est plein&#8
 
 <img style="font-size: 1rem;" src="https://i2.wp.com/cloud.githubusercontent.com/assets/314997/11022585/5c847364-869d-11e5-8079-0a16e7d747e4.gif?w=525&#038;ssl=1" data-recalc-dims="1" />
 
-Installer sur un client [Space Radar](https://github.com/zz85/space-radar) et sur le serveur lancer
+Installer sur un client [Space Radar](https://github.com/zz85/space-radar) et sur le serveur lancer
 
 <pre class="lang:sh decode:true ">du -ak /var/log /usr | gzip -c &gt; /tmp/sizes.txt.gz</pre>
 

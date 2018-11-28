@@ -10,11 +10,11 @@ categories:
   - opensource
   - adobe campaign
 ---
-Curated list of XML codes example for your input form in Adobe Campaign  7 with actual business cases.
+Curated list of XML codes example for your input form in Adobe Campaign  7 with actual business cases.
 
 <!--more-->
 
-Full documentation here [https://docs.campaign.adobe.com/doc/AC/en/CFG\_Input\_forms\_Form\_structure.html](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
+Full documentation here [https://docs.campaign.adobe.com/doc/AC/en/CFG\_Input\_forms\_Form\_structure.html](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
 
 ### Static
 

@@ -11,7 +11,7 @@ kc_data:
 categories:
   - opensource
 ---
-You want to fully tak advantage of symfony in your Prestashop application? Use the symfony kernel! By default, the $kernel variable is only available in the Backoffice section, but here&#8217;s a tuto on how to use it also on the Frontoffice. Once the kernel is set up, you can use any symfony services, such as Doctrine, Twig, Monolog! Awesome 😃
+You want to fully tak advantage of symfony in your Prestashop application? Use the symfony kernel! By default, the $kernel variable is only available in the Backoffice section, but here&#8217;s a tuto on how to use it also on the Frontoffice. Once the kernel is set up, you can use any symfony services, such as Doctrine, Twig, Monolog! Awesome 😃
 
 Let&#8217;s see first how to do it on the backoffice, because it&#8217;s a one-liner, and then in the front office, because it requires a little more work. And at the end, we&#8217;ll see how to wrap it up in a module, to be always available!
 

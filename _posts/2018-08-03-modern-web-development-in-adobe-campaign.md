@@ -58,7 +58,7 @@ In short you have the following:
 <li style="list-style-type: none;">
   <ul>
     <li>
-      Use modern HTML template from <a href="https://getbootstrap.com/docs/3.3/getting-started/#template">https://getbootstrap.com/docs/3.3/getting-started/#template</a>
+      Use modern HTML template from <a href="https://getbootstrap.com/docs/3.3/getting-started/#template">https://getbootstrap.com/docs/3.3/getting-started/#template</a>
     </li>
     <li>
       Always separate you common assets (common to all web apps), from the custom assets (on a per case basis)
@@ -70,7 +70,7 @@ In short you have the following:
             <li style="list-style-type: none;">
               <ul>
                 <li>
-                  <span class="lang:js decode:true crayon-inline">jQuery 1.9.1</span> . Note: jQuery is available via <span class="lang:js decode:true crayon-inline ">jQuery</span>  and not with <span class="lang:js decode:true crayon-inline ">$</span>.
+                  <span class="lang:js decode:true crayon-inline">jQuery 1.9.1</span> . Note: jQuery is available via <span class="lang:js decode:true crayon-inline ">jQuery</span>  and not with <span class="lang:js decode:true crayon-inline ">$</span>.
                 </li>
                 <li>
                   <span class="lang:default decode:true crayon-inline ">jQuery-migrate 1.1.1</span>
@@ -92,7 +92,7 @@ In short you have the following:
       A Google analytics easy set up, to capture traffic
     </li>
     <li>
-      Use a global option for the Adobe Campaign Resources CDN, see <a href="https://floriancourgey.com/2018/08/modern-web-development-in-adobe-campaign/#a-create-a-global-option-resource_url">below</a>
+      Use a global option for the Adobe Campaign Resources CDN, see <a href="https://floriancourgey.com/2018/08/modern-web-development-in-adobe-campaign/#a-create-a-global-option-resource_url">below</a>
     </li>
   </ul>
 </li>
@@ -101,11 +101,11 @@ In short you have the following:
 
 ### A) Create a global option RESOURCE_URL
 
-Adobe Campaign gives us the ability to get the Online Resources URL in JavaScript with <span class="lang:js decode:true crayon-inline">xtk.fileRes.GetPublicFileResURL()</span>. Call it in a workflow or get it from a Resource:
+Adobe Campaign gives us the ability to get the Online Resources URL in JavaScript with <span class="lang:js decode:true crayon-inline">xtk.fileRes.GetPublicFileResURL()</span>. Call it in a workflow or get it from a Resource:
 
 <img class="aligncenter size-full wp-image-913" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/File-Resource-CDN-URL-in-Adobe-Campaign.jpg?resize=525%2C214&#038;ssl=1" alt="" width="525" height="214" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/File-Resource-CDN-URL-in-Adobe-Campaign.jpg?w=613&ssl=1 613w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/File-Resource-CDN-URL-in-Adobe-Campaign.jpg?resize=300%2C122&ssl=1 300w" sizes="(max-width: 525px) 100vw, 525px" data-recalc-dims="1" />
 
-Replace <span class="lang:default decode:true crayon-inline ">http</span>  by <span class="lang:default decode:true crayon-inline ">https</span>  and use it in an Option:
+Replace <span class="lang:default decode:true crayon-inline ">http</span>  by <span class="lang:default decode:true crayon-inline ">https</span>  and use it in an Option:
 
 <img class="aligncenter size-full wp-image-914" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/RESOURCE_URL-Option-with-HTTPs-URL.jpg?resize=525%2C152&#038;ssl=1" alt="" width="525" height="152" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/RESOURCE_URL-Option-with-HTTPs-URL.jpg?w=586&ssl=1 586w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/RESOURCE_URL-Option-with-HTTPs-URL.jpg?resize=300%2C87&ssl=1 300w" sizes="(max-width: 525px) 100vw, 525px" data-recalc-dims="1" />
 
@@ -132,7 +132,7 @@ This way, we just made Web development in AC great again!
 &lt;!-- Image --&gt;
 &lt;img src="&lt;%= getOption('RESOURCES_URL') %&gt;loader.svg"/&gt;</pre>
 
-And with this new markup, you are able to <span style="text-decoration: underline;">migrate very easily</span> from your <span style="text-decoration: underline;">Staging/Dev Environment to your Production Environment</span>. We&#8217;re now [#DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) compliant. Sweeeeet 🍡🍭🍬
+And with this new markup, you are able to <span style="text-decoration: underline;">migrate very easily</span> from your <span style="text-decoration: underline;">Staging/Dev Environment to your Production Environment</span>. We&#8217;re now [#DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) compliant. Sweeeeet 🍡🍭🍬
 
 &nbsp;
 
@@ -187,8 +187,8 @@ and in your HTML:
 
 &nbsp;
 
-You can test your markup for Facebook on <https://developers.facebook.com/tools/debug/sharing/>:
+You can test your markup for Facebook on <https://developers.facebook.com/tools/debug/sharing/>:
 
 <img class="aligncenter size-full wp-image-923" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/08/Test-your-Facebook-markup.jpg?resize=525%2C356&#038;ssl=1" alt="" width="525" height="356" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/08/Test-your-Facebook-markup.jpg?w=657&ssl=1 657w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/08/Test-your-Facebook-markup.jpg?resize=300%2C203&ssl=1 300w" sizes="(max-width: 525px) 100vw, 525px" data-recalc-dims="1" />
 
-_Source <https://stackoverflow.com/questions/11616697/how-to-use-the-og-open-graph-meta-tag-for-facebook-share#answer-16822848> and  <https://developers.facebook.com/docs/sharing/webmasters#images>_
+_Source <https://stackoverflow.com/questions/11616697/how-to-use-the-og-open-graph-meta-tag-for-facebook-share#answer-16822848> and  <https://developers.facebook.com/docs/sharing/webmasters#images>_

@@ -30,7 +30,7 @@ In Administration > Platform > Enumeration > New
 
 ## Step 2: Extend the Data schema
 
-Use an extended Recipient data schema (see [https://docs.campaign.adobe.com/doc/AC/en/CFG\_Editing\_schemas\_Extending\_a_schema.html](https://docs.campaign.adobe.com/doc/AC/en/CFG_Editing_schemas_Extending_a_schema.html)) in Administration > Configuration > Data schemas.
+Use an extended Recipient data schema (see [https://docs.campaign.adobe.com/doc/AC/en/CFG\_Editing\_schemas\_Extending\_a_schema.html](https://docs.campaign.adobe.com/doc/AC/en/CFG_Editing_schemas_Extending_a_schema.html)) in Administration > Configuration > Data schemas.
 
 <pre class="lang:xhtml decode:true ">&lt;srcSchema extendedSchema="nms:recipient" name="recipient" namespace="cus"&gt;
   &lt;element name="recipient"&gt;
@@ -42,7 +42,7 @@ Use an extended Recipient data schema (see [https://docs.campaign.adobe.com/doc
 
 &nbsp;
 
-The attribute <span class="lang:xhtml decode:true crayon-inline">dbEnum</span> contains the following formula:
+The attribute <span class="lang:xhtml decode:true crayon-inline">dbEnum</span> contains the following formula:
 
 <pre class="lang:js decode:true">Case(
   When(MemoContains(@domain, 'yahoo.'), 'Yahoo'),
@@ -185,7 +185,7 @@ This will map the following domains to their main email providers:
                     </h2>
                     
                     <p>
-                      Save, disconnect, reconnect and&#8230; Enjoy 🍾
+                      Save, disconnect, reconnect and&#8230; Enjoy 🍾
                     </p>
                     
                     <p>
@@ -193,5 +193,5 @@ This will map the following domains to their main email providers:
                     </p>
                     
                     <p>
-                      <em>Based on domains and services providers listed on <a href="https://email-verify.my-addr.com/top-email-service-providers.php">https://email-verify.my-addr.com/top-email-service-providers.php</a> and on <a href="https://en.wikipedia.org/wiki/Comparison_of_webmail_providers">https://en.wikipedia.org/wiki/Comparison_of_webmail_providers</a></em>
+                      <em>Based on domains and services providers listed on <a href="https://email-verify.my-addr.com/top-email-service-providers.php">https://email-verify.my-addr.com/top-email-service-providers.php</a> and on <a href="https://en.wikipedia.org/wiki/Comparison_of_webmail_providers">https://en.wikipedia.org/wiki/Comparison_of_webmail_providers</a></em>
                     </p>

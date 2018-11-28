@@ -11,7 +11,7 @@ categories:
   - nginx
   - server
 ---
-Let&#8217;s Encrypt uses a GET request to your website to automatically renew your certificate. Let&#8217;s Encrypt may encounter some 403 unauthorized when trying to make this HTTP request because it is trying to connect to http://your-site.com/.well-known/acme-challenge/a-long-hash-here. How to authorize Let&#8217;s Encrypt to connect? Let&#8217;s find out if you got nginx set up as a reverse proxy!
+Let&#8217;s Encrypt uses a GET request to your website to automatically renew your certificate. Let&#8217;s Encrypt may encounter some 403 unauthorized when trying to make this HTTP request because it is trying to connect to http://your-site.com/.well-known/acme-challenge/a-long-hash-here. How to authorize Let&#8217;s Encrypt to connect? Let&#8217;s find out if you got nginx set up as a reverse proxy!
 
 <!--more-->
 
@@ -26,9 +26,9 @@ You can add this piece of code in your nginx.conf:
     }
 }</pre>
 
-<span class="lang:default decode:true crayon-inline ">~</span>  means you&#8217;re gonna use a regex
+<span class="lang:default decode:true crayon-inline ">~</span>  means you&#8217;re gonna use a regex
 
-<span class="lang:default decode:true crayon-inline ">^/.well-known/acme-challenge</span>  is the beginning of the URL used by Let&#8217;s Encrypt.
+<span class="lang:default decode:true crayon-inline ">^/.well-known/acme-challenge</span>  is the beginning of the URL used by Let&#8217;s Encrypt.
 
 Before, a 403 error:
 

@@ -16,7 +16,7 @@ We are migrating from 100% Symfony to Prestashop 1.7 but we would like to keep a
 
 ## How Symfony works
 
-URL > Router > Controller >  Symfony Services calls & DB calls via Doctrine > display Twig template
+URL > Router > Controller >  Symfony Services calls & DB calls via Doctrine > display Twig template
 
 You go to a URL, which is mapped to a Controller via the `@Route` annotation. This Controller will fetch data from Services and directly from the database (through the Doctrine Service 😉), and then send those data to a template that will display them in a nice way.
 
@@ -24,11 +24,11 @@ You go to a URL, which is mapped to a Controller via the `@Route` annotation. Th
 
 Pretty much the same way !
 
-URL > Tab > Controller > Prestashop static functions & raw DB calls via PDO > display Smarty template
+URL > Tab > Controller > Prestashop static functions & raw DB calls via PDO > display Smarty template
 
 ## Call symfony from a Prestashop Controller
 
-In you are on a Backoffice page, the symfony <span class="lang:php decode:true crayon-inline">global $kernel</span>  is always available. If you&#8217;re on a Frontoffice page, you have to create it manually (see [this page on how to work with the symfony kernel in Prestashop](https://floriancourgey.com/2018/05/how-to-work-with-the-symfony-kernel-anywhere-in-prestashop-1-7/)):
+In you are on a Backoffice page, the symfony <span class="lang:php decode:true crayon-inline">global $kernel</span>  is always available. If you&#8217;re on a Frontoffice page, you have to create it manually (see [this page on how to work with the symfony kernel in Prestashop](https://floriancourgey.com/2018/05/how-to-work-with-the-symfony-kernel-anywhere-in-prestashop-1-7/)):
 
 <pre class="lang:php decode:true">// for the front
 require_once _PS_ROOT_DIR_.'/app/AppKernel.php';

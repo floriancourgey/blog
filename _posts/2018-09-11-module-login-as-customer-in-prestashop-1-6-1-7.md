@@ -19,7 +19,7 @@ With this module, as an admin you are now able to login as a customer in order t
 
 ![todo](/assets/images/2018/09/FC-Login-as-Customer-module-prestashop.png)
 
-The module consists in 2 files: the main module file `Fc_LoginAsCustomer`  and the front controller file `Fc_LoginAsCustomerLoginModuleFrontController`.
+The module consists in 2 files: the main module file `Fc_LoginAsCustomer`  and the front controller file `Fc_LoginAsCustomerLoginModuleFrontController`.
 
 ## Step 1. Create the main module
 
@@ -121,4 +121,4 @@ class Fc_LoginAsCustomerLoginModuleFrontController extends ModuleFrontController
 }
 ```
 
-_Source <https://www.prestashop.com/forums/topic/444031-free-module-login-as-customer/> refactored, cleaned and simplified._
+_Source <https://www.prestashop.com/forums/topic/444031-free-module-login-as-customer/> refactored, cleaned and simplified._

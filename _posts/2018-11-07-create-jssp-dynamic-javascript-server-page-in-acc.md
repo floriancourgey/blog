@@ -10,7 +10,7 @@ categories:
   - adobe campaign
   - neolane
 ---
-We can create server-generated pages in ACC. Here are some info about it. It will result in pages with  the .jssp extension.
+We can create server-generated pages in ACC. Here are some info about it. It will result in pages with  the .jssp extension.
 
 <!--more-->
 
@@ -18,7 +18,7 @@ We can create server-generated pages in ACC. Here are some info about it. It wil
 
 Create a JSSP in any JSSP folder. The JSSP name will define the URL:
 
-The name `my_nms:my-page.jssp` will give us the URL `https://xxx.campaign.adobe.com/my_nms/my-page.jssp`.
+The name `my_nms:my-page.jssp` will give us the URL `https://xxx.campaign.adobe.com/my_nms/my-page.jssp`.
 
 
 ![todo](/assets/images/2018/11/JSSP-code-with-name-and-namespace.jpg)
@@ -63,7 +63,7 @@ document.write(JSON.stringify(x));
 
 ![todo](/assets/images/2018/11/javascript-server-page-json-api.jpg)
 
-But try to `var delivery = NLWS.nmsDelivery.load('12435');`  and you'll get an Access Denied:
+But try to `var delivery = NLWS.nmsDelivery.load('12435');`  and you'll get an Access Denied:
 
 ```
 XTK-170019 Access denied.
@@ -94,7 +94,7 @@ home:
 
 &nbsp;
 
-So we have to change the logon information with the <span class="lang:js decode:true crayon-inline ">logon</span>  function:
+So we have to change the logon information with the <span class="lang:js decode:true crayon-inline ">logon</span>  function:
 
 ```js
 <% var oldContext = logon('john-doe', 'password'); // login as john-doefor(var i in application.operator){ %>
@@ -118,10 +118,10 @@ locale: en-US
 home:
 ```
 
-Database is now accessible 😉
+Database is now accessible 😉
 
 <div class="alert alert-warning">
-  logon is deprecated. Use `logonEscalation('webapp')`, `logonWithUser(login, password)`, <span class="lang:js decode:true crayon-inline ">logonWithToken(token)</span> , <span class="lang:js decode:true crayon-inline ">logonWithContext(context)</span>  instead.
+  logon is deprecated. Use `logonEscalation('webapp')`, `logonWithUser(login, password)`, <span class="lang:js decode:true crayon-inline ">logonWithToken(token)</span> , <span class="lang:js decode:true crayon-inline ">logonWithContext(context)</span>  instead.
 
 
   Original Adobe Campaign message (in Monitoring logs > web@default):
@@ -129,7 +129,7 @@ Database is now accessible 😉
   The 'logon' JavaScript method is deprecated. Please use 'logonEscalation', 'logonWithUser', 'logonWithToken' or 'logonWithContext' instead.
 </div>
 
-## Example of HttpServletRequest and HttpServletRequest
+## Example of HttpServletRequest and HttpServletRequest
 
 ```html
 <%
@@ -185,12 +185,12 @@ X-Forwarded-For: A.B.C.D, E.F.G.H
 getRemoteAddr(): E.F.G.H
 ```
 
-See <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">https://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a> for list of header names.
+See <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">https://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a> for list of header names.
 
 
 ## Explore HttpServletResponse API
 
-Noticed that we used `<% response.[...] %>`, what properties and methods are available? Response is of type `HttpServletResponse`.
+Noticed that we used `<% response.[...] %>`, what properties and methods are available? Response is of type `HttpServletResponse`.
 
 
 JS doc for HttpServletRequest
@@ -207,7 +207,7 @@ addHeader(string key, string value)
 sendError(int httpErrorCode)
 ```
 
-## Explore HttpServletRequest API
+## Explore HttpServletRequest API
 
 ```js
 // Methods
@@ -266,4 +266,4 @@ decodeURI("Hello%20world?!'=-") // "Hello world?!'=-"
 ```
 
 
-<em>Source: <a href="http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html">http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html</a></em>
+<em>Source: <a href="http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html">http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html</a></em>

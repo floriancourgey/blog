@@ -29,7 +29,7 @@ The workflow finishes with success, but there&#8217;s no output. Edit it like th
 <pre class="lang:js decode:true">var result = execCommand("id");
 logInfo(result); // 0,uid=XXXX (aaa) gid=YYYY (bbb) groups=...</pre>
 
-Because <span class="lang:js decode:true crayon-inline ">execCommand</span>  signature is as follow:
+Because <span class="lang:js decode:true crayon-inline ">execCommand</span>  signature is as follow:
 
 <pre class="lang:js decode:true">/**
  * @param cmd Bash command to be executed on the server

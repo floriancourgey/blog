@@ -11,7 +11,7 @@ categories:
   - prestashop
   - prestashop 1.7
 ---
-PrestaShop has developed a great UI for its Backoffice, and one of the not-so-well-known powerful features is the <span class="lang:php decode:true crayon-inline ">HelperForm</span>  object. You can create pretty much anything you want with it, but the official documentation is not complete and lacks some examples. Here&#8217;s a live preview of all the features provided by this wonderful Helper object.
+PrestaShop has developed a great UI for its Backoffice, and one of the not-so-well-known powerful features is the <span class="lang:php decode:true crayon-inline ">HelperForm</span>  object. You can create pretty much anything you want with it, but the official documentation is not complete and lacks some examples. Here&#8217;s a live preview of all the features provided by this wonderful Helper object.
 
 <!--more-->
 

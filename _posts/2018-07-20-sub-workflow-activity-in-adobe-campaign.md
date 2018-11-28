@@ -27,17 +27,17 @@ is going to call the child workflow (which will edit these variables)
 
 <img class="aligncenter size-full wp-image-839" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Child.jpg?resize=525%2C160&#038;ssl=1" alt="" width="525" height="160" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Child.jpg?w=1115&ssl=1 1115w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Child.jpg?resize=300%2C91&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Child.jpg?resize=768%2C234&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Child.jpg?resize=1024%2C312&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
-We will also discuss [Pros & Cons](#pros-and-cons) of this approach, and what we can do to [go further](#going-further) with for example a File Collector/File Transfer.
+We will also discuss [Pros & Cons](#pros-and-cons) of this approach, and what we can do to [go further](#going-further) with for example a File Collector/File Transfer.
 
 ## Step 1. Setup the Master workflow
 
 <img class="aligncenter size-full wp-image-841" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Master-step-1.jpg?resize=525%2C133&#038;ssl=1" alt="" width="525" height="133" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Master-step-1.jpg?w=560&ssl=1 560w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Master-step-1.jpg?resize=300%2C76&ssl=1 300w" sizes="(max-width: 525px) 100vw, 525px" data-recalc-dims="1" />
 
-Where <span class="lang:default decode:true crayon-inline ">set x=1</span>  contains:
+Where <span class="lang:default decode:true crayon-inline ">set x=1</span>  contains:
 
 <pre class="lang:js decode:true">instance.vars.x = 1</pre>
 
-And <span class="lang:default decode:true crayon-inline ">print x</span>  has the following JavaScript code:
+And <span class="lang:default decode:true crayon-inline ">print x</span>  has the following JavaScript code:
 
 <pre class="lang:js decode:true ">logInfo('x: '+instance.vars.x)</pre>
 
@@ -54,7 +54,7 @@ For the sub-workflow to work correctly, you have to have **only ONE Arrival Jump
 
 For example, if you have Starting Jumps 1, 50 and 100, you should have only ONE Starting Jump with a priority of 100!
 
-See [https://docs.campaign.adobe.com/doc/AC/en/WKF\_Repository\_of\_activities\_Order_activities.html#Sub-workflow](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Order_activities.html#Sub-workflow) for reference
+See [https://docs.campaign.adobe.com/doc/AC/en/WKF\_Repository\_of\_activities\_Order_activities.html#Sub-workflow](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Order_activities.html#Sub-workflow) for reference
 
 Then, the test Activity is really standard, made just for the example here:
 
@@ -78,7 +78,7 @@ What?? It stays in &#8220;Being Edited&#8221; mode, no transition has been execu
 
 Refresh your folder, and you can see that Adobe Campaign created a third workflow, with the Child WF being a &#8220;template&#8221;.
 
-Ok. But what happened? <span class="lang:default decode:true crayon-inline">x</span>  has a value of 1, so in the Child workflow, its value will be updated to 99. Here&#8217;s the log:
+Ok. But what happened? <span class="lang:default decode:true crayon-inline">x</span>  has a value of 1, so in the Child workflow, its value will be updated to 99. Here&#8217;s the log:
 
 <img class="aligncenter size-full wp-image-847" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Master-logs.jpg?resize=525%2C167&#038;ssl=1" alt="" width="525" height="167" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Master-logs.jpg?w=777&ssl=1 777w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Master-logs.jpg?resize=300%2C95&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/07/Sub-workflow-Master-logs.jpg?resize=768%2C244&ssl=1 768w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
@@ -93,12 +93,12 @@ But <span style="text-decoration: underline;">look closely</span>, a couple of t
 
 ## Pros & Cons
 
-✅ Pros:
+✅ Pros:
 
   * Improve readability and maintainability
   * Executed synchronously, so you can wait until the sub-workflow is done
 
-❌ Cons:
+❌ Cons:
 
   * Unable to Display the target
   * Unable to see the count of intermediate populations
@@ -136,7 +136,7 @@ Start the master, and here&#8217;s what happens:
       The Master waits for all Children to be processed before resuming
     </li>
     <li>
-      <span class="lang:js decode:true crayon-inline ">vars.filename</span>  is shared between workflows
+      <span class="lang:js decode:true crayon-inline ">vars.filename</span>  is shared between workflows
     </li>
     <li>
       Adobe Campaign created 3 copies of the Child sub-workflow:<img class="aligncenter size-full wp-image-867" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/07/File-Collector-test-3-copies.jpg?resize=525%2C34&#038;ssl=1" alt="" width="525" height="34" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/07/File-Collector-test-3-copies.jpg?w=961&ssl=1 961w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/07/File-Collector-test-3-copies.jpg?resize=300%2C19&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/07/File-Collector-test-3-copies.jpg?resize=768%2C50&ssl=1 768w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />

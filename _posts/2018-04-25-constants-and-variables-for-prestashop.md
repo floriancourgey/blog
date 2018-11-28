@@ -16,8 +16,8 @@ Ever wondered what constant to use in your controllers? Is it `_PS_ROOT_DIR_` or
 
 This guide assumes you have:
 
-* a shop at <span class="lang:default decode:true crayon-inline">https://myshop.com/prefix/</span>
-* hosted on your server on <span class="lang:default decode:true crayon-inline">/var/www/html/prestashop/</span>.
+* a shop at <span class="lang:default decode:true crayon-inline">https://myshop.com/prefix/</span>
+* hosted on your server on <span class="lang:default decode:true crayon-inline">/var/www/html/prestashop/</span>.
 * Theme: <span class="lang:default decode:true crayon-inline ">my_theme</span>
 * Admin dir: <span class="lang:default decode:true crayon-inline ">admin-dev</span>
 
@@ -249,13 +249,13 @@ Use the filter below to select your categories:
 |{$urls.pages.order_login}|Smarty|https://myshop.com/prefix/commande?login=1|full url|front|
 |prestashop.cart|Javascript|products: [], totals:[], subtotal:[], products_count, summary_string| |front|
 |prestashop.configuration|Javascript| | |front|
-|prestashop.currency|Javascript|name:'euro', iso_code:'EUR', iso_code_num:'978&#8243;, sign:'€'| |front|
-|currency|Javascript|name:'euro', iso_code:'EUR', format:'', sign:'€'| |front|
-|prestashop.customer|Javascript|`lastname`:`'AAA'`, `firstname`:`'bbb'`, `email`:'aaa@bbb.com', ...| |front|
-|prestashop.language|Javascript|`name`: 'Français (French)', `iso_code`: `'fr'`, `locale`: 'fr-FR', `language_code`: `'fr'`, `is_rtl`: `'0'`,...| |front|
-|prestashop.page|Javascript|`title`:`''`, `canonical`: `null`, `meta`: `{}`, `page_name`: `'index'`, `body_classes`, ...| |front|
-|prestashop.shop|Javascript|name: `''`, email: `''`, registration_number: `false`, long: `false`, lat: `false`| |front|
-|prestashop.urls|Javascript|`base_url`:`''`, `current_url`:`''`, `shop_domain_url`:`''`, `img_ps_url`:`''`, `img_cat_url`:'', ...| |front|
+|prestashop.currency|Javascript|name:'euro', iso_code:'EUR', iso_code_num:'978&#8243;, sign:'€'| |front|
+|currency|Javascript|name:'euro', iso_code:'EUR', format:'', sign:'€'| |front|
+|prestashop.customer|Javascript|`lastname`:`'AAA'`, `firstname`:`'bbb'`, `email`:'aaa@bbb.com', ...| |front|
+|prestashop.language|Javascript|`name`: 'Français (French)', `iso_code`: `'fr'`, `locale`: 'fr-FR', `language_code`: `'fr'`, `is_rtl`: `'0'`,...| |front|
+|prestashop.page|Javascript|`title`:`''`, `canonical`: `null`, `meta`: `{}`, `page_name`: `'index'`, `body_classes`, ...| |front|
+|prestashop.shop|Javascript|name: `''`, email: `''`, registration_number: `false`, long: `false`, lat: `false`| |front|
+|prestashop.urls|Javascript|`base_url`:`''`, `current_url`:`''`, `shop_domain_url`:`''`, `img_ps_url`:`''`, `img_cat_url`:'', ...| |front|
 |baseAdminDir|Javascript|/prefix/admin-dev/| |back|
 |baseDir|Javascript|/prefix/| |back|
 |token|Javascript|token used in current URL &token={token}| |back|
@@ -269,7 +269,7 @@ Use the filter below to select your categories:
 |app|Twig|object of class <a href="http://api.symfony.com/master/Symfony/Bridge/Twig/AppVariable.html">AppVariable</a>| | |
 {% endraw %}
 
-*Source: mainly based on [https://github.com/PrestaShop/PrestaShop/blob/1.7.2.x/config/defines.inc.php](https://github.com/PrestaShop/PrestaShop/blob/1.7.2.x/config/defines.inc.php)*
+*Source: mainly based on [https://github.com/PrestaShop/PrestaShop/blob/1.7.2.x/config/defines.inc.php](https://github.com/PrestaShop/PrestaShop/blob/1.7.2.x/config/defines.inc.php)*
 
 \* \* \*
 

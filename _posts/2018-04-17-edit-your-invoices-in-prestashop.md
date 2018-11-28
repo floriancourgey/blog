@@ -15,7 +15,7 @@ categories:
   - prestashop
   - prestashop 1.7
 ---
-Have you ever wanted to modify an order or an invoice directly in Prestashop? Tired of bypassing PS limitations via phpMyAdmin? You can create an Admin Controller in PS 1.7  to edit your invoices directly in your browser:
+Have you ever wanted to modify an order or an invoice directly in Prestashop? Tired of bypassing PS limitations via phpMyAdmin? You can create an Admin Controller in PS 1.7  to edit your invoices directly in your browser:
 
 >>> You can also view this [tuto to completely customize an Admin Controller from scratch, with your Custom SQL Table](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/)
 
@@ -27,19 +27,19 @@ Have you ever wanted to modify an order or an invoice directly in Prestashop? Ti
 
 With this tutorial, you will be able to create an Admin Controller to create and edit any [Prestashop class](https://github.com/PrestaShop/PrestaShop/tree/develop/classes). We will take [Order Invoice](https://github.com/PrestaShop/PrestaShop/blob/develop/classes/order/OrderInvoice.php) as an example. This way, we can add, remove and edit any field of any invoice in Prestashop.
 
-This extension will be available in your Backoffice through a URL that looks like this:
+This extension will be available in your Backoffice through a URL that looks like this:
 
 https://my.presta.com/admin/index.php?controller=AdminCustomInvoices
 
 We have to:
 
-  1. Create the module and a simple  Admin Controller
+  1. Create the module and a simple  Admin Controller
   2. Edit the Admin Controller to present all invoices in a list
   3. Edit it again to add/edit invoices
 
 ## Step 1. Create the Admin Controller (via a Module)
 
-Admin Controllers only exist in a module. So we need to create a module first! Let&#8217;s create a dummy module with <span class="lang:default decode:true crayon-inline">modules/my_module/my_module.php</span> :
+Admin Controllers only exist in a module. So we need to create a module first! Let&#8217;s create a dummy module with <span class="lang:default decode:true crayon-inline">modules/my_module/my_module.php</span> :
 
 <pre class="lang:php decode:true" title="modules/my_module/my_module.php">&lt;?php
 if (!defined('_PS_VERSION_')) {exit;}
@@ -57,14 +57,14 @@ class My_Module extends Module {
   }
 }</pre>
 
-Then, activate it through the PrestShop Backoffice by looking for « my_module »:<figure id="attachment_621" class="wp-caption aligncenter"> 
+Then, activate it through the PrestShop Backoffice by looking for « my_module »:<figure id="attachment_621" class="wp-caption aligncenter"> 
 
 <div class="lg-container">
   <img class="aligncenter size-full wp-image-621" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=525%2C279&#038;ssl=1" alt="" width="525" height="279" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1660&ssl=1 1660w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=300%2C160&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=768%2C409&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=1024%2C545&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 </div></figure> 
 
 <div>
-  Finally, we can create our actual <span class="lang:default decode:true crayon-inline ">AdminCustomInvoicesController</span>  in <span class="lang:default decode:true crayon-inline">modules/my_module/controllers/admin/AdminCustomInvoicesController.php</span> :
+  Finally, we can create our actual <span class="lang:default decode:true crayon-inline ">AdminCustomInvoicesController</span>  in <span class="lang:default decode:true crayon-inline">modules/my_module/controllers/admin/AdminCustomInvoicesController.php</span> :
 </div>
 
 <div>
@@ -85,11 +85,11 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 </pre>
 </div>
 
-Let&#8217;s check that everything is working well by heading to <span class="lang:default decode:true crayon-inline">https://my.presta.com/admin/index.php?controller=AdminCustomInvoices</span> :
+Let&#8217;s check that everything is working well by heading to <span class="lang:default decode:true crayon-inline">https://my.presta.com/admin/index.php?controller=AdminCustomInvoices</span> :
 
 <img class="aligncenter size-full wp-image-753" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=525%2C128&#038;ssl=1" alt="" width="525" height="128" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?w=2560&ssl=1 2560w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=300%2C73&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=768%2C188&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=1024%2C250&ssl=1 1024w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
-Snap! It doesn&#8217;t work. We have to allow this Controller in order to use it. Prestashop uses <span class="lang:php decode:true crayon-inline ">Tab</span>  to whitelist Controllers.
+Snap! It doesn&#8217;t work. We have to allow this Controller in order to use it. Prestashop uses <span class="lang:php decode:true crayon-inline ">Tab</span>  to whitelist Controllers.
 
 Directly in the database, execute:
 
@@ -138,7 +138,7 @@ Which gives us the following list (sortable and filterable!!):
 
 ## Step 3. Add the edit & add features
 
-Add <span class="lang:php decode:true crayon-inline ">$this->fields_form</span>  and <span class="lang:php decode:true crayon-inline ">$this->addRowAction</span> :
+Add <span class="lang:php decode:true crayon-inline ">$this->fields_form</span>  and <span class="lang:php decode:true crayon-inline ">$this->addRowAction</span> :
 
 <pre class="lang:php decode:true" title="modules/my_module/controllers/admin/AdminCustomInvoicesController.php">&lt;?php
 

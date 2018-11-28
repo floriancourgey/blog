@@ -15,7 +15,7 @@ categories:
   - neolane
   - opensource
 ---
-Use quick and reliable Adobe Campaign methods such as nms.delivery.load(&#8220;12435&#8243;), nms.recipient.create( { firstName:&#8221;John&#8221; } ) and build complex XML E4X queries to go in details!
+Use quick and reliable Adobe Campaign methods such as nms.delivery.load(&#8220;12435&#8243;), nms.recipient.create( { firstName:&#8221;John&#8221; } ) and build complex XML E4X queries to go in details!
 
 <!--more-->
 

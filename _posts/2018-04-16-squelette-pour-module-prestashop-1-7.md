@@ -53,7 +53,7 @@ class Fc_Redirect extends Module {
   }
 }</pre>
 
-All hooks <http://build.prestashop.com/news/new-updated-hooks-1-7-1-0/>
+All hooks <http://build.prestashop.com/news/new-updated-hooks-1-7-1-0/>
 
 # Add a config page
 
@@ -202,7 +202,7 @@ public function uninstall(){
 
 # Good practices for Database install/uninstall
 
-taken from <https://github.com/PrestaShop/gamification>
+taken from <https://github.com/PrestaShop/gamification>
 
 <pre class="lang:php decode:true" title="module.php">/**
  * DATABASE INSTALL/UNINSTALL
@@ -242,7 +242,7 @@ Go to your module directory /modules/my_module
 
 <span class="lang:sh decode:true crayon-inline ">composer require maknz/slack</span>
 
-will create a <span class="lang:default decode:true crayon-inline ">vendor </span> dir, with an <span class="lang:default decode:true crayon-inline ">autoload.php</span>  inside
+will create a <span class="lang:default decode:true crayon-inline ">vendor </span> dir, with an <span class="lang:default decode:true crayon-inline ">autoload.php</span>  inside
 
 So just do a <span class="lang:php decode:true crayon-inline">require_once __DIR__.&#8217;/vendor/autoload.php&#8217;;</span>
 

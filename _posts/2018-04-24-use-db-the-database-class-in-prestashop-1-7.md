@@ -164,4 +164,4 @@ public function getNumberError() // returns the latest error number, if the quer
 ## Physical data model &#8211; MPD
 ![Relationships (1-1 & 1-N) between Prestashop tables](/assets/images/2018/04/prestashop-mpd-large.gif)
 
-*Source: [https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs](https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs)*
+*Source: [https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs](https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs)*

@@ -37,7 +37,7 @@ function PostEvent (
     Boolean      complete
 )</pre>
 
-Note: Workflow 2 will be exeucted asynchronously, and must be started before calling PostEvent.
+Note: Workflow 2 will be exeucted asynchronously, and must be started before calling PostEvent.
 
 In Workflow 2:
 

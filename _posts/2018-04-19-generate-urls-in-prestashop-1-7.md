@@ -12,7 +12,7 @@ categories:
   - prestashop
   - prestashop 1.7
 ---
-You always need to generate your links and URLs. Hardcoded ones are a really bad habit. Coming from a Symfony environment, I&#8217;m familiar with <span class="lang:php decode:true crayon-inline ">$router->generate(&#8216;my-route&#8217;)</span>  but how does it work in PrestaShop? It turns out there&#8217;s 2 ways depending on either you&#8217;re generating a frontend or a backend link.
+You always need to generate your links and URLs. Hardcoded ones are a really bad habit. Coming from a Symfony environment, I&#8217;m familiar with <span class="lang:php decode:true crayon-inline ">$router->generate(&#8216;my-route&#8217;)</span>  but how does it work in PrestaShop? It turns out there&#8217;s 2 ways depending on either you&#8217;re generating a frontend or a backend link.
 
 <!--more-->
 

@@ -19,7 +19,7 @@ Prestashop can be used to display any page that you want. Either it's pure HTML 
 
 As we've already created [a nice backoffice for our pasta here](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/), we would now like to display them on the Front office as a catalog. We will link a URL to a Front Controller which will be responsible to do a few database calls and then display the data through a Smarty Template.
 
-The new URL will be `http://localhost/prestashop/my-pasta`.
+The new URL will be `http://localhost/prestashop/my-pasta`.
 
 ## 1. Override the Dispatcher
 
@@ -38,7 +38,7 @@ class Dispatcher extends DispatcherCore {
 }
 ```
 
-Don't forget to clear your Class Cache by removing `app/cache/prod/class_index.php`.
+Don't forget to clear your Class Cache by removing `app/cache/prod/class_index.php`.
 
 ## 2. Create your Front Controller
 
@@ -53,13 +53,13 @@ class PastaController extends FrontController {
 }
 ```
 
-Don't forget to clear your Class Cache by removing `app/cache/prod/class_index.php`.
+Don't forget to clear your Class Cache by removing `app/cache/prod/class_index.php`.
 
-Go to http://localhost/prestashop/my-pasta and you should hit the constructor of PastaController:
+Go to http://localhost/prestashop/my-pasta and you should hit the constructor of PastaController:
 
 <img class="aligncenter size-full wp-image-655" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-the-Front-PastaController.jpg?resize=347%2C123&#038;ssl=1" alt="" width="347" height="123" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-the-Front-PastaController.jpg?w=347&ssl=1 347w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-the-Front-PastaController.jpg?resize=300%2C106&ssl=1 300w" sizes="(max-width: 347px) 100vw, 347px" data-recalc-dims="1" />
 
-But... This is ugly. Let's create a template 😎
+But... This is ugly. Let's create a template 😎
 
 ## 3. Create your Template
 
@@ -94,7 +94,7 @@ Looks definitely better:
 
 (Don't forget to Set the Twig Cache to `Recompile templates if the files have been updated` in the Backoffice > Advanced Parameters > Performance)
 
-That's it!! You can use whatever content you fancy ⛱
+That's it!! You can use whatever content you fancy ⛱
 
 ## 4. Appendices
 
@@ -177,7 +177,7 @@ More info on the `Db`/`DbQuery` classes in this [tutorial about avoiding raw SQL
 
 ### 4.2 Redirect the customer if not logged (non-guest area)
 
-You can update your controller to only allow registered customers to view this page with a few checks on `$this->context->customer`
+You can update your controller to only allow registered customers to view this page with a few checks on `$this->context->customer`
 
 ```php
 class PastaController extends FrontController {
@@ -196,13 +196,13 @@ Refresh your page, and you are being redirected to the login! Log in, and you wi
 
 <img class="aligncenter size-full wp-image-665" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=525%2C255&#038;ssl=1" alt="" width="525" height="255" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?w=1531&ssl=1 1531w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=300%2C146&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=768%2C373&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=1024%2C498&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
-More info on [how to redirect with Prestashop (from front and back)](https://floriancourgey.com/2018/04/redirects-in-prestashop-1-7/).
+More info on [how to redirect with Prestashop (from front and back)](https://floriancourgey.com/2018/04/redirects-in-prestashop-1-7/).
 
 ### 4.3 Use the GET parameters from URL
 
 <pre class="lang:php decode:true ">// todo</pre>
 
-### 4.4 Use Twig instead of Smarty 🌱🌿
+### 4.4 Use Twig instead of Smarty 🌱🌿
 
 <pre class="lang:php decode:true">// todo</pre>
 

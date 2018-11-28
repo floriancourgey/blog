@@ -22,7 +22,7 @@ Create your Zap with &#8220;Catch Hook &#8211; Send Outbound email&#8221;: https
 
 <img class="aligncenter size-full wp-image-518" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Image-9.png?resize=397%2C216&#038;ssl=1" alt="" width="397" height="216" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Image-9.png?w=397&ssl=1 397w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Image-9.png?resize=300%2C163&ssl=1 300w" sizes="(max-width: 397px) 100vw, 397px" data-recalc-dims="1" />
 
-Zapier will give you an URL to send your data, such as https://hooks.zapier.com/hooks/catch/123456/abcdef/
+Zapier will give you an URL to send your data, such as https://hooks.zapier.com/hooks/catch/123456/abcdef/
 
 You can then call from you Javascript:
 

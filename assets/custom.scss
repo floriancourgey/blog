@@ -12,16 +12,19 @@ main {
   margin-left: auto;
 }
 // Jekyll search
-#results-container {
-  position: absolute;
-  margin: 0;
-  top: 55px;
-  z-index: 5;
-  &>li {
-    list-style: none;
-    &>a {
-      background: white;
-      display: inline-block;
+#modal-search {
+  .modal-content {
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    #results-container {
+      &>.search-results {
+        max-width: 500px;
+        margin: 1rem auto;
+        list-style: none;
+        &>a {
+          display: inline-block;
+        }
+      }
     }
   }
 }

@@ -46,9 +46,9 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <i class="fas fa-question" data-toggle="tooltip" title="Look for 'Search' to find out how this simple component is made" style="color:lightgrey"></i>
-        <ul id="results-container"></ul>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-search" onclick="$('#search-input').focus();">
+          Search <i class="fas fa-search"></i>
+        </button>
       </form>
     </div>
   </nav>

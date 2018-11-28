@@ -22,7 +22,7 @@ $(function(){
     var results = idx.search(val);
     for (result of results) {
       var doc = documents[result.ref];
-      $resultsContainer.append('<li><a href="'+doc.url+'">'+doc.title+'</a></li>');
+      $resultsContainer.append('<a class="search-results card p-3" href="'+doc.url+'">'+doc.title+'</a>');
     }
   });
 })

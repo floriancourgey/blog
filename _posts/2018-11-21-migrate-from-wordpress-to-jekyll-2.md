@@ -111,3 +111,56 @@ var documents = {
   })
 </script>
 ```
+
+## Server-side search with Algolia
+What's the point if all the above is working fine, right? Because Algolia is A) powerful and B) provides analytics on searches performed (Popular searches, no results, geographics requests).
+
+### Create the index
+With the Gem `gem 'jekyll-algolia'`, see [https://community.algolia.com/jekyll-algolia/getting-started.html](https://community.algolia.com/jekyll-algolia/getting-started.html)
+
+### Add html to perform the search
+```html
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script>
+<script defer src="{{site_url}}/assets/js/search-algolia.js" charset="utf-8"></script>
+<script>
+  const search = instantsearch({
+    appId: 'appId',
+    apiKey: 'apiKey',
+    indexName: 'jekyll',
+    routing: true
+  });
+
+  // initialize SearchBox
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-input',
+      placeholder: 'Search'
+    })
+  );
+
+  // initialize hits widget
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#results-container',
+      templates: {
+        empty: 'No results',
+        item: function(hit) {
+          var date = moment.unix(hit.date).format('MMM D, YYYY');
+          return `
+            <div class="post-item">
+              <span class="post-meta">${date}</span>
+              <h2><a class="post-link" href="{{ site.baseurl }}${hit.url}">${hit._highlightResult.title.value}</a></h2>
+              <div class="post-snippet">${hit._highlightResult.html.value}</div>
+            </div>
+          `;
+        }
+      }
+    })
+  );
+
+  search.start();
+</script>
+```

@@ -7,13 +7,17 @@ categories:
   - adobe campaign
 ---
 SOAP calls are not really handy when it comes to deploy to external vendors. Luckily, we can use a classic HTTP Post as we would do for a REST API.
+
 <!--more-->
+
 ## Example in RESTClient
+
 Use the following settings:
 - The soap router as the endpoint `https://your-instance.campaign.adobe.com/nl/jsp/soaprouter.jsp` 
 - HTTP Headers:
   - Set `SOAPAction` to the method you're calling, e.g. `xtk:queryDef#ExecuteQuery`.
   - Set `Content-Type` to `application/xml`
+
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:xtk:queryDef">
   <soapenv:Header/>
@@ -36,9 +40,11 @@ Use the following settings:
   </soapenv:Body>
 </soapenv:Envelope>
 ```
+
 ![todo](/assets/images/2018/12/adobe-campaign-soap-calls-with-http-post.jpg)
 
 Gives the following response with `<recipient-collection>`:
+
 ```xml
 <?xml version='1.0' ?>
 <SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:xtk:queryDef" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">

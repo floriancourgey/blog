@@ -41,7 +41,7 @@ Use the following settings:
 </soapenv:Envelope>
 ```
 
-To use `<urn:sessiontoken>` with a login and a password, it must be enabled on your instance. See [https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html#Connectivity](Adobe Campaign SOAP connectivity)
+To use `<urn:sessiontoken>` with a login and a password, it must be enabled on your instance. See [Adobe Campaign SOAP connectivity](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html#Connectivity)
 
 ![todo](/assets/images/2018/12/adobe-campaign-soap-calls-with-http-post.jpg)
 
@@ -66,7 +66,7 @@ Gives the following response with `<recipient-collection>`:
 
 ![todo](/assets/images/2018/12/adobe-campaign-soap-calls-with-http-post-in-rest-client.jpg)
 
-*See [https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html](Adobe Campaign SOAP calls) for details.*
+*See [Adobe Campaign SOAP calls](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html) for details.*
 
 ## Example with a custom Javascript method
 

@@ -108,9 +108,9 @@ Displays the following response:
 
 ```xml
 <?xml version='1.0' ?>
-<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:myNamespace:myJsCode" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:myNamespace:myObject" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Body>
-    <method1Response xmlns="urn:myNamespace:myJsCode" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <method1Response xmlns="urn:myNamespace:myObject" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
       <return1 xsi:type="xsd:int">0</return1>
     </method1Response>
   </SOAP-ENV:Body>

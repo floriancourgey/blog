@@ -54,9 +54,9 @@ Gives the following response with `<recipient-collection>`:
     <ExecuteQueryResponse xmlns="urn:xtk:queryDef" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
       <pdomOutput xsi:type="ns:Element" SOAP-ENV:encodingStyle="http://xml.apache.org/xml-soap/literalxml">
         <recipient-collection>
-          <recipientemail="someone@example.com" firstName="..." lastName="..."/>
-          <recipientemail="someone@example.com" firstName="..." lastName="..."/>
-          <recipientemail="someone@example.com" firstName="..." lastName="..."/>
+          <recipient email="someone@example.com" firstName="..." lastName="..."/>
+          <recipient email="someone@example.com" firstName="..." lastName="..."/>
+          <recipient email="someone@example.com" firstName="..." lastName="..."/>
         </recipient-collection>
       </pdomOutput>
     </ExecuteQueryResponse>

@@ -10,7 +10,7 @@ SOAP calls are not really handy when it comes to deploy to external vendors. Luc
 
 <!--more-->
 
-## Example in RESTClient
+## Example with `queryDef#ExecuteQuery` to get a list of recipients by email
 
 Use the following settings:
 - The soap router as the endpoint `https://your-instance.campaign.adobe.com/nl/jsp/soaprouter.jsp` 
@@ -63,3 +63,56 @@ Gives the following response with `<recipient-collection>`:
 ```
 
 ![todo](/assets/images/2018/12/adobe-campaign-soap-calls-with-http-post-in-rest-client.jpg)
+
+## Example with a custom Javascript method
+
+### 1. Data schema
+In the data schema `myNamespace:myObject`:
+
+```xml
+<method library="myNamespace:myJsCode" name="method1" static="true">
+  <parameters>
+    <param desc="param1" inout="in" name="param1" type="string"/>
+    <param desc="return1" inout="out" name="return1" type="long"/>
+  </parameters>
+</method>
+```
+
+### 2. Javascript Code
+In the Javascript code `myNamespace:myJsCode`:
+
+```javascript
+function myNamespace_myObject_method1(vParam1){
+  // do things
+  return 0;
+}
+```
+
+### 3. HTTP Post call with SOAP envelope
+
+Keep the same settings as previous section but change the `SOAP Action` to `myNamespace:myObject#method1`, and use the following Envelope:
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:myNamespace:myObject">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:method1>
+         <urn:sessiontoken>login/password</urn:sessiontoken>
+         <urn:param1>value of parameter 1</urn:param1>
+      </urn:method1>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
+Displays the following response:
+
+```xml
+<?xml version='1.0' ?>
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:myNamespace:myJsCode" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <method1Response xmlns="urn:myNamespace:myJsCode" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+      <return1 xsi:type="xsd:int">0</return1>
+    </method1Response>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```

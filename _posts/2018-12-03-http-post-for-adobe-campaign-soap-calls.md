@@ -41,9 +41,7 @@ Use the following settings:
 </soapenv:Envelope>
 ```
 
-<div class="alert alert-warning">
-  To use `<urn:sessiontoken>` with a login and a password, it must be enabled on your instance. See [https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html#Connectivity](Adobe Campaign SOAP connectivity)
-</div>
+To use `<urn:sessiontoken>` with a login and a password, it must be enabled on your instance. See [https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html#Connectivity](Adobe Campaign SOAP connectivity)
 
 ![todo](/assets/images/2018/12/adobe-campaign-soap-calls-with-http-post.jpg)
 

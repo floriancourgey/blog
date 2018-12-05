@@ -21,6 +21,12 @@ Excerpt here.
 
 <kbd>wget https://myfile.com -O output</kbd> save a web file to disk
 
+```bash
+echo -e "hello\n$(cat file)" > file # prepend to file
+echo "hello" >> file # append to file
+wget https://myfile.com -O output # save a web file to disk
+```
+
 ## grep (find in file and files)
 
 <kbd>grep 'word' file1 file2</kbd>

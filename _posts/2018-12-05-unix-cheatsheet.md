@@ -88,9 +88,9 @@ tar xvf test.tar file1 # unTAR specific file
 
 ## GZIP
 
-```bash
 ZIP format archives and compresses files and folders. >> Popular on Windows
 GZIP format compresses 1 file. To compress multiple files with GZIP, they have to be archived into a single TAR file (called tarball). Hence .tar.gz. >> Popular on UNIX
+```bash
 gzip file1 # GZIP file1 to file1.gz (and delete file1)
 gzip -k file1 # GZIP file1 to file1.gz and keep file1
 gzip -r dir # GZIP all files in dir

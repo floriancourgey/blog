@@ -49,7 +49,7 @@ bash -c 'echo $PATH'
 
 ```bash
 ln -s source target
-ln -s ~/my_executable /usr/local/bin/my_executable# to add the binary (in user home) to PATH:
+ln -s ~/my_executable /usr/local/bin/my_executable # to add a binary to PATH
 ```
 
 ## TAR

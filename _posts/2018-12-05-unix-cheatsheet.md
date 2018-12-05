@@ -86,6 +86,5 @@ unzip -P plain_password file.zip # Unzip with plain text password
 unzip -q file.zip # Unzip with quietly (no output)
 ```
 
-[man zip](https://linux.die.net/man/1/zip)
-
+[man zip](https://linux.die.net/man/1/zip),
 [man unzip](https://linux.die.net/man/1/unzip)

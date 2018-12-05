@@ -32,15 +32,17 @@ grep -r 'word' dir
 ```bash
 gcc -v
 gcc file1.c file2.c -O bin
-gcc -Wall file1.c file2.c -O bin# to print all warnings
+gcc -Wall file1.c file2.c -O bin # to print all warnings
 ```
 
 ## PATH
 
 ```bash
 bash -c 'echo $PATH'
-<samp>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games</samp> for Linux
-<samp>/usr/local/bin /usr/bin /bin /usr/sbin /sbin</samp> for Mac
+```
+```terminal
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games # for Linux
+/usr/local/bin /usr/bin /bin /usr/sbin /sbin # for Mac
 ```
 
 ## Symbolic links - symlinks

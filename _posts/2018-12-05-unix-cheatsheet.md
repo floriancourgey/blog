@@ -11,6 +11,29 @@ categories:
 Excerpt here.
 <!--more-->
 
+## UNIX filesystem
+```bash
+/bin # essential user binaries
+  bash, cat, cp, grep, ls, nano, touch, tar, uname
+/dev # devices
+  null # to redirect unwanted stdout
+/etc # config files (text based, so easily editable)
+  crontab, hosts, init.d, passwd, timezone
+/home # home folders for users
+/lib # shared C libraries
+/mnt # "mounted" drives
+/opt # other softwares. Not binaries as there's 1 folder per software (with config, bin, lib, etc). Like Program Files on Windows.
+/root # home folder for user "root"
+/sbin # "system binaries"
+  fdisk, fsck, init, reboot
+/tmp # temp folder, gets emptied at reboot
+/usr # "users", 
+  bin/ games/ lib/ local/ sbin/ 
+/var # "variable", folder for files that change often
+  log/ mail/ www/
+```
+See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
+
 ## Bash basics
 
 ```bash
@@ -35,7 +58,9 @@ gcc file1.c file2.c -O bin
 gcc -Wall file1.c file2.c -O bin # to print all warnings
 ```
 
-## PATH
+## PATH & softwares
+
+`/usr/local/bin` to install any bin shared amongst users on the local machine
 
 ```bash
 bash -c 'echo $PATH'

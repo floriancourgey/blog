@@ -4,8 +4,6 @@ title: Count occurences of string in files using PowerShell (grep on Windows)
 date: 2018-04-18T20:17:42+00:00
 author: Florian Courgey
 layout: post
-guid: https://floriancourgey.com/?p=356
-permalink: /2018/04/count-occurences-of-string-regex-in-files-regex-using-powershell/
 categories:
   - grep
   - opensource

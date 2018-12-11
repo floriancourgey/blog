@@ -61,6 +61,8 @@ wget https://myfile.com -O output # save a web file to disk
 grep 'word' file1 file2
 grep -w 'word_only' file1 file2
 grep -r 'word' dir
+grep -n file-with-line-numbers
+grep -A 1 # next lines, -B 1 previous lines, -C both lines
 ```
 
 ## GCC Gnu C Compiler
@@ -94,8 +96,8 @@ ln -s ~/my_executable /usr/local/bin/my_executable # to add a binary to PATH
 
 ```bash
 tar cvf test.tar .# TAR current dir: c=create, v=verbose, f=file
-tar tvf test.tar # list content of TAR file: <kbd class="none">t</kbd>=table of content
-tar xvf test.tar # unTAR all files: <kbd class="none">x</kbd>=xtract
+tar tvf test.tar # list content of TAR file: t=table of content
+tar xvf test.tar # unTAR all files: x=xtract
 tar xvf test.tar file1 # unTAR specific file
 ```
 

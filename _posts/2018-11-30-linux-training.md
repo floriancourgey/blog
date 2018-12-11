@@ -133,3 +133,43 @@ drwxr-x--- 22 root bandit5 4096 Oct 16 14:00 ..
 cat ./inhere/maybehere07/.file2
 # DXjZPULLxYr17uwoI01bNLQbtFemEgo7
 ```
+
+### Level 6 - A particular file on the server
+```bash
+ssh -p 2220 bandit6@bandit.labs.overthewire.org
+# DXjZPULLxYr17uwoI01bNLQbtFemEgo7 http://overthewire.org/wargames/bandit/bandit7.html
+```
+This time we cannot rely on `ls`, it would be too verbose. Let's change to `find`:
+```bash
+find / -size 33c -group bandit6 -user bandit7
+# /var/lib/dpkg/info/bandit7.password
+cat /var/lib/dpkg/info/bandit7.password
+# HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+```
+
+### Level 7 - A word in a file
+```bash
+ssh -p 2220 bandit7@bandit.labs.overthewire.org
+# HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs http://overthewire.org/wargames/bandit/bandit8.html
+```
+```bash
+grep millionth data.txt
+# millionth       cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+```
+
+### Level 8 - Get unique lines
+```bash
+ssh -p 2220 bandit8@bandit.labs.overthewire.org
+# cvX2JJa4CFALtqS87jk27qwqGhBM9plV http://overthewire.org/wargames/bandit/bandit8.html
+```
+Looks like a good case to use `uniq` with the `-u --unique` option. *NB: input must be sorted*
+```bash
+cat data.txt | sort | uniq -u
+# UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+```
+
+### Level 9 - 
+```bash
+ssh -p 2220 bandit9@bandit.labs.overthewire.org
+# UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR http://overthewire.org/wargames/bandit/bandit9.html
+```

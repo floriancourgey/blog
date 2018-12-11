@@ -102,6 +102,7 @@ ssh -p 2220 bandit5@bandit.labs.overthewire.org
 ```
 Let's use the recursive version of `ls` with `-R`: `ls -alR`:
 ```bash
+$ ls -alR
 [...]
 ./inhere/maybehere19:
 total 76
@@ -114,12 +115,12 @@ drwxr-x--- 22 root bandit5 4096 Oct 16 14:00 ..
 ```
 We got 20 folders and each has 5-10 files. We are looking for a 1033 bytes file, let's `grep` the output:
 ```bash
-ls -alR | grep 1033
+$ ls -alR | grep 1033
 -rw-r-----  1 root bandit5 1033 Oct 16 14:00 .file2
 ```
 Sweet! But how to get the folder? `grep` can show next lines with `-A 1`, next lines with `-B 1` and previous+next lines with `-C 1`:
 ```bash
-ls -alR | grep 1033 -B 10
+$ ls -alR | grep 1033 -B 10
 ./inhere/maybehere07:
 total 56
 drwxr-x---  2 root bandit5 4096 Oct 16 14:00 .
@@ -130,8 +131,8 @@ drwxr-x--- 22 root bandit5 4096 Oct 16 14:00 ..
 -rw-r-----  1 root bandit5 1033 Oct 16 14:00 .file2
 ```
 ```bash
-cat ./inhere/maybehere07/.file2
-# DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+$ cat ./inhere/maybehere07/.file2
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7
 ```
 
 ### Level 6 - A particular file on the server
@@ -141,10 +142,10 @@ ssh -p 2220 bandit6@bandit.labs.overthewire.org
 ```
 This time we cannot rely on `ls`, it would be too verbose. Let's change to `find`:
 ```bash
-find / -size 33c -group bandit6 -user bandit7
-# /var/lib/dpkg/info/bandit7.password
-cat /var/lib/dpkg/info/bandit7.password
-# HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+$ find / -size 33c -group bandit6 -user bandit7
+/var/lib/dpkg/info/bandit7.password
+$ cat /var/lib/dpkg/info/bandit7.password
+HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
 ```
 
 ### Level 7 - A word in a file
@@ -153,8 +154,8 @@ ssh -p 2220 bandit7@bandit.labs.overthewire.org
 # HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs http://overthewire.org/wargames/bandit/bandit8.html
 ```
 ```bash
-grep millionth data.txt
-# millionth       cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+$ grep millionth data.txt
+millionth       cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 ```
 
 ### Level 8 - Get unique lines
@@ -174,9 +175,9 @@ ssh -p 2220 bandit9@bandit.labs.overthewire.org
 # UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR http://overthewire.org/wargames/bandit/bandit9.html
 ```
 ```bash
-file data.txt
-# data.txt: data
-strings data.txt | grep "^="
+$ file data.txt
+data.txt: data
+$ strings data.txt | grep "^="
 ========== password
 ========== isa
 =FQ?P\U

@@ -19,7 +19,7 @@ En francais : &#8220;T&#8217;es vraiment dans la merde, ton serveur est plein&#8
 
 ## GUI version : [Space Radar](https://github.com/zz85/space-radar)
 
-![](https://i2.wp.com/cloud.githubusercontent.com/assets/314997/11022585/5c847364-869d-11e5-8079-0a16e7d747e4.gif)
+![](https://cloud.githubusercontent.com/assets/314997/11022585/5c847364-869d-11e5-8079-0a16e7d747e4.gif)
 
 Install [Space Radar](https://github.com/zz85/space-radar) on a client machine. On the server, generate a txt sizes file with `du -ak`
 ```sh

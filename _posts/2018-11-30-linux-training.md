@@ -1,5 +1,5 @@
 ---
-title: Linux training with overthewire [Part 1/10]
+title: Linux training with overthewire [Part 1/10: Bandit 1-10]
 author: Florian Courgey
 layout: post
 categories:
@@ -168,8 +168,34 @@ cat data.txt | sort | uniq -u
 # UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
 ```
 
-### Level 9 - 
+### Level 9 - Strings in binary file and regex
 ```bash
 ssh -p 2220 bandit9@bandit.labs.overthewire.org
 # UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR http://overthewire.org/wargames/bandit/bandit9.html
 ```
+```bash
+file data.txt
+# data.txt: data
+strings data.txt | grep "^="
+========== password
+========== isa
+=FQ?P\U
+=       F[
+=)$=
+========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+```
+
+### Level 10 - Strings in binary file and regex
+```bash
+ssh -p 2220 bandit10@bandit.labs.overthewire.org
+# truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk http://overthewire.org/wargames/bandit/bandit10.html
+```
+```bash
+$ cat data.txt
+VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==
+$ base64 -d data.txt
+The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+# 
+```
+
+Sweet!

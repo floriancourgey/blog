@@ -9,7 +9,64 @@ categories:
 ---
 Javascript File Splitter compatible with Adobe Campaign 7.
 <!--more-->
+## Business case
+
+You receive XML files that contain too many lines, you need to split them in multiple smaller files.
+
+Orginal file:
+```xml
+<header>
+  <row></row>
+  <row></row>
+  <row></row>
+  <row></row>
+  <row></row>
+</footer>
+```
+Will be split into 3 files with `occurence="<row>"` and `maxOccurencesPerFile=2`:
+```xml
+<!-- file_0001.xml -->
+<header>
+  <row></row> <!-- occurence 1 -->
+  <row></row> <!-- occurence 2 -->
+</footer>
+<!-- file_0002.xml -->
+<header>
+  <row></row> <!-- occurence 3 -->
+  <row></row> <!-- occurence 4 -->
+</footer>
+<!-- file_0003.xml -->
+<header>
+  <row></row> <!-- occurence 5 -->
+</footer>
+```
+
+## Usage
+```js
+loadLibrary('nms:fileSplitter');
+
+var options = {
+  filename: vars.filename,
+  outputDir: vars.dir,
+  header: '<?xml version="1.0" encoding="UTF-8"?>\n<orders xmlns="http://www.demandware.com/xml/impex/customer/2006-10-31">',
+  occurence: '<order order-no',
+  footer: '</orders>',
+  ommitFirstHeader: true,
+  maxOccurencesPerFile: 50,
+  getNewFile: function(originalFile, nbOfFilesDone, options){
+    var actualFile = options.outputDir+'/'+originalFile.name.replace('.xml.txt', '')+"_"+nbOfFilesDone.toString().padStart(4, "0")+'.xml';
+    var f = new File(actualFile);
+    f.open("a");
+    logInfo('Created file '+f.fullName);
+    return f;
+  }
+};
+splitFile(options);
+```
 ## Source code
+
+`nms:fileSplitter`
+
 ```js
 /**
  * Splits a file such as:
@@ -29,73 +86,87 @@ Javascript File Splitter compatible with Adobe Campaign 7.
  * 
  * with params occurence="A", times=2
  */
+loadLibrary('vendor:underscore'); // see https://blog.floriancourgey.com/2018/10/use-javascript-libraries-in-adobe-campaign/
 
-var header = '<?xml version="1.0" encoding="UTF-8"?>\n<orders xmlns="http://www.demandware.com/xml/impex/customer/2006-10-31">'; 
-var ommitFirstHeader = true;
-var occurence = '<order order-no';
-var maxOccurencesPerFile = 50;
-var footer = '</orders>';
-var extension = '.xml';
+const TAG = 'nms:fileSplitter | ';
 
-var file = new File(vars.filename);
-
-var outputDir = "./";
-
-var text = loadFile(vars.filename);
-var lines = text.split('\n');
-
-var textToWrite = '';
-if(!vars.ommitFirstHeader){
-  textToWrite = header;
-}
-var nbOfFilesDone = 1;
-var actualTime = 0;
-
-function getNewFile(){
-  var actualFile = outputDir+'/'+file.name.replace(extension, '')+"_"+nbOfFilesDone.toString().padStart(4, "0")+extension;
-  var f = new File(actualFile);
-  f.open("a");
-  logInfo('Created file '+f.fullName);
-  return f;
-}
-
-var f = getNewFile();
-
-for(var i in lines){
-  var line = lines[i];
-  // if we find an occurence
-  if(line.indexOf(vars.occurence) > -1){
-    // write
-    f.writeln(textToWrite)
-    textToWrite = '';
-    // if it's time to create a new file
-    if(actualTime >= vars.maxOccurencesPerFile){
-      logInfo('New file for occurence at line '+i+' for occurence('+actualTime+'/'+vars.maxOccurencesPerFile+') for line ('+i+')')
-      // write footer
-      f.writeln(vars.footer);
-      f.close();
-      // reset vars
-      actualTime = 0;
-      nbOfFilesDone++;
-      // open the next file
-      var f = getNewFile();
-      /// adding header
-      if(nbOfFilesDone>1 || !vars.ommitFirstHeader){
-        f.writeln(vars.header)
-      }
-    }
-    actualTime++;
+function splitFile(options){
+  var defaultOptions = {
+    filename: null,
+    outputDir: null,
+    header: null,
+    occurence: null,
+    footer: null,
+    getNewFile: null,
+    
+    ommitFirstHeader: true,    
+    maxOccurencesPerFile: 10,
+  };
+  options = _.defaults(options, defaultOptions);
+  if(!options.filename || !options.outputDir || ! options.header || !options.occurence || !options.footer || !options.getNewFile){
+    return logError(TAG+'splitFile error, missing filename, outputDir, header, occurence, footer or getNewFile in options');
   }
+  logInfo(TAG+'splitFile with options:');
+  logInfo(TAG+JSON.stringify(options));
+
+  var originalFile = new File(options.filename);
   
-  if(i > 0 && line.length>1){
-    textToWrite += '\n';
+  logInfo(TAG+'loading: '+options.filename)
+  var text = loadFile(options.filename);
+  logInfo(TAG+'splitting by newline')
+  var lines = text.split('\n');
+  logInfo(TAG+'ready to split into files');
+  
+  var textToWrite = '';
+  if(!options.ommitFirstHeader){
+    textToWrite = options.header;
   }
-  textToWrite += line;
+  var nbOfFilesDone = 1;
+  var actualTime = 0;
+
+  var f = options.getNewFile(originalFile, nbOfFilesDone, options);
+  
+  for(var i in lines){
+    var line = lines[i];
+    // if we find an occurence
+    if(line.indexOf(options.occurence) > -1){
+      // write
+      f.writeln(textToWrite)
+      textToWrite = '';
+      // if it's time to create a new file
+      if(actualTime >= options.maxOccurencesPerFile){
+        logInfo(TAG+'New file for occurence at line '+i+' for occurence('+actualTime+'/'+options.maxOccurencesPerFile+') for line ('+i+')')
+        // write footer and close file
+        f.writeln(options.footer)
+        f.close();
+        // reset vars
+        actualTime = 0;
+        nbOfFilesDone++;
+        // open the next file
+        f = options.getNewFile(originalFile, nbOfFilesDone, options);
+        /// adding header
+        if(nbOfFilesDone>1 || !options.ommitFirstHeader){
+          f.writeln(options.header)
+        }
+      }
+      actualTime++;
+    }
+    
+    if(i > 0 && line.length>1){
+      textToWrite += '\n';
+    }
+    textToWrite += line;
+  }
+  // last one
+  f.writeln(textToWrite);
+  f.close();
+  
+  logInfo(TAG+'finished');
+  return;
 }
-// last one
-f.writeln(textToWrite);
-f.close();
 ```
+
+NB: to include underscoreJS library, see [https://blog.floriancourgey.com/2018/10/use-javascript-libraries-in-adobe-campaign/](https://blog.floriancourgey.com/2018/10/use-javascript-libraries-in-adobe-campaign/)
 
 ## Polyfills for `padStart()` in Adobe Campaign
 Note: to make it work with Adobe Campaign, add the following polyfills for `padStart()` in `nms:polyfill`:

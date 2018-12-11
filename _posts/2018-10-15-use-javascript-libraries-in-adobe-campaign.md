@@ -9,7 +9,7 @@ permalink: /2018/10/use-javascript-libraries-in-adobe-campaign/
 categories:
   - opensource
 ---
-Ever wanted to use MomentJS or Lodash in your JS scripts? It's easy to include them via a CDN for client-side web apps, but it can get tricky to get them for server-side processing. This tutorial walks you through the installation of Javascript libraries for Server Side use.
+Ever wanted to use **MomentJS** or **Lodash** in your JS scripts? It's easy to include them via a CDN for client-side web apps, but it can get tricky to get them for server-side processing. This tutorial walks you through the installation of Javascript libraries for Server Side use.
 
 <!--more-->
 
@@ -33,7 +33,7 @@ Copy from [https://underscorejs.org/underscore-min.js](https://underscorejs.org/
 //     http://underscorejs.org
 //     (c) 2009-2018 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Underscore may be freely distributed under the MIT license.
-!function(){var n="object"==typeof self&&self.self===self&&self||"object"==typeof global&&global.global===
+!function(){var n="object"==typeof self&&self.self===self&&self||"object"==typeof global&&global.global===[...]
 ```
 
 ### Step 2/2 Use library

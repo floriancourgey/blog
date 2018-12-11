@@ -33,7 +33,7 @@ Exit the server with `exit` and log back into the next level, using the above pa
 ### Level 1 - Special filename
 ```bash
 ssh -p 2220 bandit1@bandit.labs.overthewire.org
-# boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+# boJ9jbbUNNfktd78OOpsqOltutMc3MY1 http://overthewire.org/wargames/bandit/bandit2.html
 ```
 Once again, let's try `ls` then `cat`:
 ```bash
@@ -55,7 +55,7 @@ CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
 ### Level 2 - Spaces in filename
 ```bash
 ssh -p 2220 bandit2@bandit.labs.overthewire.org
-# CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+# CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9 http://overthewire.org/wargames/bandit/bandit3.html
 ```
 For this one, be lazy and use bash auto completion with `Tab ↹`. Start typing `spa`, then hit `Tab ↹` and let the magic happen.
 ```bash
@@ -68,7 +68,7 @@ UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
 ### Level 3 - Hidden file
 ```bash
 ssh -p 2220 bandit3@bandit.labs.overthewire.org
-# UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+# UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK http://overthewire.org/wargames/bandit/bandit4.html
 ```
 ```bash
 $ ls
@@ -83,7 +83,7 @@ pIwrPrtPN36QITSp3EQaw936yaFoFgAB
 ### Level 4 - Many files
 ```bash
 ssh -p 2220 bandit4@bandit.labs.overthewire.org
-# pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+# pIwrPrtPN36QITSp3EQaw936yaFoFgAB http://overthewire.org/wargames/bandit/bandit5.html
 ```
 ```bash
 $ ls inhere
@@ -98,6 +98,38 @@ $ cat inhere/*
 ### Level 5 - Many many files
 ```bash
 ssh -p 2220 bandit5@bandit.labs.overthewire.org
-# koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+# koReBOKuIDDepwhWk7jZC0RTdopnAYKh http://overthewire.org/wargames/bandit/bandit6.html
 ```
-Let's use an advanced version of `ls`: `ls -alh **/*`.
+Let's use the recursive version of `ls` with `-R`: `ls -alR`:
+```bash
+[...]
+./inhere/maybehere19:
+total 76
+drwxr-x---  2 root bandit5 4096 Oct 16 14:00 .
+drwxr-x--- 22 root bandit5 4096 Oct 16 14:00 ..
+-rwxr-x---  1 root bandit5 6302 Oct 16 14:00 -file1
+-rwxr-x---  1 root bandit5 7209 Oct 16 14:00 .file1
+-rw-r-----  1 root bandit5 5594 Oct 16 14:00 -file2
+[...]
+```
+We got 20 folders and each has 5-10 files. We are looking for a 1033 bytes file, let's `grep` the output:
+```bash
+ls -alR | grep 1033
+-rw-r-----  1 root bandit5 1033 Oct 16 14:00 .file2
+```
+Sweet! But how to get the folder? `grep` can show next lines with `-A 1`, next lines with `-B 1` and previous+next lines with `-C 1`:
+```bash
+ls -alR | grep 1033 -B 10
+./inhere/maybehere07:
+total 56
+drwxr-x---  2 root bandit5 4096 Oct 16 14:00 .
+drwxr-x--- 22 root bandit5 4096 Oct 16 14:00 ..
+-rwxr-x---  1 root bandit5 3663 Oct 16 14:00 -file1
+-rwxr-x---  1 root bandit5 3065 Oct 16 14:00 .file1
+-rw-r-----  1 root bandit5 2488 Oct 16 14:00 -file2
+-rw-r-----  1 root bandit5 1033 Oct 16 14:00 .file2
+```
+```bash
+cat ./inhere/maybehere07/.file2
+# DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+```

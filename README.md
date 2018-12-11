@@ -20,6 +20,7 @@ categories:
 ---
 Excerpt here...
 <!--more-->
+**bold** *italic*  ~~strikethrough~~
 ## Use h2 for each section
 ![todo](/assets/images/2018/11/image.png)
 ```

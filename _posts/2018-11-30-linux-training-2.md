@@ -26,7 +26,7 @@ $ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 ```
 
-### Level 12 - Special filename
+### Level 12 - Gzip, bzip & tar
 ```bash
 ssh -p 2220 bandit12@bandit.labs.overthewire.org
 # 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu http://overthewire.org/wargames/bandit/bandit12.html
@@ -59,7 +59,45 @@ $ file data8.bin
 data8.bin: gzip compressed data, was "data9.bin", last modified: Tue Oct 16 12:00:23 2018, max compression, from Unix
 $ mv data8.bin data9.bin.gz && gzip -d data9.bin.gz && file data9.bin
 data9.bin: ASCII text
+```
+And finally:
+```bash
 $ cat data9.bin
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```
-Finally...
+
+### Level 13 - SSH with private key
+```bash
+ssh -p 2220 bandit13@bandit.labs.overthewire.org
+# 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL http://overthewire.org/wargames/bandit/bandit13.html
+```
+A SSH connection can be made with either a login/pwd pair or with a public/private keys pair. Here, we got the private key, that acts like a password, just pass it to the `-i` option:
+```bash
+bandit13@bandit:~$ ls
+sshkey.private
+bandit13@bandit:~$ ssh bandit14@localhost -i sshkey.private
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+```
+
+### Level 14 - Raw TCP/UDP connection
+```bash
+ssh -p 2220 bandit14@bandit.labs.overthewire.org
+# 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e http://overthewire.org/wargames/bandit/bandit14.html
+```
+Send TCP/UDP data to server/port with `nc`:
+```bash
+$ cat /etc/bandit_pass/bandit14 | nc localhost 30000
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+```
+
+### Level 15 - SSL connection
+```bash
+ssh -p 2220 bandit15@bandit.labs.overthewire.org
+# BfMYroe26WYalil77FoDi9qh59eK5xNr http://overthewire.org/wargames/bandit/bandit15.html
+```
+`openssl` comes with a lot of tools, such as Creation and Management of keys, Certificates Creation, SSL client, etc ([man openssl](https://linux.die.net/man/1/openssl)). We are going to use the SSL client `s_client` [man s_client](https://linux.die.net/man/1/s_client):
+```bash
+$ cat /etc/bandit_pass/bandit15 | openssl s_client -ign_eof -connect localhost:30001
+cluFn7wTiGryunymYOu4RcffSxQluehd
+```

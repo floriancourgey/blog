@@ -38,14 +38,22 @@ See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 
 ```bash
 id # Identification, displays current user (and uid), main group (and guid) and other groups (with guid)
-who -H # Who is logged in, with column Headers
+who -H # Who is logged in, with h=column Headers
 pwd # Print Working Dir
-ls -alh # list All (even hidden .) as a List in a Human-readable format
+ls -alh # list a=All (even hidden .) as a l=List in a h=Human-readable format
 ls -ld /usr/{,local/}{bin,sbin,lib} # ls only dir with Shell Expansion
+```
+[man id](https://linux.die.net/man/1/id), [man who](https://linux.die.net/man/1/who), [man ls](https://linux.die.net/man/1/ls)
+
+
+
+
+```bash
 echo -e "hello\n$(cat file)" > file # prepend to file
 echo "hello" >> file # append to file
 wget https://myfile.com -O output # save a web file to disk
 ```
+[man echo](https://linux.die.net/man/1/echo), [man wget](https://linux.die.net/man/1/wget)
 
 ## grep (find in file and files)
 
@@ -85,7 +93,7 @@ ln -s ~/my_executable /usr/local/bin/my_executable # to add a binary to PATH
 ## TAR
 
 ```bash
-tar cvf test.tar .# TAR current dir: <kbd class="none">c</kbd>=create, <kbd class="none">v</kbd>=verbose <kbd class="none">f</kbd>=file
+tar cvf test.tar .# TAR current dir: c=create, v=verbose, f=file
 tar tvf test.tar # list content of TAR file: <kbd class="none">t</kbd>=table of content
 tar xvf test.tar # unTAR all files: <kbd class="none">x</kbd>=xtract
 tar xvf test.tar file1 # unTAR specific file

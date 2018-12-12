@@ -1,5 +1,5 @@
 ---
-title: "Linux training with overthewire [Part 3/10: Bandit 21-30]"
+title: "Linux training with overthewire [Part 5/10: Leviathan 1]"
 author: Florian Courgey
 layout: post
 categories:
@@ -14,9 +14,9 @@ Excerpt here...
 <!--more-->
 
 This post is part of a series:
-- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training %})
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})
+- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
 - Linux training with overthewire Part 4: Natas
 
 ### Level 0 - View source
@@ -159,7 +159,7 @@ drwxr-xr-x 41 root   root   4.0K Oct 29 04:27 ..
 
 We can run pretty much anything (such as the classic enumerations `;ls /home;`, `;ls ..;`, `;pwd;`, `;uname -a;`..) and find with `;id;` that the running user is `uid=30009(natas9)`.
 
-Also, like in the [Bandit series]({% post_url 2018-11-30-linux-training %}), passwords might be in `/etc`:
+Also, like in the [Bandit series]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %}), passwords might be in `/etc`:
 ```bash
 $ ;ls -alh /etc;
 d---------  2 root root   4.0K Oct 29 04:27 natas_pass # not readable
@@ -270,7 +270,7 @@ http://natas1.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
 
 
 This post is part of a series:
-- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training %})
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})
+- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
 - Linux training with overthewire Part 4: Natas

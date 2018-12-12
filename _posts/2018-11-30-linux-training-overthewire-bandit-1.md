@@ -17,9 +17,9 @@ To learn how to connect via SSH, use this [SSH tutorial for Windows](https://www
 
 This post is part of a series:
 - Linux training with overthewire Part 1: Bandit 1-10
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})
-- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-4 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
+- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})
 
 ## First levels
 ### Level 0 - `ls` and `cat`
@@ -208,6 +208,6 @@ The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 Sweet!
 
 - Linux training with overthewire Part 1: Bandit 1-10
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})
-- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-4 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
+- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})

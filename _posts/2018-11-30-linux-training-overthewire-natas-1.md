@@ -1,5 +1,5 @@
 ---
-title: "Linux training with overthewire [Part 5/10: Leviathan 1]"
+title: "Linux training with overthewire [Part 4/10: Natas 1-11]"
 author: Florian Courgey
 layout: post
 categories:
@@ -18,6 +18,7 @@ This post is part of a series:
 - [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
 - [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
 - Linux training with overthewire Part 4: Natas
+- [Linux training with overthewire Part 5: Leviathan]({% post_url 2018-11-30-linux-training-overthewire-leviathan %})
 
 ### Level 0 - View source
 ```
@@ -274,3 +275,4 @@ This post is part of a series:
 - [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
 - [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
 - Linux training with overthewire Part 4: Natas
+- [Linux training with overthewire Part 5: Leviathan]({% post_url 2018-11-30-linux-training-overthewire-leviathan %})

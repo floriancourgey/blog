@@ -1,5 +1,5 @@
 ---
-title: Linux training with overthewire [Part 1/10: Bandit 1-10]
+title: "Linux training with overthewire [Part 1/10: Bandit 1-10]"
 author: Florian Courgey
 layout: post
 categories:
@@ -196,7 +196,7 @@ $ cat data.txt
 VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==
 $ base64 -d data.txt
 The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
-# 
+#
 ```
 
 Sweet!

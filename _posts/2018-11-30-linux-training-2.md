@@ -1,5 +1,5 @@
 ---
-title: Linux training with overthewire Part 2: Bandit 11-20
+title: "Linux training with overthewire [Part 2/10: Bandit 11-20]"
 author: Florian Courgey
 layout: post
 categories:
@@ -118,7 +118,7 @@ $ cat /etc/bandit_pass/bandit16 | nc localhost 31960/tcp
 cluFn7wTiGryunymYOu4RcffSxQluehd
 ```
 
-### Level 17 - 
+### Level 17 -
 ```bash
 ssh -p 2220 bandit17@bandit.labs.overthewire.org
 # cluFn7wTiGryunymYOu4RcffSxQluehd http://overthewire.org/wargames/bandit/bandit17.html

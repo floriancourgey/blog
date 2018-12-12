@@ -80,7 +80,7 @@ bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 ```
 
-### Level 14 - Raw TCP/UDP connection
+### Level 14 - Raw TCP/UDP connection with `nc`
 ```bash
 ssh -p 2220 bandit14@bandit.labs.overthewire.org
 # 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e http://overthewire.org/wargames/bandit/bandit14.html
@@ -91,7 +91,7 @@ $ cat /etc/bandit_pass/bandit14 | nc localhost 30000
 BfMYroe26WYalil77FoDi9qh59eK5xNr
 ```
 
-### Level 15 - SSL connection
+### Level 15 - SSL connection with `openssl`
 ```bash
 ssh -p 2220 bandit15@bandit.labs.overthewire.org
 # BfMYroe26WYalil77FoDi9qh59eK5xNr http://overthewire.org/wargames/bandit/bandit15.html
@@ -100,4 +100,26 @@ ssh -p 2220 bandit15@bandit.labs.overthewire.org
 ```bash
 $ cat /etc/bandit_pass/bandit15 | openssl s_client -ign_eof -connect localhost:30001
 cluFn7wTiGryunymYOu4RcffSxQluehd
+```
+
+### Level 16 - Scan server ports with `nmap`
+```bash
+ssh -p 2220 bandit16@bandit.labs.overthewire.org
+# cluFn7wTiGryunymYOu4RcffSxQluehd http://overthewire.org/wargames/bandit/bandit16.html
+```
+`nmap` is one of the best tools for server pentesting and auditing: it guesses OS name, open ports, running services, firewalls and many other features. See [man nmap](https://linux.die.net/man/1/nmap).
+```bash
+$ nmap localhost -p31000-32000
+PORT      STATE SERVICE
+31518/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+$ cat /etc/bandit_pass/bandit16 | nc localhost 31960/tcp
+cluFn7wTiGryunymYOu4RcffSxQluehd
+```
+
+### Level 17 - 
+```bash
+ssh -p 2220 bandit17@bandit.labs.overthewire.org
+# cluFn7wTiGryunymYOu4RcffSxQluehd http://overthewire.org/wargames/bandit/bandit17.html
 ```

@@ -17,6 +17,7 @@ This post is part of a series:
 - [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training %})
 - Linux training with overthewire Part 2: Bandit 11-20
 - [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})
+- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-4 %})
 
 ### Level 11 - ROT13 without any programming language
 ```bash
@@ -244,3 +245,9 @@ gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 ```
 
 ![](/assets/images/2018/12/overthewire-bandit20.jpg)
+
+This post is part of a series:
+- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training %})
+- Linux training with overthewire Part 2: Bandit 11-20
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})
+- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-4 %})

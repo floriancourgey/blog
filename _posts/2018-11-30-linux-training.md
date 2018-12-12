@@ -15,6 +15,11 @@ The concept is to connect to a server through SSH and find out a password or a w
 
 To learn how to connect via SSH, use this [SSH tutorial for Windows](https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/putty/) and this [SSH tutorial for Linux/Mac](https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/openssh/).
 
+This post is part of a series:
+- Linux training with overthewire Part 1: Bandit 1-10
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})
+
 ## First levels
 ### Level 0 - `ls` and `cat`
 To connect to the first level, SSH with port `2220` as `bandit0` on `bandit.labs.overthewire.org`:
@@ -200,3 +205,7 @@ The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 ```
 
 Sweet!
+
+- Linux training with overthewire Part 1: Bandit 1-10
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-3 %})

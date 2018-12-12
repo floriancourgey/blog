@@ -27,8 +27,8 @@ Excerpt here.
 /sbin # "system binaries"
   fdisk, fsck, init, reboot
 /tmp # temp folder, gets emptied at reboot
-/usr # "users", 
-  bin/ games/ lib/ local/ sbin/ 
+/usr # "users",
+  bin/ games/ lib/ local/ sbin/
 /var # "variable", folder for files that change often
   log/ mail/ www/
 ```
@@ -128,3 +128,20 @@ unzip -q file.zip # Unzip with quietly (no output)
 
 [man zip](https://linux.die.net/man/1/zip),
 [man unzip](https://linux.die.net/man/1/unzip)
+
+## Programming
+
+### PHP
+```bash
+php -v # PHP version
+php -a # interactive shell
+php -c php.ini # use this config file
+php -n # use no config file
+php -f file # parse and execute file
+php -r "echo 'test';" # execute code without tags <? .. ?>
+php -i # displays phpinfo() for CLI
+php -S localhost:8000 -t web/ app.php # start the PHP built-in web server in the folder web/ with every requests sent to web/app.php on port 8000
+```
+
+
+### Python

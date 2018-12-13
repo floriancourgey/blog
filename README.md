@@ -1,8 +1,15 @@
 # www
 ```bash
-ruby -v
-bundle install
-bundle exec jekyll serve
+$ ruby -v
+$ bundle install
+$ jekyll serve
+Server address: http://127.0.0.1:4000/
+```
+
+## update Algolia index
+```bash
+$ echo 'my_algolia_key' > _algolia_api_key
+$ jekyll algolia
 ```
 
 ## Create a post

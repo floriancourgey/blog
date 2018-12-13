@@ -62,7 +62,16 @@ grep 'word' file1 file2
 grep -w 'word_only' file1 file2
 grep -r 'word' dir
 grep -n file-with-line-numbers
-grep -A 1 # next lines, -B 1 previous lines, -C both lines
+grep -A 1 file # next lines, -B 1 previous lines, -C both lines
+grep -e '^[A-C]' file # regex
+```
+
+[man grep](https://linux.die.net/man/1/grep)
+
+## Encode & decode
+```bash
+echo 'I-love-you' | base64 # base64 encode (SS1sb3ZlLXlvdQo=)
+echo 'SS1sb3ZlLXlvdQ==' | base64 -d # base64 decode (I-love-you)
 ```
 
 ## GCC Gnu C Compiler

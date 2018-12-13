@@ -178,17 +178,20 @@ ssh krypton4@krypton.labs.overthewire.org -p 2222
 $ cd /krypton/krypton4 && ls
 HINT  README  found1  found2  krypton5
 ```
+[dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher)
+![](/assets/images/2018/12/dcode-vigenere-key-6-frekey.jpg)
 
-FREKEY
-CLEARTEXT
+- Key: `FREKEY`
+- Encoded pass: `HCIKVRJOX`
+- Decoded pass: `CLEARTEXT`
 
-### Level  -
+### Level 5 -
 ```bash
-ssh krypton1@krypton.labs.overthewire.org -p 2222
-# KRYPTONISGREAT http://overthewire.org/wargames/krypton/krypton1.html
+ssh krypton5@krypton.labs.overthewire.org -p 2222
+# CLEARTEXT http://overthewire.org/wargames/krypton/krypton5.html
 ```
-
-
+Viegenere breaker in JCrypTool:
+![](/assets/images/2018/12/jcryptool-vigenere-breaker.jpg)
 
 
 This post is part of a series:

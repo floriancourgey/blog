@@ -123,8 +123,10 @@ Sitemap: {{ site.url }}/sitemap.xml
 ## Migrate HTML to Markdown
 Headers
 ```
-Find:    [ \t]*<h2>\s*([\w  \-]+)\s*</h2>
-Replace: ## $1
+Find:     [ \t]*<h2>\s*([\w  \-]+)\s*</h2>
+Replace:  ## $1
+Find:     [ \t]*<h3>\s*([\w  \-]+)\s*</h3>
+Replace:  ### $1
 ```
 
 Links (URL regex from https://www.regexpal.com/94502)

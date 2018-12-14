@@ -7,10 +7,12 @@ categories: [opensource,linux,server,network,unix,crack,hack]
 Cheatsheet for various unix tools such as enumeration, nmap, radare2 and volatility.
 <!--more-->
 ## Introduction
-- nmap
-- radare2 r2
-- volatility
-- Unix server enumeration
+<style>#introduction:before{content: "";counter-increment: h2 -1}</style>
+1. [Network scanning with nmap](#nmap)
+1. [Reverse engineering with radare2](#radare2)
+1. [Memdump forensics with volatility](#volatility)
+1. [Wordlist & dictionnaries](#dictionnaries)
+1. [Unix server enumeration](#enumeration)
 
 ## nmap
 
@@ -57,6 +59,9 @@ Network Distance: 20 hops
 $ nmap {h} -p 40000-45000 # scan from ports 40000 to 45000
 ```
 
+### References
+
+- https://www.digitalocean.com/community/tutorials/how-to-use-nmap-to-scan-for-open-ports-on-your-vps
 
 
 
@@ -115,7 +120,7 @@ $ r2 my_bin # for UNIX
 |           ; var int local_1ch @ ebp-0x1c
 ```
 
-## Memdump forensics with volatility
+## volatility
 Install:
 ```bash
 $ wget http://downloads.volatilityfoundation.org/releases/2.6/volatility_2.6_mac64_standalone.zip<br/>
@@ -144,8 +149,8 @@ $ clipboard # Clipboard content
 ```
 [Command reference on github.com/volatilityfoundation/volatility](https://github.com/volatilityfoundation/volatility/wiki/Command-Reference)
 
-## Wordlist & dictionnaries
+## Dictionnaries
 - [https://github.com/fuzzdb-project/fuzzdb/tree/master/wordlists-user-passwd](https://github.com/fuzzdb-project/fuzzdb/tree/master/wordlists-user-passwd)
 - [https://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre)](https://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre))
 
-## Unix enumeration
+## Enumeration

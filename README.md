@@ -33,3 +33,9 @@ Excerpt here...
 
 Markdown reference
 [https://guides.github.com/features/mastering-markdown/#examples](https://guides.github.com/features/mastering-markdown/#examples)
+
+## Changelog
+- 20181214 Pages migrated from floriancourgey.github.io/tools (Crack, UNIX) & links to String, SEO, MPG
+- 20181213 Over The Wire series
+- 20181127 Algolia implemented
+- 201811120 Creation

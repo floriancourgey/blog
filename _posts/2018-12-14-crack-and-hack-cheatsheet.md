@@ -2,11 +2,7 @@
 title: Crack & Hack cheatsheet
 author: Florian Courgey
 layout: post
-categories:
-  - prestashop
-  - google
-  - opensource
-  - adobe campaign
+categories: [opensource,linux,server,network,unix,crack,hack]
 ---
 Cheatsheet for various unix tools such as enumeration, nmap, radare2 and volatility.
 <!--more-->

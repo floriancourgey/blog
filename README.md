@@ -19,11 +19,7 @@ touch _posts/YYYY-mm-dd-slug-here.md
 title: New article
 author: Florian Courgey
 layout: post
-categories:
-  - prestashop
-  - google
-  - opensource
-  - adobe campaign
+categories: [prestashop,google,opensource,adobe campaign]
 ---
 Excerpt here...
 <!--more-->

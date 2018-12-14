@@ -14,6 +14,8 @@
 <!-- custom js -->
 <script defer src="{{'/assets/js/lightgallery.js'|relative_url}}" charset="utf-8"></script>
 <script defer src="{{'/assets/js/header-anchor.js'|relative_url}}" charset="utf-8"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script>
-<script defer src="{{site_url}}/assets/js/search-algolia.js" charset="utf-8"></script>
+<!-- Algolia -->
+{% if jekyll.environment == 'production' %}
+  <script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script>
+  <script defer src="{{site_url}}/assets/js/search-algolia.js" charset="utf-8"></script>
+{% endif %}

@@ -1,0 +1,11 @@
+---
+---
+{
+  "name": "{{site.manifest.name}}",
+  "short_name": "{{site.manifest.short_name}}",
+  "theme_color": "{{site.manifest.theme_color}}",
+  "background_color": "{{site.manifest.background_color}}",
+  "display": "{{site.manifest.display}}",
+  "scope": "{{site.manifest.scope}}",
+  "start_url": "{{site.manifest.start_url}}"
+}

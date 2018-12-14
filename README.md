@@ -13,8 +13,11 @@ $ jekyll algolia
 ```
 
 ## Create a post
-touch _posts/YYYY-mm-dd-slug-here.md
+```bash
+$ touch _posts/YYYY-mm-dd-slug-here.md
 ```
+
+```markdown
 ---
 title: New article
 author: Florian Courgey
@@ -27,3 +30,6 @@ Excerpt here...
 ## Use h2 for each section
 ![todo](/assets/images/2018/11/image.png)
 ```
+
+Markdown reference
+[https://guides.github.com/features/mastering-markdown/#examples](https://guides.github.com/features/mastering-markdown/#examples)

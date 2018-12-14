@@ -3,11 +3,6 @@ layout: default
 ---
 
 <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
   h1 {
     margin: 30px 0;
     font-size: 4em;
@@ -16,9 +11,22 @@ layout: default
   }
 </style>
 
-<div class="container">
+<div class="container text-center">
   <h1>404</h1>
 
   <p><strong>Page not found :(</strong></p>
   <p>The requested page could not be found.</p>
+
+  <!-- Sentry.io -->
+  <script src="https://browser.sentry-cdn.com/4.4.1/bundle.min.js" crossorigin="anonymous"></script>
+  <script src="{{site_url}}/assets/js/sentry.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    if(undefined !== Sentry){
+      Sentry.captureException({
+        'name':'Exception404',
+        'message':'404 error page',
+      });
+      console.log('404 sent to Sentry.io');
+    }
+  </script>
 </div>

@@ -1,15 +1,11 @@
-# www
+# Repository for Jekyll on Github website https://blog.floriancourgey.com
+
+## Install & run
 ```bash
 $ ruby -v
 $ bundle install
 $ jekyll serve
 Server address: http://127.0.0.1:4000/
-```
-
-## update Algolia index
-```bash
-$ echo 'my_algolia_key' > _algolia_api_key
-$ jekyll algolia
 ```
 
 ## Create a post
@@ -33,6 +29,12 @@ Excerpt here...
 
 Markdown reference
 [https://guides.github.com/features/mastering-markdown/#examples](https://guides.github.com/features/mastering-markdown/#examples)
+
+## Update Algolia index
+```bash
+$ echo 'my_algolia_key' > _algolia_api_key
+$ jekyll algolia
+```
 
 ## Changelog
 - 20181214 Pages migrated from floriancourgey.github.io/tools (Crack, UNIX) & links to String, SEO, MPG

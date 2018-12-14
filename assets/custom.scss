@@ -51,6 +51,17 @@ article.post {
     margin: auto;
     display: block;
   }
+  h2 {
+    counter-increment: h2;
+    &:before {
+      content: counter(h2, upper-roman) ". ";
+    }
+  }
+  h3 {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 2rem;
+  }
 }
 /******************************
            LIGHTGALLERY

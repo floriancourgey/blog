@@ -180,9 +180,10 @@ ssh -p 2220 bandit28@bandit.labs.overthewire.org
 # 0ef186ac70e04ea33b4c1853d2526fa2 http://overthewire.org/wargames/bandit/bandit29.html
 ```
 ```bash
+$ cd $(mktemp -d)
 $ git clone ssh://bandit28-git@localhost/home/bandit28-git/repo && cd repo && ls
 README
-$ cat README
+$ cat README.md
 - username: bandit29
 - password: xxxxxxxxxx
 $ git log --follow -p -- README.md
@@ -193,7 +194,75 @@ index 3f7cee8..5c6457b 100644
 +- password: xxxxxxxxxx
 ```
 
+## Level 29 - `git log -all`
+```bash
+ssh -p 2220 bandit29@bandit.labs.overthewire.org
+# bbc96594b4e001778eee9975372716b2 http://overthewire.org/wargames/bandit/bandit30.html
+```
+```bash
+$ cd $(mktemp -d)
+$ git clone ssh://bandit29-git@localhost/home/bandit29-git/repo && cd repo && ls
+$ cat README.md
+password: <no passwords in production!>
+$ git log --all --pretty=oneline
+33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3 add data needed for development
+$ git checkout 33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3
+$ cat README.md
+- password: 5b90576bedb2cc04c86a9e924ce42faf
+```
 
+## Level 30 - `git tag`
+```bash
+ssh -p 2220 bandit30@bandit.labs.overthewire.org
+# 5b90576bedb2cc04c86a9e924ce42faf http://overthewire.org/wargames/bandit/bandit31.html
+```
+```bash
+$ cd $(mktemp -d)
+$ git clone ssh://bandit30-git@localhost/home/bandit30-git/repo && cd repo && ls
+README.md
+$ cat README.md
+just an epmty file... muahaha
+$ git log --all --pretty=oneline
+3aa4c239f729b07deb99a52f125893e162daac9e initial commit of README.md
+$ git branch
+* master
+$ git tag
+secret
+$ git show secret
+47e603bb428404d265f59c42920d81e5
+```
+
+## Level 30 - `git `
+```bash
+ssh -p 2220 bandit31@bandit.labs.overthewire.org
+# 47e603bb428404d265f59c42920d81e5 http://overthewire.org/wargames/bandit/bandit32.html
+```
+```bash
+$ cd $(mktemp -d)
+$ git clone ssh://bandit31-git@localhost/home/bandit31-git/repo && cd repo && ls
+README.md
+$ cat README.md
+This time your task is to push a file to the remote repository.
+    File name: key.txt
+    Content: 'May I come in?'
+$ echo 'May I come in?' > key.txt
+$ git add key.txt
+The following paths are ignored by one of your .gitignore files: key.txt
+$ ls -a
+.git  .gitignore  README.md
+$ cat .gitignore
+*.txt
+$ rm .gitignore
+$ git add .
+$ git commit -m 'yo'
+$ git push
+remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+remote:
+remote: Well done! Here is the password for the next level:
+remote: 56a9bf19c63d650ce78e6ec0354ee45e
+remote:
+remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+```
 
 This post is part of a series:
 - [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})

@@ -142,14 +142,55 @@ ssh -p 2220 bandit25@bandit.labs.overthewire.org
 
 Exploit of the `more` command by reducing terminal's height so `more` hangs. This way we can execute command such as `v` to fire up a `vi` editor.
 
-Then in `vi`: `:r /etc/bandit_pass/bandit26`.
-
-5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+Then in `vi`: 
+```
+:set shell=/bin/bash`
+:shell
+$ id
+uid=11026(bandit26) gid=11026(bandit26) groups=11026(bandit26)
+```
 
 ### Level 26 -
 ```bash
-ssh -p 2220 bandit26@bandit.labs.overthewire.org
-# 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z http://overthewire.org/wargames/bandit/bandit27.html
+Connect from previous level
+```
+```bash
+$ ls
+bandit27-do  text.txt
+$ ./bandit27-do cat /etc/bandit_pass/bandit27
+3ba3118a22e93127a4ed485be72ef5ea
+```
+
+## Level 27 - `git clone`
+```bash
+ssh -p 2220 bandit27@bandit.labs.overthewire.org
+# 3ba3118a22e93127a4ed485be72ef5ea http://overthewire.org/wargames/bandit/bandit28.html
+```
+```bash
+$ cd $(mktemp -d)
+$ git clone ssh://bandit27-git@localhost/home/bandit27-git/repo && ls repo
+README
+$ cat repo/README
+The password to the next level is: 0ef186ac70e04ea33b4c1853d2526fa2
+```
+
+## Level 28 - `git log`
+```bash
+ssh -p 2220 bandit28@bandit.labs.overthewire.org
+# 0ef186ac70e04ea33b4c1853d2526fa2 http://overthewire.org/wargames/bandit/bandit29.html
+```
+```bash
+$ git clone ssh://bandit28-git@localhost/home/bandit28-git/repo && cd repo && ls
+README
+$ cat README
+- username: bandit29
+- password: xxxxxxxxxx
+$ git log --follow -p -- README.md
+index 3f7cee8..5c6457b 100644
+@@ -4,5 +4,5 @@ Some notes for level29 of bandit.
+ - username: bandit29
+-- password: bbc96594b4e001778eee9975372716b2
++- password: xxxxxxxxxx
 ```
 
 

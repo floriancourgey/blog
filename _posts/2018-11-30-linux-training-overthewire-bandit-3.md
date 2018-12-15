@@ -232,7 +232,7 @@ $ git show secret
 47e603bb428404d265f59c42920d81e5
 ```
 
-## Level 30 - `git `
+## Level 31 - `.gitignore`
 ```bash
 ssh -p 2220 bandit31@bandit.labs.overthewire.org
 # 47e603bb428404d265f59c42920d81e5 http://overthewire.org/wargames/bandit/bandit32.html
@@ -262,6 +262,40 @@ remote: Well done! Here is the password for the next level:
 remote: 56a9bf19c63d650ce78e6ec0354ee45e
 remote:
 remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+```
+
+## Level 32 - Modified shell
+```bash
+ssh -p 2220 bandit32@bandit.labs.overthewire.org
+# 47e603bb428404d265f59c42920d81e5 http://overthewire.org/wargames/bandit/bandit33.html
+```
+```bash
+>> ls
+sh: 1: LS: not found
+>> $0
+$ id
+uid=11033(bandit33) gid=11032(bandit32) groups=11032(bandit32)
+$ cat /etc/bandit_pass/bandit33
+c9c3199ddf4121b10cf581a98d51caee
+```
+
+## Level 33 - That's it folks!
+```bash
+ssh -p 2220 bandit32@bandit.labs.overthewire.org
+# c9c3199ddf4121b10cf581a98d51caee http://overthewire.org/wargames/bandit/bandit33.html
+```
+```bash
+$ ls
+README.txt
+$ cat README.txt
+Congratulations on solving the last level of this game!
+
+At this moment, there are no more levels to play in this game. However, we are constantly working
+on new levels and will most likely expand this game with more levels soon.
+Keep an eye out for an announcement on our usual communication channels!
+In the meantime, you could play some of our other wargames.
+
+If you have an idea for an awesome new level, please let us know!
 ```
 
 This post is part of a series:

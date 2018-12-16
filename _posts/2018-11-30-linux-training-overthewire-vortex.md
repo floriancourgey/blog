@@ -1,5 +1,5 @@
 ---
-title: "Linux training with overthewire [Part 5/10: Natas 11-]"
+title: "Linux training with overthewire [Part X: Vortex 1-]"
 author: Florian Courgey
 layout: post
 categories:

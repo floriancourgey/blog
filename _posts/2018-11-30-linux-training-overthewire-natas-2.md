@@ -438,6 +438,8 @@ Username: natas21
 Password: IFekPyrQXftziDEsUr3x21sYuahypdgJ
 ```
 
+References:
+- https://www.notsosecure.com/remote-code-execution-via-php-unserialize/ (not related but might be handy in the future)
 
 ### Level  -
 ```

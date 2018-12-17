@@ -53,6 +53,21 @@ wget https://myfile.com -O output # save a web file to disk
 ```
 [man echo](https://linux.die.net/man/1/echo), [man wget](https://linux.die.net/man/1/wget)
 
+## UNIX man
+The UNIX manual is divised into 10 sections:
+- Section 1: user commands
+- Section 2: system calls
+- Section 3: C library functions
+- Section 4: special files
+- Section 5: file formats
+- Section 6: games
+- Section 7: conventions and miscellany
+- Section 8: administration and privileged commands
+- Section L: math library functions
+- Section N: tcl functions
+
+The online version is available on [https://linux.die.net/man/{section id}/{name}](https://linux.die.net/man/). Usually, pages can be accessed with the section number and the name of the tool/function/page. For example, the man page for `strtod(3)` is available online at [https://linux.die.net/man/3/strtod](https://linux.die.net/man/3/strtod).
+
 ## curl
 ```bash
 curl site.com # protocol defaulted to http

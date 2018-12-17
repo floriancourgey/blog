@@ -441,6 +441,41 @@ Password: IFekPyrQXftziDEsUr3x21sYuahypdgJ
 References:
 - https://www.notsosecure.com/remote-code-execution-via-php-unserialize/ (not related but might be handy in the future)
 
+### Level 21 - Session spoofing with sub-domains
+```
+http://natas21.natas.labs.overthewire.org/ natas21 IFekPyrQXftziDEsUr3x21sYuahypdgJ
+```
+Alright we got 2 websites:
+- The target: http://natas21.natas.labs.overthewire.org/
+- The vulnerable sub-domain http://natas21-experimenter.natas.labs.overthewire.org
+
+The sub-domain exposes a security breaches through this code (l. 14-18):
+```php
+if(array_key_exists("submit", $_REQUEST)) { 
+  foreach($_REQUEST as $key => $val) { 
+    $_SESSION[$key] = $val; 
+  } 
+} 
+```
+Any key/value pair sent through GET/POST will be set in the `$_SESSION`, example with [http://natas21-experimenter.natas.labs.overthewire.org/index.php?submit=Update&admin=1&debug=1](http://natas21-experimenter.natas.labs.overthewire.org/index.php?submit=Update&admin=1&debug=1):
+![](/assets/images/2018/12/overthewire-natas21-requests-exploit.jpg)
+
+As we previously saw, PHP sessions are written to and read from a file (default `php5/sessions/sess_{PHPSESSID}`) on the server side, and the id is stored as a cookie on the client side. We can copy the PHHSESSID of `natas21-experimenter.` and use it on `natas21.`:
+
+<div class="text-center">
+  <video autoplay loop muted playsinline height="250">
+    <source src="/assets/images/2018/12/overthewire-natas21-session-spoofing.mp4" type="video/mp4" />
+  </video>
+</div>
+
+```
+You are an admin. The credentials for the next level are:
+Username: natas22
+Password: chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ
+```
+
+
+
 ### Level  -
 ```
 http://natas1.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto

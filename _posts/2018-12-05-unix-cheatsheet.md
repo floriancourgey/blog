@@ -46,14 +46,33 @@ ls -ld /usr/{,local/}{bin,sbin,lib} # ls only dir with Shell Expansion
 [man id](https://linux.die.net/man/1/id), [man who](https://linux.die.net/man/1/who), [man ls](https://linux.die.net/man/1/ls)
 
 
-
-
 ```bash
 echo -e "hello\n$(cat file)" > file # prepend to file
 echo "hello" >> file # append to file
 wget https://myfile.com -O output # save a web file to disk
 ```
 [man echo](https://linux.die.net/man/1/echo), [man wget](https://linux.die.net/man/1/wget)
+
+## curl
+```bash
+curl site.com # protocol defaulted to http
+curl site.com/basic-auth --user user1:plainPassword1 # Basic auth
+curl ftp://site.com -u FTP_USERNAME:FTP_PASSWORD # list directories and files via FTP
+curl ftp://site.com/file -u FTP_USERNAME:FTP_PASSWORD # download file via FTP
+curl ftp://site.com/ -T file -u FTP_USERNAME:FTP_PASSWORD # upload file via FTP
+curl site.com -I # dump response headers
+curl site.com -v # verbose mode to show IP, port, Request and Reponse headers..
+curl site.com -H "Referer:a.com" -H "Content-Type:application/json" -H "User-Agent:..." # set headers
+curl site.com --raw # raw and undecoded version of the response
+curl site.com -s # --silent version, no output
+curl site.com -L # --location, follow redirects
+curl site.com/form -d "key1=val1&var2=love%20you" # --data POST for form, automatically set the header "Content-type:application/x-www-form-urlencoded"
+curl site.com/form --data-urlencode "key1=val1&var2=love you" # automatic url encode
+curl google.{fr,com,de} # fetch multiple URLs at once with {syntax}
+curl numericals.com/file[1-100].txt # fetch from 1 to 100 with [] syntax
+curl numericals.com/file[1-100:10].txt # same with counter step set to 10 => 1, 11, 21...
+curl letters.com/file[a-z:2].txt # fetch letters from a to z with step set to 2
+```
 
 ## grep (find in file and files)
 

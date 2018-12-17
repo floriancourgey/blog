@@ -41,3 +41,6 @@ $ jekyll algolia
 - 20181213 Over The Wire series
 - 20181127 Algolia implemented
 - 201811120 Creation
+
+## Useful links
+- https://cloudconvert.com

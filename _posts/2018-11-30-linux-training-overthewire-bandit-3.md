@@ -17,8 +17,10 @@ This post is part of a series:
 - [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})
 - [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
 - Linux training with overthewire Part 3: Bandit 21-30
-- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})
-- [Linux training with overthewire Part 5: Leviathan]({% post_url 2018-11-30-linux-training-overthewire-leviathan %})
+- [Linux training with overthewire Part 4: Natas 1-10]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})
+- [Linux training with overthewire Part 5: Natas 11-20]({% post_url 2018-11-30-linux-training-overthewire-natas-2 %})
+- [Linux training with overthewire Part 6: Leviathan]({% post_url 2018-11-30-linux-training-overthewire-leviathan %})
+- [Linux training with overthewire Part 7: Krypton]({% post_url 2018-11-30-linux-training-overthewire-krypton %})
 
 ### Level 21 - CRON
 ```bash
@@ -142,7 +144,7 @@ ssh -p 2220 bandit25@bandit.labs.overthewire.org
 
 Exploit of the `more` command by reducing terminal's height so `more` hangs. This way we can execute command such as `v` to fire up a `vi` editor.
 
-Then in `vi`: 
+Then in `vi`:
 ```
 :set shell=/bin/bash`
 :shell

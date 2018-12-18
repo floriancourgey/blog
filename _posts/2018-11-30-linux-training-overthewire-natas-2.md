@@ -591,7 +591,7 @@ $ curl -v --user natas25:GHF6X7YwACaYYssHVY05cFq83hRktl4c http://natas25.natas.l
 ```
 
 
-### Level 26 - PHP `unserialize`
+### Level 26 - PHP exploit with `unserialize()` and `__destruct()`
 ```
 http://natas.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
 ```

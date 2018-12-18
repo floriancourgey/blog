@@ -22,27 +22,34 @@ Create a JS Activity like this:
 
 We have no knowledge of the server, let&#8217;s start our digging with some basic commands:
 
-<pre class="lang:js decode:true">execCommand("id");</pre>
+```js
+execCommand("id");
+```
 
 The workflow finishes with success, but there&#8217;s no output. Edit it like this:
 
-<pre class="lang:js decode:true">var result = execCommand("id");
-logInfo(result); // 0,uid=XXXX (aaa) gid=YYYY (bbb) groups=...</pre>
+```js
+var result = execCommand("id");
+logInfo(result); // 0,uid=XXXX (aaa) gid=YYYY (bbb) groups=...
+```
 
-Because <span class="lang:js decode:true crayon-inline ">execCommand</span>  signature is as follow:
+Because `execCommand`  signature is as follow:
 
-<pre class="lang:js decode:true">/**
+```js
+/**
  * @param cmd Bash command to be executed on the server
  * @return array[int status, string response]
  * @throw Exception if 
  *   - command failed
  *   - the neolane user doesn't have the "createProcess" right
  */
-function execCommand(string cmd): array</pre>
+function execCommand(string cmd): array
+```
 
 So we can wrap this up in a helper function:
 
-<pre class="lang:js decode:true">function exec(command, log){
+```js
+function exec(command, log){
   if(log){
     logInfo('cus:helpers | executing | '+command);
   }
@@ -54,11 +61,13 @@ So we can wrap this up in a helper function:
     }
   }
   return lines;
-}</pre>
+}
+```
 
 And therefore, use it this way:
 
-<pre class="lang:js decode:true ">exec('id', true); // ...
+```js
+exec('id', true); // ...
 exec('pwd', true); // /usr/local/neolane/[...]
 exec('cat /etc/issue', true); // Debian GNU/Linux X
 exec('uname -a', true); // Linux [...]
@@ -73,11 +82,12 @@ exec('cd ../../ && pwd && cat deprecated/server/nms/facebookConnector.js', true)
 exec('cd ../../ && pwd && cat datakit/nms/eng/js/twitterConnector.js', true)
 
 // find where the text " is mandatory." is defined
-exec("cd ../../ && pwd && grep --include=\*.xml -rnw . -e ' is mandatory.' ", true); // 08/02/2018 2:53:11 PM	js2222	./datakit/nms/eng/package/systemStrings.xml:116:  &lt;dictionaryString locale="en" context="system" object-id="0" sourceId="requiredLog" status="2" text="Field '{1}' is mandatory."&gt;
+exec("cd ../../ && pwd && grep --include=\*.xml -rnw . -e ' is mandatory.' ", true); // 08/02/2018 2:53:11 PM	js2222	./datakit/nms/eng/package/systemStrings.xml:116:  <dictionaryString locale="en" context="system" object-id="0" sourceId="requiredLog" status="2" text="Field '{1}' is mandatory.">
 
 // Apache info
 exec('cat /etc/apache2/apache2.conf', true) // display
 exec('cp /etc/apache2/apache2.conf /sftp/[...]/', true) // copy to your ftp
-exec("cat /etc/apache2/envvars &gt;&gt; /sftp/[...]/", true) // echo to a file</pre>
+exec("cat /etc/apache2/envvars > /sftp/[...]/", true) // echo to a file
+```
 
 Also, you can get the content of you serverConf.xml with [this tutorial](https://floriancourgey.com/2018/10/get-the-content-of-your-serverconf-xml-in-adobe-campaign/)

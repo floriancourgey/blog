@@ -48,3 +48,4 @@ $ jekyll algolia
 
 ## Useful links
 - https://cloudconvert.com
+- https://digital-forensics.sans.org/media/hex_file_and_regex_cheat_sheet.pdf

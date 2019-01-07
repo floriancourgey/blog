@@ -8,7 +8,7 @@ categories:
   - shell
   - unix
 ---
-Excerpt here.
+Cheatsheet with filesystem, commands and common utilities for UNIX based systems (Linux, Mac).
 <!--more-->
 
 ## UNIX filesystem
@@ -67,6 +67,24 @@ The UNIX manual is divised into 10 sections:
 - Section N: tcl functions
 
 The online version is available on [https://linux.die.net/man/{section id}/{name}](https://linux.die.net/man/). Usually, pages can be accessed with the section number and the name of the tool/function/page. For example, the man page for `strtod(3)` is available online at [https://linux.die.net/man/3/strtod](https://linux.die.net/man/3/strtod).
+
+## CRON
+
+## Debian
+Names coming from [Toy story chaaracters](https://www.debian.org/doc/manuals/debian-faq/ch-ftparchives#s-sourceforcodenames)
+```bash
+Debian 9 # stretch, 2017
+Debian 8 # jessie, 2015
+Debian 7 # wheezy, 2013
+Debian 6.0 # squeeze, 2011
+Debian 5.0 # lenny, 2009
+Debian 4.0 # etch
+Debian 3.1 # sarge
+Debian 3.0 # woody
+Debian 2.2 # potato
+Debian 2.1 # slink
+Debian 2.0 # hamm
+```
 
 ## curl
 ```bash

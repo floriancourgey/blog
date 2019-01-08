@@ -208,4 +208,5 @@ php -S localhost:8000 -t web/ app.php # start the PHP built-in web server in the
 ```bash
 python --version # Python version
 python # interactive shell
+python -c 'import os; print(os.urandom(16))' # execute code
 ```

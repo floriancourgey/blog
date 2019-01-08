@@ -204,5 +204,8 @@ php -i # displays phpinfo() for CLI
 php -S localhost:8000 -t web/ app.php # start the PHP built-in web server in the folder web/ with every requests sent to web/app.php on port 8000
 ```
 
-
 ### Python
+```bash
+python --version # Python version
+python # interactive shell
+```

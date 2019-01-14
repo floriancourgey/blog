@@ -53,6 +53,18 @@ wget https://myfile.com -O output # save a web file to disk
 ```
 [man echo](https://linux.die.net/man/1/echo), [man wget](https://linux.die.net/man/1/wget)
 
+```bash
+ls -l > file # stdout 2 file
+ls -l > file # stderr 2 file
+ls -l 1>&2 # stdout 2 stderr
+ls -l 2>&1 # stderr 2 stdout
+ls -l &> file # both stdout and stderr 2 file
+ls -l &> /dev/null # totally wipes output (i.e for silent CRON)
+
+echo $? # last return code. 0 is success, 126 is found but not executable, 127 is not found, any non-zero integer is failure
+```
+[TLDP redirection](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-3.html), [wiki exit status](https://en.wikipedia.org/wiki/Exit_status)
+
 ## UNIX man
 The UNIX manual is divised into 10 sections:
 - Section 1: user commands

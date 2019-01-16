@@ -204,9 +204,9 @@ unzip -q file.zip # Unzip with quietly (no output)
 
 ## Programming
 
-### PHP
+### PHP and composer
 ```bash
-php -v # PHP version
+php -v # PHP version (5.6, 7.2...)
 php -a # interactive shell
 php -c php.ini # use this config file
 php -n # use no config file
@@ -214,11 +214,25 @@ php -f file # parse and execute file
 php -r "echo 'test';" # execute code without tags <? .. ?>
 php -i # displays phpinfo() for CLI
 php -S localhost:8000 -t web/ app.php # start the PHP built-in web server in the folder web/ with every requests sent to web/app.php on port 8000
+composer --version # 1.6
+composer require guzzlehttp/guzzle # install the guzzle package, public list on https://packagist.org/
+composer install # install deps from composer.lock
+composer exec phpunit # execute a bin from vendor/bin/
 ```
 
-### Python
+### Python and pip
 ```bash
-python --version # Python version
+python --version # Python version (2.7, 3.2...)
 python # interactive shell
 python -c 'import os; print(os.urandom(16))' # execute code
+pip install requests # install module requests
 ```
+
+### Ruby, Gem and Jekyll
+```bash
+ruby -v # Ruby version (2.2, 2.5...)
+gem -v # Gem version (2.7..)
+gem install bundler # install the bundler gem, public list on https://rubygems.org/gems
+jekyll
+```
+{% url 'love' %}

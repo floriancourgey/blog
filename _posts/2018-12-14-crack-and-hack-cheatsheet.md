@@ -16,7 +16,7 @@ Cheatsheet for various unix tools such as enumeration, nmap, radare2 and volatil
 1. [Wordlist & dictionnaries](#dictionnaries)
 1. [Unix server enumeration](#enumeration)
 
-You can also check out the [awesome list for CTFs (github/apsdehal/awesome-ctf)](https://github.com/apsdehal/awesome-ctf#readme).
+You can also check out the [awesome list for CTFs (github.com/apsdehal/awesome-ctf)](https://github.com/apsdehal/awesome-ctf#readme) and the [awesome list for Security (github.com/sindresorhus/awesome)](https://github.com/sindresorhus/awesome#security).
 
 ## nmap
 

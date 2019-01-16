@@ -8,3 +8,4 @@ install:
   - bundle install
 script:
   - jekyll doctor
+  - jekyll build

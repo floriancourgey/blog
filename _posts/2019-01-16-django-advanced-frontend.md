@@ -90,3 +90,20 @@ Refresh [127.0.0.1:8000](http://127.0.0.1:8000/) and see the updated list of pro
 
 As well as the administration Products list:
 ![](/assets/images/2019/01/django-admin-home-with-new-products.jpg)
+
+## Output JSON for API purposes
+Let's say we would like our index page to output `application/json`. Start by editing `shop/views.py`:
+```python
+    def get(self, request):
+      products = list(map(lambda x: x.as_dict(), Product.objects.filter(active=1))) # as_dict is defined below
+      return JsonResponse(products, safe=False)
+```
+And add `as_dict()` in `shop/models.py`:
+```python
+    def as_dict(self):
+      d = self.__dict__
+      del d['_state']
+      return d
+```
+
+![](/assets/images/2019/01/django-frontend-manual-api.jpg)

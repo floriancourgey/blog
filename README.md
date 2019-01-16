@@ -21,10 +21,20 @@ layout: post
 categories: [prestashop,google,opensource,adobe campaign]
 ---
 Excerpt here...
+<div class="text-center">🐍👑🌍</div>
 <!--more-->
 **bold** *italic*  ~~strikethrough~~
 ## Use h2 for each section
-![todo](/assets/images/2018/11/image.png)
+![todo](/assets/images/2019/01/image.png)
+```
+
+Video:
+```html
+<div class="text-center">
+  <video autoplay loop muted playsinline height="250">
+    <source src="/assets/images/2018/12/overthewire-natas12-php-injection.mp4" type="video/mp4" />
+  </video>
+</div>
 ```
 
 Markdown reference

@@ -92,9 +92,6 @@ GEM
     verbal_expressions (0.1.5)
     wdm (0.1.1)
 
-PLATFORMS
-  x64-mingw32
-
 DEPENDENCIES
   jekyll (~> 3.8.5)
   jekyll-algolia

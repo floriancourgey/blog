@@ -2,7 +2,8 @@
 title: Django Python web server overview
 author: Florian Courgey
 layout: post
-categories: [opensource,linux,server,python,django,]
+categories: [opensource,linux,server,python,django]
+date: 2019-01-16 11:31:16
 ---
 While Django was created in 2005 by a newspaper web team, it is now a generic web development framework used by Big sites such as Instagram, Pinterest or BitBucket. Let's see in 5 minutes how 50 lines of code can create a fully featured CRUD modern web app.
 
@@ -97,6 +98,8 @@ class Product(models.Model):
     notation = models.IntegerField(default=0)
     description = models.CharField(max_length=255, default='', blank=True)
     active = models.BooleanField(default=True)
+    def __str__(self):
+        return self.name+'('+str(self.id)+')'
 ```
 
 ### Update the db
@@ -140,11 +143,11 @@ shop/admin.py                         3      0   100%
 shop/apps.py                          3      3     0%
 shop/migrations/0001_initial.py       5      5     0%
 shop/migrations/__init__.py           0      0   100%
-shop/models.py                        8      0   100%
+shop/models.py                       10      0   100%
 shop/tests.py                         1      1     0%
 shop/views.py                         1      1     0%
 -----------------------------------------------------
-TOTAL                                46     17    63%
+TOTAL                                48     17    65%
 ```
 
 That's the power of django... **Less than 50 lines** of code for:
@@ -159,3 +162,12 @@ That's the power of django... **Less than 50 lines** of code for:
   - Templates (shop/templates/index.html with Django templating syntax)
 
 ➡️ Explore the Django MVT with the next tutorial [XXX](abc.com) ⬅️
+
+### This tutorial is part of The Django Series:
+- x
+- x
+- x
+
+*Reference:*
+- *https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction*
+- *https://www.djangoproject.com/start/overview/*

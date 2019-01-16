@@ -233,6 +233,7 @@ pip install requests # install module requests
 ruby -v # Ruby version (2.2, 2.5...)
 gem -v # Gem version (2.7..)
 gem install bundler # install the bundler gem, public list on https://rubygems.org/gems
-jekyll
+jekyll doctor # checks modules and config
+jekyll build # one time build of ./site
+jekyll serve # starts local server
 ```
-{% url 'love' %}

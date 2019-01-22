@@ -211,7 +211,7 @@ php -a # interactive shell
 php -c php.ini # use this config file
 php -n # use no config file
 php -f file # parse and execute file
-php -r "echo 'test';" # execute code without tags <? .. ?>
+php -r "echo 'test';" # execute PHP code without tags <? .. ?>
 php -i # displays phpinfo() for CLI
 php -S localhost:8000 -t web/ app.php # start the PHP built-in web server in the folder web/ with every requests sent to web/app.php on port 8000
 composer --version # 1.6
@@ -236,4 +236,13 @@ gem install bundler # install the bundler gem, public list on https://rubygems.o
 jekyll doctor # checks modules and config
 jekyll build # one time build of ./site
 jekyll serve # starts local server
+```
+
+### NodeJS and npm
+```bash
+node -v # nodejs version (8.x, 10.x...)
+node -e "var a=1" # execute JS code
+node -p "var a=1" # execute JS code and print result
+npm -v # 5.x
+npm install package-x
 ```

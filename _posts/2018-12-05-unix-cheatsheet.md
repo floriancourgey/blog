@@ -67,16 +67,16 @@ echo $? # last return code. 0 is success, 126 is found but not executable, 127 i
 
 ## UNIX man
 The UNIX manual is divised into 10 sections:
-- Section 1: user commands
-- Section 2: system calls
-- Section 3: C library functions
-- Section 4: special files
-- Section 5: file formats
-- Section 6: games
-- Section 7: conventions and miscellany
-- Section 8: administration and privileged commands
-- Section L: math library functions
-- Section N: tcl functions
+- [Section 1](https://linux.die.net/man/1/): user commands
+- [Section 2](https://linux.die.net/man/2/): system calls
+- [Section 3](https://linux.die.net/man/3/): C library functions
+- [Section 4](https://linux.die.net/man/4/): special files
+- [Section 5](https://linux.die.net/man/5/): file formats
+- [Section 6](https://linux.die.net/man/6/): games
+- [Section 7](https://linux.die.net/man/7/): conventions and miscellany
+- [Section 8](https://linux.die.net/man/8/): administration and privileged commands
+- [Section L](https://linux.die.net/man/l/): math library functions
+- [Section N](https://linux.die.net/man/n/): tcl functions
 
 The online version is available on [https://linux.die.net/man/{section id}/{name}](https://linux.die.net/man/). Usually, pages can be accessed with the section number and the name of the tool/function/page. For example, the man page for `strtod(3)` is available online at [https://linux.die.net/man/3/strtod](https://linux.die.net/man/3/strtod).
 

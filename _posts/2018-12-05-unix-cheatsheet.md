@@ -207,7 +207,7 @@ unzip -q file.zip # Unzip with quietly (no output)
 ### PHP and composer
 ```bash
 php -v # PHP version (5.6, 7.2...)
-php -a # interactive shell
+php -a # REPL interactive shell (exit with exit)
 php -c php.ini # use this config file
 php -n # use no config file
 php -f file # parse and execute file
@@ -223,7 +223,7 @@ composer exec phpunit # execute a bin from vendor/bin/
 ### Python and pip
 ```bash
 python --version # Python version (2.7, 3.2...)
-python # interactive shell
+python # REPL interactive shell (exit with exit())
 python -c 'import os; print(os.urandom(16))' # execute code
 pip install requests # install module requests
 ```
@@ -243,6 +243,7 @@ jekyll serve # starts local server
 node -v # nodejs version (8.x, 10.x...)
 node -e "var a=1" # execute JS code
 node -p "var a=1" # execute JS code and print result
+node # REPL interactive shell (exit with .exit)
 npm -v # 5.x
 npm install package-x
 ```

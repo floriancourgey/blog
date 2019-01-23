@@ -44,10 +44,11 @@ ls -alh # list a=All (even hidden .) as a l=List in a h=Human-readable format
 ls -ld /usr/{,local/}{bin,sbin,lib} # ls only dir with Shell Expansion
 mkdir {2019..2021}-0{1..9} {2019..2021}-{10..12} # Shell expansion with numbers
 mktemp # create a file and print its name, relative to $TMPDIR if set, else /tmp
-mktmep -d # create a directory
+mktemp -d # create a directory
+printenv | less # print env vars
+ls -l $(which python) # command substitution with $(cmd-here)
 ```
 [man id](https://linux.die.net/man/1/id), [man who](https://linux.die.net/man/1/who), [man ls](https://linux.die.net/man/1/ls)
-
 
 ```bash
 echo -e "hello\n$(cat file)" > file # prepend to file

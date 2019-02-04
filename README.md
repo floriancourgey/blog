@@ -51,6 +51,7 @@ $ jekyll algolia
 - [Allowed plugins](https://help.github.com/articles/configuring-jekyll-plugins/)
 
 ## Changelog
+- 20190204 migration from https://github.com/floriancourgey/www to https://github.com/floriancourgey/blog
 - 20181214 Pages migrated from floriancourgey.github.io/tools (Crack, UNIX) & links to String, SEO, MPG
 - 20181213 Over The Wire series
 - 20181127 Algolia implemented

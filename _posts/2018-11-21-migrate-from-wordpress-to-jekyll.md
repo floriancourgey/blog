@@ -64,7 +64,7 @@ I also added this bit at the top and the bottom of each post, in order to displa
   {% unless forloop.last %}&nbsp;{% endunless %}
 {% endfor %}
 ```{% endraw %}
-*See [https://github.com/floriancourgey/www/blob/master/_layouts/post.html](https://github.com/floriancourgey/www/blob/master/_layouts/post.html)*
+*See [https://github.com/floriancourgey/blog/blob/master/_layouts/post.html](https://github.com/floriancourgey/blog/blob/master/_layouts/post.html)*
 
 Noticed the `/categories?id=` part? With a bit of javascript, we are able to display a specific category:
 ![todo](/assets/images/2018/11/jekyll-display-categories-by-id.jpg)
@@ -79,7 +79,7 @@ if(location.search.match(/id=([^&]*)/i)){
   }
 }
 ```
-*See [https://github.com/floriancourgey/www/blob/master/categories.html](https://github.com/floriancourgey/www/blob/master/categories.html)*
+*See [https://github.com/floriancourgey/blog/blob/master/categories.html](https://github.com/floriancourgey/blog/blob/master/categories.html)*
 
 ### Add Previous/Next
 `_layouts/post.html`
@@ -113,11 +113,11 @@ Disqus
 User-agent: *
 Sitemap: {{ site.url }}/sitemap.xml
 ```
-*See [https://github.com/floriancourgey/www/blob/master/robotx.txt](https://github.com/floriancourgey/www/blob/master/robotx.txt)*
+*See [https://github.com/floriancourgey/blog/blob/master/robotx.txt](https://github.com/floriancourgey/blog/blob/master/robotx.txt)*
 
 ### Add the "Improve this page" link
 ```html
-<a href="https://github.com/floriancourgey/www/edit/master/{{ page.path }}" target="_blank">Improve this page</a>
+<a href="https://github.com/floriancourgey/blog/edit/master/{{ page.path }}" target="_blank">Improve this page</a>
 ```
 
 ## Migrate HTML to Markdown

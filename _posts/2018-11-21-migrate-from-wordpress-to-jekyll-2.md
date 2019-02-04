@@ -30,7 +30,7 @@ This feature consists of creating a JSON object with all pages and posts with Je
   {% endfor %}
 ]
 ```{% endraw %}
-*See source [https://github.com/floriancourgey/www/blob/master/search.json](https://github.com/floriancourgey/www/blob/master/search.json)*
+*See source [https://github.com/floriancourgey/blog/blob/master/search.json](https://github.com/floriancourgey/blog/blob/master/search.json)*
 
 The file is immediately available at [https://blog.floriancourgey.com/search.json](https://blog.floriancourgey.com/search.json).
 

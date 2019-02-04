@@ -103,4 +103,25 @@ logInfo('vars.var3', vars.var3);
  ![](/assets/images/2019/01/adobe-campaign-call-workflow-postevent-multiple-logs.jpg)
  
  ## Business case: exception handling
+ We can simulate a `try`/`catch`/`finally`:
+ 
+ ![](/assets/images/2019/01/adobe-campaign-call-workflow-with-errors-exception.jpg)
+ 
+ Will be equivalent to the following pseudo-code:
+ ```js
+ processA() // will stop the workflow if error
+ try {
+    // @throw NoFileException, ConnectionException
+    ftpDownload() // will not stop the workflow
+    // @throw GenericException
+    processB() // will not stop the workflow
+} catch(exception) {
+    alert()
+} finally {
+    CallToFinalWorkflow()
+}
+ ```
+ 
+ You may download [the XML of this workflow with exception here](/assets/adobe-campaign/workflow-with-exception.xml)
+ 
  

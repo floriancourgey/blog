@@ -70,8 +70,36 @@ function PostEvent (
  
  ![](/assets/images/2019/01/adobe-campaign-call-workflow-postevent-multiple-123.jpg)
  
- ![](/assets/images/2019/01/adobe-campaign-call-workflow-postevent-multiple-final.jpg)
+ They contain this JS code:
+ ```js
+ // start1  
+logInfo('start1 done');  
+var params = <variables var1="hello"/>;  
+xtk.workflow.PostEvent("finalWorkflow", "signal1", "", params, false);  
+// start2  
+logInfo('start2 done');  
+var myVar = "var myVar";  
+var params = <variables var2={myVar}/>;  
+xtk.workflow.PostEvent("finalWorkflow", "signal2", "", params, false);  
+// start3  
+logInfo('start3 done');  
+var myObject = {key:"value"};  
+var params = <variables var3={myObject.key}/>;  
+xtk.workflow.PostEvent("finalWorkflow", "signal3", "", params, false);  
+ ```
  
+ The `final` workflow contains 3 signals `signal1`, `signal2` and `signal3`, all linked to an `AND` activity:
+ ![](/assets/images/2019/01/adobe-campaign-call-workflow-postevent-multiple-final.jpg)
+ With this code
+ ```js
+logInfo('Final');
+logInfo('vars.var1', vars.var1);
+logInfo('vars.var2', vars.var2);
+logInfo('vars.var3', vars.var3);
+ ```
+ 
+
+ Run the last workflow, then the 3 first, and you'll have the following logs:
  ![](/assets/images/2019/01/adobe-campaign-call-workflow-postevent-multiple-logs.jpg)
  
  ## Business case: exception handling

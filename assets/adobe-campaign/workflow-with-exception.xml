@@ -1,0 +1,112 @@
+<workflow _cs="exception (WKF461)" aggregate-id="0" background="xtk:backgrounds/neolane.png"
+          builtIn="0" created="2019-02-04 15:55:12.976Z" createdBy-id="0" currentOrderId="0"
+          errorLimit="0" expiration="" failed="0" folder-id="0" folderProcess-id="0"
+          form="xtk:workflow" history="30" hostname="" id="31255570" inProcess="0"
+          internalName="WKF461" isModel="0" label="exception" lastModified="2019-02-04 16:12:56.913Z"
+          lastStart="" modelName="newWorkflow" modifiedBy-id="78015" nextProcessingAfn=""
+          nextProcessingDate="" nextProcessingHost="" onError="0" operation-id="0"
+          order="0" port="0" processDate="" processId="0" production="0" recurrentMdl="0"
+          routingOperation-id="0" scenario-cs="Notification of the workflow supervisor (notifySupervisor)"
+          scenario-id="3671" schema="nms:recipient" state="0" status="0" supervisor-id="0"
+          timezone="_inherit_" unlockedCount="0" xtkschema="xtk:workflow">
+  <activities>
+    <start collision="0" img="xtk:activities/start.png" label="Start" mask="0" name="start"
+           onError="0" runOnSimulation="true" timezone="_inherit_" x="16" y="16">
+      <transitions>
+        <initial enabled="true" name="initial" target="js3" x="0" y="0"/>
+      </transitions>
+    </start>
+    <end collision="0" img="xtk:activities/end.png" label="End" mask="0" name="end2"
+         onError="0" runOnSimulation="true" timezone="_inherit_" x="440" y="304"/>
+    <jumpin collision="0" img="xtk:activities/jump-1.png" label="Jump to 1" mask="0"
+            name="jumpin22" number="1" onError="0" runOnSimulation="true" timezone="_inherit_"
+            x="552" y="200"/>
+    <jumpin collision="0" img="xtk:activities/jump-1.png" label="Jump to 1" mask="0"
+            name="jumpin2" number="1" onError="0" runOnSimulation="true" timezone="_inherit_"
+            x="592" y="112"/>
+    <jumpin collision="0" img="xtk:activities/jump-1.png" label="Jump to 1" mask="0"
+            name="jumpin3" number="1" onError="0" runOnSimulation="true" timezone="_inherit_"
+            x="848" y="16"/>
+    <jumpin collision="0" img="xtk:activities/jump-1.png" label="Jump to 1" mask="0"
+            name="jumpin222" number="1" onError="0" runOnSimulation="true" timezone="_inherit_"
+            x="792" y="128"/>
+    <jumpout collision="0" img="xtk:activities/jump-1.png" label="End Jump 1" mask="0"
+             name="jumpout" number="1" onError="0" runOnSimulation="true" timezone="_inherit_"
+             x="136" y="304">
+      <transitions>
+        <transition enabled="true" name="transition" target="js2"/>
+      </transitions>
+    </jumpout>
+    <js collision="0" img="xtk:activities/script.png" label="Process B with potential errors"
+        mask="0" name="js" onError="0" timezone="_inherit_" x="560" y="16">
+      <transitions>
+        <done enabled="true" label="Ok" name="done" target="jumpin3" x="0" y="0"/>
+        <error enabled="true" label="Error" name="error" target="alert22" x="0" y="0"/>
+      </transitions>
+    </js>
+    <js collision="0" img="xtk:activities/script.png" label="Call workflowX in any case"
+        mask="0" name="js2" onError="0" timezone="_inherit_" x="288" y="304">
+      <transitions>
+        <done enabled="true" label="Ok" name="done" target="end2"/>
+        <error enabled="false" label="Error" name="error"/>
+      </transitions>
+      <script>var myVar1 = "hello world!";
+logInfo('workflow1 sending myVar1 with value', myVar1)
+xtk.workflow.PostEvent("workflow2", "signal", "", &lt;variables var1={myVar1}/&gt;, false);</script>
+    </js>
+    <js collision="0" img="xtk:activities/script.png" label="Process A" mask="0"
+        name="js3" onError="0" timezone="_inherit_" x="128" y="16">
+      <transitions>
+        <done enabled="true" label="Ok" name="done" target="fileTransfer" x="0" y="0"/>
+        <error enabled="false" label="Error" name="error" target="" x="0" y="0"/>
+      </transitions>
+    </js>
+    <alert assigneeType="0" collision="0" img="nms:activities/alert.png" label="Alert"
+           mask="0" name="alert22" onError="0" runOnSimulation="true" scenario-cs="Send an alert to workflow task assignees (alertAssignee)"
+           scenario-id="3673" timezone="_inherit_" x="720" y="128">
+      <transitions>
+        <done enabled="true" name="done" target="jumpin222"/>
+        <error enabled="false" label="Error" name="error"/>
+      </transitions>
+    </alert>
+    <alert assigneeType="0" collision="0" img="nms:activities/alert.png" label="Alert"
+           mask="0" name="alert2" onError="0" runOnSimulation="true" scenario-cs="Send an alert to workflow task assignees (alertAssignee)"
+           scenario-id="3673" timezone="_inherit_" x="480" y="200">
+      <transitions>
+        <done enabled="true" name="done" target="jumpin22"/>
+        <error enabled="false" label="Error" name="error"/>
+      </transitions>
+    </alert>
+    <alert assigneeType="0" collision="0" img="nms:activities/alert.png" label="Alert"
+           mask="0" name="alert" onError="0" runOnSimulation="true" scenario-cs="Send an alert to workflow task assignees (alertAssignee)"
+           scenario-id="3673" timezone="_inherit_" x="520" y="112">
+      <transitions>
+        <done enabled="true" name="done" target="jumpin2"/>
+        <error enabled="false" label="Error" name="error"/>
+      </transitions>
+    </alert>
+    <fileTransfer action="3" archiveFiles="true" collision="0" deleteFiles="false"
+                  img="nms:activities/ftp.png" label="FTP download with potential errors"
+                  mask="0" maxFiles="100" maxSizeMo="50" name="fileTransfer" onError="0"
+                  portAddress="-" stopAfterFirst="true" timezone="_inherit_" useDefault="true"
+                  useExtAccount="true" useIncomingFile="true" x="272" y="16">
+      <transitions>
+        <done enabled="true" label="Ok" name="done" target="js" x="0" y="0"/>
+        <error enabled="true" label="Error" name="error" target="alert2" x="0" y="0"/>
+        <fileExists enabled="false" label="File exists" name="fileExists"/>
+        <fileDoesNotExist enabled="false" label="File does not exist" name="fileDoesNotExist"/>
+        <noFile enabled="true" label="No file" name="noFile" target="alert" x="0"
+                y="0"/>
+      </transitions>
+      <extAccount/>
+      <period>m_abDay='7' m_abDay[0]='0' m_abDay[1]='0' m_abDay[2]='0' m_abDay[3]='0' m_abDay[4]='0' m_abDay[5]='0' m_abDay[6]='0' m_abMonth='12' m_abMonth[0]='0' m_abMonth[10]='0' m_abMonth[11]='0' m_abMonth[1]='0' m_abMonth[2]='0' m_abMonth[3]='0' m_abMonth[4]='0' m_abMonth[5]='0' m_abMonth[6]='0' m_abMonth[7]='0' m_abMonth[8]='0' m_abMonth[9]='0' m_iDayMode='1' m_iMaxIter='0' m_iMonthDay='0' m_iMonthMode='0' m_iPosDay='0' m_iSpanDay='0' m_iSpanWeek='0' m_iTimeMode='3' m_iValidMode='1' m_iWeekDay='0' m_iWeekMode='0' m_tmFixedDay='' m_tmFixedTime='00:00:00.000' m_tmIterDate='' m_tmIterTime='00:00:00.000' m_tmOrgDate='' m_tmSpanTime='30mn' m_tmStartDate='0001/01/01' m_tmStartTime='' m_tmStopDate='0001/01/01' m_tmStopTime='' m_vtmTime='0'</period>
+    </fileTransfer>
+  </activities>
+  <process forecasted="0" login="" priority="0" processState="0" startState="0"/>
+  <desc><![CDATA[]]></desc>
+  <visualState><![CDATA[]]></visualState>
+  <operation type="0"/>
+  <folder _cs="wait for wfs" fullName="/MIS/Florian/Workflows/wait for wfs/" id="31252781"/>
+  <folderProcess _cs="" fullName="" id="0"/>
+  <supervisor _cs="" id="0" type="0"/>
+</workflow>

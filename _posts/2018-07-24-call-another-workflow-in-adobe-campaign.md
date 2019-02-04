@@ -102,7 +102,9 @@ logInfo('vars.var3', vars.var3);
  Run the last workflow, then the 3 first, and you'll have the following logs:
  ![](/assets/images/2019/01/adobe-campaign-call-workflow-postevent-multiple-logs.jpg)
  
+ 
  ## Business case: exception handling
+ 
  We can simulate a `try`/`catch`/`finally`:
  
  ![](/assets/images/2019/01/adobe-campaign-call-workflow-with-errors-exception.jpg)

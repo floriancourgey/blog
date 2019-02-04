@@ -21,7 +21,7 @@ layout: post
 categories: [prestashop,google,opensource,adobe campaign]
 ---
 Excerpt here...
-<div class="text-center">🐍👑🌍</div>
+<p class="text-center">🐍👑🌍</p>
 <!--more-->
 **bold** *italic*  ~~strikethrough~~
 ## Use h2 for each section

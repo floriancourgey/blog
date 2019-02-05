@@ -2,7 +2,7 @@
 title: Access to Adobe Campaign Source Code
 categories: [opensource,adobe campaign]
 ---
-<div class="text-center">🐍👑🌍</div>
+<p class="text-center">⬇️📦🎯</p>
 <!--more-->
 
 1. Go to your download center and get the `.rpm` file

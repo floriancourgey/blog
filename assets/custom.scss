@@ -11,6 +11,17 @@ main {
   margin-right: auto;
   margin-left: auto;
 }
+// category badges
+.post-categories {
+  .badge-info:visited {
+    color: white;
+    background-color: #17a2b8;
+  }
+  .badge-info:hover {
+    color: white;
+    background-color: #117a8b;
+  }
+}
 // Algolia search
 #modal-search {
   .modal-content {

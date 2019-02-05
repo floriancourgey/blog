@@ -41,7 +41,21 @@ gtm: GTM-W6RKLQQ
 collections:
   authors:
     output: true
+
+# https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Florian Courgey"
+  - scope:
+      path: ""
+      type: "drafts"
+    values:
+      layout: "post"
+      author: "Florian Courgey"
   - scope:
       path: ""
       type: "authors"

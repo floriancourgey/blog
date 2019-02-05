@@ -1,7 +1,5 @@
 ---
 title: Access to Adobe Campaign Source Code
-author: Florian Courgey
-layout: post
 categories: [opensource,adobe campaign]
 ---
 <div class="text-center">🐍👑🌍</div>

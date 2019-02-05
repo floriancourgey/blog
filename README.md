@@ -16,8 +16,6 @@ $ touch _posts/YYYY-mm-dd-slug-here.md
 ```markdown
 ---
 title: New article
-author: Florian Courgey
-layout: post
 categories: [prestashop,google,opensource,adobe campaign]
 ---
 Excerpt here...

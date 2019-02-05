@@ -38,6 +38,16 @@ disqus:
 
 gtm: GTM-W6RKLQQ
 
+collections:
+  authors:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+
 algolia:
   application_id: B5V7RM7VIT
   index_name:     jekyll

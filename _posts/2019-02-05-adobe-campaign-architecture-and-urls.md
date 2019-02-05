@@ -11,3 +11,4 @@ categories: [prestashop,google,opensource,adobe campaign]
 Host: `https://myserver-mkt-prod1.campaign.adobe.com`
 - `/nl/` -> `/usr/local/neolane/nl6/web/`
 - `/webApp/{webApp-internalName` -> `web apps`
+- `/{jssp-namespace}/{jssp-name}.jssp -> `JSSP pages`

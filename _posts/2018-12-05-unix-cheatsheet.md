@@ -35,7 +35,11 @@ Cheatsheet with filesystem, commands and common utilities for UNIX based systems
 See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 
 ## Evolution UNIX and UNIX-like systems
-
+<div class="">
+  <a href="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" style="max-height:150px" class="no-lightgallery"/>
+  </a>
+</div>
 
 ## Linux distributions timeline hierarchy (SVG)
 <div class="">

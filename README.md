@@ -1,5 +1,7 @@
 # Repository for Jekyll on Github website https://blog.floriancourgey.com
 
+![](https://travis-ci.com/floriancourgey/blog.svg?branch=master)
+
 ## Install & run
 ```bash
 $ ruby -v

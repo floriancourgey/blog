@@ -18,6 +18,7 @@ categories: [opensource,adobe campaign]
 1. Get Fedora ISO https://getfedora.org/en/workstation/download/
 1. Spin up a Fedora instance with the ISO loaded
 ![](/assets/images/2019/02/fedora-workstation-install-disk.jpg)
+1. Shutdown the machine, remove the ISO from the boot settings, restart the machine and create a new user
 1. Open up a terminal and you should have the following:
 ![](/assets/images/2019/02/fedora-workstation-first-terminal.jpg)
 

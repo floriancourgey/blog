@@ -36,14 +36,14 @@ See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 
 ## Evolution UNIX and UNIX-like systems
 <div class="">
-  <a href="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg">
+  <a href="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" style="max-height:150px" class="no-lightgallery"/>
   </a>
 </div>
 
 ## Linux distributions timeline hierarchy (SVG)
 <div class="">
-  <a href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">
+  <a href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg" style="max-height:150px" class="no-lightgallery"/>
   </a>
 </div>

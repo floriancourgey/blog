@@ -34,6 +34,12 @@ Cheatsheet with filesystem, commands and common utilities for UNIX based systems
 ```
 See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 
+## Evolution UNIX and UNIX-like systems
+
+<div class="">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg)"/>
+</div>
+
 ## Bash basics
 
 ```bash

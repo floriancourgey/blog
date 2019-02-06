@@ -1,11 +1,15 @@
 $(function(){
   $('article').find('img').each(function(){
     var $this = $(this);
-    // exit for emoji
+    // exit for .no-lightgallery
+    if($this.hasClass('no-lightgallery')){
+      return;
+    }
+    // exit for .emoji
     if($this.hasClass('emoji')){
       return;
     }
-    // exit for gravatar
+    // exit for .gravatar
     if($this.hasClass('avatar')){
       return;
     }

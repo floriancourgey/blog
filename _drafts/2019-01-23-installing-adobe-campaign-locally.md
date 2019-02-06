@@ -21,20 +21,23 @@ categories: [opensource,adobe campaign]
 1. Shutdown the machine, remove the ISO from the boot settings, restart the machine, accept the licence and log in
 1. Open up a terminal. You should have the following:
 ![](/assets/images/2019/02/fedora-workstation-first-terminal.jpg)
+1. Install Virtual Box Guest Addition to enable copy/paste
+1. Optional: Install Gnome instead of Gnome Classic, see [tuto on stackexchange](https://unix.stackexchange.com/questions/181503/how-to-install-desktop-environments-on-centos-7)
 1. see https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1 for details
 
 ## Install Adobe Campaign
 Let's do all of our work in `~/ac`
 ```bash
-$ mkdir ~/ac && cd ~/ac
+$ cd && mkdir ac && cd ac
 ```
 
 Download the `.rpm` file from the Download Center, see the instructions in this post. Then:
 ```bash
-$ wget https://rpmfind.net/linux/centos/7.6.1810/os/x86_64/Packages/libicu-50.1.2-17.el7.x86_64.rpm
-$ ls
-libicu-50.1.2-17.el7.x86_64.rpm  nlserver6-8864-x86_64_rh7.rpm
-$ sudo yum install -y --allowerasing ./libicu-50.1.2-17.el7.x86_64.rpm
 $ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
+$ sudo /etc/init.d/nlserver6 start
+$ sudo /etc/init.d/nlserver6 status
+14:20:41 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+watchdog (3959) - 4.8 MB
+syslogd@default (3520) - 12.7 MB
+web@default (3780) - 106.4 MB
 ```
-

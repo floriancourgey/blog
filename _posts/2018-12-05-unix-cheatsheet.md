@@ -36,8 +36,12 @@ See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 
 ## Evolution UNIX and UNIX-like systems
 
+
+## Linux distributions timeline hierarchy (SVG)
 <div class="">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg)"/>
+  <a href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg" style="max-height:150px"/>
+  </a>
 </div>
 
 ## Bash basics

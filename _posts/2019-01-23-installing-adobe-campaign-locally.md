@@ -31,11 +31,35 @@ Let's do all of our work in `~/ac`
 $ cd && mkdir ac && cd ac
 ```
 
+### Pre req
+Apache
+```bash
+$ sudo yum install -y httpd
+$ sudo systemctl start httpd # start now
+$ sudo systemctl enable httpd # start at boot
+$ service httpd status && curl localhost # check
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2019-02-06 16:53:12 EST; 1min 22s ago
+[...]</body></html>
+$ sudo firewall-cmd --add-service=http --permanent # allow firewall http
+$ sudo firewall-cmd --add-service=https --permanent # allow firewall https
+$ sudo systemctl restart firewalld # restart firewall daemon
+```
+Java
+```bash
+$ java -version
+openjdk version "1.8.0_191"
+OpenJDK Runtime Environment (build 1.8.0_191-b12)
+OpenJDK 64-Bit Server VM (build 25.191-b12, mixed mode)
+```
+
+### AC7
 Download the `.rpm` file from the Download Center, see the instructions in this post. Then:
 ```bash
 $ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
 $ sudo /etc/init.d/nlserver6 start
-$ sudo /etc/init.d/nlserver6 status
+$ sudo service nlserver6 status
 14:20:41 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
 watchdog (3959) - 4.8 MB
 syslogd@default (3520) - 12.7 MB

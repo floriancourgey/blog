@@ -16,10 +16,10 @@ categories: [opensource,adobe campaign]
 ## Prerequisites: CentOS 7 x64 on Virtualbox
 1. Get virtual box from [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 1. Get Fedora ISO from [centos.org/download](https://www.centos.org/download/). I'll be using [CentOS-7-x86_64-DVD-1810.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
-1. Spin up a Fedora instance with the ISO loaded
+1. Spin up a Fedora instance with the ISO loaded, and install it with the Software Selection "Server with a GUI" and "Connected to Ethernet" ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc))
 ![](/assets/images/2019/02/fedora-workstation-install-disk.jpg)
-1. Shutdown the machine, remove the ISO from the boot settings, restart the machine and create a new user
-1. Open up a terminal and you should have the following:
+1. Shutdown the machine, remove the ISO from the boot settings, restart the machine, accept the licence and log in
+1. Open up a terminal. You should have the following:
 ![](/assets/images/2019/02/fedora-workstation-first-terminal.jpg)
 1. see https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1 for details
 

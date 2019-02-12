@@ -211,16 +211,16 @@ $ clipboard # Clipboard content
 
 ## Google
 ### Google operators
-|Operator|Purpose|Mixes with Other Operators?|Can be used Alone?|
-|-|-|-|-|
-|intitle|Search page Title|yes|yes|
-|allintitle|Search page title|no|yes|
-|inurl|Search URL|yes|yes|
-|allinurl|Search URL|no|yes|yes|
-|filetype|specific files|yes|yes|
-|intext|Search text of page only|yes|yes|
-|allintext|Search text of page only|really|yes|
-|site|Search specific site|yes|yes|
+Operator|Purpose|Mixes with Other Operators?|Can be used Alone?
+-|-|-|-
+intitle|Search page Title|yes|yes
+allintitle|Search page title|no|yes
+inurl|Search URL|yes|yes
+allinurl|Search URL|no|yes|yes
+filetype|specific files|yes|yes
+intext|Search text of page only|yes|yes
+allintext|Search text of page only|really|yes
+site|Search specific site|yes|yes
 
 ### Any software
 ```bash

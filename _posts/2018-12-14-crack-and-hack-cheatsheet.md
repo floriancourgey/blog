@@ -270,7 +270,8 @@ $ cat /etc/*-release # distrib details, name may vary, hence *
 VERSION_ID="8"
 NAME="Debian GNU/Linux"
 PRETTY_NAME="Debian GNU/Linux 8 (jessie)"
-exec('uname -a', true);
+$ uname -a # Linux kernel info 32/64 bits
+Linux hostname 3.16.0-4-amd64 \#1 SMP Debian 3.16.7-ckt25-1 (2016-03-06) x86_64 GNU/Linux
 ```
 
 *Source: https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/*

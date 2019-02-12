@@ -272,3 +272,5 @@ NAME="Debian GNU/Linux"
 PRETTY_NAME="Debian GNU/Linux 8 (jessie)"
 exec('uname -a', true);
 ```
+
+*Source: https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/*

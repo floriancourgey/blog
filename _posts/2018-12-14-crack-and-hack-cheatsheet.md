@@ -261,3 +261,14 @@ Reference:
 - [https://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre)](https://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre))
 
 ## Enumeration
+```bash
+$ id # current user info
+uid=1004(user-name) gid=1005(main-group-name) groups=1005(main-group-name),33(www-data),998(other-group)
+$ cat /etc/issue # distrib generic name, common on all distrib
+Debian GNU/Linux 8
+$ cat /etc/*-release # distrib details, name may vary, hence *
+VERSION_ID="8"
+NAME="Debian GNU/Linux"
+PRETTY_NAME="Debian GNU/Linux 8 (jessie)"
+exec('uname -a', true);
+```

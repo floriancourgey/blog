@@ -9,6 +9,15 @@ categories: [opensource,adobe campaign]
 
 <!--more-->
 
+## Introduction
+1. Install Centos on VirtualBox
+1. Install Java 8 JDK
+1. Download and install Adobe Campaign `.rpm` package
+1. Configure `~/.profile` for user `neolane` and start AC Application server
+1. Configure the firewall
+1. Change the default password
+1. Connect from your client
+
 - Installation guide for AC6.1 https://docs.campaign.adobe.com/doc/archives/en/610/installation-v6.1-en.pdf
 - `thirdparty6-XXXX-.rpm` is now included in the main package, cf https://docs.campaign.adobe.com/doc/AC/en/RN_legacy.html#8763
 - Installation guide for AC7 https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Linux__Prerequisites.html
@@ -16,7 +25,7 @@ categories: [opensource,adobe campaign]
 ## Prerequisites: CentOS 7 x64 on Virtualbox
 1. Get virtual box from [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 1. Get Fedora ISO from [centos.org/download](https://www.centos.org/download/). I'll be using [CentOS-7-x86_64-DVD-1810.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
-1. Spin up a Fedora instance with the ISO loaded, and install it with the Software Selection "Server with a GUI" and "Connected to Ethernet" ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc))
+1. Spin up a Fedora instance with the ISO loaded, and install it with the Software Selection "Server with a GUI" and "Connected to Ethernet" ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc)), and a user `fco` with `sudo` privileges.
 ![](/assets/images/2019/02/fedora-workstation-install-disk.jpg)
 1. Shutdown the machine, remove the ISO from the boot settings, restart the machine, accept the licence and log in
 1. Open up a terminal. You should have the following:
@@ -25,13 +34,79 @@ categories: [opensource,adobe campaign]
 1. Optional: Install Gnome instead of Gnome Classic, see [tuto on stackexchange](https://unix.stackexchange.com/questions/181503/how-to-install-desktop-environments-on-centos-7)
 1. see https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1 for details
 
-## Install Adobe Campaign
-Let's do all of our work in `~/ac`
+## Java 8 JDK
+Java
 ```bash
-$ cd && mkdir ac && cd ac
+[fco@localhost ~]$ java -version
+openjdk version "1.8.0_191"
+OpenJDK Runtime Environment (build 1.8.0_191-b12)
+OpenJDK 64-Bit Server VM (build 25.191-b12, mixed mode)
+[fco@localhost ~]$ sudo yum install java-1.8.0-openjdk-devel
+[fco@localhost ~]$ javac -version
+javac 1.8.0_191
 ```
 
-### Pre req
+## AC7 rpm package
+Let's do all of our work in `~/ac`.
+
+Download the `.rpm` file from the Download Center, see the instructions in [#](this post). Then:
+```bash
+[fco@localhost ~]$ cd && mkdir ac && cd ac
+[fco@localhost ~/ac]$ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
+[fco@localhost ~/ac]$ sudo service nlserver6 start # quick check
+Starting nlserver6 (via systemctl):                        [  OK  ]
+[fco@localhost ~/ac]$ sudo service nlserver6 status # check 2
+14:20:41 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+watchdog (3956) - 4.8 MB
+syslogd@default (3529) - 12.7 MB
+web@default (3740) - 106.4 MB
+[fco@localhost ~/ac]$ sudo service nlserver6 stop
+```
+
+## Configure `~/.profile` for user `neolane`
+
+```bash
+[fco@localhost ~/ac]$ sudo su - neolane
+[neolane@localhost ~]$ id && pwd && ll
+uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
+/usr/local/neolane
+drwxrwxr-x. 14 neolane neolane 187 Feb 13 14:01 nl6
+[neolane@localhost ~]$ vim ~/.profile 
+export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/server/
+export PATH=$PATH:/usr/local/neolane/nl6/bin/
+[neolane@localhost ~]$ nlserver start web
+14:01:32 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+14:01:32 >   Launching task 'web@default' ('nlserver web -tracefile:web@default -instance:default -detach -tomcat -autorepair') in a new process
+14:01:32 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+14:01:32 >   Starting Web server module (pid=9376, tid=9376)...
+14:01:32 >   Tomcat started
+14:01:32 >   Server started
+[neolane@localhost ~]$ nlserver pdump
+14:03:23 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+web@default (9376) - 143.4 MB
+```
+
+## Configure the firewall
+
+By default CentOS uses `firewall-cmd` to block incoming connections. We have to allow the ACC default port `8080` (Which is the Tomcat default port).
+
+```bash
+[fco@localhost ~]$ sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+[fco@localhost ~]$ sudo firewall-cmd --zone=public --add-port=8080/udp --permanent
+[fco@localhost ~]$ sudo firewall-cmd --reload
+```
+
+## Change password
+
+The default user is `internal` with an empty password `''` (See ). Let's change it (See https://docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier):
+
+```bash
+$ nlserver config -internalpassword
+```
+
+## 
+
+## Appendixes
 Apache
 ```bash
 $ sudo yum install -y httpd
@@ -44,48 +119,5 @@ $ service httpd status && curl localhost # check
 [...]</body></html>
 $ sudo firewall-cmd --add-service=http --permanent # allow firewall http
 $ sudo firewall-cmd --add-service=https --permanent # allow firewall https
-$ sudo systemctl restart firewalld # restart firewall daemon
-```
-Java
-```bash
-$ java -version
-openjdk version "1.8.0_191"
-OpenJDK Runtime Environment (build 1.8.0_191-b12)
-OpenJDK 64-Bit Server VM (build 25.191-b12, mixed mode)
-$ sudo yum install java-1.8.0-openjdk-devel
-$ javac -version
-javac 1.8.0_191
-```
-
-### AC7
-Download the `.rpm` file from the Download Center, see the instructions in this post. Then:
-```bash
-$ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
-$ sudo service nlserver6 start # quick check
-Starting nlserver6 (via systemctl):                        [  OK  ]
-$ sudo service nlserver6 status # check 2
-14:20:41 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
-watchdog (3956) - 4.8 MB
-syslogd@default (3529) - 12.7 MB
-web@default (3740) - 106.4 MB
-$ sudo service nlserver6 stop
-$ sudo su - neolane
-$ id && pwd && ll
-uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
-/usr/local/neolane
-total 0
-drwxrwxr-x. 14 neolane neolane 187 Feb 13 14:01 nl6
-$ vim ~/.profile 
-export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/server/
-export PATH=$PATH:/usr/local/neolane/nl6/bin/
-$ nlserver start web
-14:01:32 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
-14:01:32 >   Launching task 'web@default' ('nlserver web -tracefile:web@default -instance:default -detach -tomcat -autorepair') in a new process
-14:01:32 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
-14:01:32 >   Starting Web server module (pid=9376, tid=9376)...
-14:01:32 >   Tomcat started
-14:01:32 >   Server started
-$ nlserver pdump
-14:03:23 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
-web@default (9376) - 143.4 MB
+$ sudo firewall-cmd --reload
 ```

@@ -16,6 +16,7 @@ categories: [opensource,adobe campaign]
 1. Configure `~/.profile` for user `neolane` and start AC Application server
 1. Configure the firewall
 1. Change the default password
+1. Install postgresql
 1. Connect from your client
 
 - Installation guide for AC6.1 https://docs.campaign.adobe.com/doc/archives/en/610/installation-v6.1-en.pdf
@@ -104,7 +105,18 @@ The default user is `internal` with an empty password `''` (See ). Let's change 
 $ nlserver config -internalpassword
 ```
 
-## 
+## Install postgresql
+(See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
+
+```bash
+$ sudo yum install postgresql-server postgresql-contrib
+$ sudo postgresql-setup initdb
+$ sudo vim /var/lib/pgsql/data/pg_hba.conf # replace ident by md5
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+
+
+```
 
 ## Appendixes
 Apache
@@ -121,3 +133,16 @@ $ sudo firewall-cmd --add-service=http --permanent # allow firewall http
 $ sudo firewall-cmd --add-service=https --permanent # allow firewall https
 $ sudo firewall-cmd --reload
 ```
+
+Allow external access to postgresql, see https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
+```bash
+$ sudo vim /var/lib/pgsql/data/postgresql.conf # replace listen_addresses = 'localhost' to
+listen_addresses = '*'
+$ sudo vim /var/lib/pgsql/data/pg_hba.conf # add at the end:
+host    all             all              0.0.0.0/0                       md5
+host    all             all              ::/0                            md5
+$ sudo firewall-cmd --zone=public --add-port=5432/udp --permanent
+$ sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
+$ sudo firewall-cmd --reload
+```
+![](/assets/images/2019/02/adobe-campaign-install-sqlectron-connect.jpg)

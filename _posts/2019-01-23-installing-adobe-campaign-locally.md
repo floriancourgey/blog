@@ -52,16 +52,40 @@ $ java -version
 openjdk version "1.8.0_191"
 OpenJDK Runtime Environment (build 1.8.0_191-b12)
 OpenJDK 64-Bit Server VM (build 25.191-b12, mixed mode)
+$ sudo yum install java-1.8.0-openjdk-devel
+$ javac -version
+javac 1.8.0_191
 ```
 
 ### AC7
 Download the `.rpm` file from the Download Center, see the instructions in this post. Then:
 ```bash
 $ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
-$ sudo /etc/init.d/nlserver6 start
-$ sudo service nlserver6 status
+$ sudo service nlserver6 start # quick check
+Starting nlserver6 (via systemctl):                        [  OK  ]
+$ sudo service nlserver6 status # check 2
 14:20:41 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
-watchdog (3959) - 4.8 MB
-syslogd@default (3520) - 12.7 MB
-web@default (3780) - 106.4 MB
+watchdog (3956) - 4.8 MB
+syslogd@default (3529) - 12.7 MB
+web@default (3740) - 106.4 MB
+$ sudo service nlserver6 stop
+$ sudo su - neolane
+$ id && pwd && ll
+uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
+/usr/local/neolane
+total 0
+drwxrwxr-x. 14 neolane neolane 187 Feb 13 14:01 nl6
+$ vim ~/.profile 
+export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/server/
+export PATH=$PATH:/usr/local/neolane/nl6/bin/
+$ nlserver start web
+14:01:32 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+14:01:32 >   Launching task 'web@default' ('nlserver web -tracefile:web@default -instance:default -detach -tomcat -autorepair') in a new process
+14:01:32 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+14:01:32 >   Starting Web server module (pid=9376, tid=9376)...
+14:01:32 >   Tomcat started
+14:01:32 >   Server started
+$ nlserver pdump
+14:03:23 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
+web@default (9376) - 143.4 MB
 ```

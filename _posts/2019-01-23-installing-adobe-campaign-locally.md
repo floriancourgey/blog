@@ -252,3 +252,11 @@ CREATE TABLE nmsextaccount(
   tslastmodified TIMESTAMP
 );
 ```
+
+### Execute JS code from the commande line with `nlserver javascript`
+
+```bash
+$ cat test.js
+var o = NLWS.xtkOperator.load(2); loginfo(o);
+$ nlserver javascript -instance:instance1 -file test.js
+```

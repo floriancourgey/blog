@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<div class="home">
+  <h1 class="page-heading">{{ site.posts | size }} Posts</h1>
+
+  {%- for post in paginator.posts -%}
+  <div class="card shadow-sm mb-4 bg-white rounded">
+    <div class="card-body">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+            {{ post.title | escape }}
+        </h3>
+      </a>
+      {%- if site.show_excerpts -%}
+        {{ post.excerpt }}
+      {%- endif -%}
+      <div class="text-right">
+        <a href="{{ post.url | relative_url }}" class="card-link">Read more</a>
+      </div>
+    </div>
+  </div>
+  {%- endfor -%}
+
+  {% if paginator.total_pages > 1 %}
+  <nav class="d-flex justify-content-center">
+    <ul class="pagination mx-0">
+      <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
+        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">
+          &laquo; Prev
+        </a>
+      </li>
+
+      {% for reversed_page in (1..paginator.total_pages) %}
+      {% assign page = paginator.total_pages | plus: 1 | minus: reversed_page %}
+        <li class="page-item {% if page == paginator.page %}disabled{% endif %}">
+          {% if page == 1 %}
+            {% assign href = paginator.previous_page_path | relative_url %}
+          {% else %}
+            {% assign href = site.paginate_path | relative_url | replace: ':num', page %}
+          {% endif %}
+          <a class="page-link" href="{{ href }}">
+            {{ page }}
+          </a>
+        </li>
+      {% endfor %}
+
+      <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
+        <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">
+          Next &raquo;
+        </a>
+      </li>
+    </ul>
+  </nav>
+  {% endif %}
+
+  <p class="feed-subscribe d-flex justify-content-center">
+    <a href="{{ "/feed.xml" | relative_url }}"><i class="fas fa-rss"></i> Subscribe</a>
+  </p>
+
+</div>

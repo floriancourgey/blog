@@ -174,8 +174,7 @@ $ sudo firewall-cmd --reload
 Create a JS activity with below code:
 
 ```bash
-
-var f = new File('/sftp/my-instance/incoming/my-ftp-folder/update.sql');
+var f = new File('/sftp/my-instance/incoming/my-ftp-folder/my-procedures.sql');
 f.open('w');
 
 var fields = "collection,pg_get_functiondef:string";
@@ -192,4 +191,64 @@ for each(var proc in res.collection){
 };
 
 f.close()
+```
+
+Example of output for `GetDate()`:
+```sql
+CREATE OR REPLACE FUNCTION public.getdate()
+ RETURNS timestamp with time zone
+ LANGUAGE sql
+ IMMUTABLE
+AS $function$
+  select clock_timestamp() as result
+$function$;
+```
+
+### Download your PostgreSQL tables
+Create a JS activity with below code:
+
+```js
+loadLibrary('fresh:helpers');
+var f = new File('/sftp/my-instance/incoming/my-ftp-folder/my-tables.sql');
+f.open('w');
+
+var table = 'nmsextaccount';
+
+var sqlSchema = NLWS.xtkSqlSchema.BuildSqlSchema('default', table);
+var sql = 'CREATE TABLE '+table+'(\n';
+for each(var field in sqlSchema.getFirstElement('table').getElements('field')){ 
+  //logInfo(field.$name, field.$type, field.$length);
+  var type = field.$type.toLowerCase();
+  switch(type){
+    case 'short': type = 'INTEGER'; break;
+    case 'long': type = 'INTEGER'; break;
+    case 'double': type = 'DOUBLE PRECISION'; break;
+    case 'string': type = 'VARCHAR'; break;
+    case 'memo': type = 'TEXT'; break;
+    case 'datetimetz': type = 'TIMESTAMP'; break;
+  };
+  sql += '  '+field.$name+' '+type;
+  if(field.$length){
+    sql += '('+field.$length+')';
+  }
+  sql += ',\n';
+}
+sql = sql.substr(0, sql.length-2) // remove last ,\n
+sql += '\n);'
+logInfo(sql);
+f.writeln(sql);
+f.close();
+```
+
+Example of output for `NmsExtAccount`:
+```sql
+CREATE TABLE nmsextaccount(
+  iactive INTEGER,
+  iunicodedata INTEGER,
+  mdata TEXT,
+  saccount VARCHAR(80),
+  sawskey VARCHAR(128),
+  tscreated TIMESTAMP,
+  tslastmodified TIMESTAMP
+);
 ```

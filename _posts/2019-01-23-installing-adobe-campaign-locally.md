@@ -36,7 +36,7 @@ categories: [opensource,adobe campaign]
 1. see https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1 for details
 
 ## Java 8 JDK
-Java
+The JRE is not enough, we need the JDK via the `java-1.8.0-openjdk-devel` package:
 ```bash
 [fco@localhost ~]$ java -version
 openjdk version "1.8.0_191"
@@ -50,7 +50,7 @@ javac 1.8.0_191
 ## AC7 rpm package
 Let's do all of our work in `~/ac`.
 
-Download the `.rpm` file from the Download Center, see the instructions in [#](this post). Then:
+Download the `.rpm` file from the Download Center, see the instructions in [this post](#). Then:
 ```bash
 [fco@localhost ~]$ cd && mkdir ac && cd ac
 [fco@localhost ~/ac]$ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
@@ -86,8 +86,11 @@ export PATH=$PATH:/usr/local/neolane/nl6/bin/
 14:03:23 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
 web@default (9376) - 143.4 MB
 ```
+![](/assets/images/2019/02/adobe-campaign-virtualbox-install-pdump.jpg)
 
 ## Configure the firewall
+
+To be able to connect from our Host, we need to create new Firewall rules.
 
 By default CentOS uses `firewall-cmd` to block incoming connections. We have to allow the ACC default port `8080` (Which is the Tomcat default port).
 
@@ -102,24 +105,29 @@ By default CentOS uses `firewall-cmd` to block incoming connections. We have to 
 The default user is `internal` with an empty password `''` (See ). Let's change it (See https://docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier):
 
 ```bash
-$ nlserver config -internalpassword
+[neolane@localhost ~]$ nlserver config -internalpassword
 ```
 
 ## Install postgresql
 (See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
 
 ```bash
-$ sudo yum install postgresql-server postgresql-contrib
-$ sudo postgresql-setup initdb
-$ sudo vim /var/lib/pgsql/data/pg_hba.conf # replace ident by md5
+[fco@localhost ~]$ sudo yum install postgresql-server postgresql-contrib
+[fco@localhost ~]$ sudo postgresql-setup initdb
+[fco@localhost ~]$ sudo vim /var/lib/pgsql/data/pg_hba.conf # replace ident by md5
 host    all             all             127.0.0.1/32            md5
 host    all             all             ::1/128                 md5
-
-
+[fco@localhost ~]$ sudo su - postgres
+[postgres@localhost ~]$ createuser --interactive # create a PostgreSQL role (user)
+dbuser1
+[postgres@localhost ~]$ createdb dbuser1 # create a PostgreSQL database with the same name
+[postgres@localhost ~]$ exit
+[fco@localhost ~]$ sudo adduser dbuser1 # create a Linux user with the same name
 ```
+You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or any SQL client). To do so, some extra steps need to be taken, see [Allow external PostgreSQL access](#allow-external-postgresql-access) at the end of this article.
 
 ## Appendixes
-Apache
+### Install Apache
 ```bash
 $ sudo yum install -y httpd
 $ sudo systemctl start httpd # start now
@@ -134,6 +142,7 @@ $ sudo firewall-cmd --add-service=https --permanent # allow firewall https
 $ sudo firewall-cmd --reload
 ```
 
+### Allow external PostgreSQL access
 Allow external access to postgresql, see https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
 ```bash
 $ sudo vim /var/lib/pgsql/data/postgresql.conf # replace listen_addresses = 'localhost' to

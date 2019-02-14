@@ -38,5 +38,15 @@ Ignoring ulimit -c 1000000 - forcing unlimited
 uid=1004(neolane) gid=1005(neolane) groups=1005(neolane),33(www-data)
 [neolane@mkt-stage1-1:~]$ ls
 nl6  NLProxy  packages  witness  zerocrash
+[neolane@mkt-stage1-1:~]$ nlserver pdump
+13:31:32 >   Application server for Adobe Campaign v7 (7.0 build XXXX) of XX/XX/20XX
+syslogd@default (530) - 20.9 MB
+trackinglogd@default (3004) - 51.4 MB
+wfserver@freshin_mkt_stage1 (3005) - 49.5 MB
+stat@freshin_mkt_stage1 (3006) - 49.1 MB
+inMail@freshin_mkt_stage1 (3007) - 50.8 MB
+web@default (3432) - 682.6 MB
+mta@freshin_mkt_stage1 (20500) - 57.3 MB
+watchdog (25708) - 8.0 MB
 ```
 

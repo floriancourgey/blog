@@ -129,6 +129,16 @@ dbuser1
 
 You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or any SQL client). To do so, some extra steps need to be taken, see [Allow external PostgreSQL access](#allow-external-postgresql-access) at the end of this article.
 
+## Update the Db
+1. First import: core schema [db.sql](/assets/adobe-campaign/adobe-campaign-install-db.sql) (This file can be found in your Support Download Center)
+```bash
+$ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-install-db.sql
+```
+1. Second import: public procedures [update.sql](/assets/adobe-campaign/adobe-campaign-update.sql) (See Appendix to generate this file)
+```bash
+$ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-update.sql
+```
+
 ## Appendixes
 ### Install Apache
 ```bash
@@ -158,3 +168,27 @@ $ sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
 $ sudo firewall-cmd --reload
 ```
 ![](/assets/images/2019/02/adobe-campaign-install-sqlectron-connect.jpg)
+
+### Download your PostreSQL procedures
+Create a JS activity with below code:
+
+```bash
+
+var f = new File('/sftp/my-instance/incoming/my-ftp-folder/update.sql');
+f.open('w');
+
+var fields = "collection,pg_get_functiondef:string";
+var sql = "SELECT pg_get_functiondef(f.oid) "+
+  "FROM pg_catalog.pg_proc f "+
+  "INNER JOIN pg_catalog.pg_namespace n ON (f.pronamespace = n.oid) "+
+  "WHERE n.nspname = 'public';";
+
+var res = sqlSelect(fields, sql)
+
+for each(var proc in res.collection){
+  logInfo('- '+proc);
+  f.writeln(proc.pg_get_functiondef.toString().replace('PARALLEL SAFE ', '')+';')
+};
+
+f.close()
+```

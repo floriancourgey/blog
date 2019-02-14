@@ -124,6 +124,9 @@ dbuser1
 [postgres@localhost ~]$ exit
 [fco@localhost ~]$ sudo adduser dbuser1 # create a Linux user with the same name
 ```
+
+![](/assets/images/2019/02/adobe-campaign-postgresql-install.png)
+
 You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or any SQL client). To do so, some extra steps need to be taken, see [Allow external PostgreSQL access](#allow-external-postgresql-access) at the end of this article.
 
 ## Appendixes

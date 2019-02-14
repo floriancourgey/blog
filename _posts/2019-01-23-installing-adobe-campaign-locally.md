@@ -138,6 +138,7 @@ $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-install-db.sql
 ```bash
 $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-update.sql
 ```
+*Note: I also had to `DROP` `xtksessioninfo`, then re-create manually with [this script](/assets/adobe-campaign/adobe-campaign-update-xtksessioninfo.sql).*
 
 ## Appendixes
 ### Install Apache

@@ -208,7 +208,6 @@ $function$;
 Create a JS activity with below code:
 
 ```js
-loadLibrary('fresh:helpers');
 var f = new File('/sftp/my-instance/incoming/my-ftp-folder/my-tables.sql');
 f.open('w');
 
@@ -259,4 +258,7 @@ CREATE TABLE nmsextaccount(
 $ cat test.js
 var o = NLWS.xtkOperator.load(2); loginfo(o);
 $ nlserver javascript -instance:instance1 -file test.js
+17:59:09 >   Application server for Adobe Campaign (6.1.1 build XXXX) of XX/XX/XXXX
+17:59:09 >   Starting 1 connection(s) on pool 'default instance1' (postgresql, server='localhost', login='dbuser1:dbuser1')
+17:59:09 >   Executing JavaScript from file 'test.js'...
 ```

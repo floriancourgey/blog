@@ -218,7 +218,7 @@ var sql = 'CREATE TABLE '+table+'(\n';
 for each(var field in sqlSchema.getFirstElement('table').getElements('field')){ 
   //logInfo(field.$name, field.$type, field.$length);
   var type = field.$type.toLowerCase();
-  switch(type){
+  switch(type){ // see https://www.postgresql.org/docs/9.3/datatype.html for datatypes
     case 'short': type = 'INTEGER'; break;
     case 'long': type = 'INTEGER'; break;
     case 'double': type = 'DOUBLE PRECISION'; break;

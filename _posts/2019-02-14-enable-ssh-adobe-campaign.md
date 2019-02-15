@@ -9,7 +9,7 @@ categories: [opensource,adobe campaign]
 ## Generate your public key and add it to `~/.ssh/authorized_keys`
 
 Generate your SSH public key locally, it looks like this:
-```bash
+```console
 $ cat ~/.ssh/id_rsa.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQA+really+long+string myUser@myMachine
 ```

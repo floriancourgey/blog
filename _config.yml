@@ -84,6 +84,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-relative-links
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

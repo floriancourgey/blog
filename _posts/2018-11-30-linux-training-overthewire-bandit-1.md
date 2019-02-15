@@ -1,12 +1,6 @@
 ---
 title: "Linux training with overthewire [Part 1/10: Bandit 1-10]"
-author: Florian Courgey
-layout: post
-categories:
-  - prestashop
-  - google
-  - opensource
-  - adobe campaign
+categories: [linux,server,opensource]
 ---
 Train your Linux skills with the excellent OverTheWire wargames.
 <!--more-->
@@ -17,7 +11,7 @@ To learn how to connect via SSH, use this [SSH tutorial for Windows](https://www
 
 This post is part of a series:
 - Linux training with overthewire Part 1: Bandit 1-10
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 2: Bandit 11-20](2018-11-30-linux-training-overthewire-bandit-2.md)
 - [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
 - [Linux training with overthewire Part 4: Natas 1-10]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})
 - [Linux training with overthewire Part 5: Natas 11-20]({% post_url 2018-11-30-linux-training-overthewire-natas-2 %})
@@ -110,7 +104,7 @@ ssh -p 2220 bandit5@bandit.labs.overthewire.org
 # koReBOKuIDDepwhWk7jZC0RTdopnAYKh http://overthewire.org/wargames/bandit/bandit6.html
 ```
 Let's use the recursive version of `ls` with `-R`: `ls -alR`:
-```bash
+```console
 $ ls -alR
 [...]
 ./inhere/maybehere19:

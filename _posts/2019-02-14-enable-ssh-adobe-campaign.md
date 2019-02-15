@@ -25,7 +25,7 @@ logInfo(res);
 ```
 
 That's it! You can now connect by SSH to your ACC server:
-```bash
+```console
 $ ssh neolane@mkt-stage1.campaign.adobe.com
 NOTICE TO USERS
 This system is the property of Adobe. It is for AUTHORIZED Adobe business use only.

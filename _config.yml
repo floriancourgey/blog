@@ -1,27 +1,13 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Blog floriancourgey.com
+title: Blog by Florian Courgey
 email: florian@floriancourgey.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Curated list of tech tutorials on a wide variety of topics including PrestaShop,
+  Adobe Campaign, Symfony, Angular, Django and much more!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://blog.floriancourgey.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: https://blog.floriancourgey.com
+permalink: /:year/:month/:title
 
+# custom manifest.json
 manifest:
   name: "Blog floriancourgey.com"
   short_name: "Blog fc.com"
@@ -31,13 +17,13 @@ manifest:
   scope: "/"
   start_url: "/"
 
-permalink: /:year/:month/:title
 
 disqus:
   shortname: floriancourgey
 
 gtm: GTM-W6RKLQQ
 
+# paginate plugin
 paginate: 10
 paginate_path: "/page-:num/"
 
@@ -65,6 +51,7 @@ defaults:
     values:
       layout: "author"
 
+# algolia plugin
 algolia:
   application_id: B5V7RM7VIT
   index_name:     jekyll
@@ -85,6 +72,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-relative-links
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

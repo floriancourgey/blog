@@ -15,8 +15,11 @@ layout: default
             {{ post.title | escape }}
         </h3>
       </a>
-      {%- if site.show_excerpts -%}
-        {{ post.excerpt }}
+      {%- if post.excerpt -%}
+        {% assign length = post.excerpt | size %}
+        {% if post.excerpt.size > 20 %}
+          {{ post.excerpt | truncatewords: 20 }}
+        {%- endif -%}
       {%- endif -%}
       <div class="text-right">
         <a href="{{ post.url | relative_url }}" class="card-link">Read more</a>

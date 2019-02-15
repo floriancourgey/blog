@@ -1,8 +1,7 @@
 ---
 title: Install Adobe Campaign Architecture locally (Virtualbox)
-author: Florian Courgey
-layout: post
 categories: [opensource,adobe campaign]
+redirect_from: /install-acc
 ---
 
 <p class="text-center">⏬📦✔️</p>
@@ -72,7 +71,7 @@ web@default (3740) - 106.4 MB
 uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
 /usr/local/neolane
 drwxrwxr-x. 14 neolane neolane 187 Feb 13 14:01 nl6
-[neolane@localhost ~]$ vim ~/.profile 
+[neolane@localhost ~]$ vim ~/.profile
 export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/server/
 export PATH=$PATH:/usr/local/neolane/nl6/bin/
 [neolane@localhost ~]$ nlserver start web
@@ -215,7 +214,7 @@ var table = 'nmsextaccount';
 
 var sqlSchema = NLWS.xtkSqlSchema.BuildSqlSchema('default', table);
 var sql = 'CREATE TABLE '+table+'(\n';
-for each(var field in sqlSchema.getFirstElement('table').getElements('field')){ 
+for each(var field in sqlSchema.getFirstElement('table').getElements('field')){
   //logInfo(field.$name, field.$type, field.$length);
   var type = field.$type.toLowerCase();
   switch(type){ // see https://www.postgresql.org/docs/9.3/datatype.html for datatypes

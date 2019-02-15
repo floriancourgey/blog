@@ -5,6 +5,30 @@ categories: [adobe campaign,neolane]
 
 <!-- more -->
 
+## Introduction
+
+For any of the below calls, the URLs you want to call must be whitelisted in `/usr/local/neolane/nl6/conf/serverConf.xml` inside the node `/serverConf/shared/urlPermission` as a node `<url dnsSuffix="" urlRegEx=""/>`:
+```xml
+<serverConf>
+  <shared>
+    <urlPermission>
+      <url dnsSuffix="domain-name-here.com" urlRegEx="https://.*"/>
+      <url dnsSuffix="domain-name-here.com" urlRegEx="http://.*"/>
+      <url dnsSuffix="sub.domain.com" urlRegex="https://.*"/>
+    </urlPermission>
+  </shared>
+</serverConf>
+```
+
+*Note: if you are on a hosted instance, see the [tutorial to connect through SSH](2019-02-enable-ssh-adobe-campaign.md) to execute maintenance on server.*
+
+If you don't whitelist your target URLs you'll get a JS Exception:
+```console
+02/15/2019 11:37:29 AM		Workflow 'WKF471' is being run
+02/15/2019 11:37:29 AM	js	SCR-160012 JavaScript: error while evaluating script 'WKF471/js'.
+02/15/2019 11:37:29 AM	js	JST-310026 The URL 'https://jsonplaceholder.typicode.com/users/1' that the script is trying to access is not part of the authorized addresses in urlPermission (serverconf.xml)
+```
+
 ## Simple HTTP GET
 
 ```js

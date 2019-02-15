@@ -2,49 +2,64 @@
 title: Report of deliveries filterable by date in Adobe Campaign
 categories: [opensource, adobe campaign, report]
 ---
+
+Let's create a nice Report for the business teams to be able to analyze their deliveries with the Label, the Subject, the UTM Codes, the delivery indicators (sent/received/failed) and the tracking indicators (open/click/transactions).
+
+<!-- more -->
+
 ## Objective
 
 We will be achieving the following:
 
 ![](/assets/images/2018/07/Preview-of-Deliveries-by-date-Report.jpg)
 
-Via the workflow below:
+Via the Report workflow below:
 
 ![](/assets/images/2018/07/Deliveries-by-date-Workflow.jpg)
 
-<!-- more -->
 
-## Create workflow variables
+## The JS activity
+We are going to rely on 2 context vars:
+- `startDate` (Datetime)
+- `endDate` (Datetime)
+```js
+loadLibrary('vendor:moment')
+// set default date
+ctx.vars.startDate = moment().startOf('month').format('YYYY-MM-DD');
+ctx.vars.endDate = moment().endOf('month').format('YYYY-MM-DD');
+```
 
-  * startDate (Datetime)
-  * endDate (Datetime)
+See this [tutorial to install the library](2018-10-15-use-javascript-libraries-in-adobe-campaign.md) `vendor:moment` can be installed 
 
-## Filter your deliveries via jQuery
+## The Query
 
-In the query, remove proofs via <span class="lang:default decode:true crayon-inline ">lower(label )does not contain &#8220;[proof&#8221;</span>  and ensure you have a <span class="lang:default decode:true crayon-inline ">contact date is not null</span> . Internally, we use another filter to target only campaign deliveries with <span class="lang:default decode:true crayon-inline ">utm_source = newsletter</span> .
+In the query, remove proofs via `@FCP = No`, ensure you have a `contact date is not empty` and Contact date should be:
+- `on or after`  `ToDate($([vars/startDate]))`  if `length($([vars/startDate]) ) > 0`  AND
+- `on or before` `ToDate($([vars/endDate]))`    if `length($([vars/endDate]) ) > 0`
 
 ![](/assets/images/2018/07/Query-filter-for-deliveries.jpg)
 
-Contact date should be:
+Also, order by Contact Date `ASC`.
 
-  *  `on or after`  `ToDate($([vars/startDate]))`  if `length($([vars/startDate]) ) > 0`  AND
-  *  `on or before` `ToDate($([vars/endDate]))`    if `length($([vars/endDate]) ) > 0`
+## The Page
 
-## Add the JavaScript code
+Create a container with 2 inputs Date and a Link Refresh:
 
-Add `vendor:moment`  as a Javascript code. Copy source from <https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js> to `Administration > Configuration > Javascript code`:
+![](/assets/images/2018/07/adobe-campaign-report-newsletter-start-date.jpg)
 
-![](/assets/images/2018/07/moment.min_.js-as-a-Javascript-code.jpg)
+![](/assets/images/2018/07/adobe-campaign-report-newsletter-refresh.jpg)
 
-It can then be used in a JS script, via `loadLibrary('vendor:moment')`:
+Then, the table should look as follow:
+
+![](/assets/images/2018/07/adobe-campaign-report-newsletter-table.jpg)
+
+## Fix timezone
 
 ```js
 loadLibrary('vendor:moment')
 // set default start/end date to first/last day of today's month
 // we have to set 10AM to be sure for the timezone
-ctx.vars.startDate = moment().startOf('month').hour(10).format('YYYY-MM-DD HH:mm:ss');
-ctx.vars.endDate = moment().endOf('month').hour(10).format('YYYY-MM-DD HH:mm:ss');
+ctx.vars.startDate = moment(ctx.vars.startDate.toString()).hour(10).format('YYYY-MM-DD HH:mm:ss');
+ctx.vars.endDate = moment(ctx.vars.endDate.toString()).hour(10).format('YYYY-MM-DD HH:mm:ss');
 ```
-
-## Configure the Page
 

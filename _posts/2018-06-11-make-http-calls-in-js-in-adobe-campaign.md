@@ -64,7 +64,22 @@ var posts = JSON.parse(resp.body)
 logInfo(posts[0].id) // 1
 ```
 
-## HTTP POST
+## HTTP POST as form 
+```js
+var req = new HttpClientRequest('https://url.com/page-with-form');
+req.method = 'POST';
+req.body = 'var1=hello@fresh.com&var2=4324f83488dwq84dw4e84dw4dew84';
+req.header["Content-Type"] = "application/x-www-form-urlencoded";
+req.execute();
+var response = req.response;
+
+if(response.code != 200){
+  logError('Server returned not HTTP 200: HTTP', response.code, response.body);
+}
+
+var body = ''+response.body; // convert to string
+logInfo('HTTP response body', body);
+```
 
 ## HTTP Basic Authentication
 

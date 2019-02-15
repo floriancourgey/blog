@@ -13,15 +13,21 @@ We will be achieving the following:
 
 ![](/assets/images/2018/07/Preview-of-Deliveries-by-date-Report.jpg)
 
-Via the Report workflow below:
+## Workflow setup
+
+Create a Report Workflow like below:
 
 ![](/assets/images/2018/07/Deliveries-by-date-Workflow.jpg)
 
-
-## The JS activity
-We are going to rely on 2 context vars:
+Also, create 2 workflow variables in `Workflow Properties > Variables`
 - `startDate` (Datetime)
 - `endDate` (Datetime)
+
+![](/assets/images/2018/07/adobe-campaign-report-newsletter-workflow-variables.jpg)
+
+## The JS activity
+We are going to rely on 2 the context vars we just created, with `ctx.vars`:
+
 ```js
 loadLibrary('vendor:moment')
 // set default date
@@ -54,6 +60,8 @@ Then, the table should look as follow:
 ![](/assets/images/2018/07/adobe-campaign-report-newsletter-table.jpg)
 
 ## Fix timezone
+
+Add a new JS activity before the Query:
 
 ```js
 loadLibrary('vendor:moment')

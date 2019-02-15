@@ -14,4 +14,5 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-paginate'
   gem 'jekyll-relative-links'
+  gem 'jekyll-redirect-from'
 end

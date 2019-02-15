@@ -36,7 +36,7 @@ redirect_from: /install-acc
 
 ## Java 8 JDK
 The JRE is not enough, we need the JDK via the `java-1.8.0-openjdk-devel` package:
-```bash
+```console
 [fco@localhost ~]$ java -version
 openjdk version "1.8.0_191"
 OpenJDK Runtime Environment (build 1.8.0_191-b12)
@@ -50,7 +50,7 @@ javac 1.8.0_191
 Let's do all of our work in `~/ac`.
 
 Download the `.rpm` file from the Download Center, see the instructions in [this post](#). Then:
-```bash
+```console
 [fco@localhost ~]$ cd && mkdir ac && cd ac
 [fco@localhost ~/ac]$ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
 [fco@localhost ~/ac]$ sudo service nlserver6 start # quick check
@@ -65,7 +65,7 @@ web@default (3740) - 106.4 MB
 
 ## Configure `~/.profile` for user `neolane`
 
-```bash
+```console
 [fco@localhost ~/ac]$ sudo su - neolane
 [neolane@localhost ~]$ id && pwd && ll
 uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
@@ -93,7 +93,7 @@ To be able to connect from our Host, we need to create new Firewall rules.
 
 By default CentOS uses `firewall-cmd` to block incoming connections. We have to allow the ACC default port `8080` (Which is the Tomcat default port).
 
-```bash
+```console
 [fco@localhost ~]$ sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 [fco@localhost ~]$ sudo firewall-cmd --zone=public --add-port=8080/udp --permanent
 [fco@localhost ~]$ sudo firewall-cmd --reload
@@ -103,14 +103,14 @@ By default CentOS uses `firewall-cmd` to block incoming connections. We have to 
 
 The default user is `internal` with an empty password `''` (See ). Let's change it (See https://docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier):
 
-```bash
+```console
 [neolane@localhost ~]$ nlserver config -internalpassword
 ```
 
 ## Install postgresql
 (See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
 
-```bash
+```console
 [fco@localhost ~]$ sudo yum install postgresql-server postgresql-contrib
 [fco@localhost ~]$ sudo postgresql-setup initdb
 [fco@localhost ~]$ sudo vim /var/lib/pgsql/data/pg_hba.conf # replace ident by md5
@@ -129,19 +129,19 @@ dbuser1
 You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or any SQL client). To do so, some extra steps need to be taken, see [Allow external PostgreSQL access](#allow-external-postgresql-access) at the end of this article.
 
 ## Update the Db
-1. First import: core schema [db.sql](/assets/adobe-campaign/adobe-campaign-install-db.sql) (This file can be found in your Support Download Center)
-```bash
+1. First import: core schema [db.sql](https://gist.github.com/floriancourgey/14fa97cbd691f71b6bf941f0dc2c5d2d) (This file can be found in your Support Download Center)
+```console
 $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-install-db.sql
 ```
-1. Second import: public procedures [update.sql](/assets/adobe-campaign/adobe-campaign-update.sql) (See Appendix to generate this file)
-```bash
+1. Second import: public procedures [update.sql](https://gist.github.com/floriancourgey/56af2f0fc8b3d5d549490772655aadf5) (See Appendix to generate this file)
+```console
 $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-update.sql
 ```
-*Note: I also had to `DROP` `xtksessioninfo`, then re-create manually with [this script](/assets/adobe-campaign/adobe-campaign-update-xtksessioninfo.sql).*
+*Note: I also had to `DROP` `xtksessioninfo`, then re-create manually with [this script](https://gist.github.com/floriancourgey/4439ee67487b729fcebb6376aec9e30d).*
 
 ## Appendixes
 ### Install Apache
-```bash
+```console
 $ sudo yum install -y httpd
 $ sudo systemctl start httpd # start now
 $ sudo systemctl enable httpd # start at boot
@@ -157,7 +157,7 @@ $ sudo firewall-cmd --reload
 
 ### Allow external PostgreSQL access
 Allow external access to postgresql, see https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
-```bash
+```console
 $ sudo vim /var/lib/pgsql/data/postgresql.conf # replace listen_addresses = 'localhost' to
 listen_addresses = '*'
 $ sudo vim /var/lib/pgsql/data/pg_hba.conf # add at the end:
@@ -172,7 +172,7 @@ $ sudo firewall-cmd --reload
 ### Download your PostreSQL procedures
 Create a JS activity with below code:
 
-```bash
+```js
 var f = new File('/sftp/my-instance/incoming/my-ftp-folder/my-procedures.sql');
 f.open('w');
 
@@ -253,7 +253,7 @@ CREATE TABLE nmsextaccount(
 
 ### Execute JS code from the commande line with `nlserver javascript`
 
-```bash
+```console
 $ cat test.js
 var o = NLWS.xtkOperator.load(2); loginfo(o);
 $ nlserver javascript -instance:instance1 -file test.js

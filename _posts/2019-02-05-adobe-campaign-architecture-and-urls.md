@@ -16,8 +16,12 @@ neolane:x:1001:1001::/usr/local/neolane:/bin/bash
 
 Here, and through this tutorial, we'll assume that Adobe Campaign is installed in `/usr/local/neolane/nl6/` (referrred to as `/`).
 
-## Application server (Tomcat Java EE)
-Taken from local Tomcat config file `/tomcat-7/conf/server.xml`:
+## Application server on port 8080 (Tomcat Java EE) or HTTP Server on port 80/443 (Apache)
+By default AC7 runs uses Tomcat on port 8080. However, for secutiry reasons, it might be coupled to Apache (See [INS_Installing_Campaign_in_Linux__Integration_into_a_Web_server](https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Linux__Integration_into_a_Web_server.html))
+- Tomcat config file `/tomcat-7/conf/server.xml`
+- Apache confing file `/tomcat-7/conf/apache_neolane.conf`
+
+Both files use the same config:
 
 Desc | URL | Local path
 --- | --- | ---

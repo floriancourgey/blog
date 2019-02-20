@@ -1,12 +1,8 @@
 ---
 title: Migrate from Wordpress to Jekyll [Part 1/2]
-author: Florian Courgey
-layout: post
-categories:
-  - jekyll
-  - opensource
-  - server
+categories: [jekyll, opensource, server]
 ---
+
 This post is the part 1 of the tutorial collection on how to migrate from Wordpress to Jekyll.
 - Part 1. Introduction
 - [Part 2. Create the Search component]({{ site.baseurl }}{% post_url 2018-11-21-migrate-from-wordpress-to-jekyll-2 %})
@@ -170,15 +166,17 @@ Replace: ![todo](/assets/images$1)
 
 ## Pros and Cons
 Jekyll on Github compared to Wordpress is:
-- faster: no database access, no programming language, only raw html and images
-- cheaper: you only pay for the domain name (~$10/year) instead of paying for a VPS $5/mo
-- safer: no login or admin backoffice, no field and no form, no .htaccess and not on-premise so there's 0 security flaw
-- highly customizable: without being too complex to edit, Jekyll offers a quick way to extend its functionnalities
-- not bloated: I got sick of WP because of 5-10 sec page loads.. A quick look at the HTML source and some Lighthouse audits reveal a lot of useless JS+CSS
-- bootstrap friendly: most of the WP themes will break when used with BS. As Jekyll is built with simplicity in mind, adding BS will keep everything in order. This way, components (alert, popover, icons...) and utilities (grid, show/hide...) are available
+- **faster:** no database access, no programming language, only raw html and images
+- **cheaper:** you only pay for the domain name (~$10/year) instead of paying for a VPS $5/mo
+- **safer:** no login or admin backoffice, no field and no form, no .htaccess and not on-premise so there's 0 security flaw
+- **highly customizable:** without being too complex to edit, Jekyll offers a quick way to extend its functionnalities
+- **not bloated:** I got sick of WP because of 5-10 sec page loads.. A quick look at the HTML source and some Lighthouse audits reveal a lot of useless JS+CSS
+- **bootstrap friendly:** most of the WP themes will break when used with BS. As Jekyll is built with simplicity in mind, adding BS will keep everything in order. This way, components (alert, popover, icons...) and utilities (grid, show/hide...) are available
+- **focused on content:** with Markdown (`.md`) based files, Jekyll focuses on content rather than on markup. It relies on much cleaner a source
 
 But on the other hand, Wordpress is better for:
 - the setup: WP can be set up in 5-10 min, instead of 1-2 days for an extended Jekyll website
 - plugins: which are the reason of the bloat.. But for GA, GTM, SEO, RSS, code highlighting, etc. WP has some first-class and easy-to-install plugins, comparent to Jekyll where there's a need of writing raw HTML/Liquid
 - the ecosystem and the community: WP has more experience, runs on more websites and has many big brands support
 - private drafts: drafts are open source on Jekyll, which is a pain in the a**
+- Images management: WP is really easy to use for images

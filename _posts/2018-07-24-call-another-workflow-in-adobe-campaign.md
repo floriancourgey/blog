@@ -1,10 +1,6 @@
 ---
-id: 872
 title: Call another workflow in Adobe Campaign
-date: 2018-07-24T19:39:31
-author: Florian Courgey
-layout: post
-permalink: /2018/07/call-another-workflow-in-adobe-campaign/
+redirect_from: /2018/07/call-another-workflow-in-adobe-campaign/
 categories: [adobe campaign,automation,neolane,opensource]
 ---
 This tutorial will walk you through setting up a `workflow1` calling `workflow2` upon completion. Also contains business cases (wait for multiple workflows to complete), and exception handling.

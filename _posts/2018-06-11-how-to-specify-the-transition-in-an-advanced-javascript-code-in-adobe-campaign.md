@@ -34,15 +34,15 @@ You can leverage this activity by listing all files in a dir, and execute a tran
 
 ![](/assets/images/2018/06/Advanced-JavaScript-Code-Use-case-with-files.jpg)
 
-![](/assets/images/2018/06/Advanced-JavaScript-Code-Transitions.jpg
+![](/assets/images/2018/06/Advanced-JavaScript-Code-Transitions.jpg)
 
 JavaScript code:
 
 ```js
-loadLibrary('my:helpers');
+loadLibrary('my:helpers'); # contains function getIncomingDir(), must end with '/'
 
 var dir = new File(getIncomingDir());
-var files = dir.list("20180727*_customers_*.xml");
+var files = dir.list("20180727*_customers_*.xml"); # see https://docs.campaign.adobe.com/doc/AC/en/jsapi/c-File.html
 
 if(files && files.length > 0){
   task.postEvent(task.transitionByName("yes"));
@@ -53,7 +53,7 @@ if(files && files.length > 0){
 
 So you can use it in a scheduled workflow like this, with a file collector that processes files One at a time (Check option `Stop as soon as a file has been processed`):
 
-![](/assets/images/2018/06/Advanced-JavaScript-Code-Use-case-full-2.jpg
+![](/assets/images/2018/06/Advanced-JavaScript-Code-Use-case-full-2.jpg)
 
 Schedule the workflow daily, configure your variables `vars.directory`  and `vars.fileFilter` in the first Javascript Activity. Use them in the File collector. The Data Loading activity is set to use the file Specified in the Transition. Both jumps are defined to 1.
 

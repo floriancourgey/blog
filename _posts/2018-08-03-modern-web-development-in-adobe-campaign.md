@@ -62,11 +62,11 @@ In short you have the following:
 
 ### Create a global option RESOURCE_URL
 
-Adobe Campaign gives us the ability to get the Online Resources URL in JavaScript with `xtk.fileRes.GetPublicFileResURL()</span>. Call it in a workflow or get it from a Resource:
+Adobe Campaign gives us the ability to get the Online Resources URL in JavaScript with `xtk.fileRes.GetPublicFileResURL()`. Call it in a workflow or get it from a Resource:
 
 ![](/assets/images/2018/08/File-Resource-CDN-URL-in-Adobe-Campaign.jpg)
 
-Replace `http</span>  by `https</span>  and use it in an Option:
+Replace `http` by `https` and use it in an Option:
 
 ![](/assets/images/2018/08/RESOURCE_URL-Option-with-HTTPs-URL.jpg)
 
@@ -95,7 +95,7 @@ This way, we just made Web development in AC great again!
 <img src="<%= getOption('RESOURCES_URL') %>loader.svg"/>
 ```
 
-And with this new markup, you are able to <span style="text-decoration: underline;">migrate very easily</span> from your <span style="text-decoration: underline;">Staging/Dev Environment to your Production Environment</span>. We're now [#DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) compliant. Sweeeeet 🍡🍭🍬
+And with this new markup, you are able to *migrate very easily* from your *Staging/Dev Environment to your Production Environment*. We're now [#DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) compliant. Sweeeeet 🍡🍭🍬
 
 ## Sharing meta data (Facebook opengraph og, Twitter card, Google result)
 

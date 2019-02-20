@@ -39,10 +39,10 @@ You can leverage this activity by listing all files in a dir, and execute a tran
 JavaScript code:
 
 ```js
-loadLibrary('my:helpers'); # contains function getIncomingDir(), must end with '/'
+loadLibrary('my:helpers'); // contains function getIncomingDir(), must end with '/'
 
 var dir = new File(getIncomingDir());
-var files = dir.list("20180727*_customers_*.xml"); # see https://docs.campaign.adobe.com/doc/AC/en/jsapi/c-File.html
+var files = dir.list("20180727*_customers_*.xml"); // see https://docs.campaign.adobe.com/doc/AC/en/jsapi/c-File.html
 
 if(files && files.length > 0){
   task.postEvent(task.transitionByName("yes"));
@@ -60,15 +60,15 @@ Schedule the workflow daily, configure your variables `vars.directory`  and `var
 The code to determine of there's still some files left to be processed becomes:
 
 ```js
-var dir = new File(vars.directory)
-var files = dir.list(vars.fileFilter)
+var dir = new File(vars.directory);
+var files = dir.list(vars.fileFilter);
 if(files && files.length > 0){
   for each (var file in files){
-    logInfo('- '+file.name)
+    logInfo('- '+file.name);
   }
-  task.postEvent(task.transitionByName("yes"))
+  task.postEvent(task.transitionByName("yes"));
 } else {
-  task.postEvent(task.transitionByName("no"))
+  task.postEvent(task.transitionByName("no"));
 }
 ```
 

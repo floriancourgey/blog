@@ -50,3 +50,15 @@ mta@freshin_mkt_stage1 (20500) - 57.3 MB
 watchdog (25708) - 8.0 MB
 ```
 
+## Appendixes: Connect via SFTP with FileZilla
+
+```console
+host: mkt-stage1.campaign.adobe.com
+Protocol: SFTP SSH
+
+Logon Type: Key File
+user: neolane
+Key File: ~/.ssh/id_rsa
+```
+
+![](/assets/images/2019/02/adobe-campaign-sftp-ssh-filezilla.jpg)

@@ -1,0 +1,39 @@
+<?xml version='1.0'?>
+<serverconf>
+  <shared>
+    <dataStore hosts="*" lang="eng" uploadWhitelist="(?i).*\.(jpg|jpeg|png|favicon|xml|gif|bmp|txt|tab|csv|css|htm|html|zip|pdf|ppt|pptx|xls|xlsx|doc|docx|odt|p12)">
+      <dataSource name="default">
+        <dbcnx encrypted="1" login="dbuser1:dbuser1" password="@bzq9K93k6mXcp3NGR8An4g=="
+               provider="postgresql" server="localhost"/>
+      </dataSource>
+    </dataStore>
+  </shared>
+
+   <mta autoStart="true" statServerAddress="">
+    <child>
+      <smtp>
+        <IPAffinity name="default,mid.default,dev.default,test.default">
+          <!--  For dev instances, if you need a default IP (not recommended), use address="0.0.0.0" -->
+          <IP address="" heloHost="" publicId="" weight=""/>
+        </IPAffinity>
+      </smtp>
+    </child>
+  </mta>
+<stat autoStart="true"/>
+  <wfserver autoStart="true"/>
+  <inMail autoStart="true"/>
+  <sms autoStart="false"/>
+  <interactiond autoStart="false"/>
+
+  <web>
+    <redirection IMSOrgId="" databaseId="" trackingPassword=""/>
+  </web>
+
+  <securityZone name="public">
+    <securityZone name="vpn">
+      <!-- Add customer specifc IPs here, HTTPS access will be mandatory to login
+      <subNetwork name="Cus1" mask="x.x.x.x/y"/>
+      -->
+    </securityZone>
+  </securityZone>
+</serverconf>

@@ -67,13 +67,15 @@ web@default (3740) - 106.4 MB
 
 ```console
 [fco@localhost ~/ac]$ sudo su - neolane
-[neolane@localhost ~]$ id && pwd && ll
+-bash-4.2$ id && pwd && ll
 uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
 /usr/local/neolane
 drwxrwxr-x. 14 neolane neolane 187 Feb 13 14:01 nl6
-[neolane@localhost ~]$ vim ~/.profile
+-bash-4.2$ vim ~/.profile
 export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/server/
 export PATH=$PATH:/usr/local/neolane/nl6/bin/
+alias ll="ls -alh"
+PS1="[\u@\h \w]\$ "
 [neolane@localhost ~]$ nlserver start web
 14:01:32 >   Application server for Adobe Campaign (6.1.1 build 8864) of 03/02/2018
 14:01:32 >   Launching task 'web@default' ('nlserver web -tracefile:web@default -instance:default -detach -tomcat -autorepair') in a new process

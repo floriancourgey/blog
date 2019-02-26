@@ -179,7 +179,14 @@ And access any feature locally:
 ![](/assets/images/2019/02/adobe-campaign-welcome-screen.jpg)
 ![](/assets/images/2019/02/adobe-campaign-navtree-successful.jpg)
 
+You might need to activate the `wfserver` process if it doesn't show up in `nlserver pdump` with
+```console
+$ nlserver start wfserver@instance1
+```
 
+Then create and start the first worflow `WKF1`:
+![](/assets/images/2019/02/adobe-campaign-workflow-run.jpg)
+![](/assets/images/2019/02/adobe-campaign-workflow-audit-log-success.jpg)
 
 
 
@@ -187,7 +194,7 @@ And access any feature locally:
 You might run into some errors while setting up the Db, the following will help:
 
 ### Debug your instance config file
-Each instance if defined in `/usr/local/neolane/nl6/conf/conf-{instance-name}.xml`. Download [the example of conf-instance1.xml](/assets/adobe-campaign/conf-instance1.xml).
+Each instance is defined in `/usr/local/neolane/nl6/conf/conf-{instance-name}.xml`. Download [the example of conf-instance1.xml](/assets/adobe-campaign/conf-instance1.xml).
 
 ### Update the Db 1/2
 

@@ -171,7 +171,17 @@ And access any feature locally:
 ## Troubleshoot
 You might run into some errors while setting up the Db, the following will help:
 
-### Update the Db
+### Debug your instance config file
+Each instance if defined in `/usr/local/neolane/nl6/conf/conf-{instance-name}.xml`. Download [the example of conf-instance1.xml](/assets/adobe-campaign/conf-instance1.xml).
+
+### Update the Db 1/2
+
+```console
+[neolane@localhost ~/nl6/datakit]$ psql -U dbuser1 -d dbuser1 -h localhost -f ./xtk/fra/sql/postgresql-nldb.sql
+```
+Download [the example of postgresql-nldb.sql](/assets/adobe-campaign/postgresql-nldb.sql).
+
+### Update the Db 2/2
 1. First import: core schema [db.sql](https://gist.github.com/floriancourgey/14fa97cbd691f71b6bf941f0dc2c5d2d) (This file can be found in your Support Download Center)
 ```console
 $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-install-db.sql

@@ -132,7 +132,7 @@ You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or
 
 
 ## Set up instance
-We'll set up an instance named `instance1`, with default user `internal` and password `internal`.
+We'll set up an instance named `instance1`, with default user `internal` and password `internal` (See [Adobe doc for nlserver config](https://docs.campaign.adobe.com/doc/AC/en/INS_Appendices_Command_lines.html)).
 ```console
 $ nlserver config -verbose -addinstance:instance1/*/eng
 $ nlserver config -internalpassword
@@ -156,6 +156,21 @@ You'll be prompted to set up the database:
 Set the password for the `admin` account to `admin`:
 ![](/assets/images/2019/02/adobe-campaign-database-creation-wizard-creation-steps.jpg)
 ![](/assets/images/2019/02/adobe-campaign-database-creation-wizard-execution.jpg)
+
+Preview of the log:
+```
+Submitting job to the server
+16:02:10 - Enumerating the file entities...
+16:02:11 - Generating schemas...
+16:02:12 - Executing SQL script 'xtk:postgresql-functions.sql'...
+16:02:12 - Starting 1 connection(s) on pool 'default instance1' (postgresql, server='localhost', login='dbuser1:dbuser1')
+16:02:12 - Creating DDL procedures
+16:02:12 - Creating standard date and time functions
+[...]
+16:02:24 - Installation of packages successful.
+16:02:25 - Changing administrator password...
+16:02:25 - Creation of database successfully completed.
+```
 
 You can now login with `admin/admin`:
 ![](/assets/images/2019/02/adobe-campaign-login-as-admin.jpg)

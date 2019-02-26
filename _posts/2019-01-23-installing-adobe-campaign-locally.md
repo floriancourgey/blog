@@ -130,7 +130,48 @@ dbuser1
 
 You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or any SQL client). To do so, some extra steps need to be taken, see [Allow external PostgreSQL access](#allow-external-postgresql-access) at the end of this article.
 
-## Update the Db
+
+## Set up instance
+We'll set up an instance named `instance1`, with default user `internal` and password `internal`.
+```console
+$ nlserver config -verbose -addinstance:instance1/*/eng
+$ nlserver config -internalpassword
+internal
+16:23:48 >   Password successfully changed for account 'internal' (authentication mode 'nl').
+```
+Note your VM IP, next to `inet`, here `10.3.112.82`:
+```console
+$ ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.3.112.82  netmask 255.255.255.0  broadcast 10.3.112.255
+```
+Connect with your client `internal/internal` to `http://10.3.112.82:8080`:
+![](/assets/images/2019/02/adobe-campaign-login-as-internal.jpg)
+
+You'll be prompted to set up the database:
+![](/assets/images/2019/02/adobe-campaign-database-creation-wizard.jpg)
+![](/assets/images/2019/02/adobe-campaign-database-creation-wizard-2.jpg)
+![](/assets/images/2019/02/adobe-campaign-database-creation-wizard-packages.jpg)
+
+Set the password for the `admin` account to `admin`:
+![](/assets/images/2019/02/adobe-campaign-database-creation-wizard-creation-steps.jpg)
+![](/assets/images/2019/02/adobe-campaign-database-creation-wizard-execution.jpg)
+
+You can now login with `admin/admin`:
+![](/assets/images/2019/02/adobe-campaign-login-as-admin.jpg)
+
+And access any feature locally:
+![](/assets/images/2019/02/adobe-campaign-welcome-screen.jpg)
+![](/assets/images/2019/02/adobe-campaign-navtree-successful.jpg)
+
+
+
+
+
+## Troubleshoot
+You might run into some errors while setting up the Db, the following will help:
+
+### Update the Db
 1. First import: core schema [db.sql](https://gist.github.com/floriancourgey/14fa97cbd691f71b6bf941f0dc2c5d2d) (This file can be found in your Support Download Center)
 ```console
 $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-install-db.sql
@@ -138,38 +179,13 @@ $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-install-db.sql
 1. Second import: public procedures [update.sql](https://gist.github.com/floriancourgey/56af2f0fc8b3d5d549490772655aadf5) (See Appendix to generate this file)
 ```console
 $ psql -U dbuser1 -d dbuser1  -h localhost -f adobe-campaign-update.sql
+$ nlserver package -verbose -instance:instance1 -import:xtk/eng/package/core.xml
+$ psql -U dbuser1 -d dbuser1 -h localhost -f ./xtk/fra/sql/postgresql-nldb.sql
+$ nlserver package -verbose -instance:instance1 -import:nl/postupgrade.xml
 ```
 *Note: I also had to `DROP` `xtksessioninfo`, then re-create manually with [this script](https://gist.github.com/floriancourgey/4439ee67487b729fcebb6376aec9e30d).*
 
-## Appendixes
-### Install Apache
-```console
-$ sudo yum install -y httpd
-$ sudo systemctl start httpd # start now
-$ sudo systemctl enable httpd # start at boot
-$ service httpd status && curl localhost # check
-● httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since Wed 2019-02-06 16:53:12 EST; 1min 22s ago
-[...]</body></html>
-$ sudo firewall-cmd --add-service=http --permanent # allow firewall http
-$ sudo firewall-cmd --add-service=https --permanent # allow firewall https
-$ sudo firewall-cmd --reload
-```
 
-### Allow external PostgreSQL access
-Allow external access to postgresql, see https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
-```console
-$ sudo vim /var/lib/pgsql/data/postgresql.conf # replace listen_addresses = 'localhost' to
-listen_addresses = '*'
-$ sudo vim /var/lib/pgsql/data/pg_hba.conf # add at the end:
-host    all             all              0.0.0.0/0                       md5
-host    all             all              ::/0                            md5
-$ sudo firewall-cmd --zone=public --add-port=5432/udp --permanent
-$ sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
-$ sudo firewall-cmd --reload
-```
-![](/assets/images/2019/02/adobe-campaign-install-sqlectron-connect.jpg)
 
 ### Download your PostreSQL procedures
 Create a JS activity with below code:
@@ -263,3 +279,33 @@ $ nlserver javascript -instance:instance1 -file test.js
 17:59:09 >   Starting 1 connection(s) on pool 'default instance1' (postgresql, server='localhost', login='dbuser1:dbuser1')
 17:59:09 >   Executing JavaScript from file 'test.js'...
 ```
+
+## Appendixes
+### Install Apache
+```console
+$ sudo yum install -y httpd
+$ sudo systemctl start httpd # start now
+$ sudo systemctl enable httpd # start at boot
+$ service httpd status && curl localhost # check
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2019-02-06 16:53:12 EST; 1min 22s ago
+[...]</body></html>
+$ sudo firewall-cmd --add-service=http --permanent # allow firewall http
+$ sudo firewall-cmd --add-service=https --permanent # allow firewall https
+$ sudo firewall-cmd --reload
+```
+
+### Allow external PostgreSQL access
+Allow external access to postgresql, see https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
+```console
+$ sudo vim /var/lib/pgsql/data/postgresql.conf # replace listen_addresses = 'localhost' to
+listen_addresses = '*'
+$ sudo vim /var/lib/pgsql/data/pg_hba.conf # add at the end:
+host    all             all              0.0.0.0/0                       md5
+host    all             all              ::/0                            md5
+$ sudo firewall-cmd --zone=public --add-port=5432/udp --permanent
+$ sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
+$ sudo firewall-cmd --reload
+```
+![](/assets/images/2019/02/adobe-campaign-install-sqlectron-connect.jpg)

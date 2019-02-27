@@ -127,9 +127,15 @@ host    all             all             ::1/128                 md5
 [fco@localhost ~]$ sudo su - postgres
 [postgres@localhost ~]$ createuser --interactive # create a PostgreSQL role (user)
 dbuser1
+[postgres@localhost ~]$ psql # open the PostegreDQL shell
+
 [postgres@localhost ~]$ createdb dbuser1 # create a PostgreSQL database with the same name
+postgres=# ALTER USER dbuser1 PASSWORD 'dbpwd1'; # set a password for the SQL user
+postgres=# \q
 [postgres@localhost ~]$ exit
 [fco@localhost ~]$ sudo adduser dbuser1 # create a Linux user with the same name
+[fco@localhost ~]$ sudo systemctl start postgresql # start PostgreSQL now
+[fco@localhost ~]$ sudo systemctl enable postgresql # and at boot
 ```
 
 ![](/assets/images/2019/02/adobe-campaign-postgresql-install.png)

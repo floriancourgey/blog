@@ -327,7 +327,7 @@ $ nlserver javascript -instance:instance1 -file test.js
 ```
 
 ## Appendixes
-### Install Apache
+### Integrate with Apache web server 
 ```console
 $ sudo yum install -y httpd
 $ sudo systemctl start httpd # start now
@@ -340,6 +340,22 @@ $ service httpd status && curl localhost # check
 $ sudo firewall-cmd --add-service=http --permanent # allow firewall http
 $ sudo firewall-cmd --add-service=https --permanent # allow firewall https
 $ sudo firewall-cmd --reload
+$ sudo vim /etc/httpd/conf.modules.d/00-base.conf # comment the following modules:
+auth_basic
+authn_file
+authz_default
+authz_user
+autoindex
+cgi
+dir
+env
+negotiation
+userdir
+$ sudo mv /etc/httpd/conf.d/autoindex.conf /etc/httpd/conf.d/autoindex.conf.bak
+$ sudo vim /etc/httpd/conf.d/CampaignApache.conf
+LoadModule requesthandler24_module /usr/local/neolane/nl6/lib/libnlsrvmod.so
+Include /usr/local/neolane/nl6/tomcat-7/conf/apache_neolane.conf
+$ 
 ```
 
 ### Allow external PostgreSQL access

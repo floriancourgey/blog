@@ -116,10 +116,12 @@ The default user is `internal` with an empty password `''` (See ). Let's change 
 ```
 
 ## Install postgresql
-(See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
+(See [https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7))
+
+Init PostgreSQL with a SQL user `dbuser1` (password `dbpwd1`), a SQL database `dbuser1` and a Linux user `dbuser1`:
 
 ```console
-[fco@localhost ~]$ sudo yum install postgresql-server postgresql-contrib
+[fco@localhost ~]$ sudo yum install postgresql-server postgresql-contrib # not needed if already installed via the Centos package selection
 [fco@localhost ~]$ sudo postgresql-setup initdb
 [fco@localhost ~]$ sudo vim /var/lib/pgsql/data/pg_hba.conf # replace ident by md5
 host    all             all             127.0.0.1/32            md5
@@ -127,7 +129,7 @@ host    all             all             ::1/128                 md5
 [fco@localhost ~]$ sudo su - postgres
 [postgres@localhost ~]$ createuser --interactive # create a PostgreSQL role (user)
 dbuser1
-[postgres@localhost ~]$ psql # open the PostegreDQL shell
+[postgres@localhost ~]$ psql # open the PostgreSQL shell
 
 [postgres@localhost ~]$ createdb dbuser1 # create a PostgreSQL database with the same name
 postgres=# ALTER USER dbuser1 PASSWORD 'dbpwd1'; # set a password for the SQL user

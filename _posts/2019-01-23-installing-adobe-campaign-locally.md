@@ -327,6 +327,18 @@ $ nlserver javascript -instance:instance1 -file test.js
 ```
 
 ## Appendixes
+### Assign a static IP to your virtualbox VM
+In the VM, assuming `enp0s3` is the name of the adapter shown in `ifconfig`:
+```console
+$ sudo vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
+BOOTPROTO="none" # updated from "dhcp"
+IPADDR=10.3.112.90 # added
+NETMASK=255.255.255.0 # added
+GATEWAY=10.3.112.254 # added
+```
+
+Restart the VM
+
 ### Integrate with Apache web server 
 ```console
 $ sudo yum install -y httpd

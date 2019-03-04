@@ -1,7 +1,6 @@
 ---
 title: "Linux training with overthewire [Part X: Vortex 1-]"
-author: Florian Courgey
-layout: post
+date: 2018-11-30T18:00:00
 categories:
   - opensource
   - linux

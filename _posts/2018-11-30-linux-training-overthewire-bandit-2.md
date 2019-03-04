@@ -1,7 +1,6 @@
 ---
 title: "Linux training with overthewire [Part 2/10: Bandit 11-20]"
-author: Florian Courgey
-layout: post
+date: 2018-11-30T11:00:00
 categories:
   - opensource
   - linux

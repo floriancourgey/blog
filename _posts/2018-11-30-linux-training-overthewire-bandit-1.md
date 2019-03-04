@@ -1,5 +1,6 @@
 ---
 title: "Linux training with overthewire [Part 1/10: Bandit 1-10]"
+date: 2018-11-30T10:00:00
 categories: [linux,server,opensource]
 ---
 Train your Linux skills with the excellent OverTheWire wargames.

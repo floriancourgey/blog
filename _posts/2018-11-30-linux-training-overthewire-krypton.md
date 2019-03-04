@@ -1,7 +1,6 @@
 ---
 title: "Linux training with overthewire [Part 7/10: Krypton 1-5]"
-author: Florian Courgey
-layout: post
+date: 2018-11-30T17:00:00
 categories:
   - opensource
   - linux

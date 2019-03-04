@@ -1,7 +1,6 @@
 ---
 title: "Linux training with overthewire [Part 5/10: Natas 11-20]"
-author: Florian Courgey
-layout: post
+date: 2018-11-30T14:00:00
 categories: [opensource,linux,bash,shell,hack,server]
 ---
 Excerpt here...
@@ -446,11 +445,11 @@ Alright we got 2 websites:
 
 The sub-domain exposes a security breaches through this code (l. 14-18):
 ```php
-if(array_key_exists("submit", $_REQUEST)) { 
-  foreach($_REQUEST as $key => $val) { 
-    $_SESSION[$key] = $val; 
-  } 
-} 
+if(array_key_exists("submit", $_REQUEST)) {
+  foreach($_REQUEST as $key => $val) {
+    $_SESSION[$key] = $val;
+  }
+}
 ```
 Any key/value pair sent through GET/POST will be set in the `$_SESSION`, example with [http://natas21-experimenter.natas.labs.overthewire.org/index.php?submit=Update&admin=1&debug=1](http://natas21-experimenter.natas.labs.overthewire.org/index.php?submit=Update&admin=1&debug=1):
 ![](/assets/images/2018/12/overthewire-natas21-requests-exploit.jpg)
@@ -477,10 +476,10 @@ http://natas22.natas.labs.overthewire.org/ natas22 chG9fbe1Tq2eWVMgjYYD1MsfIvN46
 Vulnerable source:
 ```php
 if(array_key_exists("revelio", $_GET)) {
-  if(!($_SESSION and array_key_exists("admin", $_SESSION) and $_SESSION["admin"] == 1)) { 
-    header("Location: /"); 
-  } 
-} 
+  if(!($_SESSION and array_key_exists("admin", $_SESSION) and $_SESSION["admin"] == 1)) {
+    header("Location: /");
+  }
+}
 ```
 
 `header()` will just add a HTTP header `Location: /` but won't redirect. Only browsers will perfom the redirect. So let's use something other than a browser. `curl` maybe?
@@ -503,7 +502,7 @@ http://natas23.natas.labs.overthewire.org/ natas23 D0vlad33nQF0Hz2EP255TP5wSW9Zs
 PHP can be used to compare a string to a number, this is the vulnerability for this exercice:
 ```php
 if(
-    strstr($_REQUEST["passwd"],"iloveyou") && 
+    strstr($_REQUEST["passwd"],"iloveyou") &&
     $_REQUEST["passwd"] > 10
   ){
     // good boy
@@ -602,8 +601,8 @@ Function call order:
 ```php
 session_start();
 if cookie drawing OR get x1 x2 y1 y2
-  $imgfile="img/natas26_" . session_id() .".png"; 
-  drawImage($imgfile); 
+  $imgfile="img/natas26_" . session_id() .".png";
+  drawImage($imgfile);
     imagecreatetruecolor()
     drawFromUserdata()
       if get x1..
@@ -664,7 +663,7 @@ The first obvious thing we all tried was to exploit `mysql_real_escape_string()`
   - http://blackburnmoonlit.blogspot.com/2012/01/bypassing-mysqlescapestring-while-sql.html
 - Have a multi-byte charset such as GBK. The hex value `0x27` is the literal quote `'`. The quote is going to be prefixed by hex `0x5c` (literal `\`). We juste have to find a multi-byte character ending with `0x5c`: `0x??27` will be replaced by `0x??5c27`. The GBK character `0x??5c` will be interpreted as 1 char, and won't escape `0x27`.
   - https://stackoverflow.com/questions/5741187/sql-injection-that-gets-around-mysql-real-escape-string
-  
+
 But we have none of the aboe conditions. Time to get creative 💡
 
 varchar 64, `natas28                                                               hello`

@@ -1,7 +1,6 @@
 ---
 title: "Linux training with overthewire [Part 4/10: Natas 1-10]"
-author: Florian Courgey
-layout: post
+date: 2018-11-30T13:00:00
 categories:
   - opensource
   - linux

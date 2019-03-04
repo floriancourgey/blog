@@ -40,16 +40,16 @@ Admin Controllers only exist in a module. So we need to create a module first! L
 <?php
 if (!defined('_PS_VERSION_')) {exit;}
 class My_Module extends Module {
-      public function __construct() {
-      $this->name = 'my_module';
-      $this->tab = 'administration';
-      $this->version = '1.0.0';
-      $this->author = 'Florian Courgey';
-      $this->bootstrap = true;
-      parent::__construct();
-      $this->displayName = $this->l('PrestaShop Module by FC');
-      $this->description = $this->l('Improve your store by [...]');
-      $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
+  public function __construct() {
+    $this->name = 'my_module';
+    $this->tab = 'administration';
+    $this->version = '1.0.0';
+    $this->author = 'Florian Courgey';
+    $this->bootstrap = true;
+    parent::__construct();
+    $this->displayName = $this->l('PrestaShop Module by FC');
+    $this->description = $this->l('Improve your store by [...]');
+    $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
   }
 }
 ```
@@ -65,18 +65,16 @@ Finally, we can create our actual `AdminCustomInvoicesController` in `modules/my
 
 
 ```php
-<?php
-
 class AdminCustomInvoicesController extends ModuleAdminController {
   public function __construct(){
-      $this->bootstrap = true; // use Bootstrap CSS
-      $this->table = 'order_invoice'; // SQL table name, will be prefixed with _DB_PREFIX_
-      $this->className = 'OrderInvoice'; // PHP class name
-      $this->allow_export = true; // allow export in CSV, XLS..
+    $this->bootstrap = true; // use Bootstrap CSS
+    $this->table = 'order_invoice'; // SQL table name, will be prefixed with _DB_PREFIX_
+    $this->className = 'OrderInvoice'; // PHP class name
+    $this->allow_export = true; // allow export in CSV, XLS..
   }
 
   public function access($action, $disable = false){
-      return true;
+    return true;
   }
 }
 ```
@@ -104,8 +102,6 @@ Refresh your tab, and Voila! Our empty Controller is looking great:
 For example, an Admin Controller to handle your invoices (list, view, create, edit and delete)
 
 ```php
-<?php
-
 class AdminCustomInvoicesController extends ModuleAdminController {
   public function __construct(){
     // [...]
@@ -140,8 +136,6 @@ Which gives us the following list (sortable and filterable!!):
 Add `$this->fields_form`  and `$this->addRowAction`:
 
 ```php
-<?php
-
 class AdminCustomInvoicesController extends ModuleAdminController {
   public function __construct(){
     // [...]
@@ -169,7 +163,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
         ['name'=>'total_paid_tax_incl','type'=>'text','label'=>'Total paid (with tax)'],
         ['name'=>'shop_address','type'=>'textarea','label'=>'Shop address'],
       ],
-      'submit' => ['title' => $this->trans('Save', [], 'Admin.Actions'),]
+      'submit' => ['title' => $this->trans('Save', [], 'Admin.Actions'),],
     ];
   }
 }
@@ -189,8 +183,6 @@ And hitting Edit results in a nice form, ready to be edited!
 ### 4. a) Add customer info in the list
 
 ```php
-<?php
-
 class AdminCustomInvoicesController extends ModuleAdminController {
   public function __construct(){
     // [...]
@@ -216,8 +208,6 @@ Displays the customer name in a column:
 ### 4. b) Add order info above the form
 
 ```php
-<?php
-
 class AdminCustomInvoicesController extends ModuleAdminController {
   // [...]
 
@@ -252,8 +242,6 @@ And we now have a simple panel that serves as a header to render some data about
 USE WITH CARE, you CANNOT undo a deletion!!!
 
 ```php
-<?php
-
 class AdminCustomInvoicesController extends ModuleAdminController {
   public function __construct(){
     // [...]
@@ -275,7 +263,7 @@ This new code will add buttons to delete via one-shot and bulk:
 
 
 ## Full version of the Code
-  
+
 Hosted on <a href="https://gist.github.com/floriancourgey/cb63fd5abd93e1109fcf624a68307403">https://gist.github.com/floriancourgey/cb63fd5abd93e1109fcf624a68307403</a>
 
 

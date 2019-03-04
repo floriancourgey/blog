@@ -25,18 +25,18 @@ server {
 
 Before, a 403 error:
 
-![](/assets/images/2018/05/Capture-d’écran-2018-05-20-à-17.28.07.png)
+![](/assets/images/2018/05/screenshot-2018-05-20-17.28.07.png)
 
 After, a 404 (which is OK in our case):
 
-![](/assets/images/2018/05/Capture-d’écran-2018-05-20-à-17.27.56.png)
+![](/assets/images/2018/05/screenshot-2018-05-20-17.27.56.png)
 
 &nbsp;
 
 If you&#8217;re using Plesk, this configuration is found under Apache & Nginx settings of your website:
 
-![](/assets/images/2018/05/Capture-d’écran-2018-05-20-à-17.34.12.png)
+![](/assets/images/2018/05/screenshot-2018-05-20-17.34.12.png)
 
 Which leads to this pretty handy text editor:
 
-![](/assets/images/2018/05/Capture-d’écran-2018-05-20-à-17.33.48.png)
+![](/assets/images/2018/05/screenshot-2018-05-20-à-17.33.48.png)

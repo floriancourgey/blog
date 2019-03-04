@@ -367,7 +367,11 @@ $ sudo mv /etc/httpd/conf.d/autoindex.conf /etc/httpd/conf.d/autoindex.conf.bak
 $ sudo vim /etc/httpd/conf.d/CampaignApache.conf
 LoadModule requesthandler24_module /usr/local/neolane/nl6/lib/libnlsrvmod.so
 Include /usr/local/neolane/nl6/tomcat-7/conf/apache_neolane.conf
-$ 
+$ sudo vim /usr/local/neolane/nl6/conf/serverConf.xml # find any allowHTTP="false" and replace with
+allowHTTP="true"
+$ sudo vim /etc/selinux/config # you might to disable SELinux as well, update:
+SELINUX=disabled
+$ sudo service httpd restart
 ```
 
 ### Allow external PostgreSQL access

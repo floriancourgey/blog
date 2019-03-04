@@ -32,7 +32,7 @@ We have to:
 1. Edit the Admin Controller to present all invoices in a list
 1. Edit it again to add/edit invoices
 
-## Step 1. Create the Admin Controller (via a Module)
+## Create the Admin Controller (via a Module)
 
 Admin Controllers only exist in a module. So we need to create a module first! Let&#8217;s create a dummy module with `modules/my_module/my_module.php` :
 
@@ -99,7 +99,7 @@ Refresh your tab, and Voila! Our empty Controller is looking great:
 
 <img class="aligncenter size-full wp-image-756" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=525%2C127&#038;ssl=1" alt="" width="525" height="127" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?w=2560&ssl=1 2560w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=300%2C73&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=768%2C186&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=1024%2C248&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
-## Step 2. Add the List feature
+## Add the List feature
 
 For example, an Admin Controller to handle your invoices (list, view, create, edit and delete)
 
@@ -135,7 +135,7 @@ Which gives us the following list (sortable and filterable!!):
 
 <img class="aligncenter size-full wp-image-757" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=525%2C200&#038;ssl=1" alt="" width="525" height="200" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?w=2560&ssl=1 2560w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=300%2C114&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=768%2C293&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=1024%2C390&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
-## Step 3. Add the edit & add features
+## Add the edit & add features
 
 Add `$this->fields_form`  and `$this->addRowAction`:
 
@@ -184,7 +184,7 @@ And hitting Edit results in a nice form, ready to be edited!
 
 <img class="aligncenter size-full wp-image-762" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=525%2C203&#038;ssl=1" alt="" width="525" height="203" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?w=2560&ssl=1 2560w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=300%2C116&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=768%2C296&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=1024%2C395&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
 
-## Step 4. Going further
+## Going further
 
 ### 4. a) Add customer info in the list
 

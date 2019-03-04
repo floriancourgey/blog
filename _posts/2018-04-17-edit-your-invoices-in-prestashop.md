@@ -15,7 +15,7 @@ Have you ever wanted to modify an order or an invoice directly in Prestashop? Ti
 
 > You can also view this [tuto to completely customize an Admin Controller from scratch, with your Custom SQL Table](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/)
 
-<img class="aligncenter size-full wp-image-347" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Image-17.png?resize=525%2C333&#038;ssl=1" alt="" width="525" height="333" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Image-17.png?w=1072&ssl=1 1072w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Image-17.png?resize=300%2C190&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Image-17.png?resize=768%2C487&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Image-17.png?resize=1024%2C650&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Image-17.png)
 
 <!--more-->
 
@@ -54,11 +54,11 @@ class My_Module extends Module {
 }
 ```
 
-Then, activate it through the PrestShop Backoffice by looking for « my_module »:<figure id="attachment_621" class="wp-caption aligncenter"> 
+Then, activate it through the PrestShop Backoffice by looking for `my_module`:
 
-<div class="lg-container">
-  <img class="aligncenter size-full wp-image-621" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=525%2C279&#038;ssl=1" alt="" width="525" height="279" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1660&ssl=1 1660w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=300%2C160&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=768%2C409&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=1024%2C545&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
-</div></figure> 
+
+  ![](/assets/images/2018/05/search-for-my_module-in-the-backoffice-annote.jpg)
+
 
 Finally, we can create our actual `AdminCustomInvoicesController` in `modules/my_module/controllers/admin/AdminCustomInvoicesController.php<`:
 
@@ -84,7 +84,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 Let's check that everything is working well by heading to <span class="lang:default decode:true crayon-inline">https://my.presta.com/admin/index.php?controller=AdminCustomInvoices</span> :
 
-<img class="aligncenter size-full wp-image-753" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=525%2C128&#038;ssl=1" alt="" width="525" height="128" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?w=2560&ssl=1 2560w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=300%2C73&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=768%2C188&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?resize=1024%2C250&ssl=1 1024w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png)
 
 Snap! It doesn't work. We have to allow this Controller in order to use it. Prestashop uses `Tab` to whitelist Controllers.
 
@@ -97,7 +97,7 @@ VALUES (3, 6, 'my_module', 'AdminCustomInvoices', 1);
 
 Refresh your tab, and Voila! Our empty Controller is looking great:
 
-<img class="aligncenter size-full wp-image-756" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=525%2C127&#038;ssl=1" alt="" width="525" height="127" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?w=2560&ssl=1 2560w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=300%2C73&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=768%2C186&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?resize=1024%2C248&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png)
 
 ## Add the List feature
 
@@ -133,7 +133,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 Which gives us the following list (sortable and filterable!!):
 
-<img class="aligncenter size-full wp-image-757" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=525%2C200&#038;ssl=1" alt="" width="525" height="200" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?w=2560&ssl=1 2560w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=300%2C114&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=768%2C293&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?resize=1024%2C390&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png)
 
 ## Add the edit & add features
 
@@ -177,12 +177,12 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 This new code adds buttons in the last column:
 
-<img class="aligncenter size-full wp-image-761" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png?resize=525%2C229&#038;ssl=1" alt="" width="525" height="229" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png?w=2560&ssl=1 2560w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png?resize=300%2C131&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png?resize=768%2C335&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png?resize=1024%2C446&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png)
 
 
 And hitting Edit results in a nice form, ready to be edited!
 
-<img class="aligncenter size-full wp-image-762" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=525%2C203&#038;ssl=1" alt="" width="525" height="203" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?w=2560&ssl=1 2560w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=300%2C116&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=768%2C296&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?resize=1024%2C395&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png)
 
 ## Going further
 
@@ -211,7 +211,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 Displays the customer name in a column:
 
-<img class="aligncenter size-full wp-image-766" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png?resize=525%2C226&#038;ssl=1" alt="" width="525" height="226" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png?w=2560&ssl=1 2560w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png?resize=300%2C129&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png?resize=768%2C331&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png?resize=1024%2C442&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png)
 
 ### 4. b) Add order info above the form
 
@@ -245,7 +245,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 And we now have a simple panel that serves as a header to render some data about the order and the customer:
 
-<img class="aligncenter size-full wp-image-768" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png?resize=525%2C225&#038;ssl=1" alt="" width="525" height="225" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png?w=2560&ssl=1 2560w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png?resize=300%2C128&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png?resize=768%2C329&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png?resize=1024%2C438&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png)
 
 ### 4. c) Delete an invoice
 
@@ -269,15 +269,10 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 }
 ```
 
-<div class="panel">
-  <p>
-    This new code will add buttons to delete via one-shot and bulk:
-  </p>
-  
-  <p>
-    <img class="aligncenter size-full wp-image-769" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png?resize=525%2C254&#038;ssl=1" alt="" width="525" height="254" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png?w=2560&ssl=1 2560w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png?resize=300%2C145&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png?resize=768%2C371&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png?resize=1024%2C495&ssl=1 1024w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
-  </p>
-  
+This new code will add buttons to delete via one-shot and bulk:
+
+![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png)
+
 
 ## Full version of the Code
   
@@ -286,4 +281,4 @@ Hosted on <a href="https://gist.github.com/floriancourgey/cb63fd5abd93e1109fcf62
 
 Mobile and responsive version:
 
-<img class="aligncenter size-full wp-image-611" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/screencapture-app-bonnemine-co-Backoffice-index-php-2018-06-12-10_17_27.png?resize=480%2C2133&#038;ssl=1" alt="" width="480" height="2133" data-recalc-dims="1" />
+![](/assets/images/2018/04/screencapture-app-bonnemine-co-Backoffice-index-php-2018-06-12-10_17_27.png)

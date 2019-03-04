@@ -1,10 +1,6 @@
 ---
-id: 1048
 title: Create your first OVH cloud project IaaS
-date: 2018-11-07T22:49:36+00:00
-author: Florian Courgey
-layout: post
-permalink: /2018/11/create-your-first-ovh-cloud-project-iaas/
+redirect_from: /2018/11/create-your-first-ovh-cloud-project-iaas/
 categories:
   - apache
   - https
@@ -13,6 +9,7 @@ categories:
   - ovh
   - server
 ---
+
 Simple VPS provisionning with basic LAMP server via OVH Manager and [OVH Public Cloud](https://www.ovh.co.uk/public-cloud/instances/features/). We will go through the whole process: creating the instance, configuring it, connecting via SSH to install Apache and then finally testing the connection.
 
 <!--more-->
@@ -21,10 +18,10 @@ Simple VPS provisionning with basic LAMP server via OVH Manager and [OVH Public 
 
 ## Pre-requisites
 
-  * OVH account with Manager Access
-  * Basic Linux knowledge (SSH, vim, apt)
-  * Motivation 😃
-  * Estimated time of completion: 10 min
+- OVH account with Manager Access
+- Basic Linux knowledge (SSH, vim, apt)
+- Motivation 😃
+- Estimated time of completion: 10 min
 
 ## Add your SSH Key in the OVH Manager
 
@@ -40,18 +37,16 @@ In your OVH Manager, go to 'Cloud > Create new Project > Fill info > SSH Keys > 
 
 ![todo](/assets/images/2018/11/ovh-manager-cloud-add-server-instance.jpg)
 
-&nbsp;
 
-  * Select your closest geographic area, i.e. London UK 1
-  * Select Debian 9
-  * Select the cheapest, S1-2, which stands for Server 1 vCore CPU  + 2BG RAM + 10 Go HDD
-  * The SSH Key should be pre-selected
-  * Leave Advanced options as is
-  * Click **Launch Now**
+- Select your closest geographic area, i.e. London UK 1
+- Select Debian 9
+- Select the cheapest, S1-2, which stands for Server 1 vCore CPU  + 2BG RAM + 10 Go HDD
+- The SSH Key should be pre-selected
+- Leave Advanced options as is
+- Click **Launch Now**
 
 ![todo](/assets/images/2018/11/ovh-manager-cloud-configure-s1-2.jpg)
 
-&nbsp;
 
 Wait 2-5 minutes and a popup should appear with the server IP and the linux root username. In my case it was `ssh debian@54.38.40.76`. To open this window again click on 'Login Informations'.
 
@@ -65,7 +60,7 @@ Server is up and running, great!!
 
 ## Install Apache and create a HTML test page
 
-```bash
+```console
 $ sudo apt update # refresh all repo
 $ sudo apt install apache2 # install apache
 $ cd # make sure we are in our home folder
@@ -92,8 +87,6 @@ It will open in a new tab:
 
 ![todo](/assets/images/2018/11/ovh-manager-openstack-horizon-dashboard.jpg)
 
-&nbsp;
-
 Browse to your instances, and find an overview, the server log and an open stack console:
 
 ![todo](/assets/images/2018/11/ovh-manager-openstack-horizon-instance-overview.jpg)
@@ -106,6 +99,6 @@ Browse to your instances, and find an overview, the server log and an open stack
 
 ## Going further
 
-  * Install full LAMP with PHP and MySQL
-  * Install [Plesk](https://www.plesk.com/) for server management made easy (hostnames, HTTPs, one-click wordpress, cron via UI, users...)
-  * Install and connect 100Go Storage disk to host [nextcloud](https://nextcloud.com/) data
+- Install full LAMP with PHP and MySQL
+- Install [Plesk](https://www.plesk.com/) for server management made easy (hostnames, HTTPs, one-click wordpress, cron via UI, users...)
+- Install and connect 100Go Storage disk to host [nextcloud](https://nextcloud.com/) data

@@ -1,5 +1,5 @@
 ---
-title: 'Nginx.conf for Let's Encrypt auto https renewal'
+title: "Nginx.conf for Let's Encrypt auto https renewal"
 redirect_from: /2018/05/nginx-conf-for-lets-encrypt-auto-https-renewal/
 categories: [https, nginx, server]
 ---

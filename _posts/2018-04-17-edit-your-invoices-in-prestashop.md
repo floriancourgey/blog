@@ -1,9 +1,6 @@
 ---
 title: 'Edit your invoices in Prestashop 1.7 - How to create an Admin Controller?'
-redirect_from: /2018/04/edit-your-invoices-in-prestashop/
 categories:
-  - github
-  - hacking
   - opensource
   - prestashop
   - prestashop 1.7
@@ -34,7 +31,7 @@ We have to:
 
 ## Create the Admin Controller (via a Module)
 
-Admin Controllers only exist in a module. So we need to create a module first! Let&#8217;s create a dummy module with `modules/my_module/my_module.php` :
+Admin Controllers only exist in a module. So we need to create a module first! Let's create a dummy module in `modules/my_module/my_module.php` :
 
 ```php
 <?php
@@ -56,8 +53,7 @@ class My_Module extends Module {
 
 Then, activate it through the PrestShop Backoffice by looking for `my_module`:
 
-
-  ![](/assets/images/2018/05/search-for-my_module-in-the-backoffice-annote.jpg)
+![](/assets/images/2018/05/search-for-my_module-in-the-backoffice-annote.jpg)
 
 
 Finally, we can create our actual `AdminCustomInvoicesController` in `modules/my_module/controllers/admin/AdminCustomInvoicesController.php<`:
@@ -80,9 +76,9 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 ```
 
 
-Let's check that everything is working well by heading to <span class="lang:default decode:true crayon-inline">https://my.presta.com/admin/index.php?controller=AdminCustomInvoices</span> :
+Let's check that everything is working well by heading to `https://my.presta.com/admin/index.php?controller=AdminCustomInvoices` :
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-19.53.18.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-19.53.18.png)
 
 Snap! It doesn't work. We have to allow this Controller in order to use it. Prestashop uses `Tab` to whitelist Controllers.
 
@@ -95,7 +91,7 @@ VALUES (3, 6, 'my_module', 'AdminCustomInvoices', 1);
 
 Refresh your tab, and Voila! Our empty Controller is looking great:
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.03.54.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-20.03.54.png)
 
 ## Add the List feature
 
@@ -129,7 +125,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 Which gives us the following list (sortable and filterable!!):
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.22.49.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-20.22.49.png)
 
 ## Add the edit & add features
 
@@ -171,12 +167,12 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 This new code adds buttons in the last column:
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.35.30.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-20.35.30.png)
 
 
 And hitting Edit results in a nice form, ready to be edited!
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.32.55.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-20.32.55.png)
 
 ## Going further
 
@@ -203,7 +199,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 Displays the customer name in a column:
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.43.05.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-20.43.05.png)
 
 ### 4. b) Add order info above the form
 
@@ -235,7 +231,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 And we now have a simple panel that serves as a header to render some data about the order and the customer:
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.47.58.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-20.47.58.png)
 
 ### 4. c) Delete an invoice
 
@@ -259,7 +255,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
 
 This new code will add buttons to delete via one-shot and bulk:
 
-![](/assets/images/2018/04/Capture-d’écran-2018-07-06-à-20.52.22.png)
+![](/assets/images/2018/04/screenshot-2018-07-06-20.52.22.png)
 
 
 ## Full version of the Code

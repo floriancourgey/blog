@@ -1,5 +1,5 @@
 ---
-title: Install Adobe Campaign Architecture locally (Virtualbox)
+title: Install Adobe Campaign locally on Virtualbox
 categories: [opensource,adobe campaign]
 redirect_from: /install-acc
 ---
@@ -69,7 +69,7 @@ web@default (3740) - 106.4 MB
 [fco@localhost ~/ac]$ sudo service nlserver6 stop
 ```
 
-## Configure `~/.profile` for user `neolane`
+## Configure `~/.bash_profile` for user `neolane`
 
 ```console
 [fco@localhost ~/ac]$ sudo su - neolane
@@ -77,7 +77,7 @@ web@default (3740) - 106.4 MB
 uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
 /usr/local/neolane
 drwxrwxr-x. 14 neolane neolane 187 Feb 13 14:01 nl6
--bash-4.2$ vim ~/.profile
+-bash-4.2$ vim ~/.bash_profile
 export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/server/
 export PATH=$PATH:/usr/local/neolane/nl6/bin/
 alias ll="ls -alh"

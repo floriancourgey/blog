@@ -121,7 +121,7 @@ UIController.prototype.submit = function(a, b, c, d, e){};
 
 Save, refresh, click on Show and you'll get this:
 ![](/assets/images/2019/03/adobe-campaign-web-app-ctx-show-recipient-html.jpg)
-
+![](/assets/images/2019/03/adobe-campaign-web-app-ctx-show-recipient-xml.jpg)
 For both pages, download [the HTML codes on gist.github.com](https://gist.github.com/floriancourgey/3e67f996ce2552fb46ad479922f9a83e).
 
 ## Update a recipient based on `ctx.recipient.@id`

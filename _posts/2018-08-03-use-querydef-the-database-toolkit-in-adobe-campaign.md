@@ -8,20 +8,20 @@ categories:
   - neolane
   - opensource
 ---
-Use quick and reliable Adobe Campaign methods such as nms.delivery.load("12435"), nms.recipient.create( { firstName:"John" } ) and build complex XML E4X queries to go in details!
+Use quick and reliable Adobe Campaign methods such as `NLWS.nmsDelivery.load("12435")`, `NLWS.nmsRecipient.create({ firstName:"John" })` and build complex XML E4X queries to go in details!
 
 <!--more-->
 
 Entity Schema static methods
-
+## Load, save, create in E4X
 ```js
 // get via @id and save
-var delivery = nms.delivery.load("12435")
+var delivery = NLWS.nmsDelivery.load("12435")
 delivery.label = "New label"
 delivery.save()
 
 // create via XML-E4X and save
-var recipient = nms.recipient.create(
+var recipient = NLWS.nmsRecipient.create(
   <recipient 
     email = "support@neolane.com" 
     lastName = "Neolane" 
@@ -29,12 +29,31 @@ var recipient = nms.recipient.create(
 recipient.save()
 
 // create via JS and save
-var recipient = nms.recipient.create()
+var recipient = NLWS.nmsRecipient.create()
 recipient.email = ..
 recipient.lastName = ..
 recipient.firstName = ..
 recipient.save()
 ```
+
+## Get with JSON
+```js
+var email = "contact@hello.world";
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: "nms:recipient", operation: "get", // "get" does a SQL "LIMIT 1"
+    select: { node: [{expr: "@id"}] }, // get @id only
+    where: {
+      condition: [{expr: "@email= '"+email+"'"}] // filter by email
+    }
+  }
+});
+var res = query.ExecuteQuery();
+var recipient = NLWS.nmsRecipient.load(res.$id);
+recipient.email = null;
+recipient.save();
+```
+
+## Select multiple with `where` and `orderBy`
 
 Base query to get all Deliveries BUT Proofs BEFORE the beginning of the month, MAXIMUM 3 results:
 
@@ -60,7 +79,7 @@ for each(var delivery in deliveries.delivery){
 }
 ```
 
-Count
+## Count
 
 ```js
 jobCount = xtk.queryDef.create(
@@ -92,7 +111,7 @@ var xmlQuery = <queryDef schema="nms:trackingLogRcp" operation="select" lineCoun
 </queryDef>
 ```
 
-
+## Construct a where step by step
 Append a Where condition / date Format.toISO8601
 
 ```js
@@ -122,7 +141,7 @@ var xmlQryKeys = <queryDef operation="get" schema={strTargetSchema}/>;
 xmlQryKeys.appendChild(select);
 xmlQryKeys.appendChild(where);
 ```
-
+## Raw SQL code execution
 instance.engine / exec with parameters / date Format.parseDateTimeInter
 
 ```js

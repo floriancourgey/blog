@@ -52,13 +52,11 @@ watchdog (25708) - 8.0 MB
 
 ## Appendixes: Connect via SFTP with FileZilla
 
-```console
-host: mkt-stage1.campaign.adobe.com
-Protocol: SFTP SSH
 
-Logon Type: Key File
-user: neolane
-Key File: ~/.ssh/id_rsa
-```
+- Host: `mkt-stage1.campaign.adobe.com`
+- Protocol: `SFTP SSH`
+- Logon Type: `Key File`
+- User: `neolane`
+- Key File: `~/.ssh/id_rsa`
 
 ![](/assets/images/2019/02/adobe-campaign-sftp-ssh-filezilla.jpg)

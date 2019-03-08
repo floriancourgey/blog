@@ -56,7 +56,7 @@ This `ctx` var can also be used in the backend `Scripts` and in the `Page` itsel
 ```html
 <table class="table table-bordered table-hover table-striped table-sm">
   <thead>
-    <tr><th>@firstName</th><th>@lastName</th><th>@email</th><th>Actions</th></tr>
+    <tr><th>@firstName</th><th>@lastName</th><th>@email</th></tr>
   </thead>
   <tbody>
     <% for each(var recipient in ctx.queryRecipients.recipient){ %>
@@ -114,8 +114,11 @@ and `submit(formAction, formTarget, transitionName)`:
 /**
  * inject an <input name="ctx"> in the <form id="page-form">,
  * then submits the form
+ * @param accAction, can be any of none|refresh|next|previous
+ * @param target = null, can be any of the HTML attribute target _blank|_self|_parent...
+ * @param transitionName = null, name of the transition to call in case of accAction=next
  */
-UIController.prototype.submit = function(a, b, c, d, e){};
+UIController.prototype.submit = function(accAction, target, transitionName, d, e){};
 ```
 
 

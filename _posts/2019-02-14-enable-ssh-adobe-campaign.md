@@ -19,7 +19,7 @@ Then create a JS activity with this code:
 var res = execCommand("cd && mkdir .ssh && touch .ssh/authorized_keys", true);
 logInfo(res);
 var key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQA+really+long+string myUser@myMachine";
-var cmd = "echo '"+key+"' > .ssh/authorized_keys";
+var cmd = "echo '"+key+"' >> .ssh/authorized_keys";
 var res = execCommand("cd && "+cmd, true);
 logInfo(res);
 ```

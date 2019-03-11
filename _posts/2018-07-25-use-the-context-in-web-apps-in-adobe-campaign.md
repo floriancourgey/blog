@@ -141,4 +141,34 @@ xtk.session.Write(
     firstName="New first name"
   />
 );
+
+// equivalent to:
+var recipient = NLWS.nmsRecipient.load(ctx.recipient.@id);
+recipient.firstName = "New first name";
+recipient.save();
+```
+
+## Use images and enum
+```js
+<%= NL.route('nms:task.png', 'reverse_img') %> // '/nms/img/task.png'
+
+/**
+ * Given a list of <enumValue>, return img using name
+ *
+ * @param enum XML, <node><enumValue img="nms:canceled.png" name="canceled"/><enumValue img="nms:task.png" name="todo"/></node>
+ * @param enumName string, 'canceled'
+ *
+ * @example getEnumFieldWithName(<node><enumValue img="nms:canceled.png" name="canceled"/><enumValue img="nms:task.png" name="todo"/></node>, 'canceled', 'img') // nms:canceled.png
+ */
+function getEnumFieldWithName(enum, enumName, enumField){
+  for each(var e in enum.enumValue){
+    if(e.@['name'] == enumName){
+      return e.@[enumField];
+    }
+  }
+  return '';
+}
+<%= getEnumFieldWithName(ctx.queryEnumClientelingStatus, task.@status2, 'img') %> // nms:canceled.png
+
+<img class="nlui-widget" src="<%= NL.route(getEnumFieldWithName(ctx.queryEnum, aVariableHere, 'img'), 'reverse_img') %>"/>
 ```

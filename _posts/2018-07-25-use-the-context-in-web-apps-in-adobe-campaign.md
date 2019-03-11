@@ -112,13 +112,16 @@ This is made possible via the `setValue(path, value)` and `getValue(path)` funct
 and `submit(formAction, formTarget, transitionName)`:
 ```js
 /**
- * inject an <input name="ctx"> in the <form id="page-form">,
- * then submits the form
- * @param accAction, can be any of none|refresh|next|previous
- * @param target = null, can be any of the HTML attribute target _blank|_self|_parent...
- * @param transitionName = null, name of the transition to call in case of accAction=next
+ * Inject an <input name="ctx"> in the <form id="page-form">,
+ * Then submits the form
+ *
+ * @param strAction      can be any of none|refresh|next|previous
+ * @param strTarget      can be any of the HTML attribute target _blank|_self|_parent...
+ * @param strTransition  name of the transition to call in case of accAction=next
+ * @param bForceNoFile   file are already uploaded, don't reupload it
+ * @param bNoWait        don't display waiting box
  */
-UIController.prototype.submit = function(accAction, target, transitionName, d, e){};
+UIController.prototype.submit = function(strAction, strTarget=null, strTransition=null, bForceNoFile=null, bNoWait=null){};
 ```
 
 

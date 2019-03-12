@@ -172,3 +172,45 @@ function getEnumFieldWithName(enum, enumName, enumField){
 
 <img class="nlui-widget" src="<%= NL.route(getEnumFieldWithName(ctx.queryEnum, aVariableHere, 'img'), 'reverse_img') %>"/>
 ```
+
+## Execute client-side SOAP calls in Javascript from the browser
+```js
+var queryDef = new NL.QueryDef("nms:recipient", NL.QueryDef.prototype.OPERATION_SELECT);
+queryDef.addSelectExpr("@id"); // add the column @id to the select clause
+queryDef.addSelectExpr("@firstName", "@newAttr"); // set @firstName as an attr named "newAttr" in the result XML
+queryDef.addSelectExpr("@lastName", "newNode"); // set @lastName as a node named "newNode" in the result XML
+queryDef.setLineCount(2); // SQL LIMIT
+queryDef.setStartLine(10); // SQL OFFSET
+queryDef.setShowSQL(true); // create a <dataSQL>SELECT x,y from Z</dataSQL> node in <recipient-collection>
+queryDef.addWhereConditionExpr("@email = '"+email+"'");
+var callback = {
+  onXtkQueryCompleted: function(queryDef, res, error) {
+    console.log('Recipients found!', res);
+  }
+};
+queryDef.execute(NL.session.serverURL + "/nl/jsp/soaprouter.jsp", '', callback);
+```
+Output:
+```xml
+<recipient-collection>
+  <recipient id="1" newAttr="Jane"><newNode>Doe</newNode></recipient>
+  <recipient id="2" newAttr="John"><newNode>Doe</newNode></recipient>
+  <dataSQL>
+    SELECT   R0.iRecipientId, R0.sFirstName, R0.sLastName FROM NmsRecipient R0 WHERE (R0.sEmail = E'x@y.z') LIMIT 2 OFFSET 10
+  </dataSQL>
+</recipient-collection>
+```
+
+Taken from `nl6/web/core/dce/contentEditor.js` `loadFromTemplateId: function(templateId)`.
+
+Doc @ `nl6/web/code/queryDef.js`:
+```js
+/** Do the soap call
+ * @strUrl : soap router url
+ * @sessionToken
+ * @asyncTarget : enable the asynchronious mode and define the objet to
+ *                notify. That object must implement a onXtkQueryCompleted()
+ *                method.
+ */
+NL.QueryDef.prototype.execute = function(strUrl, sessionToken, asyncTarget)
+```

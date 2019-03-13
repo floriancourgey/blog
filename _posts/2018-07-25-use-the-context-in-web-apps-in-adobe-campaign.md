@@ -99,7 +99,7 @@ In the first page, add a new `<td>` with a Button as follow:
 <td>
   <a href="#" class="btn btn-sm btn-primary"
     onclick="
-      document.controller.setValue('/ctx/vars/recipientId', <%= recipient.@id %>);
+      document.controller.setValue('/ctx/vars/recipientId', '<%= recipient.@id %>'); // make sure to wrap the recipient-id in quotes, otherwise the ACC editor will throw a JS error)
       document.controller.submit('next', '_self', 'transition1');">
     Show
   </a>

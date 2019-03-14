@@ -7,6 +7,18 @@ The context variable `ctx` is really handy when it comes to have custom behavior
 
 <!-- more -->
 
+## How web apps work
+An ACC web app is just a visual tool to generate a JSSP page:
+![](/assets/images/2019/03/adobe-campaign-web-apps-are-jssp.jpg)
+
+The JSSP code is generated via the XSL template `web-webApp.xsl` which calls `web-core.xsl`, which contains:
+```js
+import core.xsl
+template serverScriptInit
+response.addHeader(Pragma, Cache-Control, Expires, Content-type)
+template initActivities
+```
+
 ## Using the `ctx` variable in the Javascript frontend
 
 Create a dead simple web app with a query on Recipients (named `queryRecipients`) and a page (without transition):

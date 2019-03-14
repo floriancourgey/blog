@@ -1,29 +1,22 @@
 ---
-id: 283
 title: System information disabled due to load higher than 1.0 (My linux server is full !)
-date: 2018-03-30T17:52:51+00:00
-author: Florian Courgey
-layout: post
-guid: https://floriancourgey.com/?p=283
 permalink: /2018/03/system-information-disabled-due-to-load-higher-than-1-0-my-linux-server-is-full/
-categories:
-  - linux
-  - server
+categories: [linux, server]
 ---
-Petit plaisir de te logger en SSH et de tomber sur :
+When logging in through SSH:
 
 ![](/assets/images/2018/03/Image-166.png)
 > System information disabled due to load higher than 1.0
 
-En francais : &#8220;T&#8217;es vraiment dans la merde, ton serveur est plein&#8221;
+<!-- more -->
 
 ## GUI version : [Space Radar](https://github.com/zz85/space-radar)
 
 ![](https://cloud.githubusercontent.com/assets/314997/11022585/5c847364-869d-11e5-8079-0a16e7d747e4.gif)
 
 Install [Space Radar](https://github.com/zz85/space-radar) on a client machine. On the server, generate a txt sizes file with `du -ak`
-```sh
-du -ak /var/log /usr | gzip -c > /tmp/sizes.txt.gz
+```console
+$ du -ak /var/log /usr | gzip -c > /tmp/sizes.txt.gz
 ```
 
 *See [Space Radar repo](https://github.com/zz85/space-radar#reading-from-a-file-)*
@@ -32,7 +25,7 @@ du -ak /var/log /usr | gzip -c > /tmp/sizes.txt.gz
 
 ### Which partition is full?
 
-```bash
+```console
 $ df
 Filesystem 1K-blocks Used Available Use% Mounted on
 udev 991316 0 991316 0% /dev
@@ -45,9 +38,9 @@ cgmfs 100 0 100 0% /run/cgmanager/fs
 tmpfs 199908 0 199908 0% /run/user/1000</pre>
 ```
 
-## Which directory if full?
+## Which directory is full?
 
-```bash
+```console
 $ du -h --max-depth=1 / | sort -hr
 9,4G /
 5,2G /var
@@ -63,10 +56,10 @@ $ du -h --max-depth=1 / | sort -hr
 9,9M /sbin
 3,9M /lib32
 3,1M /tmp
+$ du -h --max-depth=2 /home | sort -hr
 ```
 
-S'il reste un peu de place sur le serveur, [ncdu (ncurse disk usage)](https://dev.yorhel.nl/ncdu/scr) peut valoir le coup :
-
+If you still have some Mb left, [ncdu (ncurse disk usage)](https://dev.yorhel.nl/ncdu/scr) might help:
 ![](https://i1.wp.com/dev.yorhel.nl/img/ncduinfo-2.png)
 
 ## Quelles solutions si je ne veux pas toucher a mes fichiers ?

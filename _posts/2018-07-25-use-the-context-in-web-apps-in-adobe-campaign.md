@@ -173,7 +173,7 @@ function getEnumFieldWithName(enum, enumName, enumField){
 <img class="nlui-widget" src="<%= NL.route(getEnumFieldWithName(ctx.queryEnum, aVariableHere, 'img'), 'reverse_img') %>"/>
 ```
 
-## Execute client-side SOAP calls in Javascript from the browser
+## Use `NL.QueryDef` to execute client-side SOAP calls in Javascript from the browser
 ```js
 var queryDef = new NL.QueryDef("nms:recipient", NL.QueryDef.prototype.OPERATION_SELECT);
 queryDef.addSelectExpr("@id"); // add the column @id to the select clause
@@ -213,4 +213,31 @@ Doc @ `nl6/web/code/queryDef.js`:
  *                method.
  */
 NL.QueryDef.prototype.execute = function(strUrl, sessionToken, asyncTarget)
+```
+
+## Use `POST /xtk/queryList.jssp` to get objects in Javascript from the browser
+Calling `\datakit\xtk\fra\jssp\queryList.jssp` with a POST param `queryDef` containing a JSON as an urlencoded string:
+
+```js
+var postData = {
+   "operation":"select", "schema":"xtk:workflow",
+   "startLine":0, "lineCount":30,
+   "select":{
+      "node":[
+        {"expr":"[.]", "alias":"@cs"},
+        {"expr":"@label", "alias":"@label"},
+        {"expr":"[process/@startState]", "alias":"@startState", "enabledIf":"HasPackage('nms:campaign')"},
+      ]
+   },
+   "where":{
+      "condition":[{"expr":"@isModel=0"}]
+   },
+   "orderBy":{
+      "node":[{"expr":"@lastModified", "sortDesc":true}]
+   },
+};
+$.post("/xtk/queryList.jssp", {queryDef:encodeURIComponent(JSON.stringify(postData))}, function(response) {
+  console.log(response); // {data: Array(30), needPagination: true}
+  console.log(response.data); // [{cs: " ()", label: "", startState: "0", _schema: "xtk:workflow"}]
+});
 ```

@@ -12,6 +12,7 @@ Can be used in JSSPs, Workflows and Web apps
 
 JSSP ACC debug - Constants, objects and functions
 
+{% raw %}
 | Name | Type | toString() |
 |-|-|-|
 | Function | function | function Function() |
@@ -719,6 +720,7 @@ JSSP ACC debug - Constants, objects and functions
 | getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) { var enumELt = <enum/>; function findNode(parent) { for each (var childNode in parent |
 | nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) { if (sWebAppId) { var collection = <dictionaryString-collection xtkschema="xtk:dictionaryStri |
 | activity | xml | |
+{% endraw %}
 
 ## Method
 Create a Web app with 1 page containing the following HTML code:
@@ -762,3 +764,13 @@ And for markdown output:
   <% } %> 
 </main>
 ```
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $('main > article > .post-content > table').DataTable({
+      pageLength: 50,
+    });
+  });
+</script>

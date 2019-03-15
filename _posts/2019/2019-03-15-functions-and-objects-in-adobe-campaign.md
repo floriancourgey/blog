@@ -324,9 +324,9 @@ JSSP ACC debug - Constants, objects and functions
 | getSwitchableViewConf | function | function getSwitchableViewConf(viewSettings) | |
 | getGeneralViewConf | function | function getGeneralViewConf(viewName, viewImage, viewParams) | |
 | getUsableVerticalSpace | function | function getUsableVerticalSpace(epsilon) | |
-| _collectViews | function | function _collectViews(viewList, viewsData, blockName, dashboardContext, filterView, bIsOtherView, defaultViewsLabel) | |
-| _genNavtreeViewBlock | function | function _genNavtreeViewBlock(universe, blockName, mainContentConfVarName, mainContentWidgetVarName, overflowContentConfVarName, overflowContentWidget | |
-| _getAvailableActions | function | function _getAvailableActions(actions, dashboardContext, defaultViewsLabel) { var availableActions = []; _collectViews(actions, availableActio | |
+| \_collectViews | function | function \_collectViews(viewList, viewsData, blockName, dashboardContext, filterView, bIsOtherView, defaultViewsLabel) | |
+| \_genNavtreeViewBlock | function | function \_genNavtreeViewBlock(universe, blockName, mainContentConfVarName, mainContentWidgetVarName, overflowContentConfVarName, overflowContentWidget | |
+| \_getAvailableActions | function | function \_getAvailableActions(actions, dashboardContext, defaultViewsLabel) | |
 | XtkIEEvent | function | function XtkIEEvent() | |
 | XtkGeckoEvent | function | function XtkGeckoEvent(event) | |
 | NewEvent | function | function NewEvent(evt) | |
@@ -336,7 +336,7 @@ JSSP ACC debug - Constants, objects and functions
 | addSecurityToken | function | function addSecurityToken(strUrl, strSecurityToken, bAlways) | |
 | isNeolaneConsole | function | function isNeolaneConsole() | |
 | REPORT_COLORS | object | #3B87A2,#FF8012,#8CA23B,#A23B5E,#004A62,#FFCCA0,#C75400,#CAD4A5,#A5C8D4,#6D0026,#D4A5B4,#4F6400 | |
-| htmlSanitizer | function | function () { var html4 = {}; html4.eflags = {OPTIONAL_ENDTAG: 1, BREAKS_FLOW: 2, EMPTY: 4, NAVIGATES: 8, CDATA: 16, RCDATA: 32, UNSAFE: 64}; | |
+| htmlSanitizer | function | function () | |
 | WORKFLOW_STATE_EDITION | number | 0 | |
 | WORKFLOW_STATE_RUNNING | number | 2 | |
 | WORKFLOW_STATE_STARTED | number | 11 | |
@@ -723,16 +723,16 @@ JSSP ACC debug - Constants, objects and functions
 | DOC_CONTEXT_CONSOLE | number | 0 | |
 | DOC_CONTEXT_WEB | number | 1 | |
 | DOC_CONTEXT_NOTIFICATION | number | 2 | |
-| htmlDocumentList | function | function htmlDocumentList(entity, context) { "use strict"; function htmFileUrl(fileEntity) { var strLabel = NL.XTK.toString(fileEntit | |
-| htmlDeliveryMirrorPage | function | function htmlDeliveryMirrorPage(delivery, context) { "use strict"; var sg = new StringGroup("nms:campaign"); if (String(delivery.mapping.s | |
-| CalculateExpectedValidationDate | function | function CalculateExpectedValidationDate(eParameter) { "use strict"; return NL.XTK.formatDateTime(nms.operation.CalculateExpectedValidationDat | |
-| CalculateNextReminderDate | function | function CalculateNextReminderDate(lastReminderDate, expectedDate, eParameter) { "use strict"; if (NL.XTK.toString(expectedDate) == "") { | |
-| getAdditionalAssignees | function | function getAdditionalAssignees(parameter) { "use strict"; var strAssignees = ""; for each (var assignee in parameter.assignee) { | |
-| execSQLLogInfo | function | function execSQLLogInfo(strSqlOrder, bTrace) { "use strict"; if (NL.XTK.parseBoolean(bTrace, false)) { logInfo("SQL: " + strSqlOrder); | |
-| completeQueryWithNbMessages | function | function completeQueryWithNbMessages(strSchema, iEntityId, query) { "use strict"; query.select.appendChild(<node expr="count([newsgroup/@id])" | |
-| convertBorderStyle | function | function convertBorderStyle(ndBorder, bOfficeMode) { function convertOneBorderStyle(ndOneBorderStyle) { var strCSSStyle = ""; var | |
-| getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) { var enumELt = <enum/>; function findNode(parent) { for each (var childNode in parent | |
-| nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) { if (sWebAppId) { var collection = <dictionaryString-collection xtkschema="xtk:dictionaryStri | |
+| htmlDocumentList | function | function htmlDocumentList(entity, context) | |
+| htmlDeliveryMirrorPage | function | function htmlDeliveryMirrorPage(delivery, context) | |
+| CalculateExpectedValidationDate | function | function CalculateExpectedValidationDate(eParameter) | |
+| CalculateNextReminderDate | function | function CalculateNextReminderDate(lastReminderDate, expectedDate, eParameter) | |
+| getAdditionalAssignees | function | function getAdditionalAssignees(parameter) | |
+| execSQLLogInfo | function | function execSQLLogInfo(strSqlOrder, bTrace) | |
+| completeQueryWithNbMessages | function | function completeQueryWithNbMessages(strSchema, iEntityId, query) | |
+| convertBorderStyle | function | function convertBorderStyle(ndBorder, bOfficeMode) | |
+| getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) | |
+| nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) | |
 | activity | xml | | |
 {: #with-an-id}
 

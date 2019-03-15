@@ -12,7 +12,7 @@ Can be used in JSSPs, Workflows and Web apps
 
 JSSP ACC debug - Constants, objects and functions
 
-{% raw %}
+
 | Name | Type | toString() |
 |-|-|-|
 | Function | function | function Function() |
@@ -720,7 +720,7 @@ JSSP ACC debug - Constants, objects and functions
 | getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) { var enumELt = <enum/>; function findNode(parent) { for each (var childNode in parent |
 | nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) { if (sWebAppId) { var collection = <dictionaryString-collection xtkschema="xtk:dictionaryStri |
 | activity | xml | |
-{% endraw %}
+{: #with-an-id}
 
 ## Method
 Create a Web app with 1 page containing the following HTML code:

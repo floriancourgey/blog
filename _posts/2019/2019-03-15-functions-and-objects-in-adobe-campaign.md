@@ -102,7 +102,7 @@ JSSP ACC debug - Constants, objects and functions
 | dictionaryCheck | function | function dictionaryCheck() |
 | self | object | [object global] |
 | document | object | [object global] |
-| instanceName | string | freshin_mkt_stage1 |
+| instanceName | string | my_instance1 |
 | databaseId | string | u0A1E609D002AD358 |
 | undefined | undefined | undefined |
 | Array | function | function Array() |
@@ -167,7 +167,6 @@ JSSP ACC debug - Constants, objects and functions
 | NLNamespace | object | [object NLNamespace] |
 | NLSchema | object | [object NLSchema] |
 | adb | object | [object NLNamespace] |
-| fresh | object | [object NLNamespace] |
 | ncm | object | [object NLNamespace] |
 | nl | object | [object NLNamespace] |
 | nms | object | [object NLNamespace] |
@@ -258,7 +257,7 @@ JSSP ACC debug - Constants, objects and functions
 | NodeDef | object | [object NodeDef] |
 | Schema | function | function Schema() |
 | BroadLogNormalizer | function | function BroadLogNormalizer() |
-| instanceVarDir | string | /usr/local/neolane/nl6/var/freshin_mkt_stage1 |
+| instanceVarDir | string | /usr/local/neolane/nl6/var/my_instance1 |
 | instanceConfDir | string | /usr/local/neolane/nl6/conf/ |
 | application | object | [object Application] |
 | testEmail | function | function testEmail() |

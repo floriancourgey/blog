@@ -337,6 +337,95 @@ JSSP ACC debug - Constants, objects and functions
 | isNeolaneConsole | function | function isNeolaneConsole() | |
 | REPORT_COLORS | object | #3B87A2,#FF8012,#8CA23B,#A23B5E,#004A62,#FFCCA0,#C75400,#CAD4A5,#A5C8D4,#6D0026,#D4A5B4,#4F6400 | |
 | htmlSanitizer | function | function () | |
+| deliveryActionStateType | function | function deliveryActionStateType(jsonParams) | |
+| buildStateContentConfig | function | function buildStateContentConfig(jsonParams, mode) | |
+| deliveryKPIConfig | function | function deliveryKPIConfig(delivery) | |
+| buildCommandBarConfig | function | function buildCommandBarConfig(jsonParams, onRefresh) | |
+| assetContentTypeImg | function | function assetContentTypeImg(iUserContentType, strContentType) | |
+| deliveryLogofromMessageType | function | function deliveryLogofromMessageType(iMessageType) | |
+| validationTypeLabel | function | function validationTypeLabel(btType, sg) | |
+| catalogOperationTypeLabel | function | function catalogOperationTypeLabel(iType, iSharedMode, sg) | |
+| localOrderStatusLabel | function | function localOrderStatusLabel(iStatus, bNewInstance, sg) | |
+| displayPlanning | function | function displayPlanning(strStart, strEnd, sg) | |
+| displayDeliveryStateLabel | function | function displayDeliveryStateLabel(iStatus, iState, strState) | |
+| displayDeliveryStateImg | function | function displayDeliveryStateImg(iStatus, iState, strImg) | |
+| displayFileSize | function | function displayFileSize(lSize, sg) | |
+| displayDurationLabel | function | function displayDurationLabel(value, sg) | |
+| showHideBlock | function | function showHideBlock(blockId, disableEffect) | |
+| showHideFilterContainer | function | function showHideFilterContainer() | |
+| resetFilters | function | function resetFilters(list) | |
+| getValue | function | function getValue(node, strXPath) | |
+| show_props | function | function show_props(obj, obj_nom) | |
+| sg | object | [object StringGroup] | |
+| macIntegration | object | [object Object] | |
+| nms_group_createAudienceMapping | function | function nms_group_createAudienceMapping(segmentId, destinationId)  | |
+| nms_group_deleteAudienceMapping | function | function nms_group_deleteAudienceMapping(segmentId, destinationId, mappingId) | |
+| pushOperationLogInfo | function | function pushOperationLogInfo(iOperationId, strMessage) | |
+| pushOperationLog | function | function pushOperationLog(iOperationId, iType, strMessage) | |
+| XtkOperationProcess | function | function XtkOperationProcess() | |
+| WakeupWorkflowTask | function | function WakeupWorkflowTask(iWorkflowId, iObjectId) | |
+| DOC_CONTEXT_CONSOLE | number | 0 | |
+| DOC_CONTEXT_WEB | number | 1 | |
+| DOC_CONTEXT_NOTIFICATION | number | 2 | |
+| htmlDocumentList | function | function htmlDocumentList(entity, context) | |
+| htmlDeliveryMirrorPage | function | function htmlDeliveryMirrorPage(delivery, context) | |
+| CalculateExpectedValidationDate | function | function CalculateExpectedValidationDate(eParameter) | |
+| CalculateNextReminderDate | function | function CalculateNextReminderDate(lastReminderDate, expectedDate, eParameter) | |
+| getAdditionalAssignees | function | function getAdditionalAssignees(parameter) | |
+| execSQLLogInfo | function | function execSQLLogInfo(strSqlOrder, bTrace) | |
+| completeQueryWithNbMessages | function | function completeQueryWithNbMessages(strSchema, iEntityId, query) | |
+| convertBorderStyle | function | function convertBorderStyle(ndBorder, bOfficeMode) | |
+| getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) | |
+| nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) | |
+| activity | xml | | |
+{: #with-an-id}
+
+## Method
+Create a Web app with 1 page containing the following HTML code:
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Starter Template · Bootstrap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+  </head>
+  <body style="" class="">
+<main class="container mt-5 pt-3">
+<h1>JSSP ACC debug - Constants, objects and functions [Format HTML]</h1>
+<table class="table table-sm table-hover">
+<thead>
+<tr><th>name</th><th>type</th><th>toString()</th></tr>
+</thead>
+<tbody><% for each(var x in Object.getOwnPropertyNames(this)){ %>
+<tr>
+<td><%= x %></td>
+<td><%= typeof this[x] %></td>
+<td><%= (''+this[x]).substr(0, 150) %></td>
+</tr>
+<% } %></tbody>
+</table>
+</main>
+</body>
+</html>
+```
+
+And for markdown output:
+```html
+<main class="container mt-5 pt-3">
+  <h1>JSSP ACC debug - Constants, objects and functions [Format MD]</h1>
+  |Header1|Header2|Header3|<br />
+  |-|-|-|<br />
+  <% for each(var x in Object.getOwnPropertyNames(this)){ %>
+    | <%= x %> | <%= typeof this[x] %> | <%= (''+this[x]).substr(0, 150) %> |<br />
+  <% } %> 
+</main>
+```
+
+## Constants
+| Name | Type | toString() | tmp |
+|-|-|-|-|
 | WORKFLOW_STATE_EDITION | number | 0 | |
 | WORKFLOW_STATE_RUNNING | number | 2 | |
 | WORKFLOW_STATE_STARTED | number | 11 | |
@@ -693,145 +782,6 @@ JSSP ACC debug - Constants, objects and functions
 | CONTENT_EDITING_MODE_DEFAULT | number | 0 | |
 | CONTENT_EDITING_MODE_DCE | number | 1 | |
 | CONTENT_EDITING_MODE_AEM | number | 2 | |
-| deliveryActionStateType | function | function deliveryActionStateType(jsonParams) | |
-| buildStateContentConfig | function | function buildStateContentConfig(jsonParams, mode) | |
-| deliveryKPIConfig | function | function deliveryKPIConfig(delivery) | |
-| buildCommandBarConfig | function | function buildCommandBarConfig(jsonParams, onRefresh) | |
-| assetContentTypeImg | function | function assetContentTypeImg(iUserContentType, strContentType) | |
-| deliveryLogofromMessageType | function | function deliveryLogofromMessageType(iMessageType) | |
-| validationTypeLabel | function | function validationTypeLabel(btType, sg) | |
-| catalogOperationTypeLabel | function | function catalogOperationTypeLabel(iType, iSharedMode, sg) | |
-| localOrderStatusLabel | function | function localOrderStatusLabel(iStatus, bNewInstance, sg) | |
-| displayPlanning | function | function displayPlanning(strStart, strEnd, sg) | |
-| displayDeliveryStateLabel | function | function displayDeliveryStateLabel(iStatus, iState, strState) | |
-| displayDeliveryStateImg | function | function displayDeliveryStateImg(iStatus, iState, strImg) | |
-| displayFileSize | function | function displayFileSize(lSize, sg) | |
-| displayDurationLabel | function | function displayDurationLabel(value, sg) | |
-| showHideBlock | function | function showHideBlock(blockId, disableEffect) | |
-| showHideFilterContainer | function | function showHideFilterContainer() | |
-| resetFilters | function | function resetFilters(list) | |
-| getValue | function | function getValue(node, strXPath) | |
-| show_props | function | function show_props(obj, obj_nom) | |
-| sg | object | [object StringGroup] | |
-| macIntegration | object | [object Object] | |
-| nms_group_createAudienceMapping | function | function nms_group_createAudienceMapping(segmentId, destinationId)  | |
-| nms_group_deleteAudienceMapping | function | function nms_group_deleteAudienceMapping(segmentId, destinationId, mappingId) | |
-| pushOperationLogInfo | function | function pushOperationLogInfo(iOperationId, strMessage) | |
-| pushOperationLog | function | function pushOperationLog(iOperationId, iType, strMessage) | |
-| XtkOperationProcess | function | function XtkOperationProcess() | |
-| WakeupWorkflowTask | function | function WakeupWorkflowTask(iWorkflowId, iObjectId) | |
-| DOC_CONTEXT_CONSOLE | number | 0 | |
-| DOC_CONTEXT_WEB | number | 1 | |
-| DOC_CONTEXT_NOTIFICATION | number | 2 | |
-| htmlDocumentList | function | function htmlDocumentList(entity, context) | |
-| htmlDeliveryMirrorPage | function | function htmlDeliveryMirrorPage(delivery, context) | |
-| CalculateExpectedValidationDate | function | function CalculateExpectedValidationDate(eParameter) | |
-| CalculateNextReminderDate | function | function CalculateNextReminderDate(lastReminderDate, expectedDate, eParameter) | |
-| getAdditionalAssignees | function | function getAdditionalAssignees(parameter) | |
-| execSQLLogInfo | function | function execSQLLogInfo(strSqlOrder, bTrace) | |
-| completeQueryWithNbMessages | function | function completeQueryWithNbMessages(strSchema, iEntityId, query) | |
-| convertBorderStyle | function | function convertBorderStyle(ndBorder, bOfficeMode) | |
-| getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) | |
-| nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) | |
-| activity | xml | | |
-{: #with-an-id}
-
-## Method
-Create a Web app with 1 page containing the following HTML code:
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Starter Template · Bootstrap</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-  </head>
-  <body style="" class="">
-<main class="container mt-5 pt-3">
-<h1>JSSP ACC debug - Constants, objects and functions [Format HTML]</h1>
-<table class="table table-sm table-hover">
-<thead>
-<tr><th>name</th><th>type</th><th>toString()</th></tr>
-</thead>
-<tbody><% for each(var x in Object.getOwnPropertyNames(this)){ %>
-<tr>
-<td><%= x %></td>
-<td><%= typeof this[x] %></td>
-<td><%= (''+this[x]).substr(0, 150) %></td>
-</tr>
-<% } %></tbody>
-</table>
-</main>
-</body>
-</html>
-```
-
-And for markdown output:
-```html
-<main class="container mt-5 pt-3">
-  <h1>JSSP ACC debug - Constants, objects and functions [Format MD]</h1>
-  |Header1|Header2|Header3|<br />
-  |-|-|-|<br />
-  <% for each(var x in Object.getOwnPropertyNames(this)){ %>
-    | <%= x %> | <%= typeof this[x] %> | <%= (''+this[x]).substr(0, 150) %> |<br />
-  <% } %> 
-</main>
-```
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-<script type="text/javascript">
-  $(function(){
-    $('main > article > .post-content > table').DataTable({
-      pageLength: 50,
-    });
-  });
-</script>
-
-
-## Method
-Create a Web app with 1 page containing the following HTML code:
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Starter Template · Bootstrap</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-  </head>
-  <body style="" class="">
-<main class="container mt-5 pt-3">
-<h1>JSSP ACC debug - Constants, objects and functions [Format HTML]</h1>
-<table class="table table-sm table-hover">
-<thead>
-<tr><th>name</th><th>type</th><th>toString()</th></tr>
-</thead>
-<tbody><% for each(var x in Object.getOwnPropertyNames(this)){ %>
-<tr>
-<td><%= x %></td>
-<td><%= typeof this[x] %></td>
-<td><%= (''+this[x]).substr(0, 150) %></td>
-</tr>
-<% } %></tbody>
-</table>
-</main>
-</body>
-</html>
-```
-
-And for markdown output:
-```html
-<main class="container mt-5 pt-3">
-  <h1>JSSP ACC debug - Constants, objects and functions [Format MD]</h1>
-  |Header1|Header2|Header3|<br />
-  |-|-|-|<br />
-  <% for each(var x in Object.getOwnPropertyNames(this)){ %>
-    | <%= x %> | <%= typeof this[x] %> | <%= (''+this[x]).substr(0, 150) %> |<br />
-  <% } %> 
-</main>
-```
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>

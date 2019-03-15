@@ -12,153 +12,153 @@ Can be used in JSSPs, Workflows and Web apps
 
 JSSP ACC debug - Constants, objects and functions
 
-|Header1|Header2|Header3|
+| Name | Type | toString() |
 |-|-|-|
-| Function | function | function Function() { [native code] } |
-| Object | function | function Object() { [native code] } |
-| eval | function | function eval() { [native code] } |
-| alert | function | function alert() { [native code] } |
-| logError | function | function logError() { [native code] } |
-| logWarning | function | function logWarning() { [native code] } |
-| logInfo | function | function logInfo() { [native code] } |
-| logVerbose | function | function logVerbose() { [native code] } |
-| formatDate | function | function formatDate() { [native code] } |
-| parseDate | function | function parseDate() { [native code] } |
-| parseTimeStamp | function | function parseTimeStamp() { [native code] } |
-| digestStrMd5 | function | function digestStrMd5() { [native code] } |
-| digestStrSha1 | function | function digestStrSha1() { [native code] } |
-| digestStrSha224 | function | function digestStrSha224() { [native code] } |
-| digestStrSha256 | function | function digestStrSha256() { [native code] } |
-| digestStrSha384 | function | function digestStrSha384() { [native code] } |
-| digestStrSha512 | function | function digestStrSha512() { [native code] } |
-| HMACStr | function | function HMACStr() { [native code] } |
-| escapeXmlStr | function | function escapeXmlStr() { [native code] } |
-| encodeHtml | function | function encodeHtml() { [native code] } |
-| htmlToText | function | function htmlToText() { [native code] } |
-| getUrl | function | function getUrl() { [native code] } |
-| patchAttribute | function | function patchAttribute() { [native code] } |
-| startBuffering | function | function startBuffering() { [native code] } |
-| stopBuffering | function | function stopBuffering() { [native code] } |
-| simpleRevCrypt | function | function simpleRevCrypt() { [native code] } |
-| reversibleCrypt | function | function reversibleCrypt() { [native code] } |
-| reversibleDecrypt | function | function reversibleDecrypt() { [native code] } |
-| unreversibleCrypt | function | function unreversibleCrypt() { [native code] } |
-| compareUnreversibleCrypt | function | function compareUnreversibleCrypt() { [native code] } |
-| escapeUrl | function | function escapeUrl() { [native code] } |
-| installDirectory | function | function installDirectory() { [native code] } |
-| encryptDES | function | function encryptDES() { [native code] } |
-| decryptDES | function | function decryptDES() { [native code] } |
-| DESencrypt | function | function DESencrypt() { [native code] } |
-| DESdecrypt | function | function DESdecrypt() { [native code] } |
-| obfuscate | function | function obfuscate() { [native code] } |
-| unobfuscate | function | function unobfuscate() { [native code] } |
-| expandVar | function | function expandVar() { [native code] } |
-| logon | function | function logon() { [native code] } |
-| logonEscalation | function | function logonEscalation() { [native code] } |
-| logonWithUser | function | function logonWithUser() { [native code] } |
-| logonWithToken | function | function logonWithToken() { [native code] } |
-| logonWithContext | function | function logonWithContext() { [native code] } |
-| getCurrentLocale | function | function getCurrentLocale() { [native code] } |
-| getOperatorLocale | function | function getOperatorLocale() { [native code] } |
-| findClientIP | function | function findClientIP() { [native code] } |
-| checkHTTPAllowed | function | function checkHTTPAllowed() { [native code] } |
-| canShowErrors | function | function canShowErrors() { [native code] } |
-| useSecurityToken | function | function useSecurityToken() { [native code] } |
-| httpOnlySessionCookie | function | function httpOnlySessionCookie() { [native code] } |
-| getNewSecurityToken | function | function getNewSecurityToken() { [native code] } |
-| getBearerToken | function | function getBearerToken() { [native code] } |
-| IMSLoggedIn | function | function IMSLoggedIn() { [native code] } |
-| digitalContentToJST | function | function digitalContentToJST() { [native code] } |
-| loadFile | function | function loadFile() { [native code] } |
-| loadXmlFile | function | function loadXmlFile() { [native code] } |
-| cryptString | function | function cryptString() { [native code] } |
-| decryptString | function | function decryptString() { [native code] } |
-| decryptWithDESCompat | function | function decryptWithDESCompat() { [native code] } |
-| getEnv | function | function getEnv() { [native code] } |
-| writeraw | function | function writeraw() { [native code] } |
-| loadString | function | function loadString() { [native code] } |
-| write | function | function write() { [native code] } |
-| writeln | function | function writeln() { [native code] } |
-| getOption | function | function getOption() { [native code] } |
-| setOption | function | function setOption() { [native code] } |
-| sqlGetString | function | function sqlGetString() { [native code] } |
-| sqlGetStringOnDataSource | function | function sqlGetStringOnDataSource() { [native code] } |
-| sqlGetMemo | function | function sqlGetMemo() { [native code] } |
-| sqlGetMemoOnDataSource | function | function sqlGetMemoOnDataSource() { [native code] } |
-| sqlGetInt | function | function sqlGetInt() { [native code] } |
-| sqlGetIntOnDataSource | function | function sqlGetIntOnDataSource() { [native code] } |
-| sqlGetDouble | function | function sqlGetDouble() { [native code] } |
-| sqlGetDoubleOnDataSource | function | function sqlGetDoubleOnDataSource() { [native code] } |
-| sqlGetDate | function | function sqlGetDate() { [native code] } |
-| sqlGetDateOnDataSource | function | function sqlGetDateOnDataSource() { [native code] } |
-| sqlExec | function | function sqlExec() { [native code] } |
-| getCurrentDate | function | function getCurrentDate() { [native code] } |
-| sqlExecOnDataSource | function | function sqlExecOnDataSource() { [native code] } |
-| sqlExecScript | function | function sqlExecScript() { [native code] } |
-| sqlSelect | function | function sqlSelect() { [native code] } |
-| generateImgTag | function | function generateImgTag() { [native code] } |
-| getImageUrl | function | function getImageUrl() { [native code] } |
-| getNewIdRange | function | function getNewIdRange() { [native code] } |
-| dictionaryCheck | function | function dictionaryCheck() { [native code] } |
+| Function | function | function Function() |
+| Object | function | function Object() |
+| eval | function | function eval() |
+| alert | function | function alert() |
+| logError | function | function logError() |
+| logWarning | function | function logWarning() |
+| logInfo | function | function logInfo() |
+| logVerbose | function | function logVerbose() |
+| formatDate | function | function formatDate() |
+| parseDate | function | function parseDate() |
+| parseTimeStamp | function | function parseTimeStamp() |
+| digestStrMd5 | function | function digestStrMd5() |
+| digestStrSha1 | function | function digestStrSha1() |
+| digestStrSha224 | function | function digestStrSha224() |
+| digestStrSha256 | function | function digestStrSha256() |
+| digestStrSha384 | function | function digestStrSha384() |
+| digestStrSha512 | function | function digestStrSha512() |
+| HMACStr | function | function HMACStr() |
+| escapeXmlStr | function | function escapeXmlStr() |
+| encodeHtml | function | function encodeHtml() |
+| htmlToText | function | function htmlToText() |
+| getUrl | function | function getUrl() |
+| patchAttribute | function | function patchAttribute() |
+| startBuffering | function | function startBuffering() |
+| stopBuffering | function | function stopBuffering() |
+| simpleRevCrypt | function | function simpleRevCrypt() |
+| reversibleCrypt | function | function reversibleCrypt() |
+| reversibleDecrypt | function | function reversibleDecrypt() |
+| unreversibleCrypt | function | function unreversibleCrypt() |
+| compareUnreversibleCrypt | function | function compareUnreversibleCrypt() |
+| escapeUrl | function | function escapeUrl() |
+| installDirectory | function | function installDirectory() |
+| encryptDES | function | function encryptDES() |
+| decryptDES | function | function decryptDES() |
+| DESencrypt | function | function DESencrypt() |
+| DESdecrypt | function | function DESdecrypt() |
+| obfuscate | function | function obfuscate() |
+| unobfuscate | function | function unobfuscate() |
+| expandVar | function | function expandVar() |
+| logon | function | function logon() |
+| logonEscalation | function | function logonEscalation() |
+| logonWithUser | function | function logonWithUser() |
+| logonWithToken | function | function logonWithToken() |
+| logonWithContext | function | function logonWithContext() |
+| getCurrentLocale | function | function getCurrentLocale() |
+| getOperatorLocale | function | function getOperatorLocale() |
+| findClientIP | function | function findClientIP() |
+| checkHTTPAllowed | function | function checkHTTPAllowed() |
+| canShowErrors | function | function canShowErrors() |
+| useSecurityToken | function | function useSecurityToken() |
+| httpOnlySessionCookie | function | function httpOnlySessionCookie() |
+| getNewSecurityToken | function | function getNewSecurityToken() |
+| getBearerToken | function | function getBearerToken() |
+| IMSLoggedIn | function | function IMSLoggedIn() |
+| digitalContentToJST | function | function digitalContentToJST() |
+| loadFile | function | function loadFile() |
+| loadXmlFile | function | function loadXmlFile() |
+| cryptString | function | function cryptString() |
+| decryptString | function | function decryptString() |
+| decryptWithDESCompat | function | function decryptWithDESCompat() |
+| getEnv | function | function getEnv() |
+| writeraw | function | function writeraw() |
+| loadString | function | function loadString() |
+| write | function | function write() |
+| writeln | function | function writeln() |
+| getOption | function | function getOption() |
+| setOption | function | function setOption() |
+| sqlGetString | function | function sqlGetString() |
+| sqlGetStringOnDataSource | function | function sqlGetStringOnDataSource() |
+| sqlGetMemo | function | function sqlGetMemo() |
+| sqlGetMemoOnDataSource | function | function sqlGetMemoOnDataSource() |
+| sqlGetInt | function | function sqlGetInt() |
+| sqlGetIntOnDataSource | function | function sqlGetIntOnDataSource() |
+| sqlGetDouble | function | function sqlGetDouble() |
+| sqlGetDoubleOnDataSource | function | function sqlGetDoubleOnDataSource() |
+| sqlGetDate | function | function sqlGetDate() |
+| sqlGetDateOnDataSource | function | function sqlGetDateOnDataSource() |
+| sqlExec | function | function sqlExec() |
+| getCurrentDate | function | function getCurrentDate() |
+| sqlExecOnDataSource | function | function sqlExecOnDataSource() |
+| sqlExecScript | function | function sqlExecScript() |
+| sqlSelect | function | function sqlSelect() |
+| generateImgTag | function | function generateImgTag() |
+| getImageUrl | function | function getImageUrl() |
+| getNewIdRange | function | function getNewIdRange() |
+| dictionaryCheck | function | function dictionaryCheck() |
 | self | object | [object global] |
 | document | object | [object global] |
 | instanceName | string | freshin_mkt_stage1 |
 | databaseId | string | u0A1E609D002AD358 |
 | undefined | undefined | undefined |
-| Array | function | function Array() { [native code] } |
-| Boolean | function | function Boolean() { [native code] } |
-| Error | function | function Error() { [native code] } |
-| InternalError | function | function InternalError() { [native code] } |
-| EvalError | function | function EvalError() { [native code] } |
-| RangeError | function | function RangeError() { [native code] } |
-| ReferenceError | function | function ReferenceError() { [native code] } |
-| SyntaxError | function | function SyntaxError() { [native code] } |
-| TypeError | function | function TypeError() { [native code] } |
-| URIError | function | function URIError() { [native code] } |
+| Array | function | function Array() |
+| Boolean | function | function Boolean() |
+| Error | function | function Error() |
+| InternalError | function | function InternalError() |
+| EvalError | function | function EvalError() |
+| RangeError | function | function RangeError() |
+| ReferenceError | function | function ReferenceError() |
+| SyntaxError | function | function SyntaxError() |
+| TypeError | function | function TypeError() |
+| URIError | function | function URIError() |
 | Math | object | [object Math] |
-| isNaN | function | function isNaN() { [native code] } |
-| isFinite | function | function isFinite() { [native code] } |
-| parseFloat | function | function parseFloat() { [native code] } |
-| parseInt | function | function parseInt() { [native code] } |
-| Number | function | function Number() { [native code] } |
+| isNaN | function | function isNaN() |
+| isFinite | function | function isFinite() |
+| parseFloat | function | function parseFloat() |
+| parseInt | function | function parseInt() |
+| Number | function | function Number() |
 | NaN | number | NaN |
 | Infinity | number | Infinity |
 | JSON | object | [object JSON] |
-| RegExp | function | function RegExp() { [native code] } |
-| escape | function | function escape() { [native code] } |
-| unescape | function | function unescape() { [native code] } |
-| uneval | function | function uneval() { [native code] } |
-| decodeURI | function | function decodeURI() { [native code] } |
-| encodeURI | function | function encodeURI() { [native code] } |
-| decodeURIComponent | function | function decodeURIComponent() { [native code] } |
-| encodeURIComponent | function | function encodeURIComponent() { [native code] } |
-| String | function | function String() { [native code] } |
-| Int8Array | function | function Int8Array() { [native code] } |
-| Uint8Array | function | function Uint8Array() { [native code] } |
-| Int16Array | function | function Int16Array() { [native code] } |
-| Uint16Array | function | function Uint16Array() { [native code] } |
-| Int32Array | function | function Int32Array() { [native code] } |
-| Uint32Array | function | function Uint32Array() { [native code] } |
-| Float32Array | function | function Float32Array() { [native code] } |
-| Float64Array | function | function Float64Array() { [native code] } |
-| Uint8ClampedArray | function | function Uint8ClampedArray() { [native code] } |
-| ArrayBuffer | function | function ArrayBuffer() { [native code] } |
-| Namespace | function | function Namespace() { [native code] } |
-| QName | function | function QName() { [native code] } |
-| isXMLName | function | function isXMLName() { [native code] } |
-| XML | function | function XML() { [native code] } |
-| XMLList | function | function XMLList() { [native code] } |
-| Iterator | function | function Iterator() { [native code] } |
+| RegExp | function | function RegExp() |
+| escape | function | function escape() |
+| unescape | function | function unescape() |
+| uneval | function | function uneval() |
+| decodeURI | function | function decodeURI() |
+| encodeURI | function | function encodeURI() |
+| decodeURIComponent | function | function decodeURIComponent() |
+| encodeURIComponent | function | function encodeURIComponent() |
+| String | function | function String() |
+| Int8Array | function | function Int8Array() |
+| Uint8Array | function | function Uint8Array() |
+| Int16Array | function | function Int16Array() |
+| Uint16Array | function | function Uint16Array() |
+| Int32Array | function | function Int32Array() |
+| Uint32Array | function | function Uint32Array() |
+| Float32Array | function | function Float32Array() |
+| Float64Array | function | function Float64Array() |
+| Uint8ClampedArray | function | function Uint8ClampedArray() |
+| ArrayBuffer | function | function ArrayBuffer() |
+| Namespace | function | function Namespace() |
+| QName | function | function QName() |
+| isXMLName | function | function isXMLName() |
+| XML | function | function XML() |
+| XMLList | function | function XMLList() |
+| Iterator | function | function Iterator() |
 | StopIteration | object | [object StopIteration] |
-| Date | function | function Date() { [native code] } |
+| Date | function | function Date() |
 | Proxy | object | [object Proxy] |
-| HttpSoapConnection | function | function HttpSoapConnection() { [native code] } |
-| SoapService | function | function SoapService() { [native code] } |
+| HttpSoapConnection | function | function HttpSoapConnection() |
+| SoapService | function | function SoapService() |
 | SoapRequest | object | [object SoapRequest] |
-| MemoryBuffer | function | function MemoryBuffer() { [native code] } |
-| StringGroup | function | function StringGroup() { [native code] } |
+| MemoryBuffer | function | function MemoryBuffer() |
+| StringGroup | function | function StringGroup() |
 | UserContext | object | [object UserContext] |
-| HttpClientRequest | function | function HttpClientRequest() { [native code] } |
+| HttpClientRequest | function | function HttpClientRequest() |
 | HttpClientResponse | object | [object HttpClientResponse] |
 | HttpResponseHeader | object | [object HttpResponseHeader] |
 | HttpHeader | object | [object HttpHeader] |
@@ -175,120 +175,120 @@ JSSP ACC debug - Constants, objects and functions
 | temp | object | [object NLNamespace] |
 | tst | object | [object NLNamespace] |
 | NLWS | object | [object NLNamespace] |
-| encryptedTrackingPasswordChecker | function | function encryptedTrackingPasswordChecker() { [native code] } |
-| loadLibrary | function | function loadLibrary() { [native code] } |
-| loadLibraryDebug | function | function loadLibraryDebug() { [native code] } |
-| applyXsl | function | function applyXsl() { [native code] } |
-| applyXslFromFile | function | function applyXslFromFile() { [native code] } |
-| applyXslFromStyleSheet | function | function applyXslFromStyleSheet() { [native code] } |
-| saveFile | function | function saveFile() { [native code] } |
-| saveXmlFile | function | function saveXmlFile() { [native code] } |
-| saveFileFromBase64 | function | function saveFileFromBase64() { [native code] } |
-| saveString | function | function saveString() { [native code] } |
-| saveXmlString | function | function saveXmlString() { [native code] } |
-| saveBase64String | function | function saveBase64String() { [native code] } |
-| fileRename | function | function fileRename() { [native code] } |
-| fileGetTempName | function | function fileGetTempName() { [native code] } |
-| fileIsRelative | function | function fileIsRelative() { [native code] } |
-| fileSize | function | function fileSize() { [native code] } |
-| decrypt | function | function decrypt() { [native code] } |
-| crypt | function | function crypt() { [native code] } |
-| applyXmlDiff | function | function applyXmlDiff() { [native code] } |
-| convertJst | function | function convertJst() { [native code] } |
-| scanCustomFields | function | function scanCustomFields() { [native code] } |
-| scanCustomFieldsEx | function | function scanCustomFieldsEx() { [native code] } |
-| scanURLs | function | function scanURLs() { [native code] } |
-| setEnv | function | function setEnv() { [native code] } |
-| sleep | function | function sleep() { [native code] } |
-| visitorCookieName | function | function visitorCookieName() { [native code] } |
-| genNewVisitorId | function | function genNewVisitorId() { [native code] } |
-| checkRight | function | function checkRight() { [native code] } |
-| getUUID | function | function getUUID() { [native code] } |
-| execCommand | function | function execCommand() { [native code] } |
-| setMaxProgress | function | function setMaxProgress() { [native code] } |
-| setProgress | function | function setProgress() { [native code] } |
-| startProgressTransaction | function | function startProgressTransaction() { [native code] } |
-| endProgressTransaction | function | function endProgressTransaction() { [native code] } |
-| clearProgressTransactions | function | function clearProgressTransactions() { [native code] } |
-| logProperty | function | function logProperty() { [native code] } |
-| executeQuery | function | function executeQuery() { [native code] } |
-| executeQueryEx | function | function executeQueryEx() { [native code] } |
-| getChartData | function | function getChartData() { [native code] } |
-| digestChartData | function | function digestChartData() { [native code] } |
-| expandAbstractFormQuery | function | function expandAbstractFormQuery() { [native code] } |
-| getTableData | function | function getTableData() { [native code] } |
-| generateTable | function | function generateTable() { [native code] } |
-| analyzeExpr | function | function analyzeExpr() { [native code] } |
-| analyzeExprEx | function | function analyzeExprEx() { [native code] } |
-| parseExprToAST | function | function parseExprToAST() { [native code] } |
-| parseExprToASTEx | function | function parseExprToASTEx() { [native code] } |
-| expandJst | function | function expandJst() { [native code] } |
-| releaseContext | function | function releaseContext() { [native code] } |
-| setContext | function | function setContext() { [native code] } |
-| registerQuerySchema | function | function registerQuerySchema() { [native code] } |
-| registerQuerySchemaEx | function | function registerQuerySchemaEx() { [native code] } |
-| buildSqlTable | function | function buildSqlTable() { [native code] } |
-| setSchemaSqlTable | function | function setSchemaSqlTable() { [native code] } |
-| buildColumnList | function | function buildColumnList() { [native code] } |
-| registerSchema | function | function registerSchema() { [native code] } |
-| getSchema | function | function getSchema() { [native code] } |
-| interactionProposeOffers | function | function interactionProposeOffers() { [native code] } |
-| interactionInsertProp | function | function interactionInsertProp() { [native code] } |
-| interactionUpdateProp | function | function interactionUpdateProp() { [native code] } |
-| interactionInsertVisitor | function | function interactionInsertVisitor() { [native code] } |
-| interactionLogError | function | function interactionLogError() { [native code] } |
-| File | function | function File() { [native code] } |
+| encryptedTrackingPasswordChecker | function | function encryptedTrackingPasswordChecker() |
+| loadLibrary | function | function loadLibrary() |
+| loadLibraryDebug | function | function loadLibraryDebug() |
+| applyXsl | function | function applyXsl() |
+| applyXslFromFile | function | function applyXslFromFile() |
+| applyXslFromStyleSheet | function | function applyXslFromStyleSheet() |
+| saveFile | function | function saveFile() |
+| saveXmlFile | function | function saveXmlFile() |
+| saveFileFromBase64 | function | function saveFileFromBase64() |
+| saveString | function | function saveString() |
+| saveXmlString | function | function saveXmlString() |
+| saveBase64String | function | function saveBase64String() |
+| fileRename | function | function fileRename() |
+| fileGetTempName | function | function fileGetTempName() |
+| fileIsRelative | function | function fileIsRelative() |
+| fileSize | function | function fileSize() |
+| decrypt | function | function decrypt() |
+| crypt | function | function crypt() |
+| applyXmlDiff | function | function applyXmlDiff() |
+| convertJst | function | function convertJst() |
+| scanCustomFields | function | function scanCustomFields() |
+| scanCustomFieldsEx | function | function scanCustomFieldsEx() |
+| scanURLs | function | function scanURLs() |
+| setEnv | function | function setEnv() |
+| sleep | function | function sleep() |
+| visitorCookieName | function | function visitorCookieName() |
+| genNewVisitorId | function | function genNewVisitorId() |
+| checkRight | function | function checkRight() |
+| getUUID | function | function getUUID() |
+| execCommand | function | function execCommand() |
+| setMaxProgress | function | function setMaxProgress() |
+| setProgress | function | function setProgress() |
+| startProgressTransaction | function | function startProgressTransaction() |
+| endProgressTransaction | function | function endProgressTransaction() |
+| clearProgressTransactions | function | function clearProgressTransactions() |
+| logProperty | function | function logProperty() |
+| executeQuery | function | function executeQuery() |
+| executeQueryEx | function | function executeQueryEx() |
+| getChartData | function | function getChartData() |
+| digestChartData | function | function digestChartData() |
+| expandAbstractFormQuery | function | function expandAbstractFormQuery() |
+| getTableData | function | function getTableData() |
+| generateTable | function | function generateTable() |
+| analyzeExpr | function | function analyzeExpr() |
+| analyzeExprEx | function | function analyzeExprEx() |
+| parseExprToAST | function | function parseExprToAST() |
+| parseExprToASTEx | function | function parseExprToASTEx() |
+| expandJst | function | function expandJst() |
+| releaseContext | function | function releaseContext() |
+| setContext | function | function setContext() |
+| registerQuerySchema | function | function registerQuerySchema() |
+| registerQuerySchemaEx | function | function registerQuerySchemaEx() |
+| buildSqlTable | function | function buildSqlTable() |
+| setSchemaSqlTable | function | function setSchemaSqlTable() |
+| buildColumnList | function | function buildColumnList() |
+| registerSchema | function | function registerSchema() |
+| getSchema | function | function getSchema() |
+| interactionProposeOffers | function | function interactionProposeOffers() |
+| interactionInsertProp | function | function interactionInsertProp() |
+| interactionUpdateProp | function | function interactionUpdateProp() |
+| interactionInsertVisitor | function | function interactionInsertVisitor() |
+| interactionLogError | function | function interactionLogError() |
+| File | function | function File() |
 | FileIterator | function | [object FileIterator] |
-| ZipFile | function | function ZipFile() { [native code] } |
+| ZipFile | function | function ZipFile() |
 | DOMNode | object | [object DOMNode] |
-| DOMDocument | function | function DOMDocument() { [native code] } |
+| DOMDocument | function | function DOMDocument() |
 | DOMElement | object | [object DOMElement] |
 | DOMAttr | object | [object DOMAttr] |
 | DOMCharacterData | object | [object DOMCharacterData] |
-| NLProxy | function | function NLProxy() { [native code] } |
+| NLProxy | function | function NLProxy() |
 | DBEngine | object | [object DBEngine] |
 | DBStatement | object | [object DBStatement] |
 | DBStatementIterator | function | [object DBStatementIterator] |
-| FTP | function | function FTP() { [native code] } |
+| FTP | function | function FTP() |
 | Application | object | [object Application] |
 | CurrentLogin | object | [object CurrentLogin] |
 | EnumValue | object | [object EnumValue] |
 | Enum | object | [object Enum] |
 | SchemaKey | object | [object SchemaKey] |
 | NodeDef | object | [object NodeDef] |
-| Schema | function | function Schema() { [native code] } |
-| BroadLogNormalizer | function | function BroadLogNormalizer() { [native code] } |
+| Schema | function | function Schema() |
+| BroadLogNormalizer | function | function BroadLogNormalizer() |
 | instanceVarDir | string | /usr/local/neolane/nl6/var/freshin_mkt_stage1 |
 | instanceConfDir | string | /usr/local/neolane/nl6/conf/ |
 | application | object | [object Application] |
-| testEmail | function | function testEmail() { [native code] } |
-| testNLStatBasic | function | function testNLStatBasic() { [native code] } |
-| testNLStatSync | function | function testNLStatSync() { [native code] } |
-| testParseTimeStamp | function | function testParseTimeStamp() { [native code] } |
-| testRunWorkflow | function | function testRunWorkflow() { [native code] } |
-| testMerge | function | function testMerge() { [native code] } |
-| testFindNode | function | function testFindNode() { [native code] } |
-| testXmlFindAndReleaseNode | function | function testXmlFindAndReleaseNode() { [native code] } |
-| testJSONParse | function | function testJSONParse() { [native code] } |
-| testAESEncryptXml | function | function testAESEncryptXml() { [native code] } |
-| testAESDecryptXml | function | function testAESDecryptXml() { [native code] } |
-| testAESEncryptString | function | function testAESEncryptString() { [native code] } |
-| testAESDecryptString | function | function testAESDecryptString() { [native code] } |
-| testMidSourcingFilter | function | function testMidSourcingFilter() { [native code] } |
-| testMidSourcingFilterWithConfiguration | function | function testMidSourcingFilterWithConfiguration() { [native code] } |
-| testMimeEncode | function | function testMimeEncode() { [native code] } |
-| usePKCS5ToHashPassword | function | function usePKCS5ToHashPassword() { [native code] } |
-| checkPassword | function | function checkPassword() { [native code] } |
-| testSplitString | function | function testSplitString() { [native code] } |
-| generateTrackingTag | function | function generateTrackingTag() { [native code] } |
+| testEmail | function | function testEmail() |
+| testNLStatBasic | function | function testNLStatBasic() |
+| testNLStatSync | function | function testNLStatSync() |
+| testParseTimeStamp | function | function testParseTimeStamp() |
+| testRunWorkflow | function | function testRunWorkflow() |
+| testMerge | function | function testMerge() |
+| testFindNode | function | function testFindNode() |
+| testXmlFindAndReleaseNode | function | function testXmlFindAndReleaseNode() |
+| testJSONParse | function | function testJSONParse() |
+| testAESEncryptXml | function | function testAESEncryptXml() |
+| testAESDecryptXml | function | function testAESDecryptXml() |
+| testAESEncryptString | function | function testAESEncryptString() |
+| testAESDecryptString | function | function testAESDecryptString() |
+| testMidSourcingFilter | function | function testMidSourcingFilter() |
+| testMidSourcingFilterWithConfiguration | function | function testMidSourcingFilterWithConfiguration() |
+| testMimeEncode | function | function testMimeEncode() |
+| usePKCS5ToHashPassword | function | function usePKCS5ToHashPassword() |
+| checkPassword | function | function checkPassword() |
+| testSplitString | function | function testSplitString() |
+| generateTrackingTag | function | function generateTrackingTag() |
 | HttpServletRequest | object | [object HttpServletRequest] |
 | HttpServletResponse | object | [object HttpServletResponse] |
 | RequestParameters | object | [object RequestParameters] |
-| Cookie | function | function Cookie() { [native code] } |
+| Cookie | function | function Cookie() |
 | Cookies | object | [object Cookies] |
-| CaptchaValidate | function | function CaptchaValidate() { [native code] } |
-| CaptchaIDGen | function | function CaptchaIDGen() { [native code] } |
-| escapeXmlString | function | function escapeXmlString() { [native code] } |
+| CaptchaValidate | function | function CaptchaValidate() |
+| CaptchaIDGen | function | function CaptchaIDGen() |
+| escapeXmlString | function | function escapeXmlString() |
 | sg_xtk_dashboard | object | [object StringGroup] |
 | NL | object | [object Object] |
 | ROOT | object | [object global] |
@@ -319,7 +319,7 @@ JSSP ACC debug - Constants, objects and functions
 | findXtkObject | function | function findXtkObject(htmlObject) { "use strict"; if (htmlObject == null) { return null; } if (htmlObject.xtkObject != undefi |
 | g_xtkContext | object | [object Object] |
 | openView | function | function openView(url) { "use strict"; var divLoading = document.getElementById("divLoading"); if (divLoading) { divLoading.style. |
-| addSecurityToken | function | function addSecurityToken(strUrl, strSecurityToken, bAlways) { "use strict"; if ((bAlways || strUrl.charAt(0) == "/" && strUrl.charAt(1) != "/ |
+| addSecurityToken | function | function addSecurityToken(strUrl, strSecurityToken, bAlways) {  |
 | isNeolaneConsole | function | function isNeolaneConsole() { "use strict"; if (NL && NL.Cookie) { return (new NL.Cookie("_console")).getValue(); } return (ne |
 | REPORT_COLORS | object | #3B87A2,#FF8012,#8CA23B,#A23B5E,#004A62,#FFCCA0,#C75400,#CAD4A5,#A5C8D4,#6D0026,#D4A5B4,#4F6400 |
 | htmlSanitizer | function | function () { var html4 = {}; html4.eflags = {OPTIONAL_ENDTAG: 1, BREAKS_FLOW: 2, EMPTY: 4, NAVIGATES: 8, CDATA: 16, RCDATA: 32, UNSAFE: 64}; |
@@ -734,7 +734,7 @@ Create a Web app with 1 page containing the following HTML code:
   </head>
   <body style="" class="">
 <main class="container mt-5 pt-3">
-<h1>JSSP ACC debug - Constants, objects and functions</h1>
+<h1>JSSP ACC debug - Constants, objects and functions [Format HTML]</h1>
 <table class="table table-sm table-hover">
 <thead>
 <tr><th>name</th><th>type</th><th>toString()</th></tr>
@@ -754,5 +754,12 @@ Create a Web app with 1 page containing the following HTML code:
 
 And for markdown output:
 ```html
-
+<main class="container mt-5 pt-3">
+  <h1>JSSP ACC debug - Constants, objects and functions [Format MD]</h1>
+  |Header1|Header2|Header3|<br />
+  |-|-|-|<br />
+  <% for each(var x in Object.getOwnPropertyNames(this)){ %>
+    | <%= x %> | <%= typeof this[x] %> | <%= (''+this[x]).substr(0, 150) %> |<br />
+  <% } %> 
+</main>
 ```

@@ -4,6 +4,7 @@ categories:
   - opensource
   - prestashop
   - prestashop 1.7
+redirect_from: /2018/04/edit-your-invoices-in-prestashop/
 ---
 
 Have you ever wanted to modify an order or an invoice directly in Prestashop? Tired of bypassing PS limitations via phpMyAdmin? You can create an Admin Controller in PS 1.7 to edit your invoices directly in your browser!

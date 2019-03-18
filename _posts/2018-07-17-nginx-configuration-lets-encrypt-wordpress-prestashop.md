@@ -1,15 +1,10 @@
 ---
 title: "Nginx configuration: Let's encrypt, WordPress, Prestashop"
-categories:
-  - https
-  - "Let's Encrypt"
-  - opensource
-  - prestashop
-  - prestashop 1.7
-  - server
-  - wordpress
-- redirect_from: /2018/07/nginx-configuration-lets-encrypt-wordpress-prestashop/
+categories: [https,  "Let's Encrypt",  opensource,
+  prestashop,  prestashop 1.7,  server,  wordpress]
+redirect_from: /2018/07/nginx-configuration-lets-encrypt-wordpress-prestashop/
 ---
+
 ## Favicon and robots.txt
 
 ```nginx

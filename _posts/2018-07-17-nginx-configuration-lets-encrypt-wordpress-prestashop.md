@@ -8,6 +8,7 @@ categories:
   - prestashop 1.7
   - server
   - wordpress
+- redirect_from: /2018/07/nginx-configuration-lets-encrypt-wordpress-prestashop/
 ---
 ## Favicon and robots.txt
 

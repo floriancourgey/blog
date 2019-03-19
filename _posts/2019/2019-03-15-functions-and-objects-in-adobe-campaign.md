@@ -12,22 +12,6 @@ Can be used in JSSPs, Workflows and Web apps
 
 JSSP ACC debug - Constants, objects and functions
 
-
----
-title: Functions and Objects available in Adobe Campaign
-categories: [opensource,adobe campaign]
----
-Excerpt here...
-<p class="text-center">🐍👑🌍</p>
-<!--more-->
-
-## Functions and objects
-
-Can be used in JSSPs, Workflows and Web apps
-
-JSSP ACC debug - Constants, objects and functions
-
-
 | Name | Type | toString() | tmp |
 |-|-|-|-|
 | Function | function | function Function() | |

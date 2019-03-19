@@ -424,6 +424,7 @@ And for markdown output:
 ```
 
 ## Constants
+
 | Name | Type | toString() | tmp |
 |-|-|-|-|
 | WORKFLOW_STATE_EDITION | number | 0 | |

@@ -41,6 +41,30 @@ function insertInto(table, fields, log){
   }
   return sqlExec(sql);
 }
+/**
+ * @param {string} tableName ex: 'nms:recipient'
+ * @param {NLSchema} srcSchema ex: NLWS.nmsecipient
+ * @param {Object} params
+ * @param {array} params.where example: [{expr: "@a>1"}, {expr: "@b is null"}]
+ * @param {array} params.orderBy example: [{expr: "@id", sortDesc: "false"}]
+ */ 
+function getOneOrNull(tableName, srcSchema, params){
+  var query = NLWS.xtkQueryDef.create({queryDef: {
+    schema: tableName,
+    operation: "get", 
+    select: { node: [
+      {expr: "@id"},
+    ]},
+    where: { condition: []}, 
+    orderBy: { node: []}
+  }});
+  params.where.condition = params.where;
+  if(params.orderBy){
+    
+  }
+  var res = query.ExecuteQuery();
+  return srcSchema.load(res.@id);
+}
 ```
 
 ## Linux server helpers

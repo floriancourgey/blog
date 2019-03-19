@@ -4,10 +4,11 @@
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/floriancourgey/blog)
 
 ## Install & run
-```bash
+```console
 $ ruby -v
 $ bundle install
 $ jekyll serve
+$ bundle exec jekyll serve # to be sure to use jekyll/gems from that folder
 Server address: http://127.0.0.1:4000/
 ```
 

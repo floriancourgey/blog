@@ -94,3 +94,47 @@ function removeCarriageReturn(fileFullpath, params){
   replaceInFile('\r', '', fileFullpath, params)
 }
 ```
+
+## FTP folders
+```js
+/***
+ * All the following functions return a string ending with /
+ */
+/**
+ * @return {string} the FTP incoming folder
+ */
+function getIncoming(){
+  return '/sftp/myinstance/incoming/';
+}
+function getVendor1Incoming(){
+  return getIncoming()+'vendor1/';
+}
+function getVendor1Archive(){
+  return getIncoming()+'vendor1/archive/';
+}
+function getVendor2Incoming(country){
+  return getIncoming()+'vendor2/'+country.toLowerCase()+'/';
+}
+function getVendor2Archive(market){
+  return getVendor2Incoming(country)+'archive/'+formatDate(new Date(), '%4Y/%2M')+'/';
+}
+```
+
+## Currency, money, price
+```js
+/**
+ * Format a price to always have 2 decimals: formatPrice('12.3') = '12.30'
+ *
+ * @param {xml|string|int|float} p  the price to format
+ * @return {string} the formatted price
+ */
+function formatPrice(p){
+  if(typeof p == 'xml'){
+    p = p.toString();
+  }
+  if(typeof p == 'string'){
+    p = parseFloat(p);
+  }
+  return p.toFixed(2);
+}
+```

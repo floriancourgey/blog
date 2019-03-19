@@ -53,6 +53,17 @@ recipient.email = null;
 recipient.save();
 ```
 
+## SQL Insert into helper
+```js
+var fields = {
+  'sFirstName': vFirstName,
+  'sLastName': vLastName,
+};
+var log = false;
+insertInto(vars.tableName, fields, log);
+```
+See my [Adobe Campaign helpers (SQL, string, XML, linux..)](2019/2019-03-19-adobe-campaign-helpers.md)
+
 ## Select multiple with `where` and `orderBy`
 
 Base query to get all Deliveries BUT Proofs BEFORE the beginning of the month, MAXIMUM 3 results:

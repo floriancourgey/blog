@@ -773,7 +773,7 @@ And for markdown output:
 <script type="text/javascript">
   $(function(){
     $('main > article > .post-content > table').DataTable({
-      pageLength: 50,
+      pageLength: 10,
     });
   });
 </script>

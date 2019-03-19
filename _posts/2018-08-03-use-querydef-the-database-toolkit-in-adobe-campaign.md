@@ -28,11 +28,12 @@ var recipient = NLWS.nmsRecipient.create(
     firstName = "Support"/>)
 recipient.save()
 
-// create via JS and save
-var recipient = NLWS.nmsRecipient.create()
-recipient.email = ..
-recipient.lastName = ..
-recipient.firstName = ..
+// create via JSON, edit via JS and save
+var recipient = NLWS.nmsRecipient.create({x:{ // the key 'x' doesn't matter
+  email: 'a@a.a',
+}})
+recipient.firstName = 'John';
+recipient.lastName = 'Doe';
 recipient.save()
 ```
 

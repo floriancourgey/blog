@@ -1,6 +1,7 @@
 ---
 title: Make HTTP calls in JS in Adobe Campaign
 categories: [adobe campaign,neolane]
+redirect_from: /2018/06/make-http-calls-in-js-in-adobe-campaign/
 ---
 
 <!-- more -->

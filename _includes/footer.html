@@ -3,49 +3,53 @@
 
   <div class="container">
 
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="row">
-      <div class="col-sm-3">
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+    <div class="row mb-5">
+      <div class="col-sm-4">
+        <h5>Read more</h5>
+        <ul class="list-unstyled m-0">
+          <li><a href="/categories">Browse all categories</a></li>
+          <li><a href="/archives">Browse all posts</a></li>
         </ul>
       </div>
 
       <div class="col-sm-4">
-        <ul class="social-media-list">
+        <h5>Social profiles</h5>
+        <ul class="list-unstyled m-0">
           <li><a href="https://github.com/floriancourgey" target="_blank"><i class="fab fa-github"></i> <span class="username">Github floriancourgey</span></a></li>
           <li><a href="https://gitlab.com/floriancourgey" target="_blank"><i class="fab fa-gitlab"></i> <span class="username">Gitlab floriancourgey</span></a></li>
           <li><a href="https://www.paypal.me/floriancourgey" target="_blank"><i class="fab fa-cc-paypal"></i> <span class="username">Paypal floriancourgey</span></a></li>
           <li><a href="https://www.linkedin.com/in/floriancourgey" target="_blank"><i class="fab fa-linkedin"></i> <span class="username">Linkedin floriancourgey</span></a></li>
           <li><a href="https://yelp.fr/biz/florian-courgey-fontenay-aux-roses" target="_blank"><i class="fab fa-yelp"></i> <span class="username">Yelp florian-courgey</span></a></li>
-          <li><a href="https://annuaire.laposte.fr/conseiller-en-systemes-informatiques/floriancourgey-com-81994022200014/" target="_blank"><i class="fas fa-mail-bulk"></i> <span class="username">La Poste floriancourgey-com</span></a></li>
           <li><a href="{{ 'feed.xml' | relative_url }}"><i class="fas fa-rss"></i> <span class="username">RSS Feed</span></a></li>
         </ul>
       </div>
 
-      <div class="col-sm-5">
-        <p>{{- site.description | escape -}}</p>
+      <div class="col-sm-4">
+        <h5>Contact</h5>
+        <ul class="list-unstyled m-0">
+          <li><i class="fas fa-paper-plane"></i> blog@floriancourgey.com</li>
+          <li><i class="fas fa-home"></i> Paris, France</li>
+          <li><i class="fas fa-suitcase"></i> New York, USA</li>
+        </ul>
       </div>
+    </div><!-- /.row -->
+
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <p class="text-center">{{- site.description | escape -}}</p>
+      </div>
+    </div><!-- /.row -->
+
+    <div class="text-center">
+      Built with ❤️ and ☕ by <a href="https://floriancourgey.com?ref=blog.floriancourgey.com" target="_blank">Florian Courgey</a><br>
+      using <a href="https://jekyllrb.com" target="_blank">Jekyll</a>, <a href="https://getbootstrap.com/" target="_blank">Bootstrap 4</a> and <a href="https://github.com/jekyll/minima" target="_blank">Minima</a> on steroids<br>
+      hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a><br><br>
+      Fork me on <a href="https://github.com/floriancourgey/www" target="_blank">GitHub</a>
+
     </div>
 
-  </div>
+  </div><!-- /.container -->
 
-  <div class="text-center">
-    Built with ❤️ and ☕ by <a href="https://floriancourgey.com?ref=blog.floriancourgey.com" target="_blank">Florian Courgey</a><br>
-    using <a href="https://jekyllrb.com" target="_blank">Jekyll</a>, <a href="https://getbootstrap.com/" target="_blank">Bootstrap 4</a> and <a href="https://github.com/jekyll/minima" target="_blank">Minima</a> on steroids<br>
-    hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a><br><br>
-    Fork me on <a href="https://github.com/floriancourgey/www" target="_blank">GitHub</a>
 
-  </div>
 
 </footer>

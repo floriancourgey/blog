@@ -19,12 +19,14 @@ title: Page not found!
   <p>The requested page could not be found.</p>
 
   <!-- Sentry.io -->
-  <script src="https://browser.sentry-cdn.com/4.4.1/bundle.min.js" crossorigin="anonymous"></script>
-  <script src="{{site_url}}/assets/js/sentry.js" charset="utf-8"></script>
-  <script type="text/javascript">
-    if(undefined !== Sentry){
-      Sentry.captureException(new Error('404 '+window.location.href), {level: 'warning'});
-      console.log('404 sent to Sentry.io');
-    }
-  </script>
+  {% if jekyll.environment == 'production' %}
+    <script src="https://browser.sentry-cdn.com/4.4.1/bundle.min.js" crossorigin="anonymous"></script>
+    <script src="{{site_url}}/assets/js/sentry.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      if(undefined !== Sentry){
+        Sentry.captureException(new Error('404 '+window.location.href), {level: 'warning'});
+        console.log('404 sent to Sentry.io');
+      }
+    </script>
+  {% endif %}
 </div>

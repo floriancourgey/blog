@@ -14,14 +14,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ "/" | relative_url }}">Home</a>
         </li>
-        {%- for path in page_paths -%}
-          {%- assign my_page = site.pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ "categories" | relative_url }}">Categories</a>
+        </li>
         <li class="nav-item">
           <div class="btn-group">
             <a class="nav-link" href="{{ "/categories?id=prestashop" | relative_url }}">Prestashop</a>
@@ -46,6 +41,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% post_url 2018-11-30-linux-training-overthewire-bandit-1 %}">OverTheWire/Linux</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ "archives" | relative_url }}">Archives</a>
         </li>
         <li class="nav-item">
           <div class="btn-group">

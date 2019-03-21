@@ -35,7 +35,7 @@ ctx.vars.startDate = moment().startOf('month').format('YYYY-MM-DD');
 ctx.vars.endDate = moment().endOf('month').format('YYYY-MM-DD');
 ```
 
-See this [tutorial to install the library](2018-10-15-use-javascript-libraries-in-adobe-campaign.md) `vendor:moment` can be installed 
+See this [tutorial to install the library](/2018/10/use-javascript-libraries-in-adobe-campaign) `vendor:moment` can be installed 
 
 ## The Query
 
@@ -70,4 +70,3 @@ loadLibrary('vendor:moment')
 ctx.vars.startDate = moment(ctx.vars.startDate.toString()).hour(10).format('YYYY-MM-DD HH:mm:ss');
 ctx.vars.endDate = moment(ctx.vars.endDate.toString()).hour(10).format('YYYY-MM-DD HH:mm:ss');
 ```
-

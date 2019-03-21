@@ -20,7 +20,7 @@ For any of the below calls, the URLs you want to call must be whitelisted in `/u
 </serverConf>
 ```
 
-*Note: if you are on a hosted instance, see the [tutorial to connect through SSH](2019-02-enable-ssh-adobe-campaign.md) to execute maintenance on server.*
+*Note: if you are on a hosted instance, see the [tutorial to connect through SSH](/2019/02/enable-ssh-adobe-campaign) to execute maintenance on server.*
 
 If you don't whitelist your target URLs you'll get a JS Exception:
 ```console
@@ -64,7 +64,7 @@ var posts = JSON.parse(resp.body)
 logInfo(posts[0].id) // 1
 ```
 
-## HTTP POST as form 
+## HTTP POST as form
 ```js
 var req = new HttpClientRequest('https://url.com/page-with-form');
 req.method = 'POST';

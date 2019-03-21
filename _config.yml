@@ -71,7 +71,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
-  - jekyll-relative-links
   - jekyll-seo-tag
   - jekyll-redirect-from
 

@@ -91,6 +91,21 @@ for each(var delivery in deliveries.delivery){
 }
 ```
 
+## Select raw data from workflow transition
+Plug a `query` into a `javascript` activity, then in the JS, retrieve the results. Usefule for DQM with JS functions:
+```js
+var xml = sqlSelect("collection,@id", "SELECT iId as id FROM "+vars.tableName); // <select><collection id="1"/><collection id="2"/></select>
+logInfo(xml.toXMLString());// "<select><collection id="1"/><collection id="2"/></select>"
+for each(var record in xml.collection){
+  logInfo('id:'+record.@id); // "id: 1" "id: 2"
+  // if the query was based on nms:recipient, retrieve the JS recipient with:
+  var recipient = NLWS.nmsRecipient.load(record.@id);
+  logInfo(recipient.email);
+  recipient.lastName = recipient.lastName.toUpperCase();
+  recipient.save();
+}
+```
+
 ## Count
 
 ```js

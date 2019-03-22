@@ -22,9 +22,9 @@ delivery.save()
 
 // create via XML-E4X and save
 var recipient = NLWS.nmsRecipient.create(
-  <recipient 
-    email = "support@neolane.com" 
-    lastName = "Neolane" 
+  <recipient
+    email = "support@neolane.com"
+    lastName = "Neolane"
     firstName = "Support"/>)
 recipient.save()
 
@@ -63,7 +63,7 @@ var fields = {
 var log = false;
 insertInto(vars.tableName, fields, log);
 ```
-See my [Adobe Campaign helpers (SQL, string, XML, linux..)](2019/2019-03-19-adobe-campaign-helpers.md)
+See my [Adobe Campaign helpers (SQL, string, XML, linux..)](/2019/2019-03-19-adobe-campaign-helpers)
 
 ## Select multiple with `where` and `orderBy`
 
@@ -81,7 +81,7 @@ var q = xtk.queryDef.create(
       <condition expr={"@created <= '2018-08-01'"} bool-operator="AND"/>
     </where>
     <orderBy>
-      <node expr="@lastModified" sortDesc="true"/> 
+      <node expr="@lastModified" sortDesc="true"/>
     </orderBy>    
   </queryDef>
 );

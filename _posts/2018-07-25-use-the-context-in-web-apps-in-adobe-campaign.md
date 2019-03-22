@@ -12,11 +12,25 @@ An ACC web app is just a visual tool to generate a JSSP page:
 ![](/assets/images/2019/03/adobe-campaign-web-apps-are-jssp.jpg)
 
 The JSSP code is generated via the XSL template `web-webApp.xsl` which calls `web-core.xsl`, which contains:
-```js
+```xsl
 import core.xsl
-template serverScriptInit
+<xsl:call-template name="serverScriptInit"/>
 response.addHeader(Pragma, Cache-Control, Expires, Content-type)
-template initActivities
+<xsl:call-template name="initActivities"/>
+if !g_bNoRendering
+  <html>
+    <head>
+      <meta http-equiv="MSThemeCompatible" content="Yes"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <xsl:call-template name="css"/>
+      [...]
+```
+
+`core.xsl` contains XSL templates such as
+```xsl
+<xsl:template name="serverScriptInit">
+<xsl:template name="initActivities">
+<xsl:template name="css">
 ```
 
 ## Using the `ctx` variable in the Javascript frontend

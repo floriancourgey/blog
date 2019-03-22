@@ -44,8 +44,8 @@ Markdown reference
 
 ## Update Algolia index
 ```bash
-$ bundle install --gemfile=Gemfile.dev
 $ echo 'my_algolia_key' > _algolia_api_key
+$ bundle install --gemfile=Gemfile.dev
 $ jekyll algolia
 ```
 

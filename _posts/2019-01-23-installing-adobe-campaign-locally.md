@@ -4,7 +4,7 @@ categories: [opensource,adobe campaign]
 redirect_from: /install-acc
 ---
 
-Install Adobe Campaign on any computer locally on a VM to set up your own development environment. Plus, access to any VM feature such as snapshots and duplication.
+Install Adobe Campaign on any computer locally on a VM to set up your own development environment. Plus, access to any VM feature such as snapshots and duplication. This dev setup is for testing and demo only. Configuring Apache on port 443 to receive traffic as a web server allows a more secure connection.
 
 ![](/assets/images/2019/03/adobe-campaign-install-architecture-network.jpg)
 

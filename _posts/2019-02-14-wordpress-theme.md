@@ -2,7 +2,7 @@
 title: Extend a WordPress Theme with a Child Theme
 categories: [opensource,wordpress]
 ---
-Instead of editing the PHP, HTML and CSS files of a WordPress theme, we'll extend it with the WordChild Themes system.
+Instead of editing the PHP, HTML and CSS files of a WordPress theme, we'll extend it with the WordPress Child Themes system.
 
 <p class="text-center">🔊♻️👩‍👦</p>
 

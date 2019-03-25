@@ -4,6 +4,10 @@ categories: [opensource,adobe campaign]
 redirect_from: /install-acc
 ---
 
+Install Adobe Campaign on any computer locally on a VM to set up your own development environment. Plus, access to any VM feature such as snapshots and duplication.
+
+![](/assets/images/2019/03/adobe-campaign-install-architecture-network.jpg)
+
 <p class="text-center">⏬📦✔️</p>
 
 <!--more-->
@@ -327,14 +331,30 @@ $ nlserver javascript -instance:instance1 -file test.js
 ```
 
 ## Appendixes
-### Assign a static IP to your virtualbox VM
-In the VM, assuming `enp0s3` is the name of the adapter shown in `ifconfig` and/or `ip addr`:
+### Assign a static IP to the virtualbox VM
+On the host, get the IP address, Subnet Mask and Default Gateway. I.e. on Windows with `ipconfig`:
+
+![](/assets/images/2019/03/adobe-campaign-virtualbox-static-ip-host.jpg)
+
+Values:
+```
+IPv4 Address. . . . . . . . . . . : 10.23.87.24
+Subnet Mask . . . . . . . . . . . : 255.255.255.0
+Default Gateway . . . . . . . . . : 10.23.87.1
+```
+
+It means we can choose any IP from `10.23.87.2` to `10.23.87.255` for our VM. Let's use `10.23.87.100`.
+
+On the VM, get the interface name with `ifconfig`, here `enp0s3` in order to edit it:
+
+![](/assets/images/2019/03/adobe-campaign-virtualbox-static-ip-vm.jpg)
+
 ```console
 $ sudo vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
 BOOTPROTO="none" # updated from "dhcp"
-IPADDR=10.3.112.90 # added
+IPADDR=10.23.87.100 # added
 NETMASK=255.255.255.0 # added
-GATEWAY=10.3.112.254 # added
+GATEWAY=10.23.87.1 # added
 $ sudo service network restart
 ```
 

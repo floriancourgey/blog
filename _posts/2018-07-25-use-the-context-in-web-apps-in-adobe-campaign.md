@@ -200,6 +200,7 @@ function getEnumFieldWithName(enum, enumName, enumField){
 ```
 
 ## Use `NL.QueryDef` to execute client-side SOAP calls in Javascript from the browser
+Can be used to create a Single Page App (SPA) for specific goals, such as a read-only view of recipients, with filters, orders, etc. ⚠️ the result is in XML format. For JSON format see next chapter.
 ```js
 var queryDef = new NL.QueryDef("nms:recipient", NL.QueryDef.prototype.OPERATION_SELECT);
 queryDef.addSelectExpr("@id"); // add the column @id to the select clause
@@ -211,12 +212,12 @@ queryDef.setShowSQL(true); // create a <dataSQL>SELECT x,y from Z</dataSQL> node
 queryDef.addWhereConditionExpr("@email = '"+email+"'");
 var callback = {
   onXtkQueryCompleted: function(queryDef, res, error) {
-    console.log('Recipients found!', res);
+    console.log('Recipients found!', res); // see below for res output
   }
 };
 queryDef.execute(NL.session.serverURL + "/nl/jsp/soaprouter.jsp", '', callback);
 ```
-Output:
+Output, `res` content:
 ```xml
 <recipient-collection>
   <recipient id="1" newAttr="Jane"><newNode>Doe</newNode></recipient>
@@ -227,9 +228,9 @@ Output:
 </recipient-collection>
 ```
 
-Taken from `nl6/web/core/dce/contentEditor.js` `loadFromTemplateId: function(templateId)`.
+Above code taken from `nl6/web/core/dce/contentEditor.js` `loadFromTemplateId: function(templateId)`.
 
-Doc @ `nl6/web/code/queryDef.js`:
+Doc for `queryDef.execute()` @ `nl6/web/code/queryDef.js`:
 ```js
 /** Do the soap call
  * @strUrl : soap router url

@@ -351,12 +351,13 @@ On the VM, get the interface name with `ifconfig`, here `enp0s3` in order to edi
 
 ```console
 $ sudo vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
-BOOTPROTO="none" # updated from "dhcp"
 IPADDR=10.23.87.100 # added
 NETMASK=255.255.255.0 # added
 GATEWAY=10.23.87.1 # added
 $ sudo service network restart
 ```
+
+Old: don't do `BOOTPROTO="none" # updated from "dhcp"`, it's going to disable the internet connection
 
 ### Integrate with Apache web server 
 ```console

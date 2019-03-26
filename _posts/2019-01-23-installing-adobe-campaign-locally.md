@@ -206,6 +206,8 @@ Then create and start the first worflow `WKF1`:
 ![](/assets/images/2019/02/adobe-campaign-workflow-run.jpg)
 ![](/assets/images/2019/02/adobe-campaign-workflow-audit-log-success.jpg)
 
+You may also access to the web based interface with the `:8080` port, such as `http://10.23.87.90:8080/view/home`:
+![](/assets/images/2019/03/adobe-campaign-tomcat.jpg)
 
 
 ## Troubleshoot
@@ -372,27 +374,37 @@ $ service httpd status && curl localhost # check
 $ sudo firewall-cmd --add-service=http --permanent # allow firewall http
 $ sudo firewall-cmd --add-service=https --permanent # allow firewall https
 $ sudo firewall-cmd --reload
-$ sudo vim /etc/httpd/conf.modules.d/00-base.conf # comment the following modules:
-auth_basic
-authn_file
-authz_default
-authz_user
-autoindex
-cgi
-dir
-env
-negotiation
-userdir
-$ sudo mv /etc/httpd/conf.d/autoindex.conf /etc/httpd/conf.d/autoindex.conf.bak
+$ sudo vim /etc/httpd/conf.modules.d/00-base.conf # comment the following modules, with a trailing #:
+#auth_basic
+#authn_file
+#authz_default
+#authz_user
+#autoindex
+#cgi
+#dir
+#env
+#negotiation
+#userdir
+$ sudo mv /etc/httpd/conf.d/autoindex.conf /etc/httpd/conf.d/autoindex.conf.bak # disable autoindex configuration
 $ sudo vim /etc/httpd/conf.d/CampaignApache.conf
-LoadModule requesthandler24_module /usr/local/neolane/nl6/lib/libnlsrvmod.so
-Include /usr/local/neolane/nl6/tomcat-7/conf/apache_neolane.conf
+ErrorLog "logs/error_log_neolane" # custom error file, will be in /var/log/httpd/error_log_neolane because /etc/httpd/conf/logs points to /var/log/httpd
+<Directory "/usr/local/neolane/nl6"> # Allow all /nl6/
+    Require all granted
+</Directory>
+LoadModule requesthandler24_module /usr/local/neolane/nl6/lib/libnlsrvmod.so # load acc lib
+Include /usr/local/neolane/nl6/tomcat-7/conf/apache_neolane.conf # load tomcat conf
 $ sudo vim /usr/local/neolane/nl6/conf/serverConf.xml # find any allowHTTP="false" and replace with
 allowHTTP="true"
 $ sudo vim /etc/selinux/config # you might to disable SELinux as well, update:
 SELINUX=disabled
 $ sudo service httpd restart
 ```
+
+Go ahead and connect to your VM without the `:8080` port, such as `http://10.23.87.90/view/home`:
+![](/assets/images/2019/03/adobe-campaign-apache.jpg)
+
+The network is now as follow:
+![](/assets/images/2019/03/adobe-campaign-install-architecture-network-with-apache.jpg)
 
 ### Allow external PostgreSQL access
 Allow external access to postgresql, see https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html

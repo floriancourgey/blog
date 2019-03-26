@@ -9,3 +9,4 @@ install:
 script:
   - jekyll doctor
   - jekyll build
+  - bundle exec htmlproofer ./_site --check-html --disable-external

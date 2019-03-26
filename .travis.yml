@@ -7,6 +7,6 @@ before_install:
 install:
   - bundle install
 script:
-  - jekyll doctor
-  - jekyll build
+  - bundle exec jekyll doctor
+  - bundle exec jekyll build
   - bundle exec htmlproofer ./_site --check-html --disable-external

@@ -362,6 +362,66 @@ JSSP ACC debug - Constants, objects and functions
 | getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) | |
 | nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) | |
 | activity | xml | | |
+| NL.ns | undefined | undefined | |
+| NL.side | undefined | undefined | |
+| NL.isDevDebug | undefined | undefined | |
+| NL.isEmpty | undefined | undefined | |
+| NL.nvl | undefined | undefined | |
+| NL.coalesce | undefined | undefined | |
+| NL.isNundef | undefined | undefined | |
+| NL.isDate | undefined | undefined | |
+| NL.isBoolean | undefined | undefined | |
+| NL.isString | undefined | undefined | |
+| NL.isNumber | undefined | undefined | |
+| NL.isFinite | function | function isFinite() { [native code] } | |
+| NL.isNaN | function | function isNaN() { [native code] } | |
+| NL.isFunction | undefined | undefined | |
+| NL.isXML | undefined | undefined | |
+| NL.isArray | undefined | undefined | |
+| NL.isObject | undefined | undefined | |
+| NL.isPlainObject | undefined | undefined | |
+| NL.is | undefined | undefined | |
+| NL.Utils | undefined | undefined | |
+| NL.OO | undefined | undefined | |
+| NL.toDebugString | undefined | undefined | |
+| NL.log | undefined | undefined | |
+| NL.\_hookConsole | undefined | undefined | |
+| NL.\_hookLogger | undefined | undefined | |
+| NL.route | undefined | undefined | |
+| NL.assert | undefined | undefined | |
+| NL.session | undefined | undefined | |
+| NL.server | undefined | undefined | |
+| NL.require | undefined | undefined | |
+| NL.\_initClientSupport | undefined | undefined | |
+| NL.init | undefined | undefined | |
+| NL.\_loaded | undefined | undefined | |
+| NL.DepMan | undefined | undefined | |
+| NL.XML | function | function XML() { [native code] } | |
+| NL.XTK | undefined | undefined | |
+| NL.String | function | function String() { [native code] } | |
+| NL.Number | function | function Number() { [native code] } | |
+| NL.Locale | undefined | undefined | |
+| NL.Timezone | undefined | undefined | |
+| NL.Date | function | function Date() { [native code] } | |
+| NL.DatePartial | undefined | undefined | |
+| NL.NLSON | undefined | undefined | |
+| NL.URL | undefined | undefined | |
+| NL.client | undefined | undefined | |
+| NL.JS | undefined | undefined | |
+| NL.SQL | undefined | undefined | |
+| NL.HTML | undefined | undefined | |
+| NL.View | undefined | undefined | |
+| NL.Cookie | function | function Cookie() { [native code] } | |
+| NL.JSSPContext | undefined | undefined | |
+| NL.API | undefined | undefined | |
+| NL.XtkContext | undefined | undefined | |
+| NL.XtkTimer | undefined | undefined | |
+| NL.QueryDef | undefined | undefined | |
+| NL.Widgets | undefined | undefined | |
+| NL.Dashboard | undefined | undefined | |
+| NL.DefaultListConf | undefined | undefined | |
+| NL.WebForm | undefined | undefined | |
+| NL.DataPolicy | undefined | undefined | |
 {: #with-an-id}
 
 ## Method

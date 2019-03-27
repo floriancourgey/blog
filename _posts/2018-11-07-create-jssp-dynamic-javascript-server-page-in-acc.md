@@ -1,14 +1,8 @@
 ---
-id: 1036
 title: Create jssp Dynamic JavaScript Server Page in ACC
 date: 2018-11-07T16:21:31+00:00
-author: Florian Courgey
-layout: post
-guid: https://floriancourgey.com/?p=1036
 permalink: /2018/11/create-jssp-dynamic-javascript-server-page-in-acc/
-categories:
-  - adobe campaign
-  - neolane
+categories:[adobe campaign, neolane]
 ---
 We can create server-generated pages in ACC. Here are some info about it. It will result in pages with  the .jssp extension.
 
@@ -74,9 +68,9 @@ XTK-170019 Access denied.
 This is because the current operator is Anonymous:
 
 ```js
-<% for(var i in application.operator){ %>
-  <%= i %>: <%= application.operator[i] %>
-<% } %>
+<% for(var i in application.operator){
+  document.write(i+': '+application.operator[i]+'\n');
+} %>
 ```
 
 Displays
@@ -97,10 +91,10 @@ home:
 So we have to change the logon information with the <span class="lang:js decode:true crayon-inline ">logon</span>  function:
 
 ```js
-<% var oldContext = logon('john-doe', 'password'); // login as john-doefor(var i in application.operator){ %>
-<% for(var i in application.operator){ %>
-  <%= i %>: <%= application.operator[i] %>
-<% }
+<% var oldContext = logon('john-doe', 'password'); // login as john-doe
+for(var i in application.operator){
+  document.write(i+': '+application.operator[i]+'\n');
+}
 logon(oldContext); // log back in as previous user
 logon(sessionToken); // log in with token %>
 ```

@@ -63,7 +63,7 @@ var fields = {
 var log = false;
 insertInto(vars.tableName, fields, log);
 ```
-See my [Adobe Campaign helpers (SQL, string, XML, linux..)](/2019/2019-03-19-adobe-campaign-helpers)
+See my [Adobe Campaign helpers (SQL, string, XML, linux..)](/2019/03/adobe-campaign-helpers)
 
 ## Select multiple with `where` and `orderBy`
 

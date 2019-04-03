@@ -440,7 +440,7 @@ The following objects and functions can be called directly (which is an implicit
 | console.log | function | function (msg) { logWarning("!console.log: "+msg); } | |
 | console.error | function | function (msg) { logWarning("!console.error: "+msg); } | |
 | console.warn | function | function (msg) { logWarning("!console.warn: "+msg); } | |
-| application.operator.login | string | fcourgey | |
+| application.operator.login | string | my_login | |
 | application.operator.id | number | 99999 | |
 | application.operator.computeString | string | First Last (login_id) | |
 | application.operator.groups | object | 99999999,9999,99999999 | |

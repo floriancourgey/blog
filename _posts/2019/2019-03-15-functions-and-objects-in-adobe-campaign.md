@@ -12,7 +12,7 @@ Can be used in JSSPs, Workflows and Web apps
 
 JSSP ACC debug - Constants, objects and functions
 
-The following objects and functions can be called directly (which is an implicit use of `this.*`), or via `document.*` or via `ROOT.*`. they are all a reference to the same object.
+The following objects and functions can be called directly (which is an implicit use of `this.*`), or via `document.*`, `ROOT.*` and `self.*`. They are all a reference to the same object.
 
 | Name | Type | toString() | tmp |
 |-|-|-|-|

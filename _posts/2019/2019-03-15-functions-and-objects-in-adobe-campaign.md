@@ -362,40 +362,40 @@ JSSP ACC debug - Constants, objects and functions
 | getEnumValuesElt | function | function getEnumValuesElt(strSchema, strXPath) | |
 | nms_webApp_DeleteWebApp | function | function nms_webApp_DeleteWebApp(sWebAppId) | |
 | activity | xml | | |
-| NL.ns | undefined | undefined | |
-| NL.side | undefined | undefined | |
-| NL.isDevDebug | undefined | undefined | |
-| NL.isEmpty | undefined | undefined | |
-| NL.nvl | undefined | undefined | |
-| NL.coalesce | undefined | undefined | |
-| NL.isNundef | undefined | undefined | |
-| NL.isDate | undefined | undefined | |
-| NL.isBoolean | undefined | undefined | |
-| NL.isString | undefined | undefined | |
-| NL.isNumber | undefined | undefined | |
-| NL.isFinite | function | function isFinite() { [native code] } | |
-| NL.isNaN | function | function isNaN() { [native code] } | |
-| NL.isFunction | undefined | undefined | |
-| NL.isXML | undefined | undefined | |
-| NL.isArray | undefined | undefined | |
-| NL.isObject | undefined | undefined | |
-| NL.isPlainObject | undefined | undefined | |
-| NL.is | undefined | undefined | |
-| NL.Utils | undefined | undefined | |
-| NL.OO | undefined | undefined | |
-| NL.toDebugString | undefined | undefined | |
-| NL.log | undefined | undefined | |
-| NL.\_hookConsole | undefined | undefined | |
-| NL.\_hookLogger | undefined | undefined | |
-| NL.route | undefined | undefined | |
-| NL.assert | undefined | undefined | |
-| NL.session | undefined | undefined | |
-| NL.server | undefined | undefined | |
-| NL.require | undefined | undefined | |
-| NL.\_initClientSupport | undefined | undefined | |
-| NL.init | undefined | undefined | |
-| NL.\_loaded | undefined | undefined | |
-| NL.DepMan | undefined | undefined | |
+| NL.ns | function | function (name) | |
+| NL.side | function | function (expectedSide) | |
+| NL.isDevDebug | function | function () | |
+| NL.isEmpty | function | function (obj) | |
+| NL.nvl | function | function () | |
+| NL.coalesce | function | function () | |
+| NL.isNundef | function | function (obj) | |
+| NL.isDate | function | function (obj) | |
+| NL.isBoolean | function | function (obj) | |
+| NL.isString | function | function (obj) | |
+| NL.isNumber | function | function (obj) | |
+| NL.isFinite | function | function (obj) | |
+| NL.isNaN | function | function (obj) | |
+| NL.isFunction | function | function (obj) | |
+| NL.isXML | function | function (obj) | |
+| NL.isArray | function | function (obj) | |
+| NL.isObject | function | function (obj) | |
+| NL.isPlainObject | function | function (obj) | |
+| NL.is | function | function (obj, type) | |
+| NL.Utils | object | [object Object] | |
+| NL.OO | object | [object Object] | |
+| NL.toDebugString | function | function (object) | |
+| NL.log | object | [object Object] | |
+| NL.\_hookConsole | function | function (con) | |
+| NL.\_hookLogger | function | function (logger) | |
+| NL.route | function | function (path, type) | |
+| NL.assert | function | function (value, message) | |
+| NL.session | object | [object Object] | |
+| NL.server | function | function () | |
+| NL.require | function | function (name) | |
+| NL.\_initClientSupport | function | function () | |
+| NL.init | function | function () | |
+| NL.\_loaded | boolean | true | |
+| NL.DepMan | object | [object Object] | |
 | NL.XML | function | function XML() { [native code] } | |
 | NL.XTK | undefined | undefined | |
 | NL.String | function | function String() { [native code] } | |
@@ -422,6 +422,19 @@ JSSP ACC debug - Constants, objects and functions
 | NL.DefaultListConf | undefined | undefined | |
 | NL.WebForm | undefined | undefined | |
 | NL.DataPolicy | undefined | undefined | |
+| application.buildNumber | number | 8999 | |
+| application.buildVersion | string | 9.9 | |
+| application.instanceName | string | instance_mkt_stage1 | |
+| application.instanceVarDir | string | /usr/local/neolane/nl6/var/instance_mkt_stage1 | |
+| application.instanceConfDir | string | /usr/local/neolane/nl6/conf/ | |
+| application.instanceUploadDir | string | /usr/local/neolane/nl6//var/instance_mkt_stage1/upload/ | |
+| application.operator | object | [object CurrentLogin] | |
+| application.arg | string | | |
+| application.lang | string | eng | |
+| application.locale | string | en-US | |
+| application.isTrace | boolean | false | |
+| application.isOOOInstalled | boolean | true | |
+| application.hostName | string | instance-mkt-stage1-2 | |
 {: #with-an-id}
 
 ## Method

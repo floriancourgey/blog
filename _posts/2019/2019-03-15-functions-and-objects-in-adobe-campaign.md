@@ -12,6 +12,8 @@ Can be used in JSSPs, Workflows and Web apps
 
 JSSP ACC debug - Constants, objects and functions
 
+The following objects and functions can be called directly (which is an implicit use of `this.*`) or via `document.*`.
+
 | Name | Type | toString() | tmp |
 |-|-|-|-|
 | Function | function | function Function() | |

@@ -103,7 +103,7 @@ JSSP ACC debug - Constants, objects and functions
 | self | object | [object global] | |
 | document | object | [object global] | |
 | instanceName | string | my_instance1 | |
-| databaseId | string | u0A1E609D002AD358 | |
+| databaseId | string | u9A9A999A999AA999 | |
 | undefined | undefined | undefined | |
 | Array | function | function Array() | |
 | Boolean | function | function Boolean() | |

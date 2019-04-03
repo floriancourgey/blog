@@ -12,7 +12,7 @@ Can be used in JSSPs, Workflows and Web apps
 
 JSSP ACC debug - Constants, objects and functions
 
-The following objects and functions can be called directly (which is an implicit use of `this.*`) or via `document.*`.
+The following objects and functions can be called directly (which is an implicit use of `this.*`), or via `document.*` or via `ROOT.*`. they are all a reference to the same object.
 
 | Name | Type | toString() | tmp |
 |-|-|-|-|
@@ -437,6 +437,9 @@ The following objects and functions can be called directly (which is an implicit
 | application.isTrace | boolean | false | |
 | application.isOOOInstalled | boolean | true | |
 | application.hostName | string | instance-mkt-stage1-2 | |
+| console.log | function | function (msg) { logWarning("!console.log: "+msg); } | |
+| console.error | function | function (msg) { logWarning("!console.error: "+msg); } | |
+| console.warn | function | function (msg) { logWarning("!console.warn: "+msg); } | |
 {: #with-an-id}
 
 ## Method

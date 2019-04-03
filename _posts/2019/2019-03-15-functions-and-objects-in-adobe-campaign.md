@@ -483,12 +483,13 @@ Create a Web app with 1 page containing the following HTML code:
 
 And for markdown output:
 ```html
+<% var objectToDebug = this; var prefix = ""; %>
 <main class="container mt-5 pt-3">
   <h1>JSSP ACC debug - Constants, objects and functions [Format MD]</h1>
   |Header1|Header2|Header3|<br />
   |-|-|-|<br />
-  <% for each(var x in Object.getOwnPropertyNames(this)){ %>
-    | <%= x %> | <%= typeof this[x] %> | <%= (''+this[x]).substr(0, 150) %> |<br />
+  <% for each(var x in Object.getOwnPropertyNames(objectToDebug)){ %>
+    | <%= prefix + x %> | <%= typeof objectToDebug[x] %> | <%= (''+objectToDebug[x]).substr(0, 150) %> |<br />
   <% } %> 
 </main>
 ```

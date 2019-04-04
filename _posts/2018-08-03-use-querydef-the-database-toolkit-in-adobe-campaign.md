@@ -20,21 +20,21 @@ var delivery = NLWS.nmsDelivery.load("12435")
 delivery.label = "New label"
 delivery.save()
 
-// create via XML-E4X and save
-var recipient = NLWS.nmsRecipient.create(
-  <recipient
-    email = "support@neolane.com"
-    lastName = "Neolane"
-    firstName = "Support"/>)
-recipient.save()
-
 // create via JSON, edit via JS and save
 var recipient = NLWS.nmsRecipient.create({x:{ // the key 'x' doesn't matter
   email: 'a@a.a',
 }})
 recipient.firstName = 'John';
 recipient.lastName = 'Doe';
-recipient.save()
+recipient.save();
+
+// create via XML-E4X and save
+var recipient = NLWS.nmsRecipient.create(<recipient
+  email = "support@neolane.com"
+  lastName = "Neolane"
+  firstName = "Support"
+/>)
+recipient.save();
 ```
 
 ## Get with JSON
@@ -42,14 +42,18 @@ recipient.save()
 var email = "contact@hello.world";
 var query = NLWS.xtkQueryDef.create({queryDef: {
   schema: "nms:recipient", operation: "get", // "get" does a SQL "LIMIT 1"
-    select: { node: [{expr: "@id"}] }, // get @id only
-    where: {
-      condition: [{expr: "@email= '"+email+"'"}] // filter by email
-    }
+  select: { node: [{expr: "@id"}] }, // get @id only
+  where: { 
+    condition: [
+      {expr: "@email = '"+email+"'"}, // filter by email
+      {expr: "@firstName LIKE '%"+name+"%'"}, // and first name
+    ],
+    orderBy: { node: [{expr:"@lastModified", sortDesc:"true"}] }, // ORDER BY lastModified DESC
   }
-});
-var res = query.ExecuteQuery();
-var recipient = NLWS.nmsRecipient.load(res.$id);
+}});
+var res = query.ExecuteQuery(); // @throw Exception if the recipient doesn't exist, use operation:"getIfExists" if recipient may not exist
+// res is an XML object such as <recipient id="1234"/>
+var recipient = NLWS.nmsRecipient.load(res.$id); // conversion to a Javascript object
 recipient.email = null;
 recipient.save();
 ```

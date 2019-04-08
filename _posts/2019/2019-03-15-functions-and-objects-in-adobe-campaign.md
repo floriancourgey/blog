@@ -60,8 +60,8 @@ The following objects and functions can be called directly (which is an implicit
 | logonWithUser | function | function logonWithUser() | |
 | logonWithToken | function | function logonWithToken() | |
 | logonWithContext | function | function logonWithContext() | |
-| getCurrentLocale | function | function getCurrentLocale() | |
-| getOperatorLocale | function | function getOperatorLocale() | |
+| getCurrentLocale | function | en-US | |
+| getOperatorLocale | function | en-GB | |
 | findClientIP | function | function findClientIP() | |
 | checkHTTPAllowed | function | function checkHTTPAllowed() | |
 | canShowErrors | function | function canShowErrors() | |
@@ -448,6 +448,29 @@ The following objects and functions can be called directly (which is an implicit
 | application.operator.timezone | string | America/New_York | |
 | application.operator.locale | string | en-US | |
 | application.operator.home | string | | |
+| Format.REGION_SETTINGS['en-us'] | json | | |
+| Format.REGION_SETTINGS['en-us'].digitGroupingSymbol | string | ',' | |
+| Format.REGION_SETTINGS['en-us'].decimalSymbol | string | "." | |
+| Format.REGION_SETTINGS['en-us'].shortDate | string | "%2M/%2D/%4Y" | |
+| Format.REGION_SETTINGS['en-us'].longDate | string | "%A, %D %B, %4Y" | |
+| Format.REGION_SETTINGS['en-us'].time | string | "%I:%2N:%2S %P" | |
+| Format.REGION_SETTINGS['en-us'].shortDateTime | string | "%2M/%2D/%4Y %I:%2N:%2S %P" | |
+| Format.REGION_SETTINGS['en-us'].AmPm | string | ["AM", "PM"] | |
+| Format.REGION_SETTINGS['en-us'].shortQuarter | string | "Q%C %4Y" | |
+| Format.REGION_SETTINGS['en-us'].longQuarter | string |  "%Q %4Y" | |
+| Format.REGION_SETTINGS['en-us'].shortMonth | string | "%2M/%4Y" | |
+| Format.REGION_SETTINGS['en-us'].longMonth | string | "%B %4Y" | |
+| Format.REGION_SETTINGS['en-us'].shortWeek | string | "%4V-W%2W" | |
+| Format.REGION_SETTINGS['en-us'].longWeek | string | "%4V - Week %2W" | |
+| Format.REGION_SETTINGS['en-us'].shortHour | string | "%2Hh" | |
+| Format.REGION_SETTINGS['en-us'].longHour | string | "%2Hh" | |
+| Format.REGION_SETTINGS['en-us'].daysName | string | ["Sunday", "Monday"...] | |
+| Format.REGION_SETTINGS['en-us'].shortDaysName | string |  ["Sun", "Mon"...] | |
+| Format.REGION_SETTINGS['en-us'].monthsName | string |  ["January", "February"...] | |
+| Format.REGION_SETTINGS['en-us'].quartersName | string |  ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"] | |
+| Format.REGION_SETTINGS['en-us'].timeSpanUnits | string |  {seconds : 's', minutes : 'mn', hours : 'h', days : 'd', months : 'm', years : 'y'} | |
+| Format.REGION_SETTINGS['en-us'].percentSeparator" : "" | |
+| Format.REGION_SETTINGS['en-us'].currencySymbol": "$" | |
 {: #with-an-id}
 
 ## Method

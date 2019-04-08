@@ -471,6 +471,30 @@ The following objects and functions can be called directly (which is an implicit
 | Format.REGION_SETTINGS['en-us'].timeSpanUnits | string |  {seconds : 's', minutes : 'mn', hours : 'h', days : 'd', months : 'm', years : 'y'} | |
 | Format.REGION_SETTINGS['en-us'].percentSeparator" : "" | |
 | Format.REGION_SETTINGS['en-us'].currencySymbol": "$" | |
+| NL.Locale.getFormat | function | function (name, options).getFor | |
+| NL.Locale.defaultLanguage | string | en-us | |
+| NL.Locale.getLocale | function | function (language) || NL | |
+| NL.Locale.getValidLanguageFromHttpHeader | function | function (header, validityCheck) | |
+| NL.Locale.parseBoolean | function | function (value, defaultReturn) | |
+| NL.Locale.formatBoolean | function | function (value, format, defaultReturn) | |
+| NL.Locale.parseString | function | function (value, defaultReturn) | |
+| NL.Locale.parseNumber | function | function (value, defaultReturn) | |
+| NL.Locale.parseInt | function | function (value, defaultReturn) | |
+| NL.Locale.formatNumber | function | function (value, format, defaultReturn) | |
+| NL.Locale.formatInt | function | function (value, format, defaultReturn) | |
+| NL.Locale.formatPercent | function | function (value, decimalPlaces, defaultReturn) | |
+| NL.Locale.formatDataSize | function | function (value, format, defaultReturn) | |
+| NL.Locale.formatWithUnit | function | function (value, significantFigures, unit, defaultReturn) | |
+| NL.Locale.getMonthName | function | function (arg) | |
+| NL.Locale.\_splitFormat | function | function (format) | |
+| NL.Locale.parseDateTime | function | function (value, format, defaultReturn) | |
+| NL.Locale.parseDateOnly | function | function (value, format, defaultReturn) | |
+| NL.Locale.parseTime | function | function (value, format, defaultReturn) | |
+| NL.Locale.formatDateTime | function | function (value, format, defaultReturn) | |
+| NL.Locale.formatDateOnly | function | function (value, format, defaultReturn) | |
+| NL.Locale.formatTime | function | function (value, format, defaultReturn) | |
+| NL.Locale.formatDatePartial | function | function (datePartial, interval, format) | |
+| NL.Locale.formatTimeSpan | function | function (value, format, defaultReturn) | |
 {: #with-an-id}
 
 ## Method

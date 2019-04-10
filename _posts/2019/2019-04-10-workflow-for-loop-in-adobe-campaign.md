@@ -1,5 +1,5 @@
 ---
-title: "for" loop as a worklow in Adobe Campaign
+title: '"for" loop as a worklow in Adobe Campaign'
 categories: [opensource,adobe campaign]
 ---
 

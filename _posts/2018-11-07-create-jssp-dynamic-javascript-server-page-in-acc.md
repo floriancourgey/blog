@@ -8,6 +8,9 @@ We can create server-generated pages in ACC. Here are some info about it. It wil
 
 <!--more-->
 
+## Doc
+JSSP come from a custom implementation of the Java JSSP project, [description and docs here](http://jssp.sourceforge.net/jssp_description.html), based on multiple Java EE objects such as the [HttpServletRequest class](https://docs.oracle.com/javaee/1.4/api/javax/servlet/http/HttpServletRequest.html). Note: as it's a custom implementation, many documented methods are not available.
+
 ## Create a simple test page
 
 Create a JSSP in any JSSP folder. The JSSP name will define the URL:
@@ -148,8 +151,8 @@ response.setContentType("text/html;charset=utf-8");
       } %>
     <br>--<br>
     User-Agent: <%= request.getHeader('User-Agent') %><br>
-    X-Forwarded-For: <%= request.getHeader('X-Forwarded-For') %><br>
-    getRemoteAddr(): <%= request.getRemoteAddr() %><br>
+    X-Forwarded-For: <%= request.getHeader('X-Forwarded-For') %><br> <!-- IP address -->
+    getRemoteAddr(): <%= request.getRemoteAddr() %><br> <!-- IP address and proxy -->
   </body>
 </html>
 ```
@@ -260,4 +263,4 @@ decodeURI("Hello%20world?!'=-") // "Hello world?!'=-"
 ```
 
 
-<em>Source: <a href="http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html">http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html</a></em>
+*Source: [docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html](http://docs.campaign.adobe.com/doc/AC/en/jsapi/p-32.html)*

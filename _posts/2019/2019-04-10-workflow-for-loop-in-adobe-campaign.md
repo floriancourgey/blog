@@ -1,0 +1,54 @@
+---
+title: "for" loop as a worklow in Adobe Campaign
+categories: [opensource,adobe campaign]
+---
+
+You need to execute the same workflow multiple times with just 1 changing parameters? You need to go through a list of values and process them step by step?
+Then you can simulate a classic "for" loop with the `Javascript` and the `Test` activities.
+
+<p class="text-center">🐍👑🌍</p>
+<!--more-->
+
+## Setup
+![todo](/assets/images/2019/04/adobe-campaign-for-loop-workflow.jpg)
+
+Create a first `Javascript` code with the array init and the serialization with `JSON.stringify()`:
+```js
+var myJavascriptArray = [
+  'France', 'Spain', 'UK',
+];
+
+vars.index = 0; // equivalent to "for(i=0"
+vars.indexMax = array.length; // compute the max index
+vars.array = JSON.stringify(array); // serialize the array as a string, per Adobe Campaign "vars" constraints
+```
+
+The `Test` activity is then setup as follow (equivalent):
+```console
+  - Label: End of loop?
+  - Conditions
+    - Label Yes: vars.index >= vars.indexMax
+  - Default branching
+    - Use Default connection: No
+```
+
+In the loop, you can use the array anytime with `JSON.parse()`:
+```js
+var current = JSON.parse(vars.array)[vars.index];
+logInfo('Current index: '+vars.index+', current value: '+current);
+```
+
+At the end of the loop, a simple `vars.index++;` gets the job done!
+
+## Test
+
+```console
+Workflow 'WKF999' is being run
+Workflow restarted (operator 'Florian Courgey')
+js3	Current index: 0, current value: France
+js3	Current index: 1, current value: Spain
+js3	Current index: 2, current value: UK
+Workflow finished
+```
+
+![todo](/assets/images/2019/04/adobe-campaign-for-loop-logs.jpg)

@@ -86,9 +86,9 @@ class My_Module extends Module {
 }
 ```
 
-Activate it through the PrestShop Backoffice by looking for &#8220;my_module&#8221;:<figure id="attachment_621" style="width: 1660px" class="wp-caption aligncenter">
+Activate it through the PrestShop Backoffice by looking for &#8220;my_module&#8221;:
 
-<img class="wp-image-621 size-full" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=525%2C279&#038;ssl=1" alt="3 easy steps to install the module locally" width="525" height="279" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1660&ssl=1 1660w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=300%2C160&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=768%2C409&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=1024%2C545&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" /><figcaption class="wp-caption-text">Install the module locally</figcaption></figure> 
+![](/assets/images/2018/05/search-for-my_module-in-the-backoffice-annote.jpg)
 
 and then create the bare minimum in an Admincontroller in `modules/my_module/controllers/admin/AdminPastaController.php`, which `extends ModuleAdminController`
 
@@ -114,7 +114,7 @@ Head to <http://localhost/admin-dev/index.php?controller=AdminPasta> and you sho
 
 ## Step 3: Configure your Admin Controller
 
-Now all the customization will be executed in the AdminController only. Let&#8217;s start by adding the list with <span class="lang:php decode:true crayon-inline ">$this->fields_list</span> :
+Now all the customization will be executed in the AdminController only. Let&#8217;s start by adding the list with `$this->fields_list`:
 
 ```php
 <?php
@@ -148,7 +148,7 @@ class AdminPastaController extends ModuleAdminController {
 
 This gives us a wonderful table with export, filters, orders and pagination:
 
-<img class="aligncenter size-full wp-image-634" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-list-only-2.jpg?resize=525%2C221&#038;ssl=1" alt="" width="525" height="221" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-list-only-2.jpg?w=1916&ssl=1 1916w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-list-only-2.jpg?resize=300%2C127&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-list-only-2.jpg?resize=768%2C324&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-list-only-2.jpg?resize=1024%2C432&ssl=1 1024w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-list-only-2.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/05/AdminController-with-list-only-2.jpg)
 
 ## 4. Create, edit and delete your Custom Object
 
@@ -204,13 +204,13 @@ class AdminPastaController extends ModuleAdminController {
 
 So we now have a nice form when we click on Create:
 
-<img class="aligncenter size-full wp-image-637" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-Add-New.jpg?resize=525%2C176&#038;ssl=1" alt="" width="525" height="176" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-Add-New.jpg?w=1916&ssl=1 1916w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-Add-New.jpg?resize=300%2C101&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-Add-New.jpg?resize=768%2C258&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-Add-New.jpg?resize=1024%2C344&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-with-Add-New.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/05/AdminController-with-Add-New.jpg)
 
 > > But it doesn&#8217;t work! You can also try to click on edit or on details, you&#8217;ll have an error:
 
 <http://localhost/admin-dev/index.php?controller=AdminPasta&id=768&updatepasta>
 
-<img class="aligncenter size-full wp-image-638" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=525%2C118&#038;ssl=1" alt="" width="525" height="118" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?w=1917&ssl=1 1917w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=300%2C67&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=768%2C172&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?resize=1024%2C230&ssl=1 1024w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Object-cannot-be-loaded.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/05/AdminController-Object-cannot-be-loaded.jpg)
 
 This is the error thrown here <https://github.com/PrestaShop/PrestaShop/blob/1.7.3.x/classes/controller/AdminController.php#L1655>
 
@@ -230,7 +230,7 @@ And remove the whole `function getFromClause`:
 
 Refresh your page and you now have a fully working Form with a Custom Object:
 
-<img class="aligncenter size-full wp-image-639" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Edit-is-now-working.jpg?resize=525%2C190&#038;ssl=1" alt="" width="525" height="190" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Edit-is-now-working.jpg?w=1498&ssl=1 1498w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Edit-is-now-working.jpg?resize=300%2C109&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Edit-is-now-working.jpg?resize=768%2C278&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/05/AdminController-Edit-is-now-working.jpg?resize=1024%2C371&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/05/AdminController-Edit-is-now-working.jpg)
 
 Here we are!! There&#8217;s still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pastas in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/).
 

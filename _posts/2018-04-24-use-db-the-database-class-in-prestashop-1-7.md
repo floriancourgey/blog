@@ -1,29 +1,23 @@
 ---
-id: 420
 title: Use Db, the database class in PrestaShop 1.7
-date: 2018-04-24T19:45:49+00:00
-author: Florian Courgey
-layout: post
-guid: https://floriancourgey.com/?p=420
 permalink: /2018/04/use-db-the-database-class-in-prestashop-1-7/
-categories:
-  - prestashop
-  - prestashop 1.7
+categories: [prestashop, prestashop 1.7]
 ---
+
 Tired of using raw SQL? `SELECT * from _DB_PREFIX_.customer` is dead! Use the chainable API provided by Prestashop with its `DbQuery` class:
 
 <!--more-->
 
 ```php
 // fetch Categories as array of array
-$categoriesArray = (Db::getInstance())-&gt;executeS((new DbQuery())
-  -&gt;from('category', 'c')
-  -&gt;where('c.level_depth &gt; 2')
-  -&gt;where('c.id_category &gt; 42')
-  -&gt;join('JOIN '._DB_PREFIX_.'shop s ON s.id_shop=c.id_shop_default') // raw SQL join
-  -&gt;innerJoin('category_lang', 'cl', 'cl.id_category=c.id_category') // formatted SQL join via function params
-  -&gt;groupBy('c.id_category')
-  -&gt;orderBy('c.id_category ASC')
+$categoriesArray = (Db::getInstance())->executeS((new DbQuery())
+  ->from('category', 'c')
+  ->where('c.level_depth > 2')
+  ->where('c.id_category > 42')
+  ->join('JOIN '._DB_PREFIX_.'shop s ON s.id_shop=c.id_shop_default') // raw SQL join
+  ->innerJoin('category_lang', 'cl', 'cl.id_category=c.id_category') // formatted SQL join via function params
+  ->groupBy('c.id_category')
+  ->orderBy('c.id_category ASC')
 );// [ [], []..]
 
 // then convert them to array of Object Category
@@ -31,17 +25,17 @@ $categories = ObjectModel::hydrateCollection('Category', $categoriesArray); // [
 
 // you can also edit the query based on conditions
 $query = (new DbQuery())
-  -&gt;from('category', 'c')
-  -&gt;where('c.id &gt; 42')
-  -&gt;join('JOIN '._DB_PREFIX_.'shop s ON s.id_shop=c.id_shop_default')
+  ->from('category', 'c')
+  ->where('c.id > 42')
+  ->join('JOIN '._DB_PREFIX_.'shop s ON s.id_shop=c.id_shop_default')
 );
 if(Tools::getValue('only-high-level-depth')){
-  $query-&gt;where('c.level_depth &gt; 2');
+  $query->where('c.level_depth > 2');
 }
-$categoriesArray = (Db::getInstance())-&gt;executeS($query);
+$categoriesArray = (Db::getInstance())->executeS($query);
 
 // want to debug the generated SQL code?
-$sql = $query-&gt;build(); // SELECT * from...
+$sql = $query->build(); // SELECT * from...
 ```
 
 From classes/db/DbQuery.php
@@ -62,12 +56,12 @@ DbQuery::limit($limit, $offset = 0)
 
 ```php
 # raw
-(Db::getInstance())-&gt;getValue('SELECT Count(*) from '._DB_PREFIX_.'category where level_depth&gt;2')
+(Db::getInstance())->getValue('SELECT Count(*) from '._DB_PREFIX_.'category where level_depth>2')
 # DbQuery
-(Db::getInstance())-&gt;executeS((new DbQuery()
-  -&gt;from('category')
-  -&gt;select('Count(*)')
-  -&gt;where('level_depth&gt;2')
+(Db::getInstance())->executeS((new DbQuery()
+  ->from('category')
+  ->select('Count(*)')
+  ->where('level_depth>2')
 ))
 ```
 

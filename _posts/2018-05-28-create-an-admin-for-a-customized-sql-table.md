@@ -17,11 +17,11 @@ This is the part 1 of a Series to customize Prestashop in depth. [Follow this li
 
 ## Objective
 
-We are going to be able to create, read, update and delete a customized SQL table. Let&#8217;s take some pastas as an example.
+We are going to be able to create, read, update and delete a customized SQL table. Let's take some pastas as an example.
 
 We will be using this SQL Dataset [setup.sql](https://floriancourgey.com/wp-content/uploads/2018/05/setup.sql_.txt) (taken from the CSV [dh\_product\_lookup.csv](https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv), from the website <https://www.dunnhumby.com/sourcefiles>).
 
-Let&#8217;s use the pasta database:
+Let's use the pasta database:
 
 ```sql
 CREATE TABLE pasta (
@@ -66,7 +66,7 @@ class Pasta extends ObjectModel {
 
 ## Step 2: Create your Admin Controller
 
-AdminController can only be created inside a Module. Let&#8217;s create a dummy module first in `modules/my_module/my_module.php`:
+AdminController can only be created inside a Module. Let's create a dummy module first in `modules/my_module/my_module.php`:
 
 ```php
 <?php
@@ -86,7 +86,7 @@ class My_Module extends Module {
 }
 ```
 
-Activate it through the PrestShop Backoffice by looking for &#8220;my_module&#8221;:
+Activate it through the PrestShop Backoffice by looking for "my_module":
 
 ![](/assets/images/2018/05/search-for-my_module-in-the-backoffice-annote.jpg)
 
@@ -110,11 +110,11 @@ class AdminPastaController extends ModuleAdminController {
 
 Head to <http://localhost/admin-dev/index.php?controller=AdminPasta> and you should now have an empty AdminController:
 
-<img class="aligncenter size-full wp-image-623" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=525%2C217&#038;ssl=1" alt="" width="525" height="217" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?w=1305&ssl=1 1305w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=300%2C124&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=768%2C318&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/empty-AdminController-PastaController.jpg?resize=1024%2C424&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![](/assets/images/2018/05/empty-AdminController-PastaController.jpg)
 
 ## Step 3: Configure your Admin Controller
 
-Now all the customization will be executed in the AdminController only. Let&#8217;s start by adding the list with `$this->fields_list`:
+Now all the customization will be executed in the AdminController only. Let's start by adding the list with `$this->fields_list`:
 
 ```php
 <?php
@@ -206,7 +206,7 @@ So we now have a nice form when we click on Create:
 
 ![](/assets/images/2018/05/AdminController-with-Add-New.jpg)
 
-> > But it doesn&#8217;t work! You can also try to click on edit or on details, you&#8217;ll have an error:
+> > But it doesn't work! You can also try to click on edit or on details, you'll have an error:
 
 <http://localhost/admin-dev/index.php?controller=AdminPasta&id=768&updatepasta>
 
@@ -232,7 +232,7 @@ Refresh your page and you now have a fully working Form with a Custom Object:
 
 ![](/assets/images/2018/05/AdminController-Edit-is-now-working.jpg)
 
-Here we are!! There&#8217;s still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pastas in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/).
+Here we are!! There's still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pastas in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/).
 
 
 ![Hooray!](https://i0.wp.com/uploads.disquscdn.com/images/3681964a5dbe8e4d3ca23796cfdeb66e137b3f46f16d82453437872e417e410f.jpg?w=525&#038;ssl=1)

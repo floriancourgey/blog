@@ -232,7 +232,7 @@ Refresh your page and you now have a fully working Form with a Custom Object:
 
 ![](/assets/images/2018/05/AdminController-Edit-is-now-working.jpg)
 
-Here we are!! There's still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pastas in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/).
+Here we are!! There's still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pastas in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/04/how-to-create-a-new-front-controller-for-prestashop-1-7/).
 
 
 ![Hooray!](https://i0.wp.com/uploads.disquscdn.com/images/3681964a5dbe8e4d3ca23796cfdeb66e137b3f46f16d82453437872e417e410f.jpg?w=525&#038;ssl=1)

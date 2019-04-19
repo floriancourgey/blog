@@ -1,19 +1,13 @@
 ---
-id: 562
 title: 'Create an Admin Controller for a customized SQL table (Part 1/2) [Prestashop 1.7]'
-date: 2018-05-28T15:56:21+00:00
-author: Florian Courgey
-layout: post
-guid: https://floriancourgey.com/?p=562
 permalink: /2018/05/create-an-admin-for-a-customized-sql-table/
-categories:
-  - opensource
-  - prestashop
-  - prestashop 1.7
+categories: [opensource, prestashop, prestashop 1.7]
 ---
+
 Prestashop has developed great admin interface : data table, filters, edit/create form, etc. But you know what? You can re-use this UI for your own SQL table. This tutorial will walk through it.
 
-<img class="aligncenter wp-image-641 size-full" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Admin-Controller-Cover.jpg?resize=525%2C295&#038;ssl=1" alt="Use PrestaShop to manage any SQL table" width="525" height="295" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Admin-Controller-Cover.jpg?w=1280&ssl=1 1280w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Admin-Controller-Cover.jpg?resize=300%2C169&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Admin-Controller-Cover.jpg?resize=768%2C432&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/Admin-Controller-Cover.jpg?resize=1024%2C576&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+
+![](/assets/images/2018/05/Admin-Controller-Cover.jpg)
 
 If you want to [edit an already existing Object such as your invoices, head over to this tutorial](https://floriancourgey.com/2018/04/admin-controller-in-module-prestashop-1-7/).
 
@@ -29,7 +23,8 @@ We will be using this SQL Dataset [setup.sql](https://floriancourgey.com/wp-cont
 
 Let&#8217;s use the pasta database:
 
-<pre class="lang:mysql decode:true ">CREATE TABLE pasta (
+```sql
+CREATE TABLE pasta (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `sku` VARCHAR(255) NOT NULL ,
   `name` VARCHAR(255) NOT NULL ,
@@ -41,74 +36,77 @@ insert into pasta (sku,name) values ('601011292', 'BARILLA MARINARA PSTA SCE');
 insert into pasta (sku,name) values ('601011293', 'BARILLA SWT PEPPER/GARLIC');
 insert into pasta (sku,name) values ('601011294', 'BARILLA ARRABBIATA SPCY P');
 -- [...]
--- find all the SQL setup in https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv</pre>
+-- find all the SQL setup in https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv
+```
 
 ## Step 1: Create your PHP class
 
-Folder does not matter, all properties as <span class="lang:php decode:true crayon-inline ">public</span> , <span class="lang:php decode:true crayon-inline ">extends ObjectModel</span> , use <span class="lang:php decode:true crayon-inline ">public static $definition</span>  to define your SQL fields.
+Folder does not matter, all properties as `public`, `extends ObjectModel`, use `public static $definition` to define your SQL fields.
 
-For example I like to use use <span class="lang:default decode:true crayon-inline">/override/classes/my_dir</span> . This way, it will stay even if Prestashop is updated, and can be included in a git repository.
+For example I like to use use `/override/classes/my_dir`. This way, it will stay even if Prestashop is updated, and can be included in a git repository.
 
-<pre class="lang:php decode:true " title="/override/classes/my_dir/Pasta.php">&lt;?php
+```php
+<?php
 class Pasta extends ObjectModel {
   public $id;
   public $sku;
   public $name;
   public $created;
   public static $definition = [
-    'table' =&gt; 'pasta',
-    'primary' =&gt; 'id',
-    'fields' =&gt; [
-      'sku' =&gt;  ['type' =&gt; self::TYPE_STRING, 'validate' =&gt; 'isAnything', 'required'=&gt;true],
-      'name' =&gt;  ['type' =&gt; self::TYPE_STRING, 'validate' =&gt; 'isAnything', 'required'=&gt;true],
-      'created' =&gt;  ['type' =&gt; self::TYPE_DATE, 'validate' =&gt; 'isDateFormat'],
+    'table' => 'pasta',
+    'primary' => 'id',
+    'fields' => [
+      'sku' =>  ['type' => self::TYPE_STRING, 'validate' => 'isAnything', 'required'=>true],
+      'name' =>  ['type' => self::TYPE_STRING, 'validate' => 'isAnything', 'required'=>true],
+      'created' =>  ['type' => self::TYPE_DATE, 'validate' => 'isDateFormat'],
     ],
   ];
 }
-</pre>
-
-&nbsp;
+```
 
 ## Step 2: Create your Admin Controller
 
-AdminController can only be created inside a Module. Let&#8217;s create a dummy module first in <span class="lang:default decode:true crayon-inline ">modules/my_module/my_module.php</span> :
+AdminController can only be created inside a Module. Let&#8217;s create a dummy module first in `modules/my_module/my_module.php`:
 
-<pre class="lang:php decode:true" title="modules/my_module/my_module.php">&lt;?php
+```php
+<?php
 if (!defined('_PS_VERSION_')) {exit;}
 class My_Module extends Module {
   public function __construct() {
-      $this-&gt;name = 'my_module';
-      $this-&gt;tab = 'administration';
-      $this-&gt;version = '1.0.0';
-      $this-&gt;author = 'Florian Courgey';
-      $this-&gt;bootstrap = true;
+      $this->name = 'my_module';
+      $this->tab = 'administration';
+      $this->version = '1.0.0';
+      $this->author = 'Florian Courgey';
+      $this->bootstrap = true;
       parent::__construct();
-      $this-&gt;displayName = $this-&gt;l('PrestaShop Module by FC');
-      $this-&gt;description = $this-&gt;l('Improve your store by [...]');
-      $this-&gt;ps_versions_compliancy = ['min' =&gt; '1.7', 'max' =&gt; _PS_VERSION_];
+      $this->displayName = $this->l('PrestaShop Module by FC');
+      $this->description = $this->l('Improve your store by [...]');
+      $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
   }
 }
-</pre>
+```
 
 Activate it through the PrestShop Backoffice by looking for &#8220;my_module&#8221;:<figure id="attachment_621" style="width: 1660px" class="wp-caption aligncenter">
 
 <img class="wp-image-621 size-full" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=525%2C279&#038;ssl=1" alt="3 easy steps to install the module locally" width="525" height="279" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1660&ssl=1 1660w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=300%2C160&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=768%2C409&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?resize=1024%2C545&ssl=1 1024w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/05/search-for-my_module-in-the-backoffice-annote.jpg?w=1575&ssl=1 1575w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" /><figcaption class="wp-caption-text">Install the module locally</figcaption></figure> 
 
-and then create the bare minimum in an Admincontroller in <span class="lang:default decode:true crayon-inline">modules/my_module/controllers/admin/AdminPastaController.php</span> , which <span class="lang:php decode:true crayon-inline">extends ModuleAdminController</span>
+and then create the bare minimum in an Admincontroller in `modules/my_module/controllers/admin/AdminPastaController.php`, which `extends ModuleAdminController`
 
-<pre class="lang:php decode:true" title="modules/my_module/controllers/admin/AdminPastaController.php">&lt;?php
+```php
+<?php
 require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
 
 class AdminPastaController extends ModuleAdminController {
   public function __construct(){
       parent::__construct();
-      $this-&gt;bootstrap = true; // use Bootstrap CSS
-      $this-&gt;table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
-      $this-&gt;identifier = 'id'; // SQL column to be used as primary key
-      $this-&gt;className = 'Pasta'; // PHP class name
-      $this-&gt;allow_export = true; // allow export in CSV, XLS..
+      $this->bootstrap = true; // use Bootstrap CSS
+      $this->table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
+      $this->identifier = 'id'; // SQL column to be used as primary key
+      $this->className = 'Pasta'; // PHP class name
+      $this->allow_export = true; // allow export in CSV, XLS..
   }
-}</pre>
+}
+```
 
 Head to <http://localhost/admin-dev/index.php?controller=AdminPasta> and you should now have an empty AdminController:
 
@@ -118,25 +116,26 @@ Head to <http://localhost/admin-dev/index.php?controller=AdminPasta> and you sho
 
 Now all the customization will be executed in the AdminController only. Let&#8217;s start by adding the list with <span class="lang:php decode:true crayon-inline ">$this->fields_list</span> :
 
-<pre class="lang:php mark:13-20,23-26 decode:true" title="modules/my_module/controllers/admin/AdminPastaController.php">&lt;?php
+```php
+<?php
 require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
 
 class AdminPastaController extends ModuleAdminController {
   public function __construct(){
     parent::__construct();
-    $this-&gt;bootstrap = true; // use Bootstrap CSS
-    $this-&gt;table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
-    $this-&gt;identifier = 'id'; // SQL column to be used as primary key
-    $this-&gt;className = 'Pasta'; // PHP class name
-    $this-&gt;allow_export = true; // allow export in CSV, XLS..
+    $this->bootstrap = true; // use Bootstrap CSS
+    $this->table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
+    $this->identifier = 'id'; // SQL column to be used as primary key
+    $this->className = 'Pasta'; // PHP class name
+    $this->allow_export = true; // allow export in CSV, XLS..
 
-    $this-&gt;_defaultOrderBy = 'a.created'; // the table alias is always `a`
-    $this-&gt;_defaultOrderWay = 'DESC';
-    $this-&gt;fields_list = [
-        'id' =&gt; ['title' =&gt; 'ID','class' =&gt; 'fixed-width-xs'],
-        'sku' =&gt; ['title' =&gt; 'SKU'],
-        'name' =&gt; ['title' =&gt; 'Name'],
-        'created' =&gt; ['title' =&gt; 'Created','type'=&gt;'datetime'],
+    $this->_defaultOrderBy = 'a.created'; // the table alias is always `a`
+    $this->_defaultOrderWay = 'DESC';
+    $this->fields_list = [
+        'id' => ['title' => 'ID','class' => 'fixed-width-xs'],
+        'sku' => ['title' => 'SKU'],
+        'name' => ['title' => 'Name'],
+        'created' => ['title' => 'Created','type'=>'datetime'],
     ];
   }
 
@@ -145,7 +144,7 @@ class AdminPastaController extends ModuleAdminController {
       return str_replace(_DB_PREFIX_, '', parent::getFromClause());
   }
 }
-</pre>
+```
 
 This gives us a wonderful table with export, filters, orders and pagination:
 
@@ -153,43 +152,44 @@ This gives us a wonderful table with export, filters, orders and pagination:
 
 ## 4. Create, edit and delete your Custom Object
 
-But we still cannot create or edit our object. We have to add a new part in our controller with <span class="lang:php decode:true crayon-inline ">$this->fileds_form</span> :
+But we still cannot create or edit our object. We have to add a new part in our controller with `$this->fileds_form`:
 
-<pre class="lang:default mark:22-37 decode:true">&lt;?php
+```php
+<?php
 require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
 
 class AdminPastaController extends ModuleAdminController {
   public function __construct(){
     parent::__construct();
-    $this-&gt;bootstrap = true; // use Bootstrap CSS
-    $this-&gt;table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
-    $this-&gt;identifier = 'id'; // SQL column to be used as primary key
-    $this-&gt;className = 'Pasta'; // PHP class name
-    $this-&gt;allow_export = true; // allow export in CSV, XLS..
+    $this->bootstrap = true; // use Bootstrap CSS
+    $this->table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
+    $this->identifier = 'id'; // SQL column to be used as primary key
+    $this->className = 'Pasta'; // PHP class name
+    $this->allow_export = true; // allow export in CSV, XLS..
 
-    $this-&gt;_defaultOrderBy = 'a.created'; // the table alias is always `a`
-    $this-&gt;_defaultOrderWay = 'DESC';
-    $this-&gt;fields_list = [
-        'id' =&gt; ['title' =&gt; 'ID','class' =&gt; 'fixed-width-xs'],
-        'sku' =&gt; ['title' =&gt; 'SKU'],
-        'name' =&gt; ['title' =&gt; 'Name'],
-        'created' =&gt; ['title' =&gt; 'Created','type'=&gt;'datetime'],
+    $this->_defaultOrderBy = 'a.created'; // the table alias is always `a`
+    $this->_defaultOrderWay = 'DESC';
+    $this->fields_list = [
+        'id' => ['title' => 'ID','class' => 'fixed-width-xs'],
+        'sku' => ['title' => 'SKU'],
+        'name' => ['title' => 'Name'],
+        'created' => ['title' => 'Created','type'=>'datetime'],
     ];
 
-    $this-&gt;addRowAction('edit');
-    $this-&gt;addRowAction('details');
-    $this-&gt;fields_form = [
-      'legend' =&gt; [
-        'title' =&gt; 'Pasta',
-        'icon' =&gt; 'icon-list-ul'
+    $this->addRowAction('edit');
+    $this->addRowAction('details');
+    $this->fields_form = [
+      'legend' => [
+        'title' => 'Pasta',
+        'icon' => 'icon-list-ul'
       ],
-      'input' =&gt; [
-        ['name'=&gt;'sku','type'=&gt;'text','label'=&gt;'SKU','required'=&gt;true,],
-        ['name'=&gt;'name','type'=&gt;'text','label'=&gt;'Name','required'=&gt;true],
-        ['name'=&gt;'created','type'=&gt;'text','label'=&gt;'Created','suffix'=&gt;'YYYY-MM-DD HH:mm',],
+      'input' => [
+        ['name'=>'sku','type'=>'text','label'=>'SKU','required'=>true,],
+        ['name'=>'name','type'=>'text','label'=>'Name','required'=>true],
+        ['name'=>'created','type'=>'text','label'=>'Created','suffix'=>'YYYY-MM-DD HH:mm',],
       ],
-      'submit' =&gt; [
-        'title' =&gt; $this-&gt;trans('Save', [], 'Admin.Actions'),
+      'submit' => [
+        'title' => $this->trans('Save', [], 'Admin.Actions'),
       ]
     ];
 
@@ -200,7 +200,7 @@ class AdminPastaController extends ModuleAdminController {
       return str_replace(_DB_PREFIX_, '', parent::getFromClause());
   }
 }
-</pre>
+```
 
 So we now have a nice form when we click on Create:
 
@@ -214,17 +214,19 @@ So we now have a nice form when we click on Create:
 
 This is the error thrown here <https://github.com/PrestaShop/PrestaShop/blob/1.7.3.x/classes/controller/AdminController.php#L1655>
 
-This is a limitation of PrestaShop: if you want to edit/create/delete an object, its SQL table <span style="text-decoration: underline;">MUST</span> use the \_DB\_PREFIX_.
+This is a limitation of PrestaShop: if you want to edit/create/delete an object, its SQL table **MUST** use the `_DB_PREFIX_`.
 
 So you have to rename your pasta table:
 
-<pre class="lang:mysql decode:true ">RENAME TABLE prestashop_pasta.pasta TO prestashop_pasta.ps_pasta; # adjust with your own _DB_PREFIX_</pre>
+`RENAME TABLE prestashop_pasta.pasta TO prestashop_pasta.ps_pasta; # adjust with your own _DB_PREFIX_`
 
-And remove the whole <span class="lang:php decode:true crayon-inline ">function getFromClause</span> :
+And remove the whole `function getFromClause`:
 
-<pre class="lang:php decode:true ">// protected function getFromClause() {
+```php
+// protected function getFromClause() {
 //     return str_replace(_DB_PREFIX_, '', parent::getFromClause());
-// }</pre>
+// }
+```
 
 Refresh your page and you now have a fully working Form with a Custom Object:
 
@@ -232,6 +234,5 @@ Refresh your page and you now have a fully working Form with a Custom Object:
 
 Here we are!! There&#8217;s still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pastas in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/05/create-an-admin-for-a-customized-sql-table/).
 
-&nbsp;
 
-<img class="aligncenter" src="https://i0.wp.com/uploads.disquscdn.com/images/3681964a5dbe8e4d3ca23796cfdeb66e137b3f46f16d82453437872e417e410f.jpg?w=525&#038;ssl=1" alt="Hooray!" data-recalc-dims="1" />
+![Hooray!](https://i0.wp.com/uploads.disquscdn.com/images/3681964a5dbe8e4d3ca23796cfdeb66e137b3f46f16d82453437872e417e410f.jpg?w=525&#038;ssl=1)

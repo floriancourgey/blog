@@ -70,7 +70,7 @@ See my [Adobe Campaign helpers (SQL, string, XML, linux..)](/2019/03/adobe-campa
 Base query to get all Deliveries BUT Proofs BEFORE the beginning of the month, MAXIMUM 3 results:
 
 ```js
-var q = xtk.queryDef.create(
+var q = NLWS.xtkQueryDef.create(
   <queryDef schema="nms:delivery" operation="select" lineCount="3">
     <select>
       <node expr="@id"/>
@@ -109,7 +109,7 @@ for each(var record in xml.collection){
 ## Count
 
 ```js
-jobCount = xtk.queryDef.create(
+jobCount = NLWS.xtkQueryDef.create(
   <queryDef schema="nms:remaHypothesis" operation="get">
     <select>
       <node expr="Count(@id)" alias="@count"/>
@@ -145,7 +145,7 @@ Append a Where condition / date Format.toISO8601
 if(condition){
   xmlQuery.where.appendChild(<condition expr={"@logDate >= #" + Format.toISO8601(lastConsolidation) + "#"}/>)
 }
-var result = xtk.queryDef.create(xmlQuery).ExecuteQuery()
+var result = NLWS.xtkQueryDef.create(xmlQuery).ExecuteQuery()
 ```
 
 Append a `where` to an empty `<where/>`

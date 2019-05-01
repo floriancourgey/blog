@@ -176,3 +176,27 @@ var dbEngine = instance.engine
 dbEngine.exec("UPDATE NmsUserAgentStats SET iVisitorsOfTheDay="
   + record.@visitors + " WHERE tsDate = $(dt)", Format.parseDateTimeInter(record.@date.toString()))
 ```
+
+## queryDef Documentation
+```js
+{where:{
+  condition:[
+    {
+      expr: '',
+      xpath: '',
+      internalId: '', // auto-generated via default="Gid()"
+      boolOperator: 'AND|OR', // enum xtk:queryDef:boolOperator
+      setOperator: 'EXISTS|NOT EXISTS|COUNT|SUM|AVG|MIN|MAX|IN|NOT IN', // enum xtk:queryDef:setOperator
+      ignore: true|false, // Ignore condition
+      compositeKey: '',
+      dependkey: '',
+      enabledIf: '', // Enabling script
+      noSqlBind: true|false, // No SQL binding on expression constants
+      sql: '', // Native SQL expression
+      aliasSqlTable: '', // Table Alias in the FROM clause
+      'filter-name': '', // Name of the predefined filter
+      filterLabel: '', // Predefined filter label
+    }
+  ]
+}}
+```

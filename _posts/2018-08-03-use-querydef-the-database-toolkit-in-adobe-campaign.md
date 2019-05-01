@@ -92,7 +92,25 @@ for each(var delivery in deliveries.delivery){
 ```
 
 ## Select raw data from workflow transition
-Plug a `query` into a `javascript` activity, then in the JS, retrieve the results. Usefule for DQM with JS functions:
+Plug a `query` into a `javascript` activity, then in the JS, retrieve the results. Usefule for DQM with JS functions.
+
+With JSON and queryDef using `vars.targetSchema`:
+```js
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: vars.targetSchema, operation: "select",
+  select: { node: [
+    {expr: "@id"},
+  ]},
+}});
+var records = query.ExecuteQuery();
+for each(var record in records.getElements()){
+  logInfo(record.$internalName);
+}
+```
+See this queryDef in action in the [Monitor your paused workflows](/2019/05/monitor-paused-workflows-adobe-campaign) business case.
+
+
+With Raw SQL table `vars.tableName`:
 ```js
 var xml = sqlSelect("collection,@id", "SELECT iId as id FROM "+vars.tableName); // <select><collection id="1"/><collection id="2"/></select>
 logInfo(xml.toXMLString());// "<select><collection id="1"/><collection id="2"/></select>"

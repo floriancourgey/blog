@@ -84,3 +84,8 @@ running.</P>
 <P>Thanks.</P>
 </BODY></HTML>
 ```
+
+Reference:
+- https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Supervising_workflows.html
+
+Update: Javascript activity can be reduced to a simple SQL call, then the Email uses `new XML(vars.records)`, see https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Sending_personalized_alerts_to_operators.html

@@ -9,26 +9,31 @@ Send a daily alert if some of your critical workflows are not running (status is
 
 <!--more-->
 
-## Workflow set up
-The workflow runs daily @ 9AM and consists of a Scheduler, a Query on workflows, a Javascript activity and an Email Alert:
+## Overview
+The workflow runs daily @ 9AM and check against a whitelist of workflows that need to be up and running every day. If some workflow are not in the "Started" state, an email is sent with data such as Label, Last run date, Folder, etc.
 
-wf image
+![](/assets/images/2019/05/adobe-campaign-monitor-workflows-email.jpg)
+
+## Workflow set up
+The workflow consists of a Scheduler, a Query on workflows, a Javascript activity and an Email Alert:
+
+![](/assets/images/2019/05/adobe-campaign-monitor-workflows-workflow.jpg)
 
 ## Query set up
 The query is based on `xtk:workflow`, where the `state` is different from `Started` and the `internalName` is in a whitelist with `OR` conditions:
 
-query image
+![](/assets/images/2019/05/adobe-campaign-monitor-workflows-query.jpg)
 
 Use additional data to add the columns you need to display:
 
-adtl data
+![](/assets/images/2019/05/adobe-campaign-monitor-workflows-additional-data.jpg)
 
 You can use `@folderLabel` for the Folder Label alias.
 
 ## Test activity set up
 The test activity performs a simple test on `vars.recCount > 0` without the default connection:
 
-test image
+![](/assets/images/2019/05/adobe-campaign-monitor-workflows-test.jpg)
 
 ## Javascript activity
 The JS builds an HTML table based on the query results:

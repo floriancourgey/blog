@@ -9,18 +9,22 @@ categories: [opensource,adobe campaign]
 
 ```js
 var x = 1234567.89;
+
 // with NL.Locale
 loadLibrary('xtk:shared/nl.js'); // for NL
 NL.require('/nl/core/jsspcontext.js'); // for NL.Locale
-NL.Locale.formatNumber(x); // 1,234,568 (uses default settings from NL.session.locale, see next chapter)
-logInfo(NL.Locale.formatNumber(x, {addSymbol: true})); // $1,234,568
+NL.Locale.formatNumber(x) // 1,234,568 (uses default settings from NL.session.locale, see next chapter)
+NL.Locale.formatNumber(x, {addSymbol: true}) // $1,234,568
+
 var formatUS = {pattern: '¤#,##0.00', groupSymbol: ',', decimalSymbol: '.', symbol: '$'};
-NL.Locale.formatNumber(x, formatUS); // $1,234,567.89
+NL.Locale.formatNumber(x, formatUS) // $1,234,567.89
+
 var formatFR = {pattern: '#,##0.00 ¤', groupSymbol: ' ', decimalSymbol: ',', symbol: '€'};
-NL.Locale.formatNumber(x, formatFR); // 1 234 567,89 €
+NL.Locale.formatNumber(x, formatFR) // 1 234 567,89 €
+
 // with Format
 loadLibrary('xtk:common.js'); // for Format
-Format.formatNumber(x); // 1,234,567.89
+Format.formatNumber(x) // 1,234,567.89
 ```
 
 ## NL.Locale doc

@@ -1,5 +1,5 @@
 ---
-title: Format prices in Adobe Campaign
+title: Format prices in Adobe Campaign (NL.Locale cheatsheet)
 categories: [opensource,adobe campaign]
 ---
 
@@ -52,7 +52,7 @@ function formatNumber(value, format, defaultReturn)
 ```
 *from `\usr\local\neolane\nl6\datakit\xtk\fra\js\shared\dataTypes.js`*
 
-Get your locale regional settings from the current locale `NL.session.locale`:
+Get your locale regional settings from the current locale `NL.session.locale`. Example for the `en-us` locale:
 ```js
 logInfo(JSON.stringify(NL.session.locale));
 {
@@ -90,4 +90,34 @@ logInfo(JSON.stringify(NL.session.locale));
       "digitGroupingRegEx":{}
    }
 }
+```
+The regional settings are defined as a local var `_regionSettings` in `dataTypes.js`.
+
+All `NL.Locale` functions and vars:
+```js
+NL.Locale.getFormat = function(name, options)
+NL.Locale.defaultLanguage = 'en-us';
+NL.Locale.getLocale = function (language)
+NL.Locale.getValidLanguageFromHttpHeader = function (header, validityCheck)
+NL.Locale.NL.session.locale = getLocale(locale);
+NL.Locale.parseBoolean =  function(value, defaultReturn)
+NL.Locale.formatBoolean = function(value, format, defaultReturn)
+NL.Locale.parseString =  function(value, defaultReturn)
+NL.Locale.parseNumber = function(value, defaultReturn)
+NL.Locale.parseInt =  function(value, defaultReturn)
+NL.Locale.formatNumber =  function(value, format, defaultReturn)
+NL.Locale.formatInt =  function(value, format, defaultReturn)
+NL.Locale.formatPercent = function (value, decimalPlaces, defaultReturn)
+NL.Locale.formatDataSize = function (value, format, defaultReturn)
+NL.Locale.formatWithUnit = function (value, significantFigures, unit, defaultReturn)
+NL.Locale.getMonthName = function (arg)
+NL.Locale._splitFormat = function (format)
+NL.Locale.parseDateTime =  function(value, format, defaultReturn)
+NL.Locale.parseDateOnly =  function(value, format, defaultReturn)
+NL.Locale.parseTime =  function(value, format, defaultReturn)
+NL.Locale.formatDateTime =  function(value, format, defaultReturn)
+NL.Locale.formatDateOnly =  function(value, format, defaultReturn)
+NL.Locale.formatTime =  function(value, format, defaultReturn)
+NL.Locale.formatDatePartial =  function(datePartial, interval, format)
+NL.Locale.formatTimeSpan =  function(value, format, defaultReturn)
 ```

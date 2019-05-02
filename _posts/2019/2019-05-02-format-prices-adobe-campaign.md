@@ -65,10 +65,7 @@ logInfo(JSON.stringify(NL.session.locale));
       "longDate":"%A, %D %B, %4Y",
       "time":"%I:%2N:%2S %P",
       "shortDateTime":"%2M/%2D/%4Y %I:%2N:%2S %P",
-      "AmPm":[
-         "AM",
-         "PM"
-      ],
+      "AmPm":["AM", "PM"],
       "shortQuarter":"Q%C %4Y",
       "longQuarter":"%Q %4Y",
       "shortMonth":"%2M/%4Y",
@@ -77,100 +74,30 @@ logInfo(JSON.stringify(NL.session.locale));
       "longWeek":"%4V - Week %2W",
       "shortHour":"%2Hh",
       "longHour":"%2Hh",
-      "daysName":[
-         "Sunday",
-         "Monday",
-         "Tuesday",
-         "Wednesday",
-         "Thursday",
-         "Friday",
-         "Saturday"
-      ],
-      "shortDaysName":[
-         "Sun",
-         "Mon",
-         "Tue",
-         "Wed",
-         "Thu",
-         "Fri",
-         "Sat"
-      ],
-      "monthsName":[
-         "January",
-         "February",
-         "March",
-         "April",
-         "May",
-         "June",
-         "July",
-         "August",
-         "September",
-         "October",
-         "November",
-         "December"
-      ],
-      "quartersName":[
-         "1st quarter",
-         "2nd quarter",
-         "3rd quarter",
-         "4th quarter"
-      ],
-      "timeSpanUnits":{
-         "seconds":"s",
-         "minutes":"mn",
-         "hours":"h",
-         "days":"d",
-         "months":"m",
-         "years":"y"
-      },
+      "daysName":["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "shortDaysName":["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "monthsName":["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      "quartersName":["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+      "timeSpanUnits":{"seconds":"s", "minutes":"mn", "hours":"h", "days":"d", "months":"m", "years":"y"},
       "percentSeparator":"",
       "currencySymbol":"$",
-      "booleanStrings":{
-         "true":"true",
-         "false":"false"
-      },
+      "booleanStrings":{"true":"true", "false":"false"},
       "units":{
          "dataSize":[
-            {
-               "symbol":"B",
-               "factor":1
-            },
-            {
-               "symbol":"kB",
-               "factor":1024
-            },
-            {
-               "symbol":"MB",
-               "factor":1048576
-            },
-            {
-               "symbol":"GB",
-               "factor":1073741824
-            }
+            {"symbol":"B", "factor":1},
+            {"symbol":"kB", "factor":1024},
+            {"symbol":"MB", "factor":1048576},
+            {"symbol":"GB", "factor":1073741824}
          ],
          "count":[
-            {
-               "symbol":"",
-               "factor":1
-            },
-            {
-               "symbol":"k",
-               "factor":1000
-            },
-            {
-               "symbol":"M",
-               "factor":1000000
-            },
-            {
-               "symbol":"G",
-               "factor":1000000000
-            }
+            {"symbol":"", "factor":1},
+            {"symbol":"k","factor":1000},
+            {"symbol":"M","factor":1000000},
+            {"symbol":"G","factor":1000000000}
          ]
       },
       "colonSuffix":":",
-      "digitGroupingRegEx":{
-
-      }
+      "digitGroupingRegEx":{}
    }
 }
 ```

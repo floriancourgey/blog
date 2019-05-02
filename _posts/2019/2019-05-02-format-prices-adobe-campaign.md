@@ -83,18 +83,8 @@ logInfo(JSON.stringify(NL.session.locale));
       "currencySymbol":"$",
       "booleanStrings":{"true":"true", "false":"false"},
       "units":{
-         "dataSize":[
-            {"symbol":"B", "factor":1},
-            {"symbol":"kB", "factor":1024},
-            {"symbol":"MB", "factor":1048576},
-            {"symbol":"GB", "factor":1073741824}
-         ],
-         "count":[
-            {"symbol":"", "factor":1},
-            {"symbol":"k","factor":1000},
-            {"symbol":"M","factor":1000000},
-            {"symbol":"G","factor":1000000000}
-         ]
+         "dataSize":[{"symbol":"B", "factor":1}, {"symbol":"kB", "factor":1024}, {"symbol":"MB", "factor":1048576}, {"symbol":"GB", "factor":1073741824}],
+         "count":[{"symbol":"", "factor":1}, {"symbol":"k","factor":1000}, {"symbol":"M","factor":1000000},  {"symbol":"G","factor":1000000000}]
       },
       "colonSuffix":":",
       "digitGroupingRegEx":{}

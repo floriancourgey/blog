@@ -75,19 +75,23 @@ function getOneOrNull(tableName, srcSchema, params){
  * @param {Object} params parameters [to be flexible for evolutions]
  * @param {bool} params.logTheCall if true, calls logInfo(command)
  * @param {bool} params.logTheOutput if true, send the output to logInfo
+ *
+ * @example
+ * exec('mkdir -p /a/b/c', {logTheCall:true})
+ * exec('mktemp -d', {logTheOutput:true}) 
  */
 function exec(command, params){
   if(params.logTheCall){
     logInfo('fresh:helpers | executing | '+command);
   }
-  var list = execCommand(command)[1];
-  var lines = list.split("\n");
+  var result = execCommand(command); // [linux status code, output]
+  var lines = result[1].split("\n");
   if(params.logTheOutput){
     for each (var line in lines){ 
       logInfo("" + line);
     }
   }
-  return lines;
+  return result;
 }
 
 /**
@@ -103,12 +107,16 @@ function exec(command, params){
  *
  * @see https://doc.ubuntu-fr.org/sed
  *
- * TODO replace | by [|] because pipe | in the sed regex must be escaped with [|]
+ * @example
+ * replaceInFile(',', ';', '/a/b/c/my.csv', {logTheCall:true})
+ *
+ * @todo replace | by [|] because pipe | in the sed regex must be escaped with [|]
  */
 function replaceInFile(replaceThis, byThis, inThisFile, params){
   var command = "sed -i 's/"+replaceThis+"/"+byThis+"/g' '"+inThisFile+"'";
   return exec(command, params);
 }
+
 /**
  * Remove carriage returns '\r' in file
  * @param {string} fileFullpath the full path of the file
@@ -139,7 +147,7 @@ function getVendor1Archive(){
 function getVendor2Incoming(country){
   return getIncoming()+'vendor2/'+country.toLowerCase()+'/';
 }
-function getVendor2Archive(market){
+function getVendor2Archive(country){
   return getVendor2Incoming(country)+'archive/'+formatDate(new Date(), '%4Y/%2M')+'/';
 }
 ```
@@ -147,7 +155,9 @@ function getVendor2Archive(market){
 ## Currency, money, price
 ```js
 /**
- * Format a price to always have 2 decimals: formatPrice('12.3') = '12.30'
+ * Format a price to always have 2 decimals
+ * @example
+ * formatPrice('12.3') = '12.30'
  *
  * @param {xml|string|int|float} p  the price to format
  * @return {string} the formatted price

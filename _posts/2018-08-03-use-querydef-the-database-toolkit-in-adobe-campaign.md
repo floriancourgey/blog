@@ -104,7 +104,7 @@ var query = NLWS.xtkQueryDef.create({queryDef: {
 }});
 var records = query.ExecuteQuery();
 for each(var record in records.getElements()){
-  logInfo(record.$internalName);
+  logInfo(record.$id);
 }
 ```
 See this queryDef in action in the [Monitor your paused workflows](/2019/05/monitor-paused-workflows-adobe-campaign) business case.

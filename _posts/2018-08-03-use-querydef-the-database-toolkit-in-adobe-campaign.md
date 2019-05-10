@@ -102,7 +102,7 @@ var query = NLWS.xtkQueryDef.create({queryDef: {
     {expr: "@id"},
   ]},
 }});
-var records = query.ExecuteQuery();
+var records = query.ExecuteQuery(); // DOMElement
 for each(var record in records.getElements()){
   logInfo(record.$id);
 }

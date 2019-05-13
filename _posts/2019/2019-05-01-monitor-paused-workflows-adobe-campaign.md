@@ -89,3 +89,34 @@ Reference:
 - https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Supervising_workflows.html
 
 Update: Javascript activity can be reduced to a simple SQL call, then the Email uses `new XML(vars.records)`, see https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Sending_personalized_alerts_to_operators.html
+
+Delete the JS activity. In the advanced tab of the Alert:
+```js
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: vars.targetSchema, operation: "select",
+  select: { node: [
+    {expr: "@field1"},
+    {expr: "@field2"},
+  ]},
+//  orderBy: { node: [{expr:"@label", sortDesc:"false"}] }
+}});
+var records = query.ExecuteQuery(); // DOMElement
+vars.records = records.toXMLString() // serialization as a string
+  .replace(/query-collection/g, 'collection'); // needed because <query-collection> is an invalid node name
+```
+
+In the HTML Source tab of the Alert:
+```html
+<TABLE>
+  <THEAD>
+  <TR>
+    <TH>field1</TH><TH>field2</TH></TR></THEAD>
+  <TBODY><%
+var records = DOMDocument.fromXMLString(vars.records);
+for each (var record in records.root.getElements()){ %> 
+  <TR>
+    <TD><%= record.$field1 %></TD>
+    <TD><%= record.$field2 %></TD>
+  </TR><%
+ } %></TBODY></TABLE>
+```

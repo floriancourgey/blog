@@ -29,8 +29,9 @@ This list only concerns Adobe Campaign Classic.
 - [](#)
 
 ## Overview
-- [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
+- [Adobe Campaign Product Page on adobe.com](https://www.adobe.com/marketing/campaign.html)
 - [About Adobe Campaign Classic](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_About_Adobe_Campaign_Classic.html)
+- [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
 - [On-prem VS Hybrid VS Hosted comparison](https://helpx.adobe.com/campaign/kb/acc-on-prem-vs-hosted.html)
 - [Global Search](https://docs.campaign.adobe.com/doc/AC/en/browseAC.html) - search in the ACC tutorials, the videos, the Knowledge Base and the Community Forum
 

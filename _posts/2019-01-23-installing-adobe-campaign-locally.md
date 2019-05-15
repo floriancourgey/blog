@@ -59,7 +59,7 @@ javac 1.8.0_191
 ## AC7 rpm package
 Let's do all of our work in `~/ac`.
 
-Download the `.rpm` file from the Download Center, see the instructions in [this post](#). Then:
+Download the `.rpm` file from the Download Center ([support.neolane.net/webApp/downloadCenter](https://support.neolane.net/webApp/downloadCenter?__userConfig=psaDownloadCenter)). Then:
 ```console
 [fco@localhost ~]$ cd && mkdir ac && cd ac
 [fco@localhost ~/ac]$ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm
@@ -113,7 +113,7 @@ By default CentOS uses `firewall-cmd` to block incoming connections. We have to 
 
 ## Change password
 
-The default user is `internal` with an empty password `''` (See ). Let's change it (See https://docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier):
+The default user is `internal` with an empty password `''`. Let's change it (See [docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier](https://docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier)):
 
 ```console
 [neolane@localhost ~]$ nlserver config -internalpassword

@@ -55,12 +55,13 @@ This list only concerns Adobe Campaign Classic.
 - [Get any new content on the Community](https://forums.adobe.com/search.jspa?after=week&place=%2Fplaces%2F17564959&depth=children&q=e*&sort=updatedDesc)
 
 ## Support
-Link in this section requires access from Adobe.
-- [Support tickets](https://support.neolane.net/ops/dashboardExtranet.jssp)
-- [Download center](https://support.neolane.net/webApp/downloadCenter)
+*Link in this section require access from Adobe.*
+- [Support tickets](https://support.neolane.net/ops/dashboardExtranet.jssp) - Create and manage communication with Adobe dedicated Support
+- [Download center](https://support.neolane.net/webApp/downloadCenter) - Download installation RPM/EXE, Client EXE, JS API as CHM..
 
 ## Installation
 - [Official prerequisites](https://docs.campaign.adobe.com/doc/AC/en/INS_Prerequisites_and_recommendations__Before_starting.html)
 - [Official install for Linux](https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Linux__Prerequisites.html)
 - [Official install for Windows](https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Windows__Prerequisites.html)
 - [Install by floriancourgey.com on Virtualbox](https://blog.floriancourgey.com/2019/01/installing-adobe-campaign-locally)
+- [Compatibility matrix](https://helpx.adobe.com/campaign/kb/compatibility-matrix.html) - OS, web & database (RDBMS) servers, JDK  compatible versions

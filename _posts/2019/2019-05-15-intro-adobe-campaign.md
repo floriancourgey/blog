@@ -35,9 +35,11 @@ This list only concerns Adobe Campaign Classic.
 - [Folders organization Best Practices](https://helpx.adobe.com/campaign/kb/organization-folders-explorer.html)
 
 ## Basic objects
+- [All about Recipients](https://docs.campaign.adobe.com/doc/AC/en/PTF_Profile_management_About_profiles.html)
+- [All about Marketing Campaigns & Deliveries](https://docs.campaign.adobe.com/doc/AC/en/CMP_Orchestrate_campaigns_Setting_up_marketing_campaigns.html)
 - [Data Schemas Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Schema_Reference_Elements_and_attributes.html)
 - [Input Forms Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
-
+- [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html)
 
 ## Javascript help
 - [Online Javascript API (JSAPI)](https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/)

@@ -16,9 +16,10 @@ This list only concerns Adobe Campaign Classic.
 <!--more-->
 
 ## Overview
+- [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
+- [About Adobe Campaign Classic](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_About_Adobe_Campaign_Classic.html)
 
 ## Tutorials
-- [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
 - [Official tutorials v0](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Tutorials.html) - Tutorials as web pages
 - [Official tutorials v1](https://helpx.adobe.com/campaign/tutorials.html) - Video tutorials
 - [Official tutorials v2](https://helpx.adobe.com/campaign/kt/acc/index/acc-videos.html) - Video tutorials NEW!
@@ -34,9 +35,16 @@ This list only concerns Adobe Campaign Classic.
 ## Javascript help
 - [Online Javascript API (JSAPI)](https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/)
 - [queryDef](https://blog.floriancourgey.com/2018/08/use-querydef-the-database-toolkit-in-adobe-campaign)
-- 
+- [Web apps](https://blog.floriancourgey.com/2018/07/use-the-context-in-web-apps-in-adobe-campaign)
+- [JSSP - Javascript Server Pages](https://blog.floriancourgey.com/2018/11/create-jssp-dynamic-javascript-server-page-in-acc/)
 
-## Extensions
+## Changelog
+- [Latest Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN.html) - Changelog since the GDPR Update on 2018-04-24 (18.4 update - Build 8931)
+- [Old Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN_legacy.html) - Changelog from ACC 6.11 8552 on 2014-05-21 to the GDPR update
+- [Deprecated Features](https://helpx.adobe.com/campaign/kb/deprecated-and-removed-features.html) - Don't use those features, javascript calls and activities anymore as they might present a risk or a future malfunction
+
+## GDPR
+- [Getting Started with GDPR](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/ACC_GDPR.html)
 
 ## Community
 - [Official homepage for Campaign](https://forums.adobe.com/community/experience-cloud/marketing-cloud/campaign)

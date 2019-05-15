@@ -85,6 +85,7 @@ This list only concerns Adobe Campaign Classic.
 - [Submit an Idea](https://forums.adobe.com/create-idea!input.jspa?containerType=14&containerID=5724)
 - [Browse Ideas](https://forums.adobe.com/community/experience-cloud/marketing-cloud/campaign/classic/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bidea%5D&sortKey=score)
 - [Get any new content on the Community](https://forums.adobe.com/search.jspa?after=week&place=%2Fplaces%2F17564959&depth=children&q=e*&sort=updatedDesc)
+- [Official Youtube channel](https://www.youtube.com/channel/UCWU3Pm6LMcJRQHr375ZY5lw)
 
 ## Support
 - [Certification, training & courses](https://training.adobe.com/training/courses.html#solution=adobeCampaign)

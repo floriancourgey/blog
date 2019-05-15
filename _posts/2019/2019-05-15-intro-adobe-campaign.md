@@ -18,8 +18,12 @@ This list only concerns Adobe Campaign Classic.
 ## Overview
 
 ## Tutorials
-- [Official tutorials](https://helpx.adobe.com/campaign/tutorials.html) - video tutorials
+- [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
+- [Official tutorials v0](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Tutorials.html) - Tutorials as web pages
+- [Official tutorials v1](https://helpx.adobe.com/campaign/tutorials.html) - Video tutorials
+- [Official tutorials v2](https://helpx.adobe.com/campaign/kt/acc/index/acc-videos.html) - Video tutorials NEW!
 - [Official workflow use cases](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Using_the_local_approval_activity.html) - Business cases
+- [Official FAQ](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Common_questions.html) - more than 85 questions and answers
 - [floriancourgey.com tutorials](https://blog.floriancourgey.com/categories?id=adobe%20campaign)
 
 ## Basic objects
@@ -41,6 +45,11 @@ This list only concerns Adobe Campaign Classic.
 - [Submit an Idea](https://forums.adobe.com/create-idea!input.jspa?containerType=14&containerID=5724)
 - [Browse Ideas](https://forums.adobe.com/community/experience-cloud/marketing-cloud/campaign/classic/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bidea%5D&sortKey=score)
 - [Get any new content on the Community](https://forums.adobe.com/search.jspa?after=week&place=%2Fplaces%2F17564959&depth=children&q=e*&sort=updatedDesc)
+
+## Support
+Link in this section requires access from Adobe.
+- [Support tickets](https://support.neolane.net/ops/dashboardExtranet.jssp)
+- [Download center](https://support.neolane.net/webApp/downloadCenter)
 
 ## Installation
 - [Official prerequisites](https://docs.campaign.adobe.com/doc/AC/en/INS_Prerequisites_and_recommendations__Before_starting.html)

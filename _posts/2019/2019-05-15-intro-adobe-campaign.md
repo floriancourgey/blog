@@ -40,7 +40,7 @@ This list only concerns Adobe Campaign Classic.
 - [All about Marketing Campaigns & Deliveries](https://docs.campaign.adobe.com/doc/AC/en/CMP_Orchestrate_campaigns_Setting_up_marketing_campaigns.html)
 - [Data Schemas Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Schema_Reference_Elements_and_attributes.html)
 - [Input Forms Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
-- [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html)
+- [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
 
 ## Javascript help
 - [Online Javascript API (JSAPI)](https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/)

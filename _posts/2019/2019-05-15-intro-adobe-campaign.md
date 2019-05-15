@@ -15,6 +15,19 @@ This list only concerns Adobe Campaign Classic.
 
 <!--more-->
 
+## Table of Contents
+- [Overview](#overview)
+- [Tutorials](#tutorials)
+- [Workspace](#workspace)
+- [Basic objects](#basic-objects)
+- [Javascript help](#javascript-help)
+- [Changelog](#changelog)
+- [GDPR](#gdpr)
+- [Community](#community)
+- [Support](#support)
+- [Installation](#installation)
+- [](#)
+
 ## Overview
 - [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
 - [About Adobe Campaign Classic](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_About_Adobe_Campaign_Classic.html)

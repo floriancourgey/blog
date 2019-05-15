@@ -19,13 +19,14 @@ This list only concerns Adobe Campaign Classic.
 - [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
 - [About Adobe Campaign Classic](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_About_Adobe_Campaign_Classic.html)
 - [On-prem VS Hybrid VS Hosted comparison](https://helpx.adobe.com/campaign/kb/acc-on-prem-vs-hosted.html)
+- [Global Search](https://docs.campaign.adobe.com/doc/AC/en/browseAC.html) - search in the ACC tutorials, the videos and the Knowledge Base
 
 ## Tutorials
-- [Official tutorials v0](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Tutorials.html) - Tutorials as web pages
-- [Official tutorials v1](https://helpx.adobe.com/campaign/tutorials.html) - Video tutorials
-- [Official tutorials v2](https://helpx.adobe.com/campaign/kt/acc/index/acc-videos.html) - Video tutorials NEW!
-- [Technical tutorials](https://helpx.adobe.com/campaign/kb/article-list.html)
-- [Official workflow use cases](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Using_the_local_approval_activity.html) - Business cases
+- [Official ACC tutorials](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Tutorials.html) - Tutorials as web pages
+- [Official "How-To" videos](https://helpx.adobe.com/campaign/tutorials.html) - Video tutorials
+- [Official "Using ACC" videos](https://helpx.adobe.com/campaign/kt/acc/index/acc-videos.html) - Video tutorials NEW!
+- [Official Knowledge base (kb)](https://helpx.adobe.com/campaign/kb/article-list.html)
+- [Official workflow Use cases](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Using_the_local_approval_activity.html) - Business cases
 - [Official FAQ](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Common_questions.html) - more than 85 questions and answers
 - [floriancourgey.com tutorials](https://blog.floriancourgey.com/categories?id=adobe%20campaign)
 

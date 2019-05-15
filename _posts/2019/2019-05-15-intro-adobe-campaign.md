@@ -18,14 +18,21 @@ This list only concerns Adobe Campaign Classic.
 ## Overview
 - [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
 - [About Adobe Campaign Classic](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_About_Adobe_Campaign_Classic.html)
+- [On-prem VS Hybrid VS Hosted comparison](https://helpx.adobe.com/campaign/kb/acc-on-prem-vs-hosted.html)
 
 ## Tutorials
 - [Official tutorials v0](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Tutorials.html) - Tutorials as web pages
 - [Official tutorials v1](https://helpx.adobe.com/campaign/tutorials.html) - Video tutorials
 - [Official tutorials v2](https://helpx.adobe.com/campaign/kt/acc/index/acc-videos.html) - Video tutorials NEW!
+- [Technical tutorials](https://helpx.adobe.com/campaign/kb/article-list.html)
 - [Official workflow use cases](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Using_the_local_approval_activity.html) - Business cases
 - [Official FAQ](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Common_questions.html) - more than 85 questions and answers
 - [floriancourgey.com tutorials](https://blog.floriancourgey.com/categories?id=adobe%20campaign)
+
+## Workspace
+- [Browsing Lists](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Adobe_Campaign_workspace.html#Browsing_lists) - Add/Remove a field in a list, count records, sort, search
+- [Formats and Units](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Adobe_Campaign_workspace.html#Formats_and_units) - Date & time formats (US %2M/%2D/%4Y vs EN %2D/%2M/%4Y) and time units (s-seconds, mn-minute, h-hour, d-day)
+- [Folders organization Best Practices](https://helpx.adobe.com/campaign/kb/organization-folders-explorer.html)
 
 ## Basic objects
 - [Data Schemas Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Schema_Reference_Elements_and_attributes.html)

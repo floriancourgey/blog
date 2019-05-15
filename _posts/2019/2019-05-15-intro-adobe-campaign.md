@@ -56,6 +56,7 @@ This list only concerns Adobe Campaign Classic.
 - [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
 
 ## Marketing Campaigns & Deliveries
+- [Delivery Best Practices](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)
 - [Multi-channel campaigns](https://helpx.adobe.com/campaign/kt/acc/using/acc-multi-channel-campaigns-feature-video-set-up.html)
 - [Recurring vs Continuous deliveries - Adobe Doc](https://helpx.adobe.com/campaign/kt/acc/using/acc-recurring-delivery-tutorial-set-up.html)
 - [Recurring vs Continuous deliveries - Adobe Forum](https://forums.adobe.com/thread/2204509)
@@ -72,7 +73,8 @@ This list only concerns Adobe Campaign Classic.
 - [Old Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN_legacy.html) - Changelog from ACC 6.11 8552 on 2014-05-21 to the GDPR update
 - [Deprecated Features](https://helpx.adobe.com/campaign/kb/deprecated-and-removed-features.html) - Don't use those features, javascript calls and activities anymore as they might present a risk or a future malfunction
 
-## GDPR
+## Security & Privacy
+- [Security Checklist](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/security.html)
 - [Getting Started with GDPR](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/ACC_GDPR.html)
 
 ## Community

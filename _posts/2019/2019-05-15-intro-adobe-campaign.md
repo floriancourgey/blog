@@ -22,7 +22,7 @@ This list only concerns Adobe Campaign Classic.
 - [Basic objects](#basic-objects)
 - [Javascript help](#javascript-help)
 - [Changelog](#changelog)
-- [GDPR](#gdpr)
+- [Marketing Campaigns & Deliveries](#marketing-campaigns--deliveries)
 - [Community](#community)
 - [Support](#support)
 - [Installation](#installation)

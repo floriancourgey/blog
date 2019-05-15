@@ -42,6 +42,12 @@ This list only concerns Adobe Campaign Classic.
 - [Input Forms Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
 - [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
 
+## Marketing Campaigns & Deliveries
+- [Multi-channel campaigns](https://helpx.adobe.com/campaign/kt/acc/using/acc-multi-channel-campaigns-feature-video-set-up.html)
+- [Recurring vs Continuous deliveries - Adobe Doc](https://helpx.adobe.com/campaign/kt/acc/using/acc-recurring-delivery-tutorial-set-up.html)
+- [Recurring vs Continuous deliveries - Adobe Forum](https://forums.adobe.com/thread/2204509)
+- [Recurring vs Continuous deliveries - marketingcloudblog.com](https://marketingcloudblog.com/mcb_faq/difference-continuous-delivery-recurring-delivery-adobe-campaign/)
+
 ## Javascript help
 - [Online Javascript API (JSAPI)](https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/)
 - [queryDef](https://blog.floriancourgey.com/2018/08/use-querydef-the-database-toolkit-in-adobe-campaign)

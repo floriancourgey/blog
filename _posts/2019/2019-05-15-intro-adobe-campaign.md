@@ -56,7 +56,8 @@ This list only concerns Adobe Campaign Classic.
 - [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
 
 ## Marketing Campaigns & Deliveries
-- [Delivery Best Practices](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)
+- [Delivery Best Practices - Marketing](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)
+- [Delivery Best Practices - Technical](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliverability.html)
 - [Multi-channel campaigns](https://helpx.adobe.com/campaign/kt/acc/using/acc-multi-channel-campaigns-feature-video-set-up.html)
 - [Recurring vs Continuous deliveries - Adobe Doc](https://helpx.adobe.com/campaign/kt/acc/using/acc-recurring-delivery-tutorial-set-up.html)
 - [Recurring vs Continuous deliveries - Adobe Forum](https://forums.adobe.com/thread/2204509)

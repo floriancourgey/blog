@@ -64,7 +64,8 @@ This list only concerns Adobe Campaign Classic.
 - [Get any new content on the Community](https://forums.adobe.com/search.jspa?after=week&place=%2Fplaces%2F17564959&depth=children&q=e*&sort=updatedDesc)
 
 ## Support
-*Link in this section require access from Adobe.*
+- [Errors codes and translations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/error_messages/error_codes.html)
+*Link below require access from Adobe.*
 - [Support tickets](https://support.neolane.net/ops/dashboardExtranet.jssp) - Create and manage communication with Adobe dedicated Support
 - [Download center](https://support.neolane.net/webApp/downloadCenter) - Download installation RPM/EXE, Client EXE, JS API as CHM..
 

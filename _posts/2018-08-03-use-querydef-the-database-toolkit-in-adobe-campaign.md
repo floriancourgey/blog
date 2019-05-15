@@ -92,19 +92,23 @@ for each(var delivery in deliveries.delivery){
 ```
 
 ## Select raw data from workflow transition
-Plug a `query` into a `javascript` activity, then in the JS, retrieve the results. Usefule for DQM with JS functions.
+Plug a `query` into a `javascript` activity, then in the JS, retrieve the results. Useful for DQM with JS functions.
 
-With JSON and queryDef using `vars.targetSchema`:
+With JSON and queryDef using `vars.targetSchema` (on a `nms:recipient` schema Query, to clean email addresses):
 ```js
 var query = NLWS.xtkQueryDef.create({queryDef: {
   schema: vars.targetSchema, operation: "select",
   select: { node: [
     {expr: "@id"},
+    {expr: "@email"},
   ]},
 }});
 var records = query.ExecuteQuery(); // DOMElement
+
 for each(var record in records.getElements()){
   logInfo(record.$id);
+  var cleanedEmail = record.$email.replace(/\s+/g, '').toLowerCase();
+  sqlExec("UPDATE "+vars.tableName+" SET sEmail=$(sz) WHERE iId=$(l)", cleanedEmail, record.$id);
 }
 ```
 See this queryDef in action in the [Monitor your paused workflows](/2019/05/monitor-paused-workflows-adobe-campaign) business case.

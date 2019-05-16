@@ -17,4 +17,7 @@ categories: [opensource,adobe campaign]
 4. Notepad++ > Find in Files (with **match case** and **Filters** set)
 ![](/assets/images/2019/01/adobe-campaign-find-source-code.jpg)
 
-5. Note: Filter can be `*.x*` to match `xsl, xml`, `*.j*` to match `jssp, js` or `*.*` to match any file
+5. Note: Filter can contain a wildcard:
+  - `*.x*` to match `xsl, xml`
+  - `*.j*` to match `jssp, js`
+  - `*.*` to match any file

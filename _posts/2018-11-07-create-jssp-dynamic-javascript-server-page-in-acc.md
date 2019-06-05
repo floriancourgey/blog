@@ -141,23 +141,23 @@ response.setContentType("text/html;charset=utf-8");
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Body here</title>
+    <title>Title here</title>
   </head>
   <body>
-    URL param1: <%= request.getParameter("param1") %><br>
-    HTTP Body: getBodyAsString(): <%= request.getBodyAsString() %><br>--<br>
+    <b>URL param1:</b> <%= request.getParameter("param1") %><br>
+    <b>HTTP Body: getBodyAsString():</b> <%= request.getBodyAsString() %><br>--<br>
     <% for(var key in request){
-        document.write(key+ " : " + request[key] + "<br>")
+        document.write("<b>"+key+":</b> "+request[key]+"<br>")
       } %>
     <br>--<br>
-    User-Agent: <%= request.getHeader('User-Agent') %><br>
-    X-Forwarded-For: <%= request.getHeader('X-Forwarded-For') %><br> <!-- IP address -->
-    getRemoteAddr(): <%= request.getRemoteAddr() %><br> <!-- IP address and proxy -->
+    <b>User-Agent:</b> <%= request.getHeader('User-Agent') %><br>
+    <b>X-Forwarded-For:</b> <%= request.getHeader('X-Forwarded-For') %><br> <!-- IP address -->
+    <b>getRemoteAddr():</b> <%= request.getRemoteAddr() %><br> <!-- IP address and proxy -->
   </body>
 </html>
 ```
 
-Gives us
+Output:
 
 ```
 URL param1: value1

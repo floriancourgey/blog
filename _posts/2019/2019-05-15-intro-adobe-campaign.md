@@ -55,6 +55,7 @@ This list only concerns Adobe Campaign Classic.
 - [Data Schemas Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Schema_Reference_Elements_and_attributes.html)
 - [Input Forms Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
 - [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
+- Repository of Activities: [Targeting](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Targeting_activities.html), [Flow Control](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Flow_control_activities.html), [Action](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Action_activities.html), [Event](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Event_activities.html)
 
 ## Marketing Campaigns & Deliveries
 - [Delivery Best Practices - Marketing](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)

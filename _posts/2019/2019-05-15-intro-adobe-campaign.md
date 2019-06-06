@@ -9,7 +9,7 @@ redirect_from: /2019-05-15-intro-adobe-campaign
 
 Adobe Campaign universe can be overwhelming and information is sparse. Here's a quick recap of resources. Based on the [Awesome Github lists](https://github.com/sindresorhus/awesome) concept.
 
-This list only concerns Adobe Campaign Classic (and notthe web-based version *Adobe Campaign Standard*).
+This list only concerns Adobe Campaign Classic (and not the web-based version *Adobe Campaign Standard*).
 
 <p class="text-center">🌟👓📧</p>
 

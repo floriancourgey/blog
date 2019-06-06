@@ -111,6 +111,9 @@ for each(var record in records.getElements()){
   sqlExec("UPDATE "+vars.tableName+" SET sEmail=$(sz) WHERE iId=$(l)", cleanedEmail, record.$id);
 }
 ```
+
+*To avoid SQL injections, use bound parameters with $(). Types and doc can be found on [the online doc for sqlExec](https://docs.campaign.adobe.com/doc/AC/en/jsapi/f-sqlExec.html).*
+
 See this queryDef in action in the [Monitor your paused workflows](/2019/05/monitor-paused-workflows-adobe-campaign) business case.
 
 

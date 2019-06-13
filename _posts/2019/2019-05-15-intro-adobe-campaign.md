@@ -56,6 +56,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Input Forms Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
 - [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
 - Repository of Activities: [Targeting](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Targeting_activities.html), [Flow Control](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Flow_control_activities.html), [Action](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Action_activities.html), [Event](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Event_activities.html)
+- [External accounts](https://docs.campaign.adobe.com/doc/AC/en/PTF_Administration_basics_External_accounts.html)
 
 ## Marketing Campaigns & Deliveries
 - [Delivery Best Practices - Marketing](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)
@@ -70,6 +71,10 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [queryDef](https://blog.floriancourgey.com/2018/08/use-querydef-the-database-toolkit-in-adobe-campaign)
 - [Web apps](https://blog.floriancourgey.com/2018/07/use-the-context-in-web-apps-in-adobe-campaign)
 - [JSSP - Javascript Server Pages](https://blog.floriancourgey.com/2018/11/create-jssp-dynamic-javascript-server-page-in-acc/)
+
+## Server help
+- [serverConf.xml doc](https://docs.campaign.adobe.com/doc/AC/en/INS_Appendices_The_server_configuration_file.html)
+- [serverConf.xml content](https://blog.floriancourgey.com/2018/10/get-the-content-of-your-serverconf-xml-in-adobe-campaign/)
 
 ## Changelog
 - [Latest Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN.html) - Changelog since the GDPR Update on 2018-04-24 (18.4 update - Build 8931)

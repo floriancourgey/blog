@@ -152,6 +152,25 @@ function getVendor2Archive(country){
 }
 ```
 
+## Log helpers
+```js
+function LogInfo(){
+  var args = Array.prototype.slice.call(arguments); // convert arguments to an array-like, @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments#Description
+  args.unshift('[ACME '+application.buildNumber+' LogInfo] ['+application.operator.login+']: '); // add prefix with brand name, version, type and operator login
+  logInfo.apply(null, args); // call standard logInfo() with apply(), @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+}
+
+LogInfo('loading file XXX'); // [ACME 4444 LogInfo] [my_login] loading file XXX
+LogInfo();                   // [ACME 4444 LogInfo] [my_login]
+LogInfo(null);               // [ACME 4444 LogInfo] [my_login] null
+
+function LogWarning(){
+  var args = Array.prototype.slice.call(arguments); // convert arguments to an array-like, @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments#Description
+  args.unshift('[ACME '+application.buildNumber+' LogWarning] ['+application.operator.login+']: '); // add prefix with brand name, version, type and operator login
+  logWarning.apply(null, args); // call standard logWarning() with apply(), @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+}
+```
+
 ## Currency, money, price
 ```js
 /**

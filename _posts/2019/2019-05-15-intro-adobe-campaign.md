@@ -57,7 +57,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
 - Repository of Activities: [Targeting](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Targeting_activities.html), [Flow Control](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Flow_control_activities.html), [Action](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Action_activities.html), [Event](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Event_activities.html)
 - [External accounts](https://docs.campaign.adobe.com/doc/AC/en/PTF_Administration_basics_External_accounts.html)
-- [NAvigation hierarchy](https://docs.campaign.adobe.com/doc/AC/en/CFG_Navigation_hierarchy_Configuration.html)
+- [Navigation hierarchy](https://docs.campaign.adobe.com/doc/AC/en/CFG_Navigation_hierarchy_Configuration.html)
 
 ## Marketing Campaigns & Deliveries
 - [Delivery Best Practices - Marketing](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)
@@ -79,6 +79,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [SOAP API & web services](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_About_web_services.html)
 - [WSDL doc](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html#Web_service_description-_WSDL)
 - [Database cleanup task (cleanup workflow)](https://docs.campaign.adobe.com/doc/AC/en/PRO_Data_processing_Database_cleanup_workflow.html)
+- [nlserver doc](https://docs.campaign.adobe.com/doc/AC/en/PRO_Production_procedures_Operating_principle.html)
 
 ## Changelog
 - [Latest Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN.html) - Changelog since the GDPR Update on 2018-04-24 (18.4 update - Build 8931)

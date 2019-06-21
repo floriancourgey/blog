@@ -10,6 +10,7 @@ categories: [opensource,adobe campaign,date]
 - xml2js
 - js2sql
 - sql2js
+- sql
 
 ## JS Adobe Campaign helpers
 ```js
@@ -98,4 +99,11 @@ Accepted String formats for `parseTimeStamp`:
 2005-03-02T14:32:26Z
 2005-03-02T14:32:26.0005Z
 2005/03/02 14:32:25
+```
+
+## SQL
+Create a Year To Date (YTD) filter
+```js
+/* on or after */ ToDateTime('2019-01-01')
+/* on or after */ ToDateTime(Year( GetDate())+'-01-01')
 ```

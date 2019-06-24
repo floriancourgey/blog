@@ -80,6 +80,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [WSDL doc](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html#Web_service_description-_WSDL)
 - [Database cleanup task (cleanup workflow)](https://docs.campaign.adobe.com/doc/AC/en/PRO_Data_processing_Database_cleanup_workflow.html)
 - [nlserver doc](https://docs.campaign.adobe.com/doc/AC/en/PRO_Production_procedures_Operating_principle.html)
+- [Logs - log files and folders](https://docs.campaign.adobe.com/doc/AC/en/PRO_Production_procedures_Log_files.html)
 
 ## Changelog
 - [Latest Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN.html) - Changelog since the GDPR Update on 2018-04-24 (18.4 update - Build 8931)

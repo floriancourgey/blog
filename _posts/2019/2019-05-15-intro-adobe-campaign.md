@@ -41,6 +41,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Official "Using ACC" videos](https://helpx.adobe.com/campaign/kt/acc/index/acc-videos.html) - Video tutorials NEW!
 - [Official Knowledge base (kb)](https://helpx.adobe.com/campaign/kb/article-list.html)
 - [Official workflow Use cases](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Using_the_local_approval_activity.html) - Business cases
+- [Official workflow Best Practices](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_Workflow_best_practices.html)
 - [Official FAQ](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Common_questions.html) - more than 85 questions and answers
 - [floriancourgey.com tutorials](https://blog.floriancourgey.com/categories?id=adobe%20campaign)
 

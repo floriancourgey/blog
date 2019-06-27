@@ -1,0 +1,64 @@
+---
+title: Version control your Adobe Campaign instance (Git & backup)
+categories: [git,opensource,adobe campaign]
+---
+
+Using a data package definition and a dead simple scheduled workflow to export it daily, we can simulate a version control on Adobe Campaign Classic.
+
+<p class="text-center">🐍👑🌍</p>
+
+<!--more-->
+
+**bold** *italic*  ~~strikethrough~~
+
+## Create the data package defintion
+Set up a definition with the query set to:
+
+- Data schema: `@namespace` `equal to` `your_namespace` or `@lastModified` `on or after` `1 day ago`
+
+![](/assets/images/2019/06/adobe-campaign-git-package-definition.jpg)
+
+*(Check the generated XML by exporting the package)*.
+
+## Create the workflow
+
+A scheduler and a Javascript activity:
+
+![](/assets/images/2019/06/adobe-campaign-git-workflow.jpg)
+
+The scheduler defines the frequency for the XML generation.
+
+The JS code contains:
+```js
+var packages = ['nms:backupDataSchema']; // add any definition here
+
+for each(var package in packages){
+  // load package def
+  var spec = NLWS.xtkSpecFile.load(package);
+  // generate xml
+  var xml = spec.GenerateDoc();
+  var xmlString = xml.toXMLString(true);
+  // save to file
+  var filename = '/my-ftp/'+formatDate(getCurrentDate(), "%4Y%2M%2D-%2H%2M%2S")+'-'+package.replace(':', '_')+'.xml';
+  var f = new File(filename);
+  f.open('w', File.CODEPAGE_UTF8); // use UTF-8
+  f.writeln(xmlString);
+  f.close();
+}
+```
+
+Results in:
+![](/assets/images/2019/06/adobe-campaign-backup-ftp.jpg)
+
+## Going further
+The next step is to upload it to some sort of external system (dropbox, gdrive) or a version control system (such as Git).
+Git upload can be done via a SSH private generation (see [the doc on Github](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)) and git installation on the server.
+Unfortunately, I couldn't find any way yet to install git for a cloud-based installation.
+
+```js
+logInfo( execCommand('sudo apt-get -q -y install git') );
+logInfo( execCommand('git status') );
+logInfo( execCommand('git add .') );
+logInfo( execCommand('git commit -m XXX') );
+logInfo( execCommand('git push') );
+```

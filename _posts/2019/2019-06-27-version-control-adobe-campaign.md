@@ -9,8 +9,6 @@ Using a data package definition and a dead simple scheduled workflow to export i
 
 <!--more-->
 
-**bold** *italic*  ~~strikethrough~~
-
 ## Create the data package defintion
 Set up a definition with the query set to:
 
@@ -53,12 +51,20 @@ Results in:
 ## Going further
 The next step is to upload it to some sort of external system (dropbox, gdrive) or a version control system (such as Git).
 Git upload can be done via a SSH private generation (see [the doc on Github](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)) and git installation on the server.
-Unfortunately, I couldn't find any way yet to install git for a cloud-based installation.
 
+### External drive
+The idea is to compare the md5 of the previously generated XML vs the newly generated one. If the md5 hashes don't match, there's an update, proceed with the upload to the web space. If both md5 match, ignore.
+
+This allows a very small amount of resources and can be run every 15 min, every 5 min, etc.
+
+### Git
+Unfortunately, I couldn't find any way yet to install git for a cloud-based installation, but the idea would be:
 ```js
-logInfo( execCommand('sudo apt-get -q -y install git') );
+// logInfo( execCommand('sudo apt-get -q -y install git') );
 logInfo( execCommand('git status') );
 logInfo( execCommand('git add .') );
 logInfo( execCommand('git commit -m XXX') );
 logInfo( execCommand('git push') );
 ```
+
+Same for the resources, it can be run very frequently.

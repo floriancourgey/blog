@@ -67,7 +67,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Recurring vs Continuous deliveries - Adobe Doc](https://helpx.adobe.com/campaign/kt/acc/using/acc-recurring-delivery-tutorial-set-up.html)
 - [Recurring vs Continuous deliveries - Adobe Forum](https://forums.adobe.com/thread/2204509)
 - [Recurring vs Continuous deliveries - marketingcloudblog.com](https://marketingcloudblog.com/mcb_faq/difference-continuous-delivery-recurring-delivery-adobe-campaign/)
-- [Workflows and deliveries - Enrich a Delivery with `targetData`](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_How_to_use_workflow_data.html#Sending_via_a_workflow)
+- [Workflows and deliveries](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_How_to_use_workflow_data.html#Sending_via_a_workflow) and [Enrich a Delivery with `targetData`](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_Executing_a_workflow.html#Target_data)
 
 ## Javascript help
 - [Online Javascript API (JSAPI)](https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/)

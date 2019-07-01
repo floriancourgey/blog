@@ -1,22 +1,16 @@
 ---
-id: 981
 title: Adobe Campaign input Form helper
-date: 2018-09-06T17:26:42+00:00
-author: Florian Courgey
-layout: post
-guid: https://floriancourgey.com/?p=981
 permalink: /2018/09/adobe-campaign-input-form-helper/
-categories:
-  - opensource
-  - adobe campaign
+categories: [opensource, adobe campaign]
 ---
-Curated list of XML codes example for your input form in Adobe Campaign  7 with actual business cases.
+
+Curated list of XML codes example for your input form in Adobe Campaign 7 with actual business cases.
 
 <!--more-->
 
 Full documentation here [https://docs.campaign.adobe.com/doc/AC/en/CFG\_Input\_forms\_Form\_structure.html](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
 
-### Static
+## Static
 
 ![todo](/assets/images/2018/09/Adobe-Campaign-form-static-help.jpg)
 
@@ -24,7 +18,7 @@ Full documentation here [https://docs.campaign.adobe.com/doc/AC/en/CFG\_Input\_f
 <static type="help" label="Market is used to customize the delivery form by hiding/showing some fields."/><input xpath="@market"/>
 ```
 
-### Quick summary
+## Quick summary
 
 ![todo](/assets/images/2018/09/Adobe-Campaign-form-quick-summary.jpg)
 
@@ -62,7 +56,7 @@ Full documentation here [https://docs.campaign.adobe.com/doc/AC/en/CFG\_Input\_f
     </container>
 ```
 
-### Select an image
+## Select an image
 
 ![todo](/assets/images/2018/09/Adobe-Campaign-form-select-an-image.jpg)
 
@@ -194,4 +188,3 @@ mynms:deliveryExtensions
 </leave>
 ```
 
-&nbsp;

@@ -13,6 +13,8 @@ Using a data package definition and a dead simple scheduled workflow to export i
 Set up a definition with the query set to:
 
 - Data schema: `@namespace` `equal to` `your_namespace` or `@lastModified` `on or after` `1 day ago`
+- Input form: `@lastModified` `is not empty`
+- Workflows: @builtin = false and @id > 10,000 and @state = Started and @label not empty and @label != Default workflow and Lower(@label) doesn't contain test
 
 ![](/assets/images/2019/06/adobe-campaign-git-package-definition.jpg)
 

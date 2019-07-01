@@ -39,7 +39,7 @@ for each(var package in packages){
   var xml = spec.GenerateDoc();
   var xmlString = xml.toXMLString(true);
   // save to file
-  var filename = '/my-ftp/'+formatDate(getCurrentDate(), "%4Y%2M%2D-%2H%2M%2S")+'-'+package.replace(':', '_')+'.xml';
+  var filename = '/my-ftp/'+formatDate(getCurrentDate(), "%4Y%2M%2D-%2H%2M%2S")+'-'+application.instanceName+'-'+package.replace(':', '_')+'.xml';
   var f = new File(filename);
   f.open('w', File.CODEPAGE_UTF8); // use UTF-8
   f.writeln(xmlString);

@@ -73,25 +73,39 @@ function getOneOrNull(tableName, srcSchema, params){
  * Helper for the ACC execCommand() function
  * @param {string} command the linux command to execute
  * @param {Object} params parameters [to be flexible for evolutions]
- * @param {bool} params.logTheCall if true, calls logInfo(command)
- * @param {bool} params.logTheOutput if true, send the output to logInfo
+ * @param {bool} params.logTheCall if true, calls logInfo(command) (default to true)
+ * @param {bool} params.logTheOutput if true, send the output to logInfo (default to true)
+ * @param {bool} params.throwOnError if true, throws an exception if linuxResultCode is != 0 (default to false)
  *
  * @example
- * exec('mkdir -p /a/b/c', {logTheCall:true})
- * exec('mktemp -d', {logTheOutput:true}) 
+ * exec('pwd')
+ * exec('mkdir -p /a/b/c', {logTheCall:false})
+ * exec('mktemp -d', {logTheOutput:false, throwOnError: true}) 
  */
 function exec(command, params){
-  if(params.logTheCall){
-    logInfo('fresh:helpers | executing | '+command);
+  if(undefined == params){
+    params = {};
   }
-  var result = execCommand(command); // [linux status code, output]
+  if(undefined == params.logTheCall){
+    params.logTheCall = true;
+  }
+  if(undefined == params.logTheOutput){
+    params.logTheOutput = true;
+  }
+  if(undefined == params.throwOnError){
+    params.throwOnError = false;
+  }
+  if(params.logTheCall){
+    logInfo('my_nms:helpers | executing |', command);
+  }
+  var result = execCommand(command, !params.throwOnError); // @return [linux result code, output]
   var lines = result[1].split("\n");
   if(params.logTheOutput){
     for each (var line in lines){ 
       logInfo("" + line);
     }
   }
-  return result;
+  return {linuxResultCode: result[0], rawOutput: result[1], lines: lines};
 }
 
 /**

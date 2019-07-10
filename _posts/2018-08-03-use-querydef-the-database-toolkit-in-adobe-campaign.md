@@ -19,7 +19,8 @@ delivery.save()
 // create via JSON, edit via JS and save
 var recipient = NLWS.nmsRecipient.create({x:{ // the key 'x' doesn't matter
   email: 'a@a.a',
-}})
+}});
+recipient.folder_id = 1183;
 recipient.firstName = 'John';
 recipient.lastName = 'Doe';
 recipient.save();

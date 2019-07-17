@@ -48,6 +48,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 ## Workspace
 - [Browsing Lists](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Adobe_Campaign_workspace.html#Browsing_lists) - Add/Remove a field in a list, count records, sort, search
 - [Formats and Units](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Adobe_Campaign_workspace.html#Formats_and_units) - Date & time formats (US %2M/%2D/%4Y vs EN %2D/%2M/%4Y) and time units (s-seconds, mn-minute, h-hour, d-day)
+- [Format dates](https://docs.campaign.adobe.com/doc/AC/en/DLV_Content_management_Formatting.html#Date_display)
 - [Folders organization Best Practices](https://helpx.adobe.com/campaign/kb/organization-folders-explorer.html)
 
 ## Basic objects
@@ -67,6 +68,8 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Recurring vs Continuous deliveries - Adobe Doc](https://helpx.adobe.com/campaign/kt/acc/using/acc-recurring-delivery-tutorial-set-up.html)
 - [Recurring vs Continuous deliveries - Adobe Forum](https://forums.adobe.com/thread/2204509)
 - [Recurring vs Continuous deliveries - marketingcloudblog.com](https://marketingcloudblog.com/mcb_faq/difference-continuous-delivery-recurring-delivery-adobe-campaign/)
+- [Javascript templating langage (JST) in deliveries](https://docs.campaign.adobe.com/doc/AC/en/DLV_Content_management_Formatting.html)
+- [XSL templating langage (XSLT) for HTML and XML](https://docs.campaign.adobe.com/doc/AC/en/DLV_Content_management_Formatting.html#XSL_Stylesheets)
 - [Workflows and deliveries](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_How_to_use_workflow_data.html#Sending_via_a_workflow) and [Enrich a Delivery with `targetData`](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_Executing_a_workflow.html#Target_data)
 
 ## Javascript help

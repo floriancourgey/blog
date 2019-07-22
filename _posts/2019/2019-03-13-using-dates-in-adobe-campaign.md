@@ -32,7 +32,7 @@ getCurrentDate()
  * @return string
  */
 formatDate(Date date, String format , String timeZone = null)
-formatDate(getCurrentDate(), "%4Y%2M%2D-%2H%2M%2S"); // "20190430-150837" for folder names
+formatDate(getCurrentDate(), "%4Y%2M%2D-%2H%2N%2S"); // "20190430-150837" for folder names
 formatDate(getCurrentDate(), "%A %D %B %4Y"); // "Tue 30 Apr 2019" for technical emails
 formatDate(getCurrentDate(), "%Al %D %Bl %4Y"); // "Tuesday 30 April 2019" for marketing emails
 ```

@@ -495,25 +495,25 @@ The following objects and functions can be called directly (which is an implicit
 | NL.Locale.formatTime | function | function (value, format, defaultReturn) | |
 | NL.Locale.formatDatePartial | function | function (datePartial, interval, format) | |
 | NL.Locale.formatTimeSpan | function | function (value, format, defaultReturn) | |
-| getOption('XtkScript_batch') | Text | cmd.exe /c $(filename.bat) 0 |  |
-| getOption('XtkScript_perl') | Text | perl $(filename.pl) 0 |  |
-| getOption('XtkScript_python') | Text | python $(filename.py) 0 |  |
-| getOption('XtkScript_ruby') | Text | ruby $(filename.rb) 0 |  |
-| getOption('XtkScript_sh') | Text | bash $(filename) 0 |  |
-| getOption('XtkScript_vbs') | Text | cscript /nologo $(filename.vbs) 0 |  |
-| getOption('XtkFileRes_Public_URL') | Text | https://guerlain-pcis-test.neolane.net/res/ 0 |  |
-| getOption('XtkEmail_Characters') | Long text | 0123456789_.-'+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZµÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåæçèéêëìíîïñòóôõöùúûüýÿ 0 |  |
-| getOption('NmsTracking_Instance') | Text | instance_mkt_stage1 0 |  |
-| getOption('NmsServer_MirrorPageUrl') | Text | http://instance-mkt-stage1.neolane.net 0 |  |
-| getOption('NmsServer_URL') | Text | https://instance-mkt-stage1.neolane.net 0 |  |
-| getOption('NmsServer_IntranetURL') | Text | https://instance-mkt-stage1.neolane.net 0 |  |
-| getOption('NmsServer_LastPostUpgrade') | Text | 8899 0 |  |
-| getOption('NmsServer_LogoPath') | Text | /nl/img 0 |  |
-| getOption('NmsDelivery_ImagePublishing') | Text | tracking 0 |  |
-| getOption('NmsDelivery_ImageSubDirectory') | Text | images 0 |  |
-| getOption('Nms_DefaultRcpSchema') | Text | nms:recipient 0 |  |
-| getOption('NmsBroadcast_DefaultProvider') | Text | defaultEmailBulk 0 |  |
-| getOption('NmsBilling_MainActionThreshold') | Integer |  100 |  |
+| getOption('XtkScript_batch') | string | cmd.exe /c $(filename.bat) |  |
+| getOption('XtkScript_perl') | string | perl $(filename.pl) |  |
+| getOption('XtkScript_python') | string | python $(filename.py) |  |
+| getOption('XtkScript_ruby') | string | ruby $(filename.rb) |  |
+| getOption('XtkScript_sh') | string | bash $(filename) |  |
+| getOption('XtkScript_vbs') | string | cscript /nologo $(filename.vbs) |  |
+| getOption('XtkFileRes_Public_URL') | string | https://instance-mkt-stage1.neolane.net/res/ |  |
+| getOption('XtkEmail_Characters') | string | 0123456789_.-'+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZµÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåæçèéêëìíîïñòóôõöùúûüýÿ |  |
+| getOption('NmsTracking_Instance') | string | instance_mkt_stage1 0 |  |
+| getOption('NmsServer_MirrorPageUrl') | string | http://instance-mkt-stage1.neolane.net |  |
+| getOption('NmsServer_URL') | string | https://instance-mkt-stage1.neolane.net |  |
+| getOption('NmsServer_IntranetURL') | string | https://instance-mkt-stage1.neolane.net |  |
+| getOption('NmsServer_LastPostUpgrade') | string | 8899 |  |
+| getOption('NmsServer_LogoPath') | string | /nl/img |  |
+| getOption('NmsDelivery_ImagePublishing') | string | tracking |  |
+| getOption('NmsDelivery_ImageSubDirectory') | string | images |  |
+| getOption('Nms_DefaultRcpSchema') | string | nms:recipient |  |
+| getOption('NmsBroadcast_DefaultProvider') | string | defaultEmailBulk |  |
+| getOption('NmsBilling_MainActionThreshold') | Integer | 100 |  |
 {: #with-an-id}
 
 ## Method

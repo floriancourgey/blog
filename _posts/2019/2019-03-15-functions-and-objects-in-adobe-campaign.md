@@ -495,6 +495,25 @@ The following objects and functions can be called directly (which is an implicit
 | NL.Locale.formatTime | function | function (value, format, defaultReturn) | |
 | NL.Locale.formatDatePartial | function | function (datePartial, interval, format) | |
 | NL.Locale.formatTimeSpan | function | function (value, format, defaultReturn) | |
+| getOption('XtkScript_batch') | Text | cmd.exe /c $(filename.bat) 0 |  |
+| getOption('XtkScript_perl') | Text | perl $(filename.pl) 0 |  |
+| getOption('XtkScript_python') | Text | python $(filename.py) 0 |  |
+| getOption('XtkScript_ruby') | Text | ruby $(filename.rb) 0 |  |
+| getOption('XtkScript_sh') | Text | bash $(filename) 0 |  |
+| getOption('XtkScript_vbs') | Text | cscript /nologo $(filename.vbs) 0 |  |
+| getOption('XtkFileRes_Public_URL') | Text | https://guerlain-pcis-test.neolane.net/res/ 0 |  |
+| getOption('XtkEmail_Characters') | Long text | 0123456789_.-'+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZµÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåæçèéêëìíîïñòóôõöùúûüýÿ 0 |  |
+| getOption('NmsTracking_Instance') | Text | instance_mkt_stage1 0 |  |
+| getOption('NmsServer_MirrorPageUrl') | Text | http://instance-mkt-stage1.neolane.net 0 |  |
+| getOption('NmsServer_URL') | Text | https://instance-mkt-stage1.neolane.net 0 |  |
+| getOption('NmsServer_IntranetURL') | Text | https://instance-mkt-stage1.neolane.net 0 |  |
+| getOption('NmsServer_LastPostUpgrade') | Text | 8899 0 |  |
+| getOption('NmsServer_LogoPath') | Text | /nl/img 0 |  |
+| getOption('NmsDelivery_ImagePublishing') | Text | tracking 0 |  |
+| getOption('NmsDelivery_ImageSubDirectory') | Text | images 0 |  |
+| getOption('Nms_DefaultRcpSchema') | Text | nms:recipient 0 |  |
+| getOption('NmsBroadcast_DefaultProvider') | Text | defaultEmailBulk 0 |  |
+| getOption('NmsBilling_MainActionThreshold') | Integer |  100 |  |
 {: #with-an-id}
 
 ## Method
@@ -901,25 +920,6 @@ And for markdown output:
 | CONTENT_EDITING_MODE_DEFAULT | number | 0 | |
 | CONTENT_EDITING_MODE_DCE | number | 1 | |
 | CONTENT_EDITING_MODE_AEM | number | 2 | |
-| XtkScript_batch | Text | cmd.exe /c $(filename.bat)|  |
-| XtkScript_perl | Text | perl $(filename.pl) |  |
-| XtkScript_python | Text | python $(filename.py) |  |
-| XtkScript_ruby | Text | ruby $(filename.rb) |  |
-| XtkScript_sh | Text | bash $(filename) |  |
-| XtkScript_vbs | Text | cscript /nologo $(filename.vbs) |  |
-| XtkFileRes_Public_URL | Text | https://guerlain-pcis-test.neolane.net/res/ |  |
-| XtkEmail_Characters | Long text | 0123456789_.-'+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZµÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåæçèéêëìíîïñòóôõöùúûüýÿ |  |
-| NmsTracking_Instance | Text | instance_mkt_stage1 |  |
-| NmsServer_MirrorPageUrl | Text | http://instance-mkt-stage1.neolane.net |  |
-| NmsServer_URL | Text | https://instance-mkt-stage1.neolane.net |  |
-| NmsServer_IntranetURL | Text | https://instance-mkt-stage1.neolane.net |  |
-| NmsServer_LastPostUpgrade | Text | 8899 |  |
-| NmsServer_LogoPath | Text | /nl/img |  |
-| NmsDelivery_ImagePublishing | Text | tracking |  |
-| NmsDelivery_ImageSubDirectory | Text | images |  |
-| Nms_DefaultRcpSchema | Text | nms:recipient |  |
-| NmsBroadcast_DefaultProvider | Text | defaultEmailBulk |  |
-| NmsBilling_MainActionThreshold | Integer | 100 |  |
 
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">

@@ -132,6 +132,42 @@ for each(var record in xml.collection){
 }
 ```
 
+## Distribution of values
+
+Get the distribution of the field '@countryCode' for all Recipients:
+```js
+/**
+ * @param schema
+ * @param field
+ * @return an XML list
+ */
+function distributionOfValues(schema, field){
+  var q = NLWS.xtkQueryDef.create({queryDef:{
+    operation: 'select', lineCount: 200, schema: schema,
+    select: {node:[
+      {alias: '@expr', expr: field, groupBy: 'true', noSqlBind: 'true'},
+      {alias: '@count', expr: 'COUNT()', label: 'Count'},
+    ]},
+    orderBy: {node: [
+      {expr: 'COUNT()', sortDesc: 'true'},
+    ]},
+  }});
+  var results = q.ExecuteQuery();
+  
+  return results.getElements();
+}
+
+for each(var result in distributionOfValues('nms:recipient', '[location/@countryCode]')){
+  logInfo(result.$expr + ': ' + result.$count);
+}
+```
+Output:
+```console
+FR: 999
+UK: 50
+US: 1
+```
+
 ## Count
 
 ```js

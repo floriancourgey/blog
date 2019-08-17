@@ -127,7 +127,7 @@ Get all workflows (limit 15) from JS Chorme Dev tools (client side)
 var callbacks = {
   onComplete: function(){console.log('onComplete')},
   onError: function(a){console.warning('onError', a)},
-  onSuccess: function(f,h){console.log('onSuccess', f, h)},
+  onSuccess: function(objects, needPagination){console.log('onSuccess', objects, needPagination)},
 }
 var q = new NL.DataSource.QueryDef({
   schema: 'xtk:workflow', 

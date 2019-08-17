@@ -1,5 +1,5 @@
 ---
-title: HTTP Post for Adobe Campaign SOAP calls
+title: HTTP Post for Adobe Campaign SOAP calls and queryDef from client-side
 author: Florian Courgey
 layout: post
 categories:
@@ -121,8 +121,8 @@ Displays the following response:
 </SOAP-ENV:Envelope>
 ```
 
-## On an AC page, a web app...
-Get all workflows (limit 15) from JS Chorme Dev tools (client side)
+## Client-side get as JSON with `NL.DataSource.QueryDef.get()`
+Get all workflows (limit 15) from JS Chrome Dev tools (client side)
 ```js
 var callbacks = {
   onComplete: function(){console.log('onComplete')},
@@ -142,5 +142,14 @@ var q = new NL.DataSource.QueryDef({
   ]},
 });
 q.get(start, lineCount, callbacks);
+```
+
+## Client-side get as XML with `NL.QueryDef.execute()`
+```js
+var a = new NL.QueryDef("nms:delivery","select");
+a.setLineCount(15);
+a.addSelectExpr("@id");
+a.asyncTarget.onXtkQueryCompleted = function(d, e, f){console.log('Success!')}
+a.execute(NL.session.soapRouterURL, "", this);
 ```
 

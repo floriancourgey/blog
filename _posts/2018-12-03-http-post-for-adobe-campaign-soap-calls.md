@@ -129,6 +129,9 @@ Displays the following response:
   select: {node: [
     {expr: '@id'},
     {expr: '@label'},
+   where: {condition: [
+     {expr: "@label NOT LIKE '%don\\'t use%'"},
+   ]},
   ]}, 
 })).get();
 ```

@@ -121,7 +121,7 @@ Displays the following response:
 </SOAP-ENV:Envelope>
 ```
 
-## Client-side get as JSON with `NL.DataSource.QueryDef.get()`
+## Client-side wrapper to get as JSON with `NL.DataSource.QueryDef.get()`
 Get all workflows (limit 15) from JS Chrome Dev tools (client side)
 ```js
 var callbacks = {
@@ -144,12 +144,12 @@ var start = 0, lineCount = 15;
 q.get(start, lineCount, callbacks);
 ```
 
-## Client-side get as XML with `NL.QueryDef.execute()`
+## Client-side wrapper to get as XML with `NL.QueryDef.execute()`
 ```js
 var a = new NL.QueryDef("nms:delivery","select");
 a.setLineCount(15);
 a.addSelectExpr("@id");
-a.asyncTarget.onXtkQueryCompleted = function(d, e, f){console.log('Success!')}
+a.asyncTarget.onXtkQueryCompleted = function(queryDef, resultXml, f){console.log('Success!', resultXML)} // <delivery-collection><delivery id="111"></delivery-collection>
 a.execute(NL.session.soapRouterURL, "", this);
 ```
 

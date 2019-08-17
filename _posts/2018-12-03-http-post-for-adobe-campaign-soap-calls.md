@@ -122,17 +122,25 @@ Displays the following response:
 ```
 
 ## On an AC page, a web app...
+Get all workflows (limit 15) from JS Chorme Dev tools (client side)
 ```js
-(new NL.DataSource.QueryDef({
+var callbacks = {
+  onComplete: function(){console.log('onComplete')},
+  onError: function(a){console.warning('onError', a)},
+  onSuccess: function(f,h){console.log('onSuccess', f, h)},
+}
+var q = new NL.DataSource.QueryDef({
   schema: 'xtk:workflow', 
   lineCount: 10,
   select: {node: [
     {expr: '@id'},
     {expr: '@label'},
-   where: {condition: [
-     {expr: "@label NOT LIKE '%don\\'t use%'"},
-   ]},
+    {expr: 'data'}, // get all fields
   ]}, 
-})).get();
+  where: {condition: [
+    {expr: "@label NOT LIKE '%don\\'t use%'"},
+  ]},
+});
+q.get(start, lineCount, callbacks);
 ```
 

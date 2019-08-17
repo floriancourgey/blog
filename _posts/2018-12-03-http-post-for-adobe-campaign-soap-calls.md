@@ -130,8 +130,7 @@ var callbacks = {
   onSuccess: function(objects, needPagination){console.log('onSuccess', objects, needPagination)},
 }
 var q = new NL.DataSource.QueryDef({
-  schema: 'xtk:workflow', 
-  lineCount: 10,
+  schema: 'xtk:workflow',
   select: {node: [
     {expr: '@id'},
     {expr: '@label'},
@@ -141,6 +140,7 @@ var q = new NL.DataSource.QueryDef({
     {expr: "@label NOT LIKE '%don\\'t use%'"},
   ]},
 });
+var start = 0, lineCount = 15;
 q.get(start, lineCount, callbacks);
 ```
 

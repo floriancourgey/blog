@@ -120,3 +120,16 @@ Displays the following response:
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
+## On an AC page, a web app...
+```js
+(new NL.DataSource.QueryDef({
+  schema: 'xtk:workflow', 
+  lineCount: 10,
+  select: {node: [
+    {expr: '@id'},
+    {expr: '@label'},
+  ]}, 
+})).get();
+```
+

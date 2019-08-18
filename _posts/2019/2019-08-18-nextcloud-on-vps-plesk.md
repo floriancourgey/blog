@@ -12,7 +12,7 @@ Excerpt here...
 - Nextcloud 15 https://docs.nextcloud.com/server/15/admin_manual/contents.html
 
 ## Plesk setup
-- Create a webspace cloud.your_address.com (lives at `/var/www/vhosts/your_address.com/cloud.your_address.com/`)
+- On `https://your_address.com:8443/`, Create a webspace cloud.your_address.com (lives at `/var/www/vhosts/your_address.com/cloud.your_address.com/`)
 - Create a webspace user `cloud_user` 
 - SSH as admin to the webspace folder and download the `.tar.bz2` archive from https://nextcloud.com/install/#instructions-server e.g. `wget https://download.nextcloud.com/server/releases/nextcloud-15.0.11.tar.bz2`
 - Untar with `tar -xjf nextcloud-15.0.11.tar.bz2`

@@ -15,13 +15,13 @@ Then you can simulate a classic "for" loop with the `Javascript` and the `Test` 
 ### Javascript init
 Create a first `Javascript` code with the array init and the serialization with `JSON.stringify()`:
 ```js
-var myJavascriptArray = [
+var javascriptArray = [
   'France', 'Spain', 'UK',
 ];
 
 vars.index = 0; // equivalent to "for(i=0"
-vars.indexMax = myJavascriptArray.length; // compute the max index
-vars.array = JSON.stringify(array); // serialize the array as a string, per Adobe Campaign "vars" constraints
+vars.indexMax = javascriptArray.length; // compute the max index
+vars.array = JSON.stringify(javascriptArray); // serialize the array as a string, per Adobe Campaign "vars" constraints
 ```
 
 ### Test activity

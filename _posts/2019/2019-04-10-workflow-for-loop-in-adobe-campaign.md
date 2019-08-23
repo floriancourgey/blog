@@ -12,6 +12,7 @@ Then you can simulate a classic "for" loop with the `Javascript` and the `Test` 
 ## Setup
 ![todo](/assets/images/2019/04/adobe-campaign-for-loop-workflow.jpg)
 
+### Javascript init
 Create a first `Javascript` code with the array init and the serialization with `JSON.stringify()`:
 ```js
 var myJavascriptArray = [
@@ -19,10 +20,11 @@ var myJavascriptArray = [
 ];
 
 vars.index = 0; // equivalent to "for(i=0"
-vars.indexMax = array.length; // compute the max index
+vars.indexMax = myJavascriptArray.length; // compute the max index
 vars.array = JSON.stringify(array); // serialize the array as a string, per Adobe Campaign "vars" constraints
 ```
 
+### Test activity
 The `Test` activity is then setup as follow (equivalent):
 ```console
   - Label: End of loop?
@@ -32,15 +34,17 @@ The `Test` activity is then setup as follow (equivalent):
     - Use Default connection: No
 ```
 
+### Process
 In the loop, you can use the array anytime with `JSON.parse()`:
 ```js
 var current = JSON.parse(vars.array)[vars.index];
 logInfo('Current index: '+vars.index+', current value: '+current);
 ```
 
+### End of loop
 At the end of the loop, a simple `vars.index++;` gets the job done!
 
-## Test
+## Run
 
 ```console
 Workflow 'WKF999' is being run

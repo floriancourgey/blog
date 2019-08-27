@@ -142,7 +142,7 @@ Get the distribution of the field '@countryCode' for all Recipients:
  * @param field string
  */
 function DistributionOfValues(schema, field){
-  this.queryDef = {queryDef:{
+  this.queryDef = {
     operation: 'select', lineCount: 200, schema: schema,
     select: {node:[
       {alias: '@expr', expr: field, groupBy: 'true', noSqlBind: 'true'},
@@ -151,18 +151,22 @@ function DistributionOfValues(schema, field){
     orderBy: {node: [
       {expr: 'COUNT()', sortDesc: 'true'},
     ]},
-  }};
+  };
   /*
    * @return an XML list
    */
   this.get = function(){
-    var results = NLWS.xtkQueryDef.create(this.queryDef).ExecuteQuery();
-    return results.getElements();
+    this.results = NLWS.xtkQueryDef.create({queryDef:this.queryDef}).ExecuteQuery();
+    return this.results.getElements();
   }
 }
 
 var d = new DistributionOfValues('nms:recipient', '[location/@countryCode]');
-logInfo(JSON.stringify(d.queryDef)); // ability to edit the query at this point
+// ability to edit the query at this point
+d.queryDef.where = {condition: [
+  {expr: 'DateOnly(@created) = #2019-08-26#'},
+]};
+// get
 for each(var result in d.get()){
   logInfo(result.$expr + ': ' + result.$count);
 }

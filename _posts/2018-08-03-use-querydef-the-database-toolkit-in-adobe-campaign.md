@@ -137,12 +137,12 @@ for each(var record in xml.collection){
 Get the distribution of the field '@countryCode' for all Recipients:
 ```js
 /**
- * @param schema
- * @param field
- * @return an XML list
+ * @class DistributionOfValues
+ * @param schema string
+ * @param field string
  */
-function distributionOfValues(schema, field){
-  var q = NLWS.xtkQueryDef.create({queryDef:{
+function DistributionOfValues(schema, field){
+  this.queryDef = {queryDef:{
     operation: 'select', lineCount: 200, schema: schema,
     select: {node:[
       {alias: '@expr', expr: field, groupBy: 'true', noSqlBind: 'true'},
@@ -151,13 +151,19 @@ function distributionOfValues(schema, field){
     orderBy: {node: [
       {expr: 'COUNT()', sortDesc: 'true'},
     ]},
-  }});
-  var results = q.ExecuteQuery();
-  
-  return results.getElements();
+  }};
+  /*
+   * @return an XML list
+   */
+  this.get = function(){
+    var results = NLWS.xtkQueryDef.create(this.queryDef).ExecuteQuery();
+    return results.getElements();
+  }
 }
 
-for each(var result in distributionOfValues('nms:recipient', '[location/@countryCode]')){
+var d = new DistributionOfValues('nms:recipient', '[location/@countryCode]');
+logInfo(JSON.stringify(d.queryDef)); // ability to edit the query at this point
+for each(var result in d.get()){
   logInfo(result.$expr + ': ' + result.$count);
 }
 ```

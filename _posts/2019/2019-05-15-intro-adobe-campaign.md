@@ -61,6 +61,9 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [External accounts](https://docs.campaign.adobe.com/doc/AC/en/PTF_Administration_basics_External_accounts.html)
 - [Navigation hierarchy](https://docs.campaign.adobe.com/doc/AC/en/CFG_Navigation_hierarchy_Configuration.html)
 
+## Cubes & Reports
+- [Email a report as a PDF to a recipients list](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Sending_a_report_to_a_list.html)
+
 ## Marketing Campaigns & Deliveries
 - [Delivery Best Practices - Marketing](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)
 - [Delivery Best Practices - Technical](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliverability.html)

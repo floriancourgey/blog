@@ -122,3 +122,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Official install for Windows](https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Windows__Prerequisites.html)
 - [Install by floriancourgey.com on Virtualbox](https://blog.floriancourgey.com/2019/01/installing-adobe-campaign-locally)
 - [Compatibility matrix](https://helpx.adobe.com/campaign/kb/compatibility-matrix.html) - OS, web & database (RDBMS) servers, JDK  compatible versions
+
+## External tools
+- [Excel column to CSV with delim.co](https://delim.co/)
+- [Reverse Adobe Campaign log with FCO string tools](https://floriancourgey.github.io/tools/string/index.html)

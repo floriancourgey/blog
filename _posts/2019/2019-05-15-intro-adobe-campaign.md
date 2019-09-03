@@ -123,6 +123,12 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Install by floriancourgey.com on Virtualbox](https://blog.floriancourgey.com/2019/01/installing-adobe-campaign-locally)
 - [Compatibility matrix](https://helpx.adobe.com/campaign/kb/compatibility-matrix.html) - OS, web & database (RDBMS) servers, JDK  compatible versions
 
+## Javascript Best Practices
+- [Lightweight by W3schools](https://www.w3schools.com/js/js_best_practices.asp)
+- [Straightforward by w3.org](https://www.w3.org/wiki/JavaScript_best_practices)
+- [In-depth by Google](https://google.github.io/styleguide/javascriptguide.xml)
+- [Collection of links on jstherightway.org](https://jstherightway.org)
+
 ## External tools
 - [Excel column to CSV with delim.co](https://delim.co/)
 - [Reverse Adobe Campaign log with FCO string tools](https://floriancourgey.github.io/tools/string/index.html)

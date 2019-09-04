@@ -134,7 +134,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Reverse Adobe Campaign log with FCO string tools](https://floriancourgey.github.io/tools/string/index.html)
 - [Compare 2 files with diffchecker](https://www.diffchecker.com)
 - [Rename multiple files with regex, prefixes, etc, with Bulk Rename Utility](https://www.bulkrenameutility.co.uk)
-
+- [SMS Length Calculator on messente.com](https://messente.com/documentation/tools/sms-length-calculator)
 
 <script>
   $(function(){

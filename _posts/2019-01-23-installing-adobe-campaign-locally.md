@@ -28,8 +28,8 @@ Install Adobe Campaign on any computer locally on a VM to set up your own develo
 
 ## Prerequisites: CentOS 7 x64 on Virtualbox
 1. Get virtual box from [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
-1. Get Fedora ISO from [centos.org/download](https://www.centos.org/download/). I'll be using [CentOS-7-x86_64-DVD-1810.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
-1. Spin up a Fedora instance with the ISO loaded, and install it with the following settings:
+1. Get Centos ISO from [centos.org/download](https://www.centos.org/download/). I'll be using [CentOS-7-x86_64-DVD-1810.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
+1. Spin up a `Red Hat` instance with the ISO loaded, and install it with the following settings:
     1. Software Selection:
         1. `Server with a GUI`
         1. `Connected to Ethernet` ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc))

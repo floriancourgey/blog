@@ -31,9 +31,8 @@ Install Adobe Campaign on any computer locally on a VM to set up your own develo
 1. Get Centos ISO from [centos.org/download](https://www.centos.org/download/). I'll be using [CentOS-7-x86_64-DVD-1810.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
 1. Spin up a `Red Hat` instance with the ISO loaded, and install it with the following settings:
     1. Software Selection:
-        1. `Server with a GUI`
-        1. `Connected to Ethernet` ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc))
-        1. `PostgreSQL Database Server`
+        1. `Server with a GUI` > Add `PostgreSQL Database Server` ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc))
+    1. `Connected to Ethernet`
     1. user `fco` with `sudo` privileges
 ![](/assets/images/2019/02/fedora-workstation-install-disk.jpg)
 1. Shutdown the machine, remove the ISO from the boot settings, set the network setting to `Bridged adapter`

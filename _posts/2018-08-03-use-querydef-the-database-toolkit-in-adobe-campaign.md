@@ -98,7 +98,7 @@ Plug a `query` into a `javascript` activity, then in the JS, retrieve the result
 With JSON and queryDef using `vars.targetSchema` (on a `nms:recipient` schema Query, to clean email addresses):
 ```js
 var query = NLWS.xtkQueryDef.create({queryDef: {
-  schema: vars.targetSchema, operation: "select",
+  schema: vars.targetSchema, operation: "select", lineCount: 999999999, // /!\ lineCount defaults to 10,000
   select: { node: [
     {expr: "@id"},
     {expr: "@email"},

@@ -110,14 +110,6 @@ By default CentOS uses `firewall-cmd` to block incoming connections. We have to 
 [fco@localhost ~]$ sudo firewall-cmd --reload
 ```
 
-## Change password
-
-The default user is `internal` with an empty password `''`. Let's change it (See [docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier](https://docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html#Internal_identifier)):
-
-```console
-[neolane@localhost ~]$ nlserver config -internalpassword
-```
-
 ## Install postgresql
 (See [https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7))
 

@@ -277,3 +277,74 @@ function formatPrice(p){
   return p.toFixed(2);
 }
 ```
+
+## Alert Email Footer
+```js
+/**
+ * function that returns html footer for Alert emails with system informations
+ * @param instance
+ * @param event
+ * @return string
+ */
+ function getEmailFooterSystemInformation(instance, event){
+  var style = '<style>'+
+    '.table-footer-system{ border-collapse: collapse; }'+
+    '.table-footer-system th { background: #5B9BD5; padding: 7px 15px; color: white; }'+
+    '.table-footer-system td, .table-footer-system th { border-color: #2B6093; }'+
+    '.table-footer-system td { padding: 5px; }'+
+    '.error { color: red; }'+
+  '</style>';
+  var folder = NLWS.xtkFolder.load(instance.folder_id);
+  var campaign = (instance.operation_id > 0) ? NLWS.nmsOperation.load(instance.operation_id) : {};
+  var table = '<table class="table-footer-system" border="1">'+
+    '<thead>'+
+      '<tr>'+
+        '<th>Workflow label</th>'+
+        '<th>Workflow name</th>'+
+        '<th>Folder</th>'+
+        '<th>Event date</th>'+
+        '<th>Event id</th>'+
+        '<th>Task id</th>'+
+        '<th>Activity label (name)</th>'+
+        '<th>Campaign label</th>'+
+        '<th>Campaign name</th>'+
+        '<th>Last error<span class="error">*</span></th>'+
+        '<th>File name<span class="error">*</span></th>'+
+        '<th>Table name<span class="error">*</span></th>'+
+        '<th>Instance @ version</th>'+
+      '</tr>'+
+    '</thead>'+
+    '<tbody>'+
+      '<tr>'+
+        '<td>'+instance.label+'</td>'+
+        '<td>'+instance.internalName+'</td>'+
+        '<td>'+folder.fullName+'</td>'+
+        '<td>'+formatDate(event.processingDate, "%4Y/%2M/%2D %2H:%2N:%2S")+'</td>'+
+        '<td>'+event.eventIdentifier+'</td>'+
+        '<td>'+task.taskIdentifier+'</td>'+
+        '<td>'+activity.label+' ('+activity.name+')</td>'+
+        '<td>'+campaign.label+'</td>'+
+        '<td>'+campaign.internalName+'</td>'+
+        '<td>'+(vars.lastError || '')+'</td>'+
+        '<td>'+(vars.filename || '')+'</td>'+
+        '<td>'+(vars.tableName || '')+'</td>'+
+        '<td>'+application.hostName+' @ '+application.buildNumber+'</td>'+
+      '</tr>'+
+    '</tbody>'+
+    '<tfoot>'+
+      '<tr>'+
+        '<td colspan="99"><span class="error">*</span> indicates fields that may be empty.</td>'+
+      '</tr>'+
+    '</tfoot>'+
+  '</table>';
+  var editThisCode = '<p><span style="font-size:10px">Edit this footer in "Administration > Configuration > Javacript codes > :helpers"</span></p>';
+  return style+"<HR>"+
+    "<P>System information:</P>"+
+    "<P>"+table+"</P>"+editThisCode
+  ;
+}
+```
+
+![](/assets/images/2019/09/adobe-campaign-javascript-email-alert-footer-html-render.jpg)
+
+![](/assets/images/2019/09/adobe-campaign-javascript-email-alert-footer-workflow-configuration.jpg)

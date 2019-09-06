@@ -223,8 +223,9 @@ for each(var record in d.get()){
 }
 
 /**
- * @param schema string the schema with its namespace ('nms:recipient')
- * @param enumName string ('gender')
+ * @param schema string
+ * @param enumName string
+ * @example getEnum('nms:recipient', 'gender'); // The 'gender' Enumeration from the nmsRecipient schema
  * @return Enumeration class or null
  */
 function getEnum(schema, enumName){
@@ -239,9 +240,10 @@ function getEnum(schema, enumName){
 
 /**
  * @since 20190906
- * @param schema string the schema with its namespace ('nms:recipient')
- * @param enumName string ('gender')
- * @param valueValue string ('0')
+ * @param schema string
+ * @param enumName string
+ * @param valueValue string
+ * @example getEnumLabelByValue('nms:recipient', 'gender', '2'); // 'Female'
  * @return label string or null
  */
 function getEnumLabelByValue(schema, enumName, valueValue){

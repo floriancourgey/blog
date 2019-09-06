@@ -135,6 +135,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Compare 2 files with diffchecker](https://www.diffchecker.com)
 - [Rename multiple files with regex, prefixes, etc, with Bulk Rename Utility](https://www.bulkrenameutility.co.uk)
 - [SMS Length Calculator on messente.com](https://messente.com/documentation/tools/sms-length-calculator)
+- [Find brands using Adobe Campaign with Google dorks](https://www.google.com/search?q=inurl%3A%2Fnl%2Fjsp%2Fm.jsp) - doc on [Google dorks](/2018/12/crack-and-hack-cheatsheet#google)
 
 <script>
   $(function(){

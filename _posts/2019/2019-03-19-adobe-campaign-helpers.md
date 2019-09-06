@@ -2,7 +2,9 @@
 title: Adobe Campaign helpers
 categories: [opensource,adobe campaign,tools]
 ---
-Excerpt here...
+
+Javascript helpers for JSSP, Javascript in workflows and JST in Adobe Campaign, grouped by domains such as SQL, Linux, FTP or Currency.
+
 <p class="text-center">🐍👑🌍</p>
 <!--more-->
 
@@ -188,12 +190,12 @@ function LogWarning(){
 ## Adobe Campaign
 ```js
 /**
+ * @class DistributionOfValues
  * @param schema
  * @param field
- * @return an XML list
  */
-function distributionOfValues(schema, field){
-  var q = NLWS.xtkQueryDef.create({queryDef:{
+function DistributionOfValues(schema, field){
+  this.queryDef = {
     operation: 'select', lineCount: 200, schema: schema,
     select: {node:[
       {alias: '@expr', expr: field, groupBy: 'true', noSqlBind: 'true'},
@@ -202,14 +204,54 @@ function distributionOfValues(schema, field){
     orderBy: {node: [
       {expr: 'COUNT()', sortDesc: 'true'},
     ]},
-  }});
-  var results = q.ExecuteQuery();
-  
-  return results.getElements();
+  };
+  /**
+   * @return XML list
+   */
+  this.get = function(){
+    this.results = NLWS.xtkQueryDef.create({queryDef:this.queryDef}).ExecuteQuery();
+    return this.results.getElements();
+  }
+}
+// Usage:
+var d = new DistributionOfValues('nms:recipient', '[location/@countryCode]');
+d.queryDef.where = {condition: [
+  {expr: 'DateOnly([creationInfo/@grlCreationDate]) = #2019-08-26#'},
+]};
+for each(var record in d.get()){
+  logInfo(record.$expr + record.$count);
 }
 
-for each(var result in distributionOfValues('nms:recipient', '[location/@countryCode]')){
-  logInfo(result.$expr + ': ' + result.$count);
+/**
+ * @param schema string the schema with its namespace ('nms:recipient')
+ * @param enumName string ('gender')
+ * @return Enumeration class or null
+ */
+function getEnum(schema, enumName){
+  var enums = application.getSchema(schema).enumerations;
+  for each(var enum in enums){
+    if(enum.name === schema + ':' + enumName){
+      return enum;
+    }
+  }
+  return null;
+}
+
+/**
+ * @since 20190906
+ * @param schema string the schema with its namespace ('nms:recipient')
+ * @param enumName string ('gender')
+ * @param valueValue string ('0')
+ * @return label string or null
+ */
+function getEnumLabelByValue(schema, enumName, valueValue){
+  var values = getEnum(schema, enumName).values;
+  for each(var value in values){
+    if(value.value === valueValue){
+      return value.label;
+    }
+  }
+  return null;
 }
 ```
 

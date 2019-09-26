@@ -1,5 +1,5 @@
 ---
-title: Filter Recipient by Email ISP in Adobe Campaign
+title: Filter Recipient by Email ISP in Adobe Campaign (Case/When/Else)
 redirect_from: /2018/07/filter-recipient-by-email-isp-in-adobe-campaign/
 categories: [adobe campaign, opensource]
 ---

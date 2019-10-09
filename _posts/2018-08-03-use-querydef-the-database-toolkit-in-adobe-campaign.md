@@ -78,8 +78,8 @@ var q = NLWS.xtkQueryDef.create(
       <node expr="@label"/>
     </select>
     <where>
-      <condition expr={"@label NOT LIKE '%Proof%'"} bool-operator="AND"/>
-      <condition expr={"@created <= '2018-08-01'"} bool-operator="AND"/>
+      <condition expr="@label NOT LIKE '%Proof%'" bool-operator="AND"/>
+      <condition expr="@created <= '2018-08-01'" bool-operator="AND"/>
     </where>
     <orderBy>
       <node expr="@lastModified" sortDesc="true"/>

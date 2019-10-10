@@ -32,3 +32,17 @@ var enumId = sqlGetDouble ('SELECT iEnumId FROM xtkEnum WHERE sName='+NL.SQL.esc
 PS: doc for `NL.SQL.escape` https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/p-8.html
 
 See [NL.Locale to format prices tuto](/2019/05/adobe-campaign-locale)
+
+##
+```js
+function getEnumValue(enumName, valueName){
+  loadLibrary("/nl/core/shared/nl.js");
+  NL.require('/nl/core/sql.js');
+
+  var enumId = sqlGetDouble ('SELECT iEnumId FROM xtkEnum WHERE sName='+NL.SQL.escape(enumName));
+  var value = sqlGetString ('SELECT sLabel from xtkEnumValue WHERE iEnumId='+enumId+' AND sName='+NL.SQL.escape(valueName));
+  return value;
+}
+
+getEnumValue('dictionaryLocale', 'en_US') // "English (United States)"
+```

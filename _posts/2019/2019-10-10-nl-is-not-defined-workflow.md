@@ -7,7 +7,7 @@ Excerpt here...
 <p class="text-center">🐍👑🌍</p>
 <!--more-->
 
-## Use h2 for each section
+## "NL is not defined" exception
 ```console
 10/10/2019 9:56:45 AM	js3	JST-310000 Error while compiling script 'WKF1096688/js3' line 2: NL is not defined.
 ```
@@ -28,3 +28,7 @@ NL.require('/nl/core/sql.js'); // OK
 var enumName = 'city';
 var enumId = sqlGetDouble ('SELECT iEnumId FROM xtkEnum WHERE sName='+NL.SQL.escape(enumName));
 ```
+
+PS: doc for `NL.SQL.escape` https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/p-8.html
+
+See [NL.Locale to format prices tuto](/2019/05/adobe-campaign-locale)

@@ -32,7 +32,8 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Adobe Campaign Product Page on adobe.com](https://www.adobe.com/marketing/campaign.html)
 - [About Adobe Campaign Classic](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_About_Adobe_Campaign_Classic.html)
 - [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
-- [On-prem VS Hybrid VS Hosted comparison](https://helpx.adobe.com/campaign/kb/acc-on-prem-vs-hosted.html)
+- [On-prem VS Hybrid VS Hosted](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/architecture-and-hosting-models/hosting-models.html) and [details as a table](https://helpx.adobe.com/campaign/kb/acc-on-prem-vs-hosted.html)
+- [Architecture and Deployment types](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/deployment-types-/enterprise-deployment.html)
 - [Global Search](https://docs.campaign.adobe.com/doc/AC/en/browseAC.html) - search in the ACC tutorials, the videos, the Knowledge Base and the Community Forum
 
 ## Tutorials

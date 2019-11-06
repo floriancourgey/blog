@@ -49,7 +49,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 
 ## Workspace
 - [Browsing Lists](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Adobe_Campaign_workspace.html#Browsing_lists) - Add/Remove a field in a list, count records, sort, search
-- [Formats and Units](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Adobe_Campaign_workspace.html#Formats_and_units) - Date & time formats (US %2M/%2D/%4Y vs EN %2D/%2M/%4Y) and time units (s-seconds, mn-minute, h-hour, d-day)
+- [Formats and Units](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/starting-with-adobe-campaign/adobe-campaign-workspace.html#formats-and-units) - Date & time formats (US %2M/%2D/%4Y vs EN %2D/%2M/%4Y) and time units (s-seconds, mn-minute, h-hour, d-day)
 - [Format dates](https://docs.campaign.adobe.com/doc/AC/en/DLV_Content_management_Formatting.html#Date_display)
 - [Format Prices with NL.Locale](/2019/05/adobe-campaign-locale)
 - [Folders organization Best Practices](https://helpx.adobe.com/campaign/kb/organization-folders-explorer.html)

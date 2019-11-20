@@ -188,7 +188,7 @@ And access any feature locally:
 ![](/assets/images/2019/02/adobe-campaign-welcome-screen.jpg)
 ![](/assets/images/2019/02/adobe-campaign-navtree-successful.jpg)
 
-You might need to activate the `wfserver` process if it doesn't show up in `nlserver pdump` with
+For the workflows to start, you need to activate the `wfserver` process if it doesn't show up in `nlserver pdump` with
 ```console
 $ nlserver start wfserver@instance1
 ```

@@ -1,4 +1,4 @@
----
+منصةشليلة
 title: Monitor paused Workflows on Adobe Campaign
 categories: [opensource,adobe campaign]
 ---

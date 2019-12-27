@@ -212,7 +212,9 @@ function getEnumFieldWithName(enum, enumName, enumField){
 ```
 
 ## Use `NL.QueryDef` to execute client-side SOAP calls in Javascript from the browser
-Can be used to create a Single Page App (SPA) for specific goals, such as a read-only view of recipients, with filters, orders, etc. ⚠️ the result is in XML format. For JSON format see next chapter.
+Can be used to create a Single Page App (SPA) for specific goals, such as a read-only view of recipients, with filters, orders, etc. 
+
+⚠️ the result is in XML format. For JSON format see next chapter.
 ```js
 var queryDef = new NL.QueryDef("nms:recipient", NL.QueryDef.prototype.OPERATION_SELECT);
 queryDef.addSelectExpr("@id"); // add the column @id to the select clause

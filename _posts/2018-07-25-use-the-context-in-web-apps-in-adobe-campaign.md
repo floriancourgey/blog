@@ -9,10 +9,11 @@ The context variable `ctx` is really handy when it comes to have custom behavior
 
 ## How web apps work
 An ACC web app is just a visual tool to generate a JSSP page:
+
 ![](/assets/images/2019/03/adobe-campaign-web-apps-are-jssp.jpg)
 
 The JSSP code is generated via the XSL template `web-webApp.xsl` which calls `web-core.xsl`, which contains:
-```xsl
+```xml
 import core.xsl
 <xsl:call-template name="serverScriptInit"/>
 response.addHeader(Pragma, Cache-Control, Expires, Content-type)
@@ -27,7 +28,7 @@ if !g_bNoRendering
 ```
 
 `core.xsl` contains XSL templates such as
-```xsl
+```xml
 <xsl:template name="serverScriptInit">
 <xsl:template name="initActivities">
 <xsl:template name="css">
@@ -36,6 +37,7 @@ if !g_bNoRendering
 ## Using the `ctx` variable in the Javascript frontend
 
 Create a dead simple web app with a query on Recipients (named `queryRecipients`) and a page (without transition):
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-context-query-page.jpg)
 
 HTML code of the `Page`, using the[ Bootstrap 4 starter template](https://getbootstrap.com/docs/4.3/examples/starter-template/):
@@ -65,9 +67,11 @@ HTML code of the `Page`, using the[ Bootstrap 4 starter template](https://getboo
 ```
 
 The `ctx` variable is an XML created automatically by Adobe Campaign and injected into the HTML. With `_debug` enabled, it is shown in a `<pre>` block:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-context-debug-ctx.jpg)
 
 It is available as a Javascript `DOMElement` in the frontend with `document.controller.ctx`:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-context-as-javascript-variable.jpg)
 
 *See [w3c reference for DOMElement](https://www.w3schools.com/jsref/dom_obj_all.asp)*
@@ -97,14 +101,17 @@ This `ctx` var can also be used in the backend `Scripts` and in the `Page` itsel
 ```
 
 Output:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-ctx-list-variables.jpg)
 
 Recap:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-context-show-list.jpg)
 
 ## Using `ctx` for interaction between pages
 
 Now that we have a list of recipients, let's display the customer profile of one selected Recipient. First, create a Web app variable which will store the value of the selected recipient id:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-variable-recipientId.jpg)
 
 To enable transitions and interactions between pages, the page must contain a `<form id="page-form>">`. Insert it in the `<main`:
@@ -117,6 +124,7 @@ becomes
 ```
 
 Add a transition named `transition1`, connected to a query where `@id = $([vars/recipientId])` and another page:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-ctx-show-recipient.jpg)
 
 
@@ -133,6 +141,7 @@ In the first page, add a new `<td>` with a Button as follow:
 ```
 
 This is made possible via the `setValue(path, value)` and `getValue(path)` functions of `document.controller` which is a `UIController`:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-context-controller-get-set-value.jpg)
 
 and `submit(formAction, formTarget, transitionName)`:
@@ -152,8 +161,11 @@ UIController.prototype.submit = function(strAction, strTarget=null, strTransitio
 
 
 Save, refresh, click on Show and you'll get this:
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-ctx-show-recipient-html.jpg)
+
 ![](/assets/images/2019/03/adobe-campaign-web-app-ctx-show-recipient-xml.jpg)
+
 For both pages, download [the HTML codes on gist.github.com](https://gist.github.com/floriancourgey/3e67f996ce2552fb46ad479922f9a83e).
 
 ## Update a recipient based on `ctx.recipient.@id`
@@ -217,7 +229,9 @@ var callback = {
 };
 queryDef.execute(NL.session.serverURL + "/nl/jsp/soaprouter.jsp", '', callback);
 ```
+
 Output, `res` content:
+
 ```xml
 <recipient-collection>
   <recipient id="1" newAttr="Jane"><newNode>Doe</newNode></recipient>

@@ -1,5 +1,5 @@
 ---
-title: Use the context in Web Apps in Adobe Campaign
+title: How Web Apps work in ACC (and ctx variable)
 categories: [adobe campaign, automation, javascript, neolane, opensource]
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Create jssp Dynamic JavaScript Server Page in ACC
+title: "How JSSP works in ACC (Dynamic JavaScript Server Page)"
 date: 2018-11-07T16:21:31+00:00
 permalink: /2018/11/create-jssp-dynamic-javascript-server-page-in-acc/
 categories: [adobe campaign, neolane]

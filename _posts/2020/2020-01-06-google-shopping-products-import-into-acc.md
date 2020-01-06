@@ -10,8 +10,6 @@ and send marketing communications with Product data such as Image, Title and Pri
 
 <!--more-->
 
-**bold** *italic*  ~~strikethrough~~
-
 ## Schema, form and navigation creation
 
 ### Data Schema `grl:productExtensions`
@@ -107,7 +105,7 @@ Update SQL database with `Tools` > `Advanced` > `Update database structure`.
 Disconnect, Reconnect. No need to clear the cache.
 
 Create a new "Products" folder:
-![todo](acc-google-shopping-product-import-ui.jpg)
+![todo](/assets/images/2020/acc-google-shopping-product-import-ui.jpg)
 
 ## Import products from XML Web Feed
 
@@ -122,15 +120,17 @@ Test with Sample XML from `https://raw.githubusercontent.com/darkslategrey/cd/ma
 
 Overview:
 
-![todo](acc-google-shopping-product-import-workflow.jpg)
+![todo](/assets/images/2020/acc-google-shopping-product-import-workflow.jpg)
 
 
 Details:
 1. Set URL to `https://raw.githubusercontent.com/darkslategrey/cd/master/fr_eur_googlebase.xml`
 1. Set schema to `grl:productExtensions` and condition to `@id > 0`
 1. Add 2 custom string fields `@code` and `@title` with expression `''`
-acc-google-shopping-product-import-enrichment
-1. Set JS code to
+
+![todo](/assets/images/2020/acc-google-shopping-product-import-enrichment.jpg)
+
+4. Set JS code to
 ```js
 var xmlDoc = DOMDocument.load(vars.filename);
 var entries = xmlDoc.getElementsByTagName('item');
@@ -143,18 +143,18 @@ for each(var entry in entries){
   );
 }
 ```
-1. Split condition should be `@id is not empty`, or any other rule you define
-1. Update with `Record identification` on `Using reconciliation keys` > `@code = @code`
+5. Split condition should be `@id is not empty`, or any other rule you define
+6. Update with `Record identification` on `Using reconciliation keys` > `@code = @code`
 
 Start and check data:
-acc-google-shopping-product-import-final-ui.jpg
+![todo](/assets/images/2020/acc-google-shopping-product-import-final-ui.jpg)
 
 ## Bug Split shows 40 but Display target is empty
 
-acc-google-shopping-product-import-target-empty.jpg
+![todo](/assets/images/2020/acc-google-shopping-product-import-target-empty.jpg)
 
 Remove "Targeting dimension" from the Output Columns (last field in the list):
-acc-google-shopping-product-import-target-ok.jpg
+![todo](/assets/images/2020/acc-google-shopping-product-import-target-ok.jpg)
 
 ## Going further
 - Combine Query and Enrichment into 1 Query with `Additional Data`

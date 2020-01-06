@@ -13,8 +13,11 @@ and send marketing communications with Product data such as Image, Title and Pri
 **bold** *italic*  ~~strikethrough~~
 
 ## Schema, form and navigation creation
-### Data Schema `grl:productExtensions
+
+### Data Schema `grl:productExtensions`
+
 Schema with basic fields (string, memo [can contain XML/HTML], long)
+
 ```xml
 <srcSchema entitySchema="xtk:srcSchema" img="xtk:schema.png" label="Product Extensions"
            mappingType="sql" name="productExtension" namespace="grl" xtkschema="xtk:srcSchema">
@@ -45,6 +48,8 @@ Schema with basic fields (string, memo [can contain XML/HTML], long)
 Update SQL database with `Tools` > `Advanced` > `Update database structure`.
 
 Disconnect, Reconnect. No need to clear the cache.
+
+## Input form `grl:productExtensions`
 
 ```xml
 <form entitySchema="xtk:form" img="xtk:form.png" label="productExtension" name="productExtension"

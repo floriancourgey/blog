@@ -1,0 +1,196 @@
+<workflow aggregate-id="0" background="xtk:backgrounds/neolane.png"
+          builtIn="0" 
+          errorActivity="writer2" errorCount="1" errorLimit="0" eventCount="54" expiration=""
+          failed="1" folderProcess-id="0" form="xtk:workflow"
+          history="30" inProcess="0" internalName="WKF17786"
+          isModel="0" label="Google Shopping import" 
+          modelName="newWorkflow" modifiedBy-id="0"
+          nextProcessingAfn="" nextProcessingDate="" nextProcessingHost="" onError="0"
+          operation-id="0" order="0" port="-17132" 
+          processId="0" production="0" queryRestart="false" recurrentMdl="0" routingOperation-id="0"
+          scenario-cs="Notification of the workflow supervisor (notifySupervisor)"
+          scenario-id="3463" schema="grl:productExtension" simulation="false" state="13"
+          status="3" supervisor-id="0" taskCount="65" timezone="_inherit_" unlockedCount="0"
+          xtkschema="xtk:workflow">
+  <activities>
+    <end collision="0" img="xtk:activities/end.png" label="End" mask="0" name="end"
+         onError="0" runOnSimulation="true" timezone="_inherit_" x="1024" y="176"/>
+    <js collision="0" img="xtk:activities/script.png" label="XML parsing with DOMDocument"
+        mask="0" name="js3" onError="0" timezone="_inherit_" x="464" y="176">
+      <transitions>
+        <done enabled="true" label="Ok" name="done" target="extract2" x="0" y="0"/>
+        <error enabled="false" label="Error" name="error"/>
+      </transitions>
+      <script>var xmlDoc = DOMDocument.load(vars.filename);
+
+var entries = xmlDoc.getElementsByTagName('item');
+var tempId = 1;
+for each(var entry in entries){
+  var sql = "INSERT INTO "+vars.tableName+" (iId, sCode, sTitle, "+
+    "sDescription, sDescriptionLong, sGtin, sMpn, iIsBundle, sAvailability, "+
+    "sBrand, sGoogleCategory, sGroupCode, sProductPageUrl, sImageUrl, sPrice, "+
+    " sSize, iTaxRate, sColor, sType) "+
+    "VALUES ($(l), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(sz), $(l), $(sz), $(sz))";
+  var recCount = sqlExec(sql, tempId,
+    entry.getValue('g:id'),
+    entry.getValue('title'),
+    entry.getValue('description'),
+    entry.getValue('g:description_long'),
+    entry.getValue('g:gtin'),
+    entry.getValue('g:mpn'),
+    entry.getValue('g:is_bundle') == 'no' ? 0 : 1,
+    entry.getValue('g:availability'),
+    entry.getValue('g:brand'),
+    entry.getValue('g:google_product_category'),
+    entry.getValue('g:item_group_id'),
+    entry.getValue('link'),
+    entry.getValue('g:image_link'),
+    parseFloat(entry.getValue('g:price')),
+    entry.getValue('g:size'),
+    entry.getValue('g:tax/g:rate'),
+    entry.getValue('g:color'),
+    entry.getValue('g:product_type')
+  );
+//  logInfo('('+recCount+')', sql);
+  tempId++;
+}</script>
+    </js>
+    <query collision="0" distinct="true" img="nms:activities/query.png" keepAllExtraData="false"
+           label="Init empty query and add columns" mask="0" name="query2" noAutoPk="false"
+           noAutoPkFilter="false" onError="0" recipientLink="" runOnSimulation="true"
+           schema="grl:productExtension" timezone="_inherit_" useSource="0" x="288"
+           y="176">
+      <transitions>
+        <result enabled="true" label="Result" name="result" target="js3" x="0" y="0"/>
+      </transitions>
+      <select>
+        <node alias="@gtin" analyze="false" expr="''" label="GTIN"/>
+        <node alias="@mpn" analyze="false" expr="''" label="MPN"/>
+        <node alias="@size" analyze="false" expr="''" label="Size"/>
+        <node alias="@productPageUrl" analyze="false" expr="''" label="Product Page URL"/>
+        <node alias="@imageUrl" analyze="false" expr="''" label="Image URL"/>
+        <node alias="@code" analyze="false" expr="''" label="Code"/>
+        <node alias="@title" analyze="false" expr="''" label="Title"/>
+        <node alias="@description" analyze="false" expr="''" label="Description"/>
+        <node alias="@language" analyze="false" expr="''" label="Language"/>
+        <node alias="@descriptionLong" analyze="false" expr="''" label="Description (long)"/>
+        <node alias="@isBundle" analyze="false" expr="0" label="Is Bundle"/>
+        <node alias="@availability" analyze="false" expr="''" label="Availability"/>
+        <node alias="@brand" analyze="false" expr="''" label="Brand"/>
+        <node alias="@googleCategory" analyze="false" expr="''" label="Google Category"/>
+        <node alias="@groupCode" analyze="false" expr="''" label="Group Code"/>
+        <node alias="@price" analyze="false" expr="''" label="Price"/>
+        <node alias="@taxRate" analyze="false" expr="0" label="Tax Rate"/>
+        <node alias="@color" analyze="false" expr="''" label="Color"/>
+        <node alias="@type" analyze="false" expr="''" label="Type"/>
+      </select>
+      <where displayFilter="primary key equal to 0" filterName="backGroundFilterFrm"
+             filteringSchema="grl:productExtension" id="1187119296">
+        <condition compositeKey="" dependkey="" enabledIf="" expr="@id = 0" internalId="879231100"/>
+      </where>
+      <humanCond>Query: primary key equal to 0</humanCond>
+    </query>
+    <extract collision="0" img="nms:activities/piechart.png" label="Filter on valid ids"
+             mainSet="" mask="0" name="extract2" onError="0" runOnSimulation="true"
+             schema="nms:recipient" timezone="_inherit_" x="624" y="176">
+      <transitions>
+        <extractOutput enabled="true" label="" name="extractOutput" recipientLink=""
+                       schema="temp:enrich" schemaOverride="true" target="writer2">
+          <limiter percent="10" type="percent"/>
+          <filter enabled="true">
+            <where filterName="backGroundFilterFrm" id="1284308999">
+              <condition compositeKey="" dependkey="" enabledIf="" expr="@id IS NOT NULL"
+                         internalId="1212023015"/>
+            </where>
+            <humanCond>Query:</humanCond>
+          </filter>
+        </extractOutput>
+        <done enabled="false" label="Result" name="done"/>
+        <remainder enabled="0" label="Complement" name="remainder"/>
+      </transitions>
+    </extract>
+    <writer collision="0" img="nms:activities/writer.png" label="Upsert" mask="2"
+            maxErrorCount="100" name="writer2" noPreservation="true" onError="0"
+            operationType="insertOrUpdate" runOnSimulation="true" schema="grl:productExtension"
+            timezone="_inherit_" transactionSize="10000" x="736" y="176">
+      <transitions>
+        <done enabled="true" name="done" target="extract" x="0" y="0"/>
+        <remainder enabled="false" label="Rejects" name="remainder"/>
+      </transitions>
+      <primaryKeyNode calcExpr="@code" dstExpr="@code" enabledOperation="all" id="1221722383"/>
+      <node calcExpr="@code" dstExpr="@code" enabledOperation="insert" id="15780600690"/>
+      <node calcExpr="@title" dstExpr="@title" enabledOperation="all" id="15780600691"/>
+      <node calcExpr="@description" dstExpr="@description" enabledOperation="all"
+            id="15780600692"/>
+      <node calcExpr="@gtin" dstExpr="@gtin" enabledOperation="all" id="15780660770"/>
+      <node calcExpr="@mpn" dstExpr="@mpn" enabledOperation="all" id="15780660771"/>
+      <node calcExpr="@productPageUrl" dstExpr="@productPageUrl" enabledOperation="all"
+            id="15780665011"/>
+      <node calcExpr="@imageUrl" dstExpr="@imageUrl" enabledOperation="all" id="15780665012"/>
+      <node calcExpr="@googleCategory" dstExpr="@googleCategory" enabledOperation="all"
+            id="15780665016"/>
+      <node calcExpr="@price" dstExpr="@price" enabledOperation="all" id="15780671871"/>
+      <node calcExpr="@availability" dstExpr="@availability" enabledOperation="all"
+            id="15783239880"/>
+      <node calcExpr="@type" dstExpr="@type" enabledOperation="all" id="15783239882"/>
+    </writer>
+    <httpTransfer action="0" collision="0" img="nms:activities/http.png" label="Web download XML file"
+                  mask="0" maxFiles="100" maxSizeMo="50" name="httpTransfer" onError="0"
+                  stopAfterFirst="true" timezone="_inherit_" url="https://raw.githubusercontent.com/darkslategrey/cd/master/fr_eur_googlebase.xml"
+                  urlSource="0" useDefault="true" x="128" y="176">
+      <transitions>
+        <done enabled="true" name="done" target="query2" x="0" y="0"/>
+        <error enabled="false" label="Error" name="error"/>
+      </transitions>
+      <period>m_abDay='7' m_abDay[0]='0' m_abDay[1]='0' m_abDay[2]='0' m_abDay[3]='0' m_abDay[4]='0' m_abDay[5]='0' m_abDay[6]='0' m_abMonth='12' m_abMonth[0]='0' m_abMonth[10]='0' m_abMonth[11]='0' m_abMonth[1]='0' m_abMonth[2]='0' m_abMonth[3]='0' m_abMonth[4]='0' m_abMonth[5]='0' m_abMonth[6]='0' m_abMonth[7]='0' m_abMonth[8]='0' m_abMonth[9]='0' m_iDayMode='1' m_iMaxIter='0' m_iMonthDay='0' m_iMonthMode='0' m_iPosDay='0' m_iSpanDay='0' m_iSpanWeek='0' m_iTimeMode='3' m_iValidMode='1' m_iWeekDay='0' m_iWeekMode='0' m_tmFixedDay='' m_tmFixedTime='00:00:00.000' m_tmIterDate='' m_tmIterTime='00:00:00.000' m_tmOrgDate='' m_tmSpanTime='30mn' m_tmStartDate='0001/01/01' m_tmStartTime='' m_tmStopDate='0001/01/01' m_tmStopTime='' m_vtmTime='0'</period>
+    </httpTransfer>
+    <extract collision="0" img="nms:activities/piechart.png" label="In stock?" mainSet=""
+             mask="0" name="extract" onError="0" runOnSimulation="true" schema="grl:productExtension"
+             timezone="_inherit_" x="864" y="176">
+      <transitions>
+        <extractOutput enabled="true" label="Yes" name="extractOutput" recipientLink=""
+                       schema="grl:productExtension" target="end">
+          <limiter percent="10" type="percent"/>
+          <filter enabled="true" label="availability equal to 'in stock'">
+            <humanCond>Query: availability equal to 'in stock'</humanCond>
+            <where displayFilter="availability equal to 'in stock'" filterName="backGroundFilterFrm"
+                   id="1364262946">
+              <condition compositeKey="" dependkey="" enabledIf="" expr="@availability = 'in stock'"
+                         internalId="1363017760"/>
+            </where>
+          </filter>
+        </extractOutput>
+        <done enabled="false" label="Result" name="done"/>
+        <remainder enabled="1" label="No" name="remainder" target="jstest"/>
+      </transitions>
+    </extract>
+    <end collision="0" img="xtk:activities/end.png" label="End" mask="0" name="end2"
+         onError="0" runOnSimulation="true" timezone="_inherit_" x="1288" y="296"/>
+    <jstest collision="0" img="xtk:activities/condition.png" label="vars.recCount &gt; 0"
+            mask="0" name="jstest" onError="0" runOnSimulation="true" timezone="_inherit_"
+            x="1008" y="296">
+      <transitions>
+        <test enabled="true" label="" name="transition1" target="alert">
+          <condition><![CDATA[vars.recCount > 0]]></condition>
+        </test>
+        <default enabled="false" label="False" name="default"/>
+      </transitions>
+    </jstest>
+    <alert assigneeType="0" collision="0" img="nms:activities/alert.png" label="Alert"
+           mask="1" name="alert" onError="0" runOnSimulation="true" scenario-cs="Send an alert to operators assigned to a workflow task (alertAssignee)"
+           scenario-id="3465" timezone="_inherit_" x="1152" y="296">
+      <transitions>
+        <done enabled="true" name="done" target="end2"/>
+        <error enabled="false" label="Error" name="error"/>
+      </transitions>
+    </alert>
+  </activities>
+  <variables/>
+  <process forecasted="0" login="" priority="0" processState="13" startState="0"/>
+  <desc><![CDATA[Empty template to create a new workflow]]></desc>
+  <visualState></visualState>
+  <operation type="0"/>
+  <folderProcess _cs="" fullName="" id="0"/>
+  <supervisor _cs="" id="0" type="0"/>
+  <scenario/>
+</workflow>

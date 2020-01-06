@@ -145,3 +145,21 @@ for each(var entry in entries){
 ```
 1. Split condition should be `@id is not empty`, or any other rule you define
 1. Update with `Record identification` on `Using reconciliation keys` > `@code = @code`
+
+Start and check data:
+acc-google-shopping-product-import-final-ui.jpg
+
+## Bug Split shows 40 but Display target is empty
+
+acc-google-shopping-product-import-target-empty.jpg
+
+Remove "Targeting dimension" from the Output Columns (last field in the list):
+acc-google-shopping-product-import-target-ok.jpg
+
+## Going further
+- Combine Query and Enrichment into 1 Query with `Additional Data`
+- Trigger different behaviour based on availability (in/out of stock) with Alert
+- Add all fields
+- Convert prices to float
+
+Download [workflow full version ]().

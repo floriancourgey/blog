@@ -7,6 +7,8 @@ categories: [adobe campaign]
 
 <!--more-->
 
+![todo](/assets/images/2020/acc-debug-javascript-soap-manual-EvaluateJavaScript.jpg)
+
 ## Request
 
 - `URL`: `https://instance.neolane.net/nl/jsp/soaprouter.jsp`
@@ -49,3 +51,4 @@ categories: [adobe campaign]
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+

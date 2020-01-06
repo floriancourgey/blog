@@ -45,11 +45,10 @@ Schema with basic fields (string, memo [can contain XML/HTML], long)
   </element>
 </srcSchema>
 ```
-Update SQL database with `Tools` > `Advanced` > `Update database structure`.
-
-Disconnect, Reconnect. No need to clear the cache.
 
 ### Input form `grl:productExtensions`
+
+To create and edit records.
 
 ```xml
 <form entitySchema="xtk:form" img="xtk:form.png" label="productExtension" name="productExtension"
@@ -77,12 +76,14 @@ Disconnect, Reconnect. No need to clear the cache.
 
 ### Navigation Hierarchy `grl:core`
 
+To add a folder in the Navigation Tree.
+
 ```xml
 <navtree entitySchema="xtk:navtree" img="nl:folders.png" label="core" name="core"
          namespace="grl" xtkschema="xtk:navtree">
   <model name="root">
     <model label="Custom" name="custom">
-      <nodemodel img="nms:webformmodel.png" name="refProductExtension">
+      <nodeModel img="nms:webformmodel.png" name="refProductExtension">
         <view img="nms:webformmodel.png" label="Product Extensions" name="listdet" schema="grl:productExtension" type="listdet">
           <columns>
             <node xpath="@code"/>
@@ -92,11 +93,19 @@ Disconnect, Reconnect. No need to clear the cache.
             <node xpath="@created"/>
           </columns>
         </view>
-      </nodemodel>
+      </nodeModel>
 
     </model>
   </model>
 </navtree>
 ```
+
+### Recap
+
+Update SQL database with `Tools` > `Advanced` > `Update database structure`.
+
+Disconnect, Reconnect. No need to clear the cache.
+
+
 
 ![todo](/assets/images/2019/01/image.png)

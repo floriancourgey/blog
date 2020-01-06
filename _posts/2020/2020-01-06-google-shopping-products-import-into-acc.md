@@ -162,4 +162,4 @@ Remove "Targeting dimension" from the Output Columns (last field in the list):
 - Add all fields
 - Convert prices to float
 
-Download [workflow full version ]().
+Download [workflow full version](/assets/adobe-campaign/20200106-google-shopping-import-workflow.xml).

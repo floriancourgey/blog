@@ -28,8 +28,7 @@ categories: [adobe campaign]
            ctx.hello = "world"; // add XML node
         </script>
          <context>
-           <ctx>
-           </ctx>
+           <ctx/>
         </context>
       </EvaluateJavaScript>
    </soap:Body>

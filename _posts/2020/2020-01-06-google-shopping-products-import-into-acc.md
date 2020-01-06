@@ -58,7 +58,7 @@ To create and edit records.
       <input xpath="@code"/>
       <input xpath="@title"/>
       <input xpath="@gtin"/>
-      <input xpath="@groupCode"/>
+      <input xpath="@mpn"/>
       <input xpath="@price"/>
       <input xpath="@productPageUrl"/>
       <input xpath="@googleCategory"/>
@@ -88,8 +88,8 @@ To add a folder in the Navigation Tree.
           <columns>
             <node xpath="@code"/>
             <node xpath="@title"/>
+            <node xpath="@gtin"/>
             <node xpath="@mpn"/>
-            <node xpath="@groupCode"/>
             <node xpath="@created"/>
           </columns>
         </view>
@@ -106,6 +106,42 @@ Update SQL database with `Tools` > `Advanced` > `Update database structure`.
 
 Disconnect, Reconnect. No need to clear the cache.
 
+Create a new "Products" folder:
+![todo](acc-google-shopping-product-import-ui.jpg)
+
+## Import products from XML Web Feed
+
+Test with Sample XML from `https://raw.githubusercontent.com/darkslategrey/cd/master/fr_eur_googlebase.xml`.
+
+1. Download XML to local ACC [Web Download activity]
+1. Init empty query for workflow [Query activity] 
+1. Add columns corresponding to XML fields [Enrichment activity]
+1. Fill in columns from XML data with JavaScript DOMDocument standard lib [JavaScript activity]
+1. Keep only valid records (add any business rules / filtering) [Split activity]
+1. Update/insert into ACC [Update Data activity]
+
+Overview:
+
+![todo](acc-google-shopping-product-import-workflow.jpg)
 
 
-![todo](/assets/images/2019/01/image.png)
+Details:
+1. Set URL to `https://raw.githubusercontent.com/darkslategrey/cd/master/fr_eur_googlebase.xml`
+1. Set schema to `grl:productExtensions` and condition to `@id > 0`
+1. Add 2 custom string fields `@code` and `@title` with expression `''`
+acc-google-shopping-product-import-enrichment
+1. Set JS code to
+```js
+var xmlDoc = DOMDocument.load(vars.filename);
+var entries = xmlDoc.getElementsByTagName('item');
+for each(var entry in entries){
+  var sql = "INSERT INTO "+vars.tableName+" (iId, sCode, sTitle) "+
+    "VALUES ($(id), $(sz), $(sz))";
+  var recCount = sqlExec(sql, 
+    entry.getValue('g:id'),
+    entry.getValue('title')
+  );
+}
+```
+1. Split condition should be `@id is not empty`, or any other rule you define
+1. Update with `Record identification` on `Using reconciliation keys` > `@code = @code`

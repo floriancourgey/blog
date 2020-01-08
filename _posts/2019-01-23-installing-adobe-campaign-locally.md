@@ -218,6 +218,10 @@ $ nlserver start stat@instance1
 
 *See [ACC Modules documentation](https://final-docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html)*
 
+Go to `http://localhost:8080/view/supervision`:
+
+![](/assets/images/2019/02/adobe-campaign-instance-monitoring.jpg)
+
 ## Troubleshoot
 You might run into some errors while setting up the Db, the following will help:
 

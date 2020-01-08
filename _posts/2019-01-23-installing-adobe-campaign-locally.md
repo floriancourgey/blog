@@ -200,6 +200,23 @@ Then create and start the first worflow `WKF1`:
 You may also access to the web based interface with the `:8080` port, such as `http://10.23.87.90:8080/view/home`:
 ![](/assets/images/2019/03/adobe-campaign-tomcat.jpg)
 
+Start multi-instance modules:
+```console
+$ nlserver start web # already started, no needed
+$ nlserver start syslogd
+$ nlserver start trackinglogd
+```
+
+Start mono-instance modules:
+```console
+$ nlserver start wfserver@instance1 # already started, no needed
+$ nlserver start mta@instance1
+$ nlserver start inMail@instance1
+$ nlserver start sms@instance1
+$ nlserver start stat@instance1
+```
+
+*See [ACC Modules documentation](https://final-docs.campaign.adobe.com/doc/AC/en/INS_Initial_configuration_Configuring_Campaign_server.html)*
 
 ## Troubleshoot
 You might run into some errors while setting up the Db, the following will help:

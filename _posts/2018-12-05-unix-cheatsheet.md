@@ -273,7 +273,7 @@ javac -cp . *.java # compile to .class files
 java -cp . MyClass # run the MyClass class, based on .class files
 javac -classpath classes src/*.java -d classes/ && java -cp classes/ com.namespace.MyApp # one-shot build & run
 jar -cf myJar.jar classes/ # create JAR
-java -jar MyJar.jar  // execute JAR Main-Class defined in MANIFEST.MF
+java -jar MyJar.jar # execute JAR Main-Class defined in MANIFEST.MF
 java -cp MyJar.jar com.namespace.ClassWithMainMethod
 ```
 Note: `MyClass` should contain the `main` method:

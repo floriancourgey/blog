@@ -265,3 +265,20 @@ node # REPL interactive shell (exit with .exit)
 npm -v # 5.x
 npm install package-x
 ```
+
+### Java
+```console
+java -version
+javac -cp . *.java # compile to .class files
+java -cp . MyClass # run the MyClass class, based on .class files
+javac -classpath classes src/*.java -d classes/ && java -cp classes/ com.namespace.MyApp # one
+jar -cf myJar.jar classes/
+```
+Note: `MyClass` should contain the `main` method:
+```java
+package fco;
+import java.io.File;
+public class MyClass {
+  public static void main(final String[] args) { System.out.println("Hello World"); }
+}
+```

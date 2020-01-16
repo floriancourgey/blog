@@ -267,7 +267,7 @@ npm install package-x
 ```
 
 ### Java
-```console
+```bash
 java -version
 javac -cp . *.java # compile to .class files
 java -cp . MyClass # run the MyClass class, based on .class files

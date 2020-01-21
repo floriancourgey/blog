@@ -58,7 +58,8 @@ $ jekyll algolia
 - 20181214 Pages migrated from floriancourgey.github.io/tools (Crack, UNIX) & links to String, SEO, MPG
 - 20181213 Over The Wire series
 - 20181127 Algolia implemented
-- 20181120 Creation
+- 20181120 Migration to Jekyll and first post on Github Pages https://blog.floriancourgey.com
+- 20180330 First post on https://floriancourgey.com (wordpress original website)
 
 ## Useful links
 - https://cloudconvert.com

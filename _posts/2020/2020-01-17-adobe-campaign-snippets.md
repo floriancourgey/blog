@@ -35,4 +35,20 @@ for each(var entry in entries){
 
 ![todo](/assets/images/2020/01/20200117-160032-screenshot-7.jpg)
 
+## Select raw data from workflow transition
+```javascript
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: vars.targetSchema, operation: 'select', lineCount: 999999999, // /!\ lineCount defaults to 10,000
+  select: { node: [
+    {expr: '@id'},
+    {expr: '@email'},
+  ]},
+}});
+var records = query.ExecuteQuery(); // DOMElement
 
+for each(var record in records.getElements()){
+  logInfo(record.$id);
+  var cleanedEmail = record.$email.replace(/\s+/g, '').toLowerCase();
+  sqlExec("UPDATE "+vars.tableName+" SET sEmail=$(sz) WHERE iId=$(l)", cleanedEmail, record.$id);
+}
+```

@@ -26,3 +26,16 @@ exec('cat '+filename+'.pub');
 Leave l. 6 uncommented first, to check the existence of an already created key pair.
 
 Uncomment to generate.
+
+Log result:
+```console
+fco:helpers | executing | ls ~/.ssh/id_rsa*
+/usr/local/neolane/.ssh/id_rsa
+/usr/local/neolane/.ssh/id_rsa.old
+/usr/local/neolane/.ssh/id_rsa.pub
+/usr/local/neolane/.ssh/id_rsa.pub.old
+fco:helpers | executing | cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFwPsIUf7FBgT0Bsh[...] root@instance-prod1
+```
+
+The public key is the last line, from "ssh-rsa" to "root@instance-prod1" (included).

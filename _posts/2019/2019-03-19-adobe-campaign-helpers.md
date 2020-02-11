@@ -1,6 +1,6 @@
 ---
-title: Adobe Campaign helpers
-categories: [opensource,adobe campaign,tools]
+title: Adobe Campaign Javascript helpers for Workflows
+categories: [opensource,adobe campaign,tools,javascript,helpers,snippets]
 ---
 
 Javascript helpers for JSSP, Javascript in workflows and JST in Adobe Campaign, grouped by domains such as SQL, Linux, FTP or Currency.
@@ -79,6 +79,11 @@ function getOneOrNull(tableName, srcSchema, params){
  * @param {bool} params.logTheOutput if true, send the output to logInfo (default to true)
  * @param {bool} params.throwOnError if true, throws an exception if linuxResultCode is != 0 (default to false)
  *
+ * @return {Object}
+ * @return {int} return.linuxResultCode the linux result code (0 = success), returned by standard JSAPI execCommand function
+ * @return {string} return.rawOutput the linux standard output as a unique string, returned by standard JSAPI execCommand function
+ * @return {string[]} return.lines the linux standard output as an array of lines (lines split by \n)
+ *
  * @example
  * exec('pwd')
  * exec('mkdir -p /a/b/c', {logTheCall:false})
@@ -88,21 +93,16 @@ function exec(command, params){
   if(undefined == params){
     params = {};
   }
-  if(undefined == params.logTheCall){
-    params.logTheCall = true;
+  var logTheCall = params.logTheCall || true;
+  var logTheOutput = params.logTheOutput|| true;
+  var throwOnError = params.throwOnError || false;
+  
+  if(logTheCall){
+    logInfo('grl:helpers | executing | '+command);
   }
-  if(undefined == params.logTheOutput){
-    params.logTheOutput = true;
-  }
-  if(undefined == params.throwOnError){
-    params.throwOnError = false;
-  }
-  if(params.logTheCall){
-    logInfo('my_nms:helpers | executing |', command);
-  }
-  var result = execCommand(command, !params.throwOnError); // @return [linux result code, output]
+  var result = execCommand(command, !throwOnError); // @return [linux result code, output]
   var lines = result[1].split("\n");
-  if(params.logTheOutput){
+  if(logTheOutput){
     for each (var line in lines){ 
       logInfo("" + line);
     }

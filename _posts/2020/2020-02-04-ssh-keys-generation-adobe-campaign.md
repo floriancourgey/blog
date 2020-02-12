@@ -6,7 +6,7 @@ categories: [ssh,opensource,adobe campaign]
 In order to connect to external SFTP, you might need a couple of private & public keys, instead of the less secure login+password alternative.
 Here's how to create a new pair, without interaction 
 
-<p class="text-center">🐍👑🌍</p>
+<p class="text-center">🔑🖥️🔒</p>
 
 <!--more-->
 

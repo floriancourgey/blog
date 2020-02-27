@@ -1,6 +1,6 @@
 ---
 title: Adobe Campaign Architecture and URLs
-categories: [prestashop,google,opensource,adobe campaign]
+categories: [opensource,adobe campaign]
 ---
 
 <p class="text-center">☕🖥️🌐</p>

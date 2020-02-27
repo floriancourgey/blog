@@ -20,13 +20,12 @@ title: Categories
 </div>
 
 <script type="text/javascript">
-  if(location.search.match(/id=([^&]*)/i)){
+if(location.search.match(/id=([^&]*)/i)){
     var hash = location.search.match(/id=([^&]*)/i)[1].replace(/%20/g, ' ');
-    var categories = document.getElementsByClassName('category');
-    for(var category of categories){
-      if(category.id != hash){
-        category.className += ' d-none';
+    $('.category').each(function(){
+      if(this.id != hash){
+        this.className += ' d-none';
       };
-    }
+    });
 }
 </script>

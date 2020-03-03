@@ -19,7 +19,7 @@ instance.vars.counter = 0;
 
 Advanced
 ```js
-var countries = ["UK", "EU", "IT", "NL", ];
+var countries = ["UK", "EU", "IT", "NL"];
 if (instance.vars.counter >= countries.length) {
   task.postEvent(task.transitionByName('end'));
   return 0;

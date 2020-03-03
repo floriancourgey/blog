@@ -9,10 +9,29 @@ Then you can simulate a classic "for" loop with the `Javascript` and the `Test` 
 <p class="text-center">🐍👑🌍</p>
 <!--more-->
 
-## Setup
+## V1 with Advanced Javascript Code
+![todo](/assets/images/2020/adobe-campaign-for-loop-workflow-v1.jpg)
+
+Init
+```js
+instance.vars.counter = 0;
+```
+
+Advanced
+```js
+var countries = ["UK", "EU", "IT", "NL", ];
+if (instance.vars.counter >= countries.length) {
+  task.postEvent(task.transitionByName('end'));
+  return 0;
+}
+instance.vars.pays = countries[instance.vars.counter];
+instance.vars.counter++;
+task.postEvent(task.transitionByName('next'));
+```
+
+## V2 with Test
 ![todo](/assets/images/2019/04/adobe-campaign-for-loop-workflow.jpg)
 
-### Javascript init
 Create a first `Javascript` code with the array init and the serialization with `JSON.stringify()`:
 ```js
 var javascriptArray = [

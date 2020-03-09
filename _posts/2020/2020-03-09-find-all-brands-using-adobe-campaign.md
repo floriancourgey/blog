@@ -20,3 +20,23 @@ Once you have identified a particular website, change the URI to `/r/test`:
 
 ## More on Google Dorks
 [Crack & Hack cheatsheet#google](https://blog.floriancourgey.com/2018/12/crack-and-hack-cheatsheet#google)
+
+## List
+[Jean-Paul Gaultier](http://t.crm.jeanpaulgaultier.com/r/test)
+[Galeries Lafayette](http://m.news.galerieslafayette.com/r/test)
+[Bazar Chic](http://m.communication.bazarchic.com/r/test)
+[Nissan](http://m.cj.nissan.co.jp/r/test)
+[Clarins](http://m.enews.clarins.com/r/test)
+[L'Occitane](http://mid-m.contact.loccitane.com/r/test)
+[Société Générale Markets](http://www.sgmarkets.com/r/test)
+[Boursorama](http://neomc-m5.boursorama.com/r/test)
+[Jules](http://m.emailing.jules.com/r/test)
+[La Fourchette](http://m.email.lafourchette.com/r/test)
+[Malakoff Mederic Humanic](http://m.communication.malakoffmederic-humanis.com/r/test)
+[Oui SNCF](https://m.newsletter.oui.sncf/r/test)
+[Voyages SNCF](http://m.newsletter.voyages-sncf.com/r/test)
+[Christies](http://m.emails.christies.com/r/test)
+[Malaysia Arilines](http://t.email.malaysiaairlines.com/r/test)
+[Dassault 3ds](http://emailing.3ds.com/r/test)
+[Le Robert](http://m6.newsletters.lerobert.com/r/test)
+[France TV Education](http://m.nl.francetveducation.fr/r/test)

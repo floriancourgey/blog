@@ -1,6 +1,6 @@
 ---
 title: Quick Adobe Campaign intro (awesome-adobe-campaign)
-categories: [opensource,adobe campaign]
+categories: [opensource,adobe campaign,server,getting started]
 permalink: /awesome-adobe-campaign
 redirect_from: /2019-05-15-intro-adobe-campaign
 ---
@@ -138,7 +138,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Compare 2 files with diffchecker](https://www.diffchecker.com)
 - [Rename multiple files with regex, prefixes, etc, with Bulk Rename Utility](https://www.bulkrenameutility.co.uk)
 - [SMS Length Calculator on messente.com](https://messente.com/documentation/tools/sms-length-calculator)
-- [Find brands using Adobe Campaign with Google dorks](https://www.google.com/search?q=inurl%3A%2Fnl%2Fjsp%2Fm.jsp) - doc on [Google dorks](/2018/12/crack-and-hack-cheatsheet#google)
+- [Find brands using Adobe Campaign with Google dorks](/2020/03/find-all-brands-using-adobe-campaign) - doc on [Google dorks](/2018/12/crack-and-hack-cheatsheet#google)
 - [Facebook Sharing Debugger (Test og: meta sharing tags)](https://developers.facebook.com/tools/debug/sharing/)
 - [Online share-able collaborative text editor collabedit.com](http://collabedit.com/)
 - [Check CSS & HTML rules for Emails on caniemail.com](https://www.caniemail.com/)

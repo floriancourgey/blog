@@ -6,7 +6,16 @@ Set up a small software in a VM (or your own PC) to backup your Adobe instances 
 <p class="text-center">🐍👑🌍</p>
 <!--more-->
 
-## Demo
+## Track your instance via a Git Repo
+
+
+### Explore Files and Folders via a web UI
+![](https://raw.githubusercontent.com/floriancourgey/adobe-campaign-sync/master/doc/Instance%20git%20repo%20-%20schemas.jpg)
+
+### Track the smallest change via Git Diff
+![](https://raw.githubusercontent.com/floriancourgey/adobe-campaign-sync/master/doc/Instance%20git%20repo%20-%20difference.jpg)
+
+## Architecture
 ![](https://raw.githubusercontent.com/floriancourgey/adobe-campaign-sync/master/doc/Presentation.jpg)
 
 ## Instructions

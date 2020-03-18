@@ -25,6 +25,12 @@ getCurrentDate()
 // new Date()
 ```
 
+## In Workflow activities (Configuration)
+```console
+/home/customers/acme/incoming/folder/<%= formatDate(getCurrentDate(), '%4Y%2M%2D-%2H%2N%2S') %>-file.txt
+```
+See next chapter for details
+
 ## js2string - Javascript Date to String
 ```js
 /**

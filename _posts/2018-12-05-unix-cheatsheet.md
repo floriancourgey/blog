@@ -264,6 +264,7 @@ node -p "var a=1" # execute JS code and print result
 node # REPL interactive shell (exit with .exit)
 npm -v # 5.x
 npm install package-x
+sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp # uninstall
 ```
 
 ### Java

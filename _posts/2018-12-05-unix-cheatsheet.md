@@ -266,7 +266,7 @@ npm -v # 5.x
 npm install package-x
 sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp # uninstall
 ```
-
+Note: for a dev machine (single user, multiple node versions) don't install node/npm as root, use [nvm - Node Version Manager](https://github.com/nvm-sh/nvm) instead. More in this [Medium post](https://medium.com/@ExplosionPills/dont-use-sudo-with-npm-still-66e609f5f92)
 ### Java
 ```bash
 java -version

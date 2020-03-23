@@ -49,6 +49,14 @@ See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 </div>
 
 ## Bash basics
+<div>
+  <img src="https://developer.ibm.com/developer/tutorials/l-linux-shells/images/figure1.gif" style="max-height:150px"/>
+</div>
+<div>
+  <img src="https://developer.ibm.com/developer/tutorials/l-linux-shells/images/figure2.gif" style="max-height:150px"/>
+</div>
+
+Source on [IBM developers](https://developer.ibm.com/tutorials/l-linux-shells/)
 
 ```bash
 id # Identification, displays current user (and uid), main group (and guid) and other groups (with guid)

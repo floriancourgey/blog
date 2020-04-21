@@ -13,6 +13,7 @@ Excerpt here...
 
 ## if/else if/else in JavaScript Template (& gender)
 ```html
+{% raw %}
 <td>
   <% if(recipient.gender == 1){ %>
     <!-- Woman -->
@@ -22,6 +23,7 @@ Excerpt here...
     <!-- Unspecified -->
   <% } %>
 </td>
+{% endraw %}
 ```
 
 ## Handling XML in JavaScript

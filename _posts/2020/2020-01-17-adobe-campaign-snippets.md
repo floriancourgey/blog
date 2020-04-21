@@ -11,6 +11,19 @@ Excerpt here...
 
 **bold** *italic*  ~~strikethrough~~
 
+## if/else if/else in JavaScript Template (& gender)
+```html
+<td>
+  <% if(recipient.gender == 1){ %>
+    <!-- Woman -->
+  <% }else if(recipient.gender == 2){%>
+    <!-- Man -->
+  <% }else{ %>
+    <!-- Unspecified -->
+  <% } %>
+</td>
+```
+
 ## Handling XML in JavaScript
 ```js
 var xmlDoc = DOMDocument.load(vars.filename);

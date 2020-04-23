@@ -1,6 +1,6 @@
 ---
 id: 1023
-title: Use Javascript libraries in Adobe Campaign
+title: Use Javascript libraries in Adobe Campaign (MomentJS, Lodash..)
 date: 2018-10-15T14:46:25+00:00
 author: Florian Courgey
 layout: post
@@ -8,6 +8,7 @@ guid: https://floriancourgey.com/?p=1023
 permalink: /2018/10/use-javascript-libraries-in-adobe-campaign/
 categories:
   - opensource
+  - adobe campaign
 ---
 Ever wanted to use **MomentJS** or **Lodash** in your JS scripts? It's easy to include them via a CDN for client-side web apps, but it can get tricky to get them for server-side processing. This tutorial walks you through the installation of Javascript libraries for Server Side use.
 

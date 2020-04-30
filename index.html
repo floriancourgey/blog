@@ -18,7 +18,7 @@ layout: default
       {%- if post.excerpt -%}
         {% assign length = post.excerpt | size %}
         {% if post.excerpt.size > 20 %}
-          {{ post.excerpt | truncatewords: 20 }}
+          {{ post.excerpt | truncatewords: 30 }}
         {%- endif -%}
       {%- endif -%}
       <div class="text-right">

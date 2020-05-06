@@ -5,7 +5,6 @@ categories: [delivery,opensource,adobe campaign]
 How to track your HTML links in an Adobe Campaign delivery when they are generated from upstream data `targetData`?
 <p class="text-center">🔗🔎☁️</p>
 <!--more-->
-**bold** *italic*  ~~strikethrough~~
 
 ## Step 0: Prerequisites
 - Campaign with a Query, an Enrichment with `customUrl` field and an Email delivery:

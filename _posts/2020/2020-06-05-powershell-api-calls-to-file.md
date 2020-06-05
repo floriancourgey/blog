@@ -77,7 +77,7 @@ PowerShell might be disabled because of Computer Policy
 ```console
 PS C:\ > script.ps1
 script.ps1 cannot be loaded
-because running scripts is disabled on this system. For more information, see about_Execution_Policies at
+because srunning scripts is disabled on this system. For more information, see about_Execution_Policies at
 https:/go.microsoft.com/fwlink/?LinkID=135170.
 At line:1 char:1
 ```
@@ -87,3 +87,32 @@ Create a `.bat` file to start the PowerShell script with `powershell.exe -NoLogo
 C:\ > %SystemRoot%\syswow64\WindowsPowerShell\v1.0\powershell.exe -NoLogo -ExecutionPolicy Bypass -Command script.ps1
 [...]
 ```
+
+## Manage environment within Batch file
+Create 2 files: `myscript.staging.bat` and `myscript.prod.bat`:
+
+- `myscript.staging.bat`
+```bat
+set MYSCRIPT_BASE_URL=https://staging.httpbin.org
+set MYSCRIPT_API_KEY=XXX-AAA-STAGING-KEY
+%SystemRoot%\syswow64\WindowsPowerShell\v1.0\powershell.exe -NoLogo -ExecutionPolicy Bypass -Command %~dp0script.ps1
+```
+
+- `myscript.prod.bat`
+```bat
+set MYSCRIPT_BASE_URL=https://httpbin.org
+set MYSCRIPT_API_KEY=XXX-AAA-PRODUCTION-KEY
+%SystemRoot%\syswow64\WindowsPowerShell\v1.0\powershell.exe -NoLogo -ExecutionPolicy Bypass -Command %~dp0script.ps1
+```
+
+- update the first lines of `script.ps1`:
+```powershell
+# env dependant settings
+$apiKey = $Env:MYSCRIPT_API_KEY
+$baseUrl = $Env:MYSCRIPT_BASE_URL
+```
+
+--> Same PS1 script, multiple environments
+
+## Sources
+- https://stackoverflow.com/questions/35224741/batch-file-to-set-a-powershell-variable

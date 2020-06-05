@@ -10,6 +10,11 @@ Powershell script for API call (REST), Exception catching, foreach loop and writ
 <!--more-->
 
 ## Basic Rest API GET Call
+
+Call [httpbin.org/json](https://httpbin.org/json) and fetch basic data in PowerShell:
+
+![todo](/assets/images/2020/powershell-api-call-basic-save-file.jpg)
+
 ```powershell
 # env dependant
 $baseUrl = "https://httpbin.org"
@@ -20,12 +25,12 @@ Write-Output $response.slideshow
 ```
 
 ## Advanced Rest API GET Call
-Let's add Header Key based auth, exception management and save to file:
+Let's add Header Key based auth, exception management and save to file with PowerShell:
 
 ![todo](/assets/images/2020/powershell-api-call-save-file.jpg)
 
 ```powershell
-# env dependant
+# environment dependant settings
 $apiKey = "xxxx"
 $baseUrl = "https://httpbin.org"
 # imports
@@ -63,4 +68,22 @@ foreach ($slide in $response.slideshow.slides){
 		Write-Output "Saved to $($folder + $filename)"
 	}
 }
+```
+
+## Call PowerShell from Batch file
+
+PowerShell might be disabled because of Computer Policy
+
+```console
+PS C:\ > script.ps1
+script.ps1 cannot be loaded
+because running scripts is disabled on this system. For more information, see about_Execution_Policies at
+https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
+```
+
+Create a `.bat` file to start the PowerShell script with `powershell.exe -NoLogo -ExecutionPolicy Bypass -Command script.ps1`:
+```console
+C:\ > %SystemRoot%\syswow64\WindowsPowerShell\v1.0\powershell.exe -NoLogo -ExecutionPolicy Bypass -Command script.ps1
+[...]
 ```

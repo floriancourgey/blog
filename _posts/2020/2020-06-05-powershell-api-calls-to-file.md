@@ -1,9 +1,9 @@
 ---
-title: Powershell API calls and save to file
+title: Powershell API calls: Best Practices
 categories: [powershell,opensource]
 ---
 
-Powershell script for API call (REST), Exception catching, foreach loop and write to file
+Powershell script for API call (REST), Environments management, Exception catching, foreach loop and write to file
 
 <p class="text-center">📂↔️🌍</p>
 

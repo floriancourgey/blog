@@ -59,12 +59,12 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Data Schemas Reference](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/schema-reference/elements-and-attributes.html)
 - [Input Forms Reference](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/input-forms/form-structure.html)
 - [Physical data Model & tables relations](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/data-model/data-model-description.html) - Relational diagrams between objects with primary keys, foreign keys and fields
-- Repository of Activities: [Targeting](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Targeting_activities.html), [Flow Control](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Flow_control_activities.html), [Action](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Action_activities.html), [Event](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Event_activities.html)
-- [External accounts](https://docs.campaign.adobe.com/doc/AC/en/PTF_Administration_basics_External_accounts.html)
-- [Navigation hierarchy](https://docs.campaign.adobe.com/doc/AC/en/CFG_Navigation_hierarchy_Configuration.html)
+- Repository of Activities: [Targeting](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/targeting-activities/about-targeting-activities.html), [Flow Control](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/flow-control-activities/about-flow-control-activities.html), [Action](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/action-activities/about-action-activities.html), [Event](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/event-activities/about-event-activities.html)
+- [External accounts](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/administration-basics/external-accounts.html)
+- [Navigation hierarchy](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/navigation-hierarchy/configuration.html)
 
 ## Cubes & Reports
-- [Email a report as a PDF to a recipients list](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Sending_a_report_to_a_list.html)
+- [Email a report as a PDF to a recipients list](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/use-cases/sending-a-report-to-a-list.html)
 
 ## Marketing Campaigns & Deliveries
 - [Delivery Best Practices - Marketing](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)

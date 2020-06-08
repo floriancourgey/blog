@@ -30,36 +30,35 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 
 ## Overview
 - [Adobe Campaign Product Page on adobe.com](https://www.adobe.com/marketing/campaign.html)
-- [About Adobe Campaign Classic](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_About_Adobe_Campaign_Classic.html)
+- [About Adobe Campaign Classic](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/starting-with-adobe-campaign/about-adobe-campaign-classic.html)
 - [Main documentation portal](https://helpx.adobe.com/support/campaign/classic.html)
 - [On-prem VS Hybrid VS Hosted](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/architecture-and-hosting-models/hosting-models.html) and [details as a table](https://helpx.adobe.com/campaign/kb/acc-on-prem-vs-hosted.html)
 - [Architecture and Deployment types](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/deployment-types-/enterprise-deployment.html)
-- [Global Search](https://docs.campaign.adobe.com/doc/AC/en/browseAC.html) - search in the ACC tutorials, the videos, the Knowledge Base and the Community Forum
+- [Global Search](https://docs.adobe.com/content/help/en/campaign-classic/using/campaign-classic-home.html) - search in the ACC tutorials, the videos, the Knowledge Base and the Community Forum
 
 ## Tutorials
-- [Official ACC tutorials](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Tutorials.html) - Tutorials as web pages
+- [Official ACC tutorials](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/starting-with-adobe-campaign/tutorials.html) - Tutorials as web pages
 - [Official "How-To" videos](https://helpx.adobe.com/campaign/tutorials.html) - Video tutorials
-- [Official "Using ACC" videos](https://helpx.adobe.com/campaign/kt/acc/index/acc-videos.html) - Video tutorials NEW!
+- [Official "Using ACC" videos](https://docs.adobe.com/content/help/en/campaign-classic-learn/tutorials/overview.html) - Video tutorials NEW!
 - [Official Knowledge base (kb)](https://helpx.adobe.com/campaign/kb/article-list.html)
-- [Official workflow Use cases](https://docs.campaign.adobe.com/doc/AC/en/WKF_Use_cases_Using_the_local_approval_activity.html) - Business cases
-- [Official workflow Best Practices](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_Workflow_best_practices.html)
-- [Official Database Model Best Practices](https://helpx.adobe.com/campaign/kb/acc-data-model-best-practices.html)
-- [Official FAQ](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Common_questions.html) - more than 85 questions and answers
+- [Official workflow Use cases](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/use-cases/using-the-local-approval-activity.html) - Business cases
+- [Official workflow Best Practices](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/general-operation/workflow-best-practices.html)
+- [Official Database Model Best Practices](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/data-model/data-model-best-practices.html)
 - [floriancourgey.com tutorials](https://blog.floriancourgey.com/categories?id=adobe%20campaign)
 
 ## Workspace
-- [Browsing Lists](https://docs.campaign.adobe.com/doc/AC/en/PTF_Starting_with_Adobe_Campaign_Adobe_Campaign_workspace.html#Browsing_lists) - Add/Remove a field in a list, count records, sort, search
+- [Browsing Lists](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/starting-with-adobe-campaign/adobe-campaign-workspace.html#browsing-lists) - Add/Remove a field in a list, count records, sort, search
 - [Formats and Units](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/starting-with-adobe-campaign/adobe-campaign-workspace.html#formats-and-units) - Date & time formats (US %2M/%2D/%4Y vs EN %2D/%2M/%4Y) and time units (s-seconds, mn-minute, h-hour, d-day)
-- [Format dates](https://docs.campaign.adobe.com/doc/AC/en/DLV_Content_management_Formatting.html#Date_display)
+- [Format dates](https://docs.adobe.com/content/help/en/campaign-classic/using/sending-messages/content-management/formatting.html#date-display)
 - [Format Prices with NL.Locale](/2019/05/adobe-campaign-locale)
 - [Folders organization Best Practices](https://helpx.adobe.com/campaign/kb/organization-folders-explorer.html)
 
 ## Basic objects
-- [All about Recipients](https://docs.campaign.adobe.com/doc/AC/en/PTF_Profile_management_About_profiles.html)
-- [All about Marketing Campaigns & Deliveries](https://docs.campaign.adobe.com/doc/AC/en/CMP_Orchestrate_campaigns_Setting_up_marketing_campaigns.html)
-- [Data Schemas Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Schema_Reference_Elements_and_attributes.html)
-- [Input Forms Reference](https://docs.campaign.adobe.com/doc/AC/en/CFG_Input_forms_Form_structure.html)
-- [Physical data Model & tables relations](https://docs.campaign.adobe.com/doc/AC/en/technicalResources/_Datamodel_Description_of_the_main_tables.html) - Relational diagrams between objects with primary keys, foreign keys and fields
+- [All about Recipients](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/profile-management/about-profiles.html)
+- [All about Marketing Campaigns & Deliveries](https://docs.adobe.com/content/help/en/campaign-classic/using/orchestrating-campaigns/orchestrate-campaigns/setting-up-marketing-campaigns.html)
+- [Data Schemas Reference](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/schema-reference/elements-and-attributes.html)
+- [Input Forms Reference](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/input-forms/form-structure.html)
+- [Physical data Model & tables relations](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/data-model/data-model-description.html) - Relational diagrams between objects with primary keys, foreign keys and fields
 - Repository of Activities: [Targeting](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Targeting_activities.html), [Flow Control](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Flow_control_activities.html), [Action](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Action_activities.html), [Event](https://docs.campaign.adobe.com/doc/AC/en/WKF_Repository_of_activities_Event_activities.html)
 - [External accounts](https://docs.campaign.adobe.com/doc/AC/en/PTF_Administration_basics_External_accounts.html)
 - [Navigation hierarchy](https://docs.campaign.adobe.com/doc/AC/en/CFG_Navigation_hierarchy_Configuration.html)

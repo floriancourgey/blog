@@ -67,18 +67,18 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Email a report as a PDF to a recipients list](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/use-cases/sending-a-report-to-a-list.html)
 
 ## Marketing Campaigns & Deliveries
-- [Delivery Best Practices - Marketing](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliveryBestPractices.html)
-- [Delivery Best Practices - Technical](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/deliverability.html)
-- [Multi-channel campaigns](https://helpx.adobe.com/campaign/kt/acc/using/acc-multi-channel-campaigns-feature-video-set-up.html)
-- [Recurring vs Continuous deliveries - Adobe Doc](https://helpx.adobe.com/campaign/kt/acc/using/acc-recurring-delivery-tutorial-set-up.html)
-- [Recurring vs Continuous deliveries - Adobe Forum](https://forums.adobe.com/thread/2204509)
+- [Delivery Best Practices - Marketing](https://helpx.adobe.com/campaign/kb/delivery-best-practices.html)
+- [Delivery Best Practices - Technical](https://docs.adobe.com/content/help/en/campaign-classic/using/sending-messages/deliverability-management/about-deliverability.html)
+- [Multi-channel campaigns](https://docs.adobe.com/content/help/en/campaign-classic-learn/tutorials/orchestration/multi-channel-campaigns.html)
+- [Recurring vs Continuous deliveries - Adobe Doc](https://docs.adobe.com/help/en/campaign-classic/using/sending-messages/about-deliveries-and-channels/types-of-deliveries.html)
+- [Recurring vs Continuous deliveries - Adobe Forum](https://experienceleaguecommunities.adobe.com/t5/adobe-campaign-standard/continuous-delivery-vs-recurring-delivery/qaq-p/213086)
 - [Recurring vs Continuous deliveries - marketingcloudblog.com](https://marketingcloudblog.com/mcb_faq/difference-continuous-delivery-recurring-delivery-adobe-campaign/)
-- [Javascript templating langage (JST) in deliveries](https://docs.campaign.adobe.com/doc/AC/en/DLV_Content_management_Formatting.html)
-- [XSL templating langage (XSLT) for HTML and XML](https://docs.campaign.adobe.com/doc/AC/en/DLV_Content_management_Formatting.html#XSL_Stylesheets)
-- [Workflows and deliveries](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_How_to_use_workflow_data.html#Sending_via_a_workflow) and [Enrich a Delivery with `targetData`](https://docs.campaign.adobe.com/doc/AC/en/WKF__General_operation_Executing_a_workflow.html#Target_data)
+- [Javascript templating langage (JST) in deliveries](https://docs.adobe.com/content/help/en/campaign-classic/using/sending-messages/content-management/formatting.html)
+- [XSL templating langage (XSLT) for HTML and XML](https://docs.adobe.com/content/help/en/campaign-classic/using/sending-messages/content-management/formatting.html#xsl-stylesheets)
+- [Workflows and deliveries](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/general-operation/how-to-use-workflow-data.html#sending-via-a-workflow) and [Enrich a Delivery with `targetData`](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/general-operation/executing-a-workflow.html#target-data)
 
 ## Javascript help
-- [Online Javascript API (JSAPI)](https://final-docs.campaign.adobe.com/doc/AC/en/jsapi/)
+- [Online Javascript API (JSAPI)](https://docs.adobe.com/content/help/en/campaign-classic/technicalresources/api/index.html)
 - [queryDef](https://blog.floriancourgey.com/2018/08/use-querydef-the-database-toolkit-in-adobe-campaign)
 - [Web apps](https://blog.floriancourgey.com/2018/07/use-the-context-in-web-apps-in-adobe-campaign)
 - [JSSP - Javascript Server Pages](https://blog.floriancourgey.com/2018/11/create-jssp-dynamic-javascript-server-page-in-acc/)

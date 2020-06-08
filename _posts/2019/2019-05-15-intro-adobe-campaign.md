@@ -120,9 +120,9 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Download center - OLD](https://support.neolane.net/webApp/downloadCenter) - Download installation RPM/EXE, Client EXE, JS API as CHM..
 
 ## Installation
-- [Official prerequisites](https://docs.campaign.adobe.com/doc/AC/en/INS_Prerequisites_and_recommendations__Before_starting.html)
-- [Official install for Linux](https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Linux__Prerequisites.html)
-- [Official install for Windows](https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Windows__Prerequisites.html)
+- [Official prerequisites](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/prerequisites-and-recommendations-/before-starting.html)
+- [Official install for Linux](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/installing-campaign-in-linux-/prerequisites-of-campaign-installation-in-linux.html)
+- [Official install for Windows](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/installing-campaign-in-windows-/prerequisites-of-campaign-installation-in-windows.html)
 - [Install by floriancourgey.com on Virtualbox](https://blog.floriancourgey.com/2019/01/installing-adobe-campaign-locally)
 - [Compatibility matrix](https://helpx.adobe.com/campaign/kb/compatibility-matrix.html) - OS, web & database (RDBMS) servers, JDK  compatible versions
 

@@ -84,18 +84,19 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [JSSP - Javascript Server Pages](https://blog.floriancourgey.com/2018/11/create-jssp-dynamic-javascript-server-page-in-acc/)
 
 ## Server help
-- [serverConf.xml doc](https://docs.campaign.adobe.com/doc/AC/en/INS_Appendices_The_server_configuration_file.html)
+- [serverConf.xml doc](https://docs.adobe.com/content/help/en/campaign-classic/using/installing-campaign-classic/appendices/the-server-configuration-file.html)
 - [serverConf.xml content](https://blog.floriancourgey.com/2018/10/get-the-content-of-your-serverconf-xml-in-adobe-campaign/)
-- [SOAP API & web services](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_About_web_services.html)
-- [WSDL doc](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html#Web_service_description-_WSDL)
-- [Database cleanup task (cleanup workflow)](https://docs.campaign.adobe.com/doc/AC/en/PRO_Data_processing_Database_cleanup_workflow.html)
-- [nlserver doc](https://docs.campaign.adobe.com/doc/AC/en/PRO_Production_procedures_Operating_principle.html)
-- [Logs - log files and folders](https://docs.campaign.adobe.com/doc/AC/en/PRO_Production_procedures_Log_files.html)
+- [SOAP API & web services](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/api/about-web-services.html)
+- [WSDL doc](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/api/web-service-calls.html#web-service-description--wsdl)
+- [Database cleanup task (cleanup workflow)](https://docs.adobe.com/content/help/en/campaign-classic/using/monitoring-campaign-classic/data-processing/database-cleanup-workflow.html)
+- [nlserver doc](https://docs.adobe.com/content/help/en/campaign-classic/using/monitoring-campaign-classic/production-procedures/operating-principle.html)
+- [Logs - log files and folders](https://docs.adobe.com/content/help/en/campaign-classic/using/monitoring-campaign-classic/production-procedures/log-files.html)
 
 ## Changelog
-- [Latest Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN.html) - Changelog since the GDPR Update on 2018-04-24 (18.4 update - Build 8931)
+- [Latest Release Notes](https://docs.adobe.com/content/help/en/campaign-classic/using/release-notes/latest-release.html) - Changelog since the GDPR Update on 2018-04-24 (18.4 update - Build 8931)
 - [Old Release Notes](https://docs.campaign.adobe.com/doc/AC/en/RN_legacy.html) - Changelog from ACC 6.11 8552 on 2014-05-21 to the GDPR update
-- [Deprecated Features](https://helpx.adobe.com/campaign/kb/deprecated-and-removed-features.html) - Don't use those features, javascript calls and activities anymore as they might present a risk or a future malfunction
+- [Control Panel updates](https://docs.adobe.com/content/help/en/control-panel/using/release-notes.html) (AWS instances only)
+- [Deprecated Features](https://docs.adobe.com/content/help/en/campaign-classic/using/release-notes/deprecated-features.html) - Don't use those features, javascript calls and activities anymore as they might present a risk or a future malfunction
 
 ## Security & Privacy
 - [Security Checklist](https://docs.campaign.adobe.com/doc/AC/getting_started/EN/security.html)

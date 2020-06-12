@@ -228,6 +228,22 @@ unzip -q file.zip # Unzip with quietly (no output)
 [man zip](https://linux.die.net/man/1/zip),
 [man unzip](https://linux.die.net/man/1/unzip)
 
+## SSH
+
+Generate a key pair
+```console
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (~/.ssh/id_rsa):
+[...]
+```
+
+Compute the RSA key fingerprint
+```console
+$  ssh-keygen -lf .ssh/id_rsa.pub
+2048 SHA256:XXXXAAXXX user@machine (RSA)
+```
+
 ## Programming
 
 ### PHP and composer

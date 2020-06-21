@@ -43,6 +43,8 @@ $ javac --module-path $PATH_TO_FX --add-modules javafx.controls HelloFX.java
 $ java --module-path $PATH_TO_FX --add-modules javafx.controls HelloFX
 ``` 
 
+![](/assets/images/2020/javafx-hellofx-java.png)
+
 ### Eclipse setup
 - Open Eclipse, `Help`>`Eclipse Marketplace`>`e(fx)clipse` 3.6.0
 

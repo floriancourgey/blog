@@ -45,7 +45,13 @@ $ java --module-path $PATH_TO_FX --add-modules javafx.controls HelloFX
 
 ### Eclipse setup
 - Open Eclipse, `Help`>`Eclipse Marketplace`>`e(fx)clipse` 3.6.0
+
+![](/assets/images/2020/eclipse-javafx-marketplace.png)
+
 - `Eclipse`>`Preferences`>`User Libraries`>`New`>`"JavaFX"`>`Add external JARs`> Add all JARs from `javafx-sdk-11.0.2/lib`
+
+![](/assets/images/2020/eclipse-javafx-user-libraries.png)
+
 - Right click your project>`Build Path`>`Add libraries`>`JavaFX`
 - `Run`>`Run Configurations`>`Arguments`>`VM Arguments`> `--module-path /Users/me/java/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml`
 NB: do not use `$PATH_TO_FX` in Eclipse VM Arguments as it won't work and will yield

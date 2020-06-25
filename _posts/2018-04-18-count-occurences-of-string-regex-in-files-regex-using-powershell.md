@@ -38,3 +38,18 @@ Count the number of function is all Java files in the actual folder
 ```powershell
 (get-content *.php | select-string -pattern " function ").length
 ```
+
+## Count Lines
+```powershell
+Get-Content file.xml | Measure-Object –Line
+```
+
+## Count Characters
+```powershell
+Get-Content file.xml | Measure-Object –Character
+```
+
+## Count Words
+```powershell
+Get-Content file.xml | Measure-Object –Word
+```

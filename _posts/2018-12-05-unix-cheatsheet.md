@@ -158,6 +158,21 @@ grep -e '^[A-C]' file # regex
 
 [man grep](https://linux.die.net/man/1/grep)
 
+## vi/vim
+```bash
+vimtutor # vim tutorials
+i # insert mode
+w # write (save)
+q # quit
+wq # save & quit
+q! # force quit without saving
+/ # find
+n # repeat find (next occurence)
+1G # go to line 1
+99G # go to line 99
+G # go to end of file
+```
+
 ## Encode & decode
 ```bash
 echo 'I-love-you' | base64 # base64 encode (SS1sb3ZlLXlvdQo=)

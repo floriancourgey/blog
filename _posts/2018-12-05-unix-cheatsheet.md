@@ -8,7 +8,9 @@ categories:
   - shell
   - unix
 ---
+
 Cheatsheet with filesystem, commands and common utilities for UNIX based systems (Linux, Mac).
+
 <!--more-->
 
 ## UNIX filesystem
@@ -108,8 +110,15 @@ The online version is available on [https://linux.die.net/man/{section id}/{name
 
 ## CRON
 
+## IP
+
+IPs with CIDR notation. [Compute CIDR notation with online tool](https://ipaddressguide.com/cidr)
+- `/32` = 1 IP range (mask 255.255.255.255): `1.1.1.1/32` = range from `1.1.1.1` to `1.1.1.1`
+- `/24` = 256 IP range (mask 255.255.255.0): `1.1.1.1/24` = range from `1.1.1.0` to `1.1.1.255`
+- `/22` = 1,024 (4 * 256) IP range (mask 255.255.252.0): `1.1.1.1/22` = range from `1.1.0.0` to `1.1.3.255`
+
 ## Debian
-Names coming from [Toy story chaaracters](https://www.debian.org/doc/manuals/debian-faq/ch-ftparchives#s-sourceforcodenames)
+Names coming from [Toy story characters](https://www.debian.org/doc/manuals/debian-faq/ch-ftparchives#s-sourceforcodenames)
 ```bash
 Debian 9 # stretch, 2017
 Debian 8 # jessie, 2015

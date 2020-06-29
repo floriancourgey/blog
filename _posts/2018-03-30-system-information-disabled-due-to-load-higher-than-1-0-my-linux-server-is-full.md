@@ -64,9 +64,9 @@ If you still have some Mb left, [ncdu (ncurse disk usage)](https://dev.yorhel.nl
 
 ## Quelles solutions si je ne veux pas toucher a mes fichiers ?
 
-### Supprimer les logs rotated
+### Delete rotated logs
 
 ```bash
-$ ll /var/log/*.gz # petit check
-$ rm /var/log/*.gz
+$ ll /var/log/*.{gz,bz2} # check
+$ rm /var/log/*.{gz,bz2} # remove
 ```

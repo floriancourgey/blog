@@ -1,7 +1,6 @@
 ---
 title: Date Best Practices in Adobe Campaign
 categories: [opensource,adobe campaign,date]
-redirect_from: /2019/03/using-dates-in-adobe-campaign
 ---
 
 <p class="text-center">📊📧🌍</p>

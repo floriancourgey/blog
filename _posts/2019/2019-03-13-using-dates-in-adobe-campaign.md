@@ -1,6 +1,7 @@
 ---
-title: Using dates in Adobe Campaign
+title: Date Best Practices in Adobe Campaign
 categories: [opensource,adobe campaign,date]
+redirect_from: /2019/03/using-dates-in-adobe-campaign
 ---
 
 <p class="text-center">📊📧🌍</p>
@@ -24,6 +25,20 @@ getCurrentDate()
  */
 // new Date()
 ```
+
+## MomentJS external library
+```js
+// load lib
+loadLibrary('vendor:moment'); // @see https://blog.floriancourgey.com/2018/10/use-javascript-libraries-in-adobe-campaign/
+vars.yesterday = moment().subtract(1, 'day').format('YYYY-MM-DD'); // yesterday July 1st 2020
+var today = moment(); // today July 2nd 2020
+vars.lastDayOfMonth = (today.clone().endOf('month')).format('YYYY-MM-DD HH:mm:ss'); // July 31st 2020
+vars.lastDayOf12m   = (today.clone().endOf('month').subtract(1, 'year')).format('YYYY-MM-DD HH:mm:ss'); // July 31st 2019
+vars.lastDayOf24m   = (today.clone().endOf('month').subtract(2, 'year')).format('YYYY-MM-DD HH:mm:ss'); // July 31st 2018
+vars.thisMonday = moment().startOf('week');
+vars.lastMonday = moment().subtract(7, 'days').startOf('week');
+```
+See [MomentJS docs](https://momentjs.com/docs/#/manipulating/)
 
 ## In Workflow activities (Configuration)
 ```console
@@ -84,7 +99,7 @@ Using
 ```js
 loadLibrary("xtk:common.js"); // for Format
 var recipient = NLWS.nmsRecipient.load(recipientId);
-task.lastModified = Format.formatDateTimeInter(getCurrentDate());
+recipient.lastModified = Format.formatDateTimeInter(getCurrentDate());
 recipient.save();
 ```
 

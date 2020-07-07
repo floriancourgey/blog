@@ -68,6 +68,37 @@ Gives the following response with `<recipient-collection>`:
 
 *See [Adobe Campaign SOAP calls](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html) for details.*
 
+## Example with `xtk:session#WriteCollection` to bulk update any object
+`SOAPAction`:`xtk:session#WriteCollection`
+
+
+Request:
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:xtk:session">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:WriteCollection>
+         <urn:sessiontoken>login/password</urn:sessiontoken>
+         <urn:domDoc>
+            <broadLogRcp-collection xtkschema="nms:broadLogRcp">
+              <broadLogRcp id="129106000" status="5" _operation="update" _key="@id"/>
+              <broadLogRcp id="129117000" status="4" _operation="update" _key="@id"/>
+            </broadLogRcp-collection>
+         </urn:domDoc>
+      </urn:WriteCollection>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
+Response
+```xml
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:wpp:default" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Body>
+      <WriteCollectionResponse SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns="urn:wpp:default"/>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
 ## Example with a custom Javascript method
 
 ### 1. Data schema

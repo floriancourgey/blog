@@ -20,9 +20,9 @@ Then, in the code use
 var age = 20;
 
 if(age >= 21){ // or whatever condition you need
-  task.postEvent(task.transitionByName("major")); // the important part
+  task.postEvent(task.transitionByName('major')); // the important part
 } else {
-  task.postEvent(task.transitionByName("minor")); // the important part
+  task.postEvent(task.transitionByName('minor')); // the important part
 }
 ```
 

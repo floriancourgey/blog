@@ -343,4 +343,7 @@ docker run --name myubuntu -it ubuntu /bin/bash
 root@xxxxxxx:/# exit
 docker ps --all # list containers
 docker start myubuntu
+docker build . # build using local Dockerfile
+docker-compose build # build using local docker-compose.yml
+docker-compose up -d # run
 ```

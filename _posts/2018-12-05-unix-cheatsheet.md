@@ -315,6 +315,7 @@ npm install package-x
 sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp # uninstall
 ```
 Note: for a dev machine (single user, multiple node versions) don't install node/npm as root, use [nvm - Node Version Manager](https://github.com/nvm-sh/nvm) instead. More in this [Medium post](https://medium.com/@ExplosionPills/dont-use-sudo-with-npm-still-66e609f5f92)
+
 ### Java
 ```bash
 java -version
@@ -332,4 +333,14 @@ import java.io.File;
 public class MyClass {
   public static void main(final String[] args) { System.out.println("Hello World"); }
 }
+```
+
+### Docker
+```bash
+docker pull ubuntu # download images from hub.docker.com: alpine, mysql...
+docker image # list images
+docker run --name myubuntu -it ubuntu /bin/bash
+root@xxxxxxx:/# exit
+docker ps --all # list containers
+docker start myubuntu
 ```

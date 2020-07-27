@@ -1,5 +1,5 @@
 ---
-title: Tracking links detection & formula with targetData in Adobe Campaign
+title: Tracking links detection & formula with targetData in Adobe Campaign (+ UTM codes!)
 categories: [delivery,opensource,adobe campaign]
 ---
 How to track your HTML links in an Adobe Campaign delivery when they are generated from upstream data `targetData`?

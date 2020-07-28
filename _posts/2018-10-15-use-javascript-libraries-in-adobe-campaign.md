@@ -1,19 +1,15 @@
 ---
-id: 1023
 title: Use Javascript libraries in Adobe Campaign (MomentJS, Lodash..)
-date: 2018-10-15T14:46:25+00:00
-author: Florian Courgey
 layout: post
-guid: https://floriancourgey.com/?p=1023
 permalink: /2018/10/use-javascript-libraries-in-adobe-campaign/
-categories:
-  - opensource
-  - adobe campaign
+categories: [opensource, adobe campaign]
 ---
+
 Ever wanted to use **MomentJS** or **Lodash** in your JS scripts? It's easy to include them via a CDN for client-side web apps, but it can get tricky to get them for server-side processing. This tutorial walks you through the installation of Javascript libraries for Server Side use.
 
 <!--more-->
 
+## Installation
 Copy the source code of your library, such as Moment here [https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js](https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js)
 
 Go to your Javascript Codes and create a new one labelled 'vendor:moment'. Paste the code you just copied:
@@ -26,8 +22,7 @@ Now in a workflow you can use it as any other standard library:
 
 ![todo](/assets/images/2018/10/Adobe-Campaign-use-external-library.jpg)
 
-## Source code
-### Step 1/2 Download library
+## Example with lodash
 Copy from [https://underscorejs.org/underscore-min.js](https://underscorejs.org/underscore-min.js) and paste to `vendor:undescore`:
 ```js
 //     Underscore.js 1.9.1
@@ -37,11 +32,40 @@ Copy from [https://underscorejs.org/underscore-min.js](https://underscorejs.org/
 !function(){var n="object"==typeof self&&self.self===self&&self||"object"==typeof global&&global.global===[...]
 ```
 
-### Step 2/2 Use library
 In any Javascript activity, you can now use it with `loadLibrary('vendor:undescore')`:
 ```js
 loadLibrary('vendor:underscore');
 
 _.map([1, 2, 3], function(num){ return num * 3; });
 // => [3, 6, 9]
+```
+
+## Example with MomentJS
+Copy from [https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js](https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js) and paste it to `vendor:moment`:
+```js
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&def[...]
+```
+
+In any Javascript activity, you can now use it with `loadLibrary('vendor:moment')`:
+```js
+loadLibrary('vendor:moment');
+
+var yesterday = moment().subtract(1, 'day');
+logInfo(yesterday.format('YYYY-MM-DD HH:mm:ss')); // 2020-07-27 15:12:59
+var tomorrow = moment().add(1, 'day');
+logInfo(tomorrow.format('YYYY-MM-DD HH:mm:ss')); // 2020-07-29 15:12:59
+```
+
+To handle MomentJS locales ([https://momentjs.com/docs/#/i18n/instance-locale/](https://momentjs.com/docs/#/i18n/instance-locale/)), use [https://cdn.jsdelivr.net/npm/moment@2.27.0/min/locales.min.js](https://cdn.jsdelivr.net/npm/moment@2.27.0/min/locales.min.js) in `vendor:moment-locales`
+
+Then:
+```js
+loadLibrary('vendor:moment');
+loadLibrary('vendor:moment-locales');
+
+var yesterday = moment().subtract(1, 'day');
+yesterday.locale('fr');
+logInfo(yesterday.format('dddd D MMMM')); // lundi 27 juillet
+yesterday.locale('us');
+logInfo(yesterday.format('dddd D MMMM')); // Monday 27 July
 ```

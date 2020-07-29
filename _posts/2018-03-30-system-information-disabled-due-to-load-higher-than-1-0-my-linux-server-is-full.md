@@ -1,5 +1,5 @@
 ---
-title: System information disabled due to load higher than 1.0 (My linux server is full !)
+title: System information disabled due to load higher than 1.0 (My linux server is full!)
 permalink: /2018/03/system-information-disabled-due-to-load-higher-than-1-0-my-linux-server-is-full/
 categories: [linux, server]
 ---
@@ -60,9 +60,18 @@ $ du -h --max-depth=2 /home | sort -hr
 ```
 
 If you still have some Mb left, [ncdu (ncurse disk usage)](https://dev.yorhel.nl/ncdu/scr) might help:
+
+```console
+$ ncdu
+$ ncdu ~
+$ sudo ncdu /
+# inside ncdu, quit with q
+# and go up folder with <backspace>
+```
+
 ![](https://i1.wp.com/dev.yorhel.nl/img/ncduinfo-2.png)
 
-## Quelles solutions si je ne veux pas toucher a mes fichiers ?
+## Common temporary files safe to remove
 
 ### Delete rotated logs
 

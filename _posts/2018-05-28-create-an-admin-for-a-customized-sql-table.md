@@ -39,12 +39,9 @@ insert into pasta (sku,name) values ('601011294', 'BARILLA ARRABBIATA SPCY P');
 -- find all the SQL setup in https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv
 ```
 
-## Step 1: Create your PHP class
+## Step 1: Create PHP class
 
-Folder does not matter, all properties as `public`, `extends ObjectModel`, use `public static $definition` to define your SQL fields.
-
-For example I like to use use `/override/classes/my_dir`. This way, it will stay even if Prestashop is updated, and can be included in a git repository.
-
+Create the `ObjectModel` class `/override/classes/fc_pasta/Pasta.php`:
 ```php
 <?php
 class Pasta extends ObjectModel {
@@ -64,16 +61,17 @@ class Pasta extends ObjectModel {
 }
 ```
 
-## Step 2: Create your Admin Controller
+In details, folder does not matter, all properties must be `public`, class `extends ObjectModel`, and use `public static $definition` to define your SQL fields.
 
-AdminController can only be created inside a Module. Let's create a dummy module first in `modules/my_module/my_module.php`:
+## Step 2: Create Admin Controller
 
+Create the module `/modules/fc_pasta/fc_pasta.php`:
 ```php
 <?php
 if (!defined('_PS_VERSION_')) {exit;}
-class My_Module extends Module {
+class Fc_Pasta extends Module {
   public function __construct() {
-      $this->name = 'my_module';
+      $this->name = 'fc_pasta';
       $this->tab = 'administration';
       $this->version = '1.0.0';
       $this->author = 'Florian Courgey';
@@ -86,12 +84,10 @@ class My_Module extends Module {
 }
 ```
 
-Activate it through the PrestShop Backoffice by looking for "my_module":
-
+Activate it through the PrestShop Backoffice by looking for `pasta`:
 ![](/assets/images/2018/05/search-for-my_module-in-the-backoffice-annote.jpg)
 
-and then create the bare minimum in an Admincontroller in `modules/my_module/controllers/admin/AdminPastaController.php`, which `extends ModuleAdminController`
-
+and then Create the Admincontroller in `modules/fc_pasta/controllers/admin/AdminPastaController.php`, which `extends ModuleAdminController`:
 ```php
 <?php
 require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';

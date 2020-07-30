@@ -80,6 +80,17 @@ class Fc_Pasta extends Module {
       $this->displayName = $this->l('PrestaShop Module by FC');
       $this->description = $this->l('Improve your store by [...]');
       $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
+      // install Tab
+      $tab = new Tab();
+      $tab->class_name = 'AdminPasta';
+      $tab->module = $this->name;
+      $tab->id_parent = (int)Tab::getIdFromClassName('DEFAULT');
+      $tab->icon = 'settings_applications';
+      $languages = Language::getLanguages();
+      foreach ($languages as $lang) {
+          $tab->name[$lang['id_lang']] = $this->l('FC Pasta Admin controller');
+      }
+      $tab->save();
   }
 }
 ```
@@ -107,6 +118,11 @@ class AdminPastaController extends ModuleAdminController {
 Head to <http://localhost/admin-dev/index.php?controller=AdminPasta> and you should now have an empty AdminController:
 
 ![](/assets/images/2018/05/empty-AdminController-PastaController.jpg)
+
+If you get the error message `Page not found - The controller AdminPasta is missing or invalid.`, make sure the tab is installed in `ps_tab` with:
+```sql
+SELECT * FROM `ps_tab` WHERE class_name = 'AdminPasta'
+```
 
 ## Step 3: Configure your Admin Controller
 

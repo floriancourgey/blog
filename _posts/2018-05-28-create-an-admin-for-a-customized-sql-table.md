@@ -171,7 +171,7 @@ This gives us a wonderful table with export, filters, orders and pagination:
 
 ## 4. Create, edit and delete your Custom Object
 
-But we still cannot create or edit our object. We have to add a new part in our controller with `$this->fileds_form`:
+But we still cannot create or edit our object. We have to add a new part in our controller with `$this->fields_form`:
 
 ```php
 <?php
@@ -184,6 +184,7 @@ class AdminPastaController extends ModuleAdminController {
     // Read & update record
     $this->addRowAction('details');
     $this->addRowAction('edit');
+    $categories = Category::getCategories($this->context->language->id, $active=true, $order=false); // [0=>[id_category=>X,name=>Y]..]
     $this->fields_form = [
       'legend' => [
         'title' => 'Pasta',
@@ -195,6 +196,11 @@ class AdminPastaController extends ModuleAdminController {
         ['name'=>'name','type'=>'text','label'=>'Name','required'=>true],
         ['name'=>'description','type'=>'textarea','label'=>'Description',],
         ['name'=>'created','type'=>'datetime','label'=>'Created',],
+        ['name'=>'id_pasta_category','label'=>'Category','type'=>'select','required'=>true,'class'=>'select2',
+          'options'=>[ 'query'=>$categories,
+            'id'=>'id_category', // use the key "id_category" as the <option> key
+            'name'=> 'name', // use the key "name" as the <option> display value
+        ]],
       ],
       'submit' => [
         'title' => $this->trans('Save', [], 'Admin.Actions'),
@@ -225,7 +231,9 @@ This is a limitation of PrestaShop: if you want to edit/create/delete an object,
 
 So you have to rename your pasta table:
 
-`RENAME TABLE prestashop_pasta.pasta TO prestashop_pasta.ps_pasta; # adjust with your own _DB_PREFIX_`
+```sql
+RENAME TABLE prestashop_pasta.pasta TO prestashop_pasta.ps_pasta; # adjust with your own _DB_PREFIX_
+```
 
 And remove the whole `function getFromClause`:
 

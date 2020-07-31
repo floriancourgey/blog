@@ -1,9 +1,11 @@
 use prestashop;
 
 CREATE TABLE pasta (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `sku` VARCHAR(255) NOT NULL ,
-  `name` VARCHAR(255) NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `sku` INT NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `description` TEXT,
+  `id_pasta_category` INT NOT NULL,
   `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;

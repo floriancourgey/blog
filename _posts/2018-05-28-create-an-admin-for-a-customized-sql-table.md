@@ -198,8 +198,8 @@ class AdminPastaController extends ModuleAdminController {
         ['name'=>'created','type'=>'datetime','label'=>'Created',],
         ['name'=>'id_pasta_category','label'=>'Category','type'=>'select','required'=>true,'class'=>'select2',
           'options'=>[ 'query'=>$categories,
-            'id'=>'id_category', // use the key "id_category" as the <option> key
-            'name'=> 'name', // use the key "name" as the <option> display value
+            'id'=>'id_category', // use the key "id_category" as the <option> value
+            'name'=> 'name', // use the key "name" as the <option> title
         ]],
       ],
       'submit' => [

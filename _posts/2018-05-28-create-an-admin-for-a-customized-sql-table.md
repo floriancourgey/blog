@@ -46,11 +46,12 @@ Create the `ObjectModel` class `/override/classes/fc_pasta/Pasta.php`:
 ```php
 <?php
 class Pasta extends ObjectModel {
-  public $id;
+  public $id; // fields are mandatory for create/update
   public $sku;
   public $name;
   public $created;
   public $category;
+  public $id_pasta_category;
   public static $definition = [
     'table' => 'pasta',
     'primary' => 'id',

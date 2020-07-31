@@ -76,16 +76,16 @@ Create the module `/modules/fc_pasta/fc_pasta.php`:
 if (!defined('_PS_VERSION_')) {exit;}
 class Fc_Pasta extends Module {
   public function __construct() {
-      $this->name = 'fc_pasta';
+      $this->name = 'fc_pasta'; // must match folder & file name
       $this->tab = 'administration';
       $this->version = '1.0.0';
       $this->author = 'Florian Courgey';
-      $this->bootstrap = true;
+      $this->bootstrap = true; // use Bootstrap CSS
       parent::__construct();
       $this->displayName = $this->l('PrestaShop Module by FC');
       $this->description = $this->l('Improve your store by [...]');
       $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
-      // install Tab
+      // install Tab to register AdminController in the database
       $tab = new Tab();
       $tab->class_name = 'AdminPasta';
       $tab->module = $this->name;

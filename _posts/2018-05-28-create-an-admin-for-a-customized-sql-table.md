@@ -110,19 +110,12 @@ require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
 class AdminPastaController extends ModuleAdminController {
   public function __construct(){
       parent::__construct();
+      // Base
       $this->bootstrap = true; // use Bootstrap CSS
       $this->table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
       $this->identifier = 'id'; // SQL column to be used as primary key
       $this->className = 'Pasta'; // PHP class name
       $this->allow_export = true; // allow export in CSV, XLS..
-      $this->identifier = 'id';
-      $this->_defaultOrderBy = 'a.sku'; // the table alias is always `a`
-      $this->_defaultOrderWay = 'ASC'; // ASC or DESC
-      $this->_select = 'cl.name as category'; // select join
-      $this->_join = '
-        LEFT JOIN '._DB_PREFIX_.'category cat ON (cat.id_category=a.id_pasta_category)
-        LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cat.id_category=cl.id_category and cat.id_shop_default=cl.id_shop)
-      '; // join category & category translations
   }
 }
 ```
@@ -147,19 +140,21 @@ require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
 class AdminPastaController extends ModuleAdminController {
   public function __construct(){
     parent::__construct();
-    $this->bootstrap = true; // use Bootstrap CSS
-    $this->table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
-    $this->identifier = 'id'; // SQL column to be used as primary key
-    $this->className = 'Pasta'; // PHP class name
-    $this->allow_export = true; // allow export in CSV, XLS..
-
-    $this->_defaultOrderBy = 'a.created'; // the table alias is always `a`
-    $this->_defaultOrderWay = 'DESC';
+    [...]
+    // List records
+    $this->_defaultOrderBy = 'a.sku'; // the table alias is always `a`
+    $this->_defaultOrderWay = 'ASC';
+    $this->_select = 'a.name as `pastaName`, cl.name as `categoryName`';
+    $this->_join = '
+      LEFT JOIN `'._DB_PREFIX_.'category` cat ON (cat.id_category=a.id_pasta_category)
+      LEFT JOIN `'._DB_PREFIX_.'category_lang` cl ON (cat.id_category=cl.id_category and cat.id_shop_default=cl.id_shop)
+    ';
     $this->fields_list = [
-        'id' => ['title' => 'ID','class' => 'fixed-width-xs'],
-        'sku' => ['title' => 'SKU'],
-        'name' => ['title' => 'Name'],
-        'created' => ['title' => 'Created','type'=>'datetime'],
+      'id' => ['title' => 'ID','class' => 'fixed-width-xs'],
+      'sku' => ['title' => 'SKU'],
+      'pastaName' => ['title' => 'Name', 'filter_key'=>'a!name'], // filter_key mandatory because "name" is ambiguous for SQL
+      'categoryName' => ['title' => 'Category', 'filter_key'=>'cl!name'], // filter_key mandatory because JOIN
+      'created' => ['title' => 'Created','type'=>'datetime'],
     ];
   }
 
@@ -185,38 +180,26 @@ require_once _PS_ROOT_DIR_.'/override/classes/my_dir/Pasta.php';
 class AdminPastaController extends ModuleAdminController {
   public function __construct(){
     parent::__construct();
-    $this->bootstrap = true; // use Bootstrap CSS
-    $this->table = 'pasta'; // SQL table name, will be prefixed with _DB_PREFIX_
-    $this->identifier = 'id'; // SQL column to be used as primary key
-    $this->className = 'Pasta'; // PHP class name
-    $this->allow_export = true; // allow export in CSV, XLS..
-
-    $this->_defaultOrderBy = 'a.created'; // the table alias is always `a`
-    $this->_defaultOrderWay = 'DESC';
-    $this->fields_list = [
-        'id' => ['title' => 'ID','class' => 'fixed-width-xs'],
-        'sku' => ['title' => 'SKU'],
-        'name' => ['title' => 'Name'],
-        'created' => ['title' => 'Created','type'=>'datetime'],
-    ];
-
-    $this->addRowAction('edit');
+    [...]
+    // Read & update record
     $this->addRowAction('details');
+    $this->addRowAction('edit');
     $this->fields_form = [
       'legend' => [
         'title' => 'Pasta',
         'icon' => 'icon-list-ul'
       ],
       'input' => [
-        ['name'=>'sku','type'=>'text','label'=>'SKU','required'=>true,],
+        ['type'=>'html','html_content'=>'<div class="alert alert-info">Put here any info content</div>'],
+        ['name'=>'sku','type'=>'text','label'=>'SKU','required'=>true,'suffix'=>'Item reference',],
         ['name'=>'name','type'=>'text','label'=>'Name','required'=>true],
-        ['name'=>'created','type'=>'text','label'=>'Created','suffix'=>'YYYY-MM-DD HH:mm',],
+        ['name'=>'description','type'=>'textarea','label'=>'Description',],
+        ['name'=>'created','type'=>'datetime','label'=>'Created',],
       ],
       'submit' => [
         'title' => $this->trans('Save', [], 'Admin.Actions'),
       ]
     ];
-
   }
 
   // As our database doesn't use the _DB_PREFIX_, we have to remove it

@@ -19,24 +19,25 @@ This is the part 1 of a Series to customize Prestashop in depth. [Follow this li
 
 We are going to be able to create, read, update and delete a customized SQL table. Let's take some pastas as an example.
 
-We will be using this SQL Dataset [setup.sql](https://floriancourgey.com/wp-content/uploads/2018/05/setup.sql_.txt) (taken from the CSV [dh\_product\_lookup.csv](https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv), from the website <https://www.dunnhumby.com/sourcefiles>).
+We will be using this SQL Dataset [setup.sql](https://github.com/floriancourgey/blog/blob/master/assets/prestashop/pasta_setup.sql) (taken from  <https://www.dunnhumby.com/sourcefiles>).
 
 Let's use the pasta database:
 
 ```sql
 CREATE TABLE pasta (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `sku` VARCHAR(255) NOT NULL ,
-  `name` VARCHAR(255) NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `sku` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `description` TEXT,
+  `id_pasta_category` INT NOT NULL,
   `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-insert into pasta (sku,name) values ('601011292', 'BARILLA MARINARA PSTA SCE');
-insert into pasta (sku,name) values ('601011293', 'BARILLA SWT PEPPER/GARLIC');
-insert into pasta (sku,name) values ('601011294', 'BARILLA ARRABBIATA SPCY P');
+insert into pasta (sku,name,description,id_pasta_category) values ('111112360', 'VINCENT S ORIG MARINARA S','ac facilisis facilisis, magna tellus',2);
+insert into pasta (sku,name,description,id_pasta_category) values ('566300023', 'PINE MOUNTAIN SYRUP','at pede. Cras vulputate velit eu',4);
 -- [...]
--- find all the SQL setup in https://floriancourgey.com/wp-content/uploads/2018/05/dh_product_lookup.csv
+-- find all the SQL setup in https://github.com/floriancourgey/blog/blob/master/assets/prestashop/pasta_setup.sql
 ```
 
 ## Step 1: Create PHP class
@@ -49,13 +50,16 @@ class Pasta extends ObjectModel {
   public $sku;
   public $name;
   public $created;
+  public $category;
   public static $definition = [
     'table' => 'pasta',
     'primary' => 'id',
     'fields' => [
       'sku' =>  ['type' => self::TYPE_STRING, 'validate' => 'isAnything', 'required'=>true],
       'name' =>  ['type' => self::TYPE_STRING, 'validate' => 'isAnything', 'required'=>true],
+      'description' =>  ['type' => self::TYPE_HTML, 'validate' => 'isAnything',],
       'created' =>  ['type' => self::TYPE_DATE, 'validate' => 'isDateFormat'],
+      'id_pasta_category' => ['type'=>self::TYPE_INT, 'validate'=>'isUnsignedInt','required'=>true,],
     ],
   ];
 }
@@ -111,6 +115,14 @@ class AdminPastaController extends ModuleAdminController {
       $this->identifier = 'id'; // SQL column to be used as primary key
       $this->className = 'Pasta'; // PHP class name
       $this->allow_export = true; // allow export in CSV, XLS..
+      $this->identifier = 'id';
+      $this->_defaultOrderBy = 'a.sku'; // the table alias is always `a`
+      $this->_defaultOrderWay = 'ASC'; // ASC or DESC
+      $this->_select = 'cl.name as category'; // select join
+      $this->_join = '
+        LEFT JOIN '._DB_PREFIX_.'category cat ON (cat.id_category=a.id_pasta_category)
+        LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cat.id_category=cl.id_category and cat.id_shop_default=cl.id_shop)
+      '; // join category & category translations
   }
 }
 ```

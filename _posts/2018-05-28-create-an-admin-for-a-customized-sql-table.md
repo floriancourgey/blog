@@ -1,10 +1,10 @@
 ---
-title: 'Create an Admin Controller for a customized SQL table (Part 1/2) [Prestashop 1.7]'
+title: 'Create an Admin Controller for a custom SQL table (Part 1/2) [Prestashop 1.7]'
 permalink: /2018/05/create-an-admin-for-a-customized-sql-table/
 categories: [opensource, prestashop, prestashop 1.7]
 ---
 
-Prestashop has developed great admin interface : data table, filters, edit/create form, etc. But you know what? You can re-use this UI for your own SQL table. This tutorial will walk through it.
+Prestashop has developed a great admin interface: data table, filters, edit/create form, etc. But you know what? You can re-use this UI for your own SQL tables. This tutorial will walk through it.
 
 
 ![](/assets/images/2018/05/Admin-Controller-Cover.jpg)
@@ -17,7 +17,7 @@ This is the part 1 of a Series to customize Prestashop in depth. [Follow this li
 
 ## Objective
 
-We are going to be able to create, read, update and delete a customized SQL table. Let's take some pastas as an example.
+We are going to be able to create, read, update and delete a customized SQL table. Let's take some pasta as an example.
 
 We will be using this SQL Dataset [setup.sql](https://github.com/floriancourgey/blog/blob/master/assets/prestashop/pasta_setup.sql) (taken from  <https://www.dunnhumby.com/sourcefiles>).
 
@@ -248,7 +248,7 @@ Refresh your page and you now have a fully working Form with a Custom Object:
 
 ![](/assets/images/2018/05/AdminController-Edit-is-now-working.jpg)
 
-Here we are!! There's still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pastas in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/04/how-to-create-a-new-front-controller-for-prestashop-1-7/).
+Here we are!! There's still much to do, as adding new fields in the Edit Form (tuto coming soon) and display those pasta in a nice Front Controller for the customers to be able to see them, you can head over here [for the tutorial 2 about creating the Front Controller](https://floriancourgey.com/2018/04/how-to-create-a-new-front-controller-for-prestashop-1-7/).
 
 
 ![Hooray!](https://i0.wp.com/uploads.disquscdn.com/images/3681964a5dbe8e4d3ca23796cfdeb66e137b3f46f16d82453437872e417e410f.jpg?w=525&#038;ssl=1)

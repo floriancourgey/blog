@@ -1,5 +1,5 @@
 ---
-title: Use queryDef, the Database toolkit in Adobe Campaign
+title: Use queryDef and NLWS, the Database toolkits in Adobe Campaign (SQL/JSON/XML)
 redirect_from: /2018/08/use-querydef-the-database-toolkit-in-adobe-campaign/
 categories: [adobe campaign, javascript, linux, opensource]
 ---
@@ -240,6 +240,29 @@ var xmlQryKeys = <queryDef operation="get" schema={strTargetSchema}/>;
 xmlQryKeys.appendChild(select);
 xmlQryKeys.appendChild(where);
 ```
+
+## Batch delivery update
+Plug a nms:delivery query to a JS code with:
+```js
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: vars.targetSchema, operation: 'select', lineCount: 999999999, // /!\ lineCount defaults to 10,000
+  select: { node: [
+    {expr: '@id'},
+  ]},
+}});
+var records = query.ExecuteQuery(); // DOMElement
+
+for each(var record in records.getElements()){
+  var delivery = NLWS.nmsDelivery.load(record.$id);
+  var oldLabel = delivery.label.toString();
+  var newLabel = oldLabel.replace(/XXX/, 'AAA').replace(/\s/g, '_');
+  logInfo(delivery.id+':', oldLabel, '=>', newLabel);
+  delivery.label = newLabel;
+  delivery.scenario.labelScript = newLabel + '_<%= formatDate(new Date(), "%4Y%2M") %>';
+  delivery.save();
+}
+```
+
 ## Raw SQL code execution
 instance.engine / exec with parameters / date Format.parseDateTimeInter
 

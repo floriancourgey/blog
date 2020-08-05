@@ -48,7 +48,7 @@ response.setContentType("text/html;charset=utf-8");
 
 ![todo](/assets/images/2018/11/html-render-in-restlet-client-with-content-type.jpg)
 
-## Develop a JSON API
+## Develop a Read/GET Recipient JSON API
 
 ```js
 <%
@@ -65,8 +65,6 @@ But try to `var delivery = NLWS.nmsDelivery.load('12435');`  and you'll get an A
 ```
 XTK-170019 Access denied.
 ```
-
-&nbsp;
 
 This is because the current operator is Anonymous:
 
@@ -89,9 +87,7 @@ locale: en-US
 home:
 ```
 
-&nbsp;
-
-So we have to change the logon information with the <span class="lang:js decode:true crayon-inline ">logon</span>  function:
+So we have to change the logon information with the `logon`  function:
 
 ```js
 <% var oldContext = logonEscalation('webapp'); // login with the standard webapp access
@@ -118,14 +114,85 @@ home:
 Database is now accessible 😉
 
 <div class="alert alert-warning">
-  Don't use `logon` as is is deprecated and you will get:
-  
-  Adobe Campaign message (in Monitoring logs > web@default):
+  Don't use `logon` as is is deprecated and you'll get the Adobe Campaign error message (in Monitoring logs > web@default):
 
   The 'logon' JavaScript method is deprecated. Please use 'logonEscalation', 'logonWithUser', 'logonWithToken' or 'logonWithContext' instead.
   
-  Use `logonEscalation('webapp')`, `logonWithUser(login, password)`, `logonWithToken(token)` , `logonWithContext(context)`  instead.
+  So you may use `logonEscalation('webapp')`, `logonWithUser(login, password)`, `logonWithToken(token)` , `logonWithContext(context)`.
 </div>
+
+
+Use below code to create a standard GET Json API with a Dynamic JavaScript Server Page named `fco:fco-test-json-get-api.jssp`:
+```js
+<% 
+response.setContentType('application/json');
+if(request['method'] != 'GET'){
+  return document.write(JSON.stringify({status:'KO',error:'Please use HTTP GET'}));
+}
+var label = request.getParameter('label'); // fetch "label" param from URL
+if(!label){
+  return document.write(JSON.stringify({status:'KO',error:'Missing "label" param'}));
+}
+logonEscalation('webapp'); // logon as webapp operator
+
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: 'nms:delivery', operation: 'select', lineCount: 500, // /!\ lineCount defaults to 10,000
+  select: { node: [
+    {expr: '@id'},
+    {expr: '@label'},
+  ]},
+  where: {
+    condition: [
+      {expr: "Lower(@label) LIKE '%"+label+"%'"}, // filter by label
+    ],
+  }
+}});
+var records = query.ExecuteQuery(); // DOMElement
+var deliveries = [];
+for each(var record in records.getElements()){
+  deliveries.push({
+    id: record.$id,
+    label: record.$label,
+  });
+}
+var result = {
+  status: 'OK',
+  length: records.getElements().length,
+  results: deliveries,
+}
+document.write(JSON.stringify(result));
+%>
+```
+
+![]()
+
+
+## Develop a Update/POST Recipient JSON API
+
+```js
+<% 
+response.setContentType('application/json');
+if(request['method'] != 'POST'){
+  return document.write(JSON.stringify({status:'KO',error:'Please use HTTP POST'}));
+}
+var body = request.getBodyAsString();
+var bodyAsJson = JSON.parse(body);
+if(!bodyAsJson.recipientId){
+  return document.write(JSON.stringify({status:'KO',error:'Missing "recipientId" key'}));
+}
+logonEscalation('webapp');
+var recipient = NLWS.nmsRecipient.load(bodyAsJson.recipientId);
+var result = {
+  status: 'OK',
+  length: 1,
+  results: [{
+    firstName: recipient.firstName,
+    createdDate: recipient.created,
+  }],
+}
+document.write(JSON.stringify(result));
+%>
+```
 
 ## Example of HttpServletRequest and HttpServletRequest
 

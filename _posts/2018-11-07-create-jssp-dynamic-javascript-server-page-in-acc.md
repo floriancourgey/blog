@@ -164,7 +164,7 @@ document.write(JSON.stringify(result));
 %>
 ```
 
-![]()
+![](/assets/images/2020/adobe-campaign-jssp-get-api.jpg)
 
 
 ## Develop a Update/POST Recipient JSON API
@@ -193,6 +193,8 @@ var result = {
 document.write(JSON.stringify(result));
 %>
 ```
+
+![](/assets/images/2020/adobe-campaign-jssp-post-api.jpg)
 
 ## Example of HttpServletRequest and HttpServletRequest
 

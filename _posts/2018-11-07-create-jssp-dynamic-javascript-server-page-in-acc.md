@@ -94,7 +94,7 @@ home:
 So we have to change the logon information with the <span class="lang:js decode:true crayon-inline ">logon</span>  function:
 
 ```js
-<% var oldContext = logon('john-doe', 'password'); // login as john-doe
+<% var oldContext = logonEscalation('webapp'); // login with the standard webapp access
 for(var i in application.operator){
   document.write(i+': '+application.operator[i]+'\n');
 }
@@ -105,25 +105,26 @@ logon(sessionToken); // log in with token %>
 Displays
 
 ```js
-login: john-doe
-id: 16448341684316
-computeString: John Doe (john-doe)
-groups: 558
-rights: right1
-timezone: America/Los_Angeles
-locale: en-US
+login: webapp
+id: 3420
+computeString: Web applications agent (webapp)
+groups: 
+rights: ADMINISTRATION
+timezone: 
+locale: 
 home:
 ```
 
 Database is now accessible 😉
 
 <div class="alert alert-warning">
-  logon is deprecated. Use `logonEscalation('webapp')`, `logonWithUser(login, password)`, <span class="lang:js decode:true crayon-inline ">logonWithToken(token)</span> , <span class="lang:js decode:true crayon-inline ">logonWithContext(context)</span>  instead.
-
-
-  Original Adobe Campaign message (in Monitoring logs > web@default):
+  Don't use `logon` as is is deprecated and you will get:
+  
+  Adobe Campaign message (in Monitoring logs > web@default):
 
   The 'logon' JavaScript method is deprecated. Please use 'logonEscalation', 'logonWithUser', 'logonWithToken' or 'logonWithContext' instead.
+  
+  Use `logonEscalation('webapp')`, `logonWithUser(login, password)`, `logonWithToken(token)` , `logonWithContext(context)`  instead.
 </div>
 
 ## Example of HttpServletRequest and HttpServletRequest

@@ -9,10 +9,22 @@ Your UI is not working? Your Backoffice doesn&#8217;t allow you to install a mod
 
 <!--more-->
 
+## Module & tabs install
   1. Make sure your module is avalaible locally under `/modules/my_module/my_module.php`
   2. Go to your database and run:
 
 ```sql
+# Module
 insert into _module (name, version, active) values ('my_module', '1.0.0', 1); # keep the id
 insert into _module_shop (id_module, id_shop) values (use_the_id, 1);
+# Tabs
+```
+
+## Module & tabs uninstall
+```sql
+# Module
+delete from ps_module_shop where id_module = XXX;
+delete from ps_module where name = 'my_module';
+# Tabs
+delete from ps_tab where module = 'my_module';
 ```

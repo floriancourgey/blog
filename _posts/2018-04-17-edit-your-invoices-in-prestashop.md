@@ -68,6 +68,7 @@ class AdminCustomInvoicesController extends ModuleAdminController {
     $this->table = 'order_invoice'; // SQL table name, will be prefixed with _DB_PREFIX_
     $this->className = 'OrderInvoice'; // PHP class name
     $this->allow_export = true; // allow export in CSV, XLS..
+    $this->_orderBy = 'id_order_invoice';
   }
 
   public function access($action, $disable = false){

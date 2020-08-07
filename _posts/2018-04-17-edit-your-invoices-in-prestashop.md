@@ -32,37 +32,52 @@ We have to:
 
 ## Create the Admin Controller (via a Module)
 
-Admin Controllers only exist in a module. So we need to create a module first! Let's create a dummy module in `modules/my_module/my_module.php` :
+Admin Controllers only exist in a module. So we need to create a module first! Let's create a dummy module in `modules/fc_invoice/fc_invoice.php` :
 
 ```php
 <?php
 if (!defined('_PS_VERSION_')) {exit;}
-class My_Module extends Module {
+class Fc_Invoice extends Module {
   public function __construct() {
-    $this->name = 'my_module';
+    $this->name = 'fc_invoice';
     $this->tab = 'administration';
     $this->version = '1.0.0';
     $this->author = 'Florian Courgey';
     $this->bootstrap = true;
     parent::__construct();
-    $this->displayName = $this->l('PrestaShop Module by FC');
-    $this->description = $this->l('Improve your store by [...]');
+    $this->displayName = $this->l('FC Invoice Module');
+    $this->description = $this->l('Improve your store with FC modules');
     $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
+  }
+  
+  public function install(){
+    return parent::install() && $this->_installTab();
+  }
+  
+  protected function _installTab(){
+    $tab = new Tab();
+    $tab->class_name = 'AdminFcInvoice';
+    $tab->module = $this->name;
+    $tab->id_parent = (int)Tab::getIdFromClassName('DEFAULT');
+    $tab->icon = 'settings_applications';
+    $languages = Language::getLanguages();
+    foreach ($languages as $lang) {
+        $tab->name[$lang['id_lang']] = $this->l('FC Invoice');
+    }
+    $tab->save();
   }
 }
 ```
 
-Then, activate it through the PrestShop Backoffice by looking for `my_module`:
+Then, activate it through the PrestShop Backoffice by looking for `fc`:
 
 ![](/assets/images/2018/05/search-for-my_module-in-the-backoffice-annote.jpg)
 
 
-Finally, we can create our actual `AdminCustomInvoicesController` in `modules/my_module/controllers/admin/AdminCustomInvoicesController.php<`:
-
-
+Finally, we can create our actual `AdminCustomInvoicesController` in `modules/fc_module/controllers/admin/AdminFcInvoiceController.php`:
 
 ```php
-class AdminCustomInvoicesController extends ModuleAdminController {
+class AdminFcInvoiceController extends ModuleAdminController {
   public function __construct(){
     $this->bootstrap = true; // use Bootstrap CSS
     $this->table = 'order_invoice'; // SQL table name, will be prefixed with _DB_PREFIX_
@@ -70,30 +85,22 @@ class AdminCustomInvoicesController extends ModuleAdminController {
     $this->allow_export = true; // allow export in CSV, XLS..
     $this->_orderBy = 'id_order_invoice';
   }
-
-  public function access($action, $disable = false){
-    return true;
-  }
 }
 ```
 
 
-Let's check that everything is working well by heading to `https://my.presta.com/admin/index.php?controller=AdminCustomInvoices` :
+Let's check that everything is working well by heading to `https://my.presta.com/admin/index.php?controller=AdminFcInvoice` :
+![](/assets/images/2018/04/screenshot-2018-07-06-20.03.54.png)
 
+
+NB: if you get a page not found error like below:
 ![](/assets/images/2018/04/screenshot-2018-07-06-19.53.18.png)
 
-Snap! It doesn't work. We have to allow this Controller in order to use it. Prestashop uses `Tab` to whitelist Controllers.
-
-Directly in the database, execute:
-
+Prestashop uses `Tab` to whitelist Controllers, you may need to execute directly in the database:
 ```sql
 INSERT INTO `ps_tab` (id_parent, position, module, class_name, active)
-VALUES (3, 6, 'my_module', 'AdminCustomInvoices', 1);
+VALUES (3, 6, 'fc_module', 'AdminFcInvoice', 1);
 ```
-
-Refresh your tab, and Voila! Our empty Controller is looking great:
-
-![](/assets/images/2018/04/screenshot-2018-07-06-20.03.54.png)
 
 ## Add the List feature
 

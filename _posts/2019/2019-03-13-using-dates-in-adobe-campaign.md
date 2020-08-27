@@ -93,13 +93,19 @@ var lastModified = parseTimeStamp(recipientXml.$lastModified); // @return Date
 ```
 
 ## js2sql - Javascript Date to SQL String format
-Using 
+Using Format 
 
 ```js
 loadLibrary("xtk:common.js"); // for Format
 var recipient = NLWS.nmsRecipient.load(recipientId);
 recipient.lastModified = Format.formatDateTimeInter(getCurrentDate());
 recipient.save();
+```
+
+## sqlExec - Using standard `sqlExec` tool
+Use `$(curdate)`
+```js
+sqlExec("UPDATE nmsDelivery SET tsLastModified=$(curdate) WHERE iId=$(l)", 1234);
 ```
 
 ## sql2js - SQL String to Javascript Date

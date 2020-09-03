@@ -30,6 +30,7 @@ Once you have identified a particular website, change the URI to `/r/test`:
 - [Reebok US](http://m1.reebokus-news.reebok.com/r/test)
 - [La Redoute](http://m.news.laredoute.ch/r/test)
 - [Fnac](http://fr.m1.emails.fnac.com/r/test)
+- [Krys](http://t.info.krys.com/r/test)
 
 - [Nissan](http://m.cj.nissan.co.jp/r/test)
 - [Ford](http://m1.euemail.ford.com/r/test)

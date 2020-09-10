@@ -45,5 +45,5 @@ gc file.xml | Measure-Object –Word # Count Words
 gc file.xml -head 10 # first 10 lines (head -n 10)
 gc file.xml -tail 10 # last 10 lines (tail -n 10)
 gc file.xml -tail 10 -wait # last 10 lines and keep open (tail -f)
-[char[]](gc file.xml -Encoding byte -TotalCount 200) # first 200 char (head -c 200)
+[char[]](gc file.xml -Encoding byte -TotalCount 200) -join '' # first 200 char (head -c 200)
 ```

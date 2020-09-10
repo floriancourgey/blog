@@ -1,15 +1,8 @@
 ---
-id: 356
-title: Count occurences of string in files using PowerShell (grep on Windows)
-date: 2018-04-18T20:17:42+00:00
-author: Florian Courgey
-layout: post
-categories:
-  - grep
-  - opensource
-  - powershell
-  - windows
+title: "Powershell grep: Count occurences of string in files using PowerShell (grep on Windows)"
+categories: [grep,opensource,powershell,windows]
 ---
+
 ## Display occurences
 
 Display occurences of lines ending with &#8220;,2018&#8221; in all CSV of a folder
@@ -26,30 +19,31 @@ select-string -rec *.csv -pattern "\w+,\d+"
 
 Template to count occurences
 ```powershell
-(get-content my_file | select-string -pattern "my string").length
+(Get-Content my_file | select-string -pattern "my string").length
+(gc my_file | select-string -pattern "my string").length # gc is a Get-Content alias
 ```
 
 Count the number of functions in a PHP Class file
 ```powershell
-(get-content MyClass.php | select-string -pattern " function ").length
+(gc MyClass.php | select-string -pattern " function ").length
 ```
 
 Count the number of function is all Java files in the actual folder
 ```powershell
-(get-content *.php | select-string -pattern " function ").length
+(gc *.php | select-string -pattern " function ").length
 ```
 
-## Count Lines
+## Count Lines, Characters & Words
 ```powershell
-Get-Content file.xml | Measure-Object –Line
+gc file.xml | Measure-Object –Line # Count Lines
+gc file.xml | Measure-Object –Character # Count Characters
+gc file.xml | Measure-Object –Word # Count Words
 ```
 
-## Count Characters
+## head & tail
 ```powershell
-Get-Content file.xml | Measure-Object –Character
-```
-
-## Count Words
-```powershell
-Get-Content file.xml | Measure-Object –Word
+gc file.xml -head 10 # first 10 lines (head -n 10)
+gc file.xml -tail 10 # last 10 lines (tail -n 10)
+gc file.xml -tail 10 -wait # last 10 lines and keep open (tail -f)
+[char[]](gc file.xml -Encoding byte -TotalCount 200) # first 200 char (head -c 200)
 ```

@@ -39,10 +39,17 @@ You may debug by activating the feature "Display the tasks and the log":
 Instead of having code and process in a campaign (that should be kept simple), you may externalize your dev to a Post-Processing workflow.
 
 To do so, follow the current steps:
-1. Create an new workflow with a Signal activity called `signal`, linked to JavaScript activity, linked to an End activity.
+1. Create an new workflow with a Signal activity called `signal`, linked to JavaScript activity (use the same code as previous chapter), linked to an End activity.
 1. Duplicate your delivery's current routing
 1. Change the Routing's Delivery mode to `External` or `Bulk Delivery`, in order to reveal the `Post-Processing...` option
 1. Select the workflow you created in #1 as the Post-Processing workflow
 1. Leave the activity name to `signal`
 
 ![](/assets/images/2020/adobe-campaign-post-processing-routing.jpg)
+
+Start the workflow, launch your campaign/delivery and debug the workflow, like before. you'll have the following variables in the `eventVariables` XML doc:
+- `deliveryId`: the delivery id
+- `description`
+- `filename`: the absolute or relative filepath of the generated delivery external file
+
+![](/assets/images/2020/adobe-campaign-post-processing-post-processing-debug.jpg)

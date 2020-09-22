@@ -3,7 +3,7 @@ title: Delivery Post-Processing Best Pratices (on Adobe Campaign)
 categories: [opensource,adobe campaign]
 ---
 
-Excerpt here...
+Find out how to execute actions after a delivery has been sent with Post-Processing in the Campaign, the Routing and the Service Provider!
 
 <p class="text-center">📬🌍⚙️</p>
 
@@ -55,6 +55,8 @@ Start the workflow, launch your campaign/delivery and debug the workflow, like b
 
 ![](/assets/images/2020/adobe-campaign-post-processing-post-processing-debug.jpg)
 
+NB: Using a standard delivery activity with "Send a Proof" works well with this solution.
+
 ## With a Post-Processing workflow Template via the Service Provider
 
 If you'd like to save and keep each workflow execution separate, you have to use a Workflow Template referenced by the Delivery's Service Provider. The workflow template is configured as follow:
@@ -82,3 +84,5 @@ logInfo('vars.filename:', vars.filename);
 instance.vars.isProof = NLWS.nmsDelivery.load(instance.vars.iDeliveryId).FCP;
 logInfo('instance.vars.isProof:', instance.vars.isProof);
 ```
+
+NB: Using a standard delivery activity with "Send a Proof" doesn't work with this solution.

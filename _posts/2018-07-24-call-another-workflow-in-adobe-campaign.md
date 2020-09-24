@@ -9,7 +9,7 @@ This tutorial will walk you through setting up a `workflow1` calling `workflow2`
 
 ## Generic case: `workflow1` calls `workflow2` with `PostEvent`
 
-The *calling* `workflow1` contains your business logic and ends with a `javascript activity` (containing `xtk.workflow.PostEvent()`):
+The *calling* `workflow1` contains your business logic and ends with a `javascript activity` (containing `NLWS.xtkWorkflow.PostEvent()`):
 
 ![](/assets/images/2019/01/adobe-campaign-call-workflow-postevent-workflow1.jpg)
 
@@ -19,13 +19,13 @@ The *called* `workflow2` has a `signal activity` and then some logic:
 
 The generic JS call is as follow:
 ```js
-xtk.workflow.PostEvent("workflowInternalName", "signalInternalName", "", <variables/>, false);
+NLWS.xtkWorkflow.PostEvent("workflowInternalName", "signalInternalName", "", <variables/>, false);
 ```
 
 So in our case:
 ```js
 var myVar1 = "hello world!";
-xtk.workflow.PostEvent("workflow2", "signal", "", <variables var1={myVar1}/>, false);
+NLWS.xtkWorkflow.PostEvent("workflow2", "signal", "", <variables var1={myVar1}/>, false);
 ```
 
 Start `workflow2` (to activate its `signal`), then `workflow1`. We can see in the logs that the value has been passed over, in a synchronous call:
@@ -71,17 +71,17 @@ function PostEvent (
  // start1  
 logInfo('start1 done');  
 var params = <variables var1="hello"/>;  
-xtk.workflow.PostEvent("finalWorkflow", "signal1", "", params, false);  
+NLWS.xtkWorkflow.PostEvent("finalWorkflow", "signal1", "", params, false);  
 // start2  
 logInfo('start2 done');  
 var myVar = "var myVar";  
 var params = <variables var2={myVar}/>;  
-xtk.workflow.PostEvent("finalWorkflow", "signal2", "", params, false);  
+NLWS.xtkWorkflow.PostEvent("finalWorkflow", "signal2", "", params, false);  
 // start3  
 logInfo('start3 done');  
 var myObject = {key:"value"};  
 var params = <variables var3={myObject.key}/>;  
-xtk.workflow.PostEvent("finalWorkflow", "signal3", "", params, false);  
+NLWS.xtkWorkflow.PostEvent("finalWorkflow", "signal3", "", params, false);  
  ```
  
  The `final` workflow contains 3 signals `signal1`, `signal2` and `signal3`, all linked to an `AND` activity:
@@ -118,8 +118,6 @@ logInfo('vars.var3', vars.var3);
 } finally {
     CallToFinalWorkflow()
 }
- ```
- 
- You may download [the XML of this workflow with exception here](/assets/adobe-campaign/workflow-with-exception.xml)
- 
- 
+```
+
+You may download [the XML of this workflow with exception here](/assets/adobe-campaign/workflow-with-exception.xml)

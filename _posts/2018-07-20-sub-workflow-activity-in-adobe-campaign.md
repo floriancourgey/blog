@@ -123,7 +123,7 @@ Start the master, and here's what happens:
 
 As an alternative method, you can directly call another workflow with this JavaScript code:
 ```js
-xtk.workflow.PostEvent("myWorkflowInternalName", "signalActivityName", "", <variables var1={vars.var2}/>, false);
+NLWS.xtkWorkflow.PostEvent("myWorkflowInternalName", "signalActivityName", "", <variables var1={vars.var2}/>, false);
 ```
 
-Find more details about this on [the tutorial to call another workflow in Adobe Campaign](https://floriancourgey.com/2018/07/call-another-workflow-in-adobe-campaign/).
+Find more details about this on [the tutorial to call another workflow in Adobe Campaign](/2018/07/call-another-workflow-in-adobe-campaign/).

@@ -49,9 +49,9 @@ To do so, follow the current steps:
 ![](/assets/images/2020/adobe-campaign-post-processing-routing.jpg)
 
 Start the workflow, launch your campaign/delivery and debug the workflow, like before. you'll have the following variables in the `eventVariables` XML doc:
-- `deliveryId`: the delivery id
-- `description`
-- `filename`: the absolute or relative filepath of the generated delivery external file
+- `vars.deliveryId`: the delivery id
+- `vars.description`
+- `vars.filename`: the absolute or relative filepath of the generated delivery external file
 
 ![](/assets/images/2020/adobe-campaign-post-processing-post-processing-debug.jpg)
 

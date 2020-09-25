@@ -57,6 +57,10 @@ Start the workflow, launch your campaign/delivery and debug the workflow, like b
 
 NB: Using a standard delivery activity with "Send a Proof" works well with this solution.
 
+You may also use standard activities such as a Query on nms:broadLogRcp where `@delivery-id = $(vars/deliveryIs)`, linked to an Update data:
+
+![](/assets/images/2020/adobe-campaign-post-processing-post-processing-config-update-data.jpg)
+
 ## With a Post-Processing workflow Template via the Service Provider
 
 If you'd like to save and keep each workflow execution separate, you have to use a Workflow Template referenced by the Delivery's Service Provider. The workflow template is configured as follow:

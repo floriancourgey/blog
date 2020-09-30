@@ -79,7 +79,7 @@ In the workflow template, the main difference is the variable name, you now have
 - No more Signal activity
 
 
-Feel free to test with the below JavaScriot code:
+Feel free to test with the below JavaScript code:
 ```js
 logInfo('instance.vars.iDeliveryId:', instance.vars.iDeliveryId);
 logInfo('instance.vars.iOperationId:', instance.vars.iOperationId);
@@ -90,3 +90,5 @@ logInfo('instance.vars.isProof:', instance.vars.isProof);
 ```
 
 NB: Using a standard delivery activity with "Send a Proof" doesn't work with this solution.
+
+NB 2: the standard `supplierMgt` workflow must be up and running for the Service Post-Processing workflow to be executed ([Source](https://experienceleaguecommunities.adobe.com/t5/adobe-campaign-classic-questions/service-provider-service-job-post-processing-configuration/qaq-p/330915))

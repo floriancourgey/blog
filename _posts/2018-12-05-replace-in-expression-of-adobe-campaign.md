@@ -46,7 +46,9 @@ Import it as a regular package from `Tools > Advanced > Import package`:
 ![todo](/assets/images/2018/12/adobe-campaign-package-install-2.jpg)
 ![todo](/assets/images/2018/12/adobe-campaign-package-install-3.jpg)
 
-File > Disconnect, then Log back in.
+<div class="alert alert-danger">
+  You must restart the server for the new SQL function to be available!
+</div>
 
 ## Check installed SQL functions
 To debug installed SQL functions, open the Generic Query Editor on `xtk:funcList` and select `data` as Data to Extract:

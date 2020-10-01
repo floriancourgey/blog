@@ -56,5 +56,5 @@ Hit `Next` until `Data Preview` > button `Start the preview of the data` > tab `
 ![](/assets/images/2020/adobe-campaign-debug-xtk-funclist-data-preview.jpg)
 
 Source:
-- https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Adding_additional_SQL_functions.html#General_structure_of_package_to_import
-- https://forums.adobe.com/thread/2382673
+- [Adding additional SQL functions - Adobe docs](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/api/adding-additional-sql-functions.html)
+- [Replace function - Adobe forum](https://experienceleaguecommunities.adobe.com/t5/adobe-campaign-standard/replace-function/qaq-p/254911)

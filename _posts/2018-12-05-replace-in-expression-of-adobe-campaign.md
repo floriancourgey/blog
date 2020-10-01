@@ -1,35 +1,29 @@
 ---
-title: String replace in expressions of Adobe Campaign
-author: Florian Courgey
-layout: post
-categories:
-  - opensource
-  - adobe campaign
+title: Custom SQL functions in Adobe Campaign
+categories: [opensource,adobe campaign]
+redirect_from: /2018/12/replace-in-expression-of-adobe-campaign
 ---
-Say you want to have a dead simple slug of your string, you want to replace all spaces by dashes, right? 
-It's impossible in an expression in standard Adobe Campaign...
-We have to import a XML package file to create a new SQL function. 
+
 <!--more-->
 ## Create the XML package definition
 ```xml
-<?xml version="1.0" encoding='ISO-8859-1' ?>
-<!-- ===========================================================================
-  Additional SQL functions for Adobe Campaign
-  ========================================================================== -->
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- namespace, name and label are for information only -->
 <package
   namespace   = "nms"
   name        = "myNms-funclist-replace"
-  label       = "My Nms Additional function Replace"
-  buildVersion= "6.1"
-  buildNumber = "10000"><!-- namespace, name and label are for information only -->
+  label       = "StringReplace SQL Additional function"
+  buildVersion= "6.7"
+  buildNumber = "8937">
   <entities schema="xtk:funcList">
-    <funcList name="myList" namespace="myNms"><!-- This pair namespace:name is the real id of the function. To update, use the same pair. -->
+    <funcList name="StringReplace" namespace="fco"><!-- The pair "namespace:name" is the real id of the function. To update, use the same pair. -->
       <group name="string" label="String"><!-- define in which group the function belongs to -->
-        <function name="MyReplace" type="string" args="(&lt;LookIn&gt;,&lt;From&gt;,&lt;To&gt;)"
-                  help="Replace all occurrences in string of substring from with substring to. MyReplace(myString, replaceThis, byThis)" minArgs="3" maxArgs="3"
-                  display="Replace all occurrences in string of substring from with substring to. MyReplace(myString, replaceThis, byThis)">  
-          <providerPart provider="PostgreSQL,MSSQL" body="replace($1,$2,$3)"/>  
-        </function>  
+        <function name="StringReplace" type="string" args="(&lt;LookIn&gt;, &lt;From&gt;, &lt;To&gt;)"
+          minArgs="3" maxArgs="3"
+          help="Replace all occurrences of 'replaceThis' by 'byThis' in 'text'. StringReplace(text, replaceThis, byThis)"
+          display="Replace all occurrences of 'replaceThis' by 'byThis' in 'text'. StringReplace(text, replaceThis, byThis)">
+          <providerPart provider="PostgreSQL,MSSQL" body="replace($1,$2,$3)"/>
+        </function>
       </group>
     </funcList>
   </entities>
@@ -47,14 +41,20 @@ We have to import a XML package file to create a new SQL function.
 
 ## XML package installation
 
-Tools > Advanced > Import package
-
+Import it as a regular package from `Tools > Advanced > Import package`:
 ![todo](/assets/images/2018/12/adobe-campaign-package-install-1.jpg)
 ![todo](/assets/images/2018/12/adobe-campaign-package-install-2.jpg)
 ![todo](/assets/images/2018/12/adobe-campaign-package-install-3.jpg)
 
-File > Disconnect, then Log back in
+File > Disconnect, then Log back in.
 
-Sources:
+## Check installed SQL functions
+To debug installed SQL functions, open the Generic Query Editor on `xtk:funcList` and select `data` as Data to Extract:
+![](/assets/images/2020/adobe-campaign-debug-xtk-funclist.jpg)
+
+Hit `Next` until `Data Preview` > button `Start the preview of the data` > tab `XML result`
+![](/assets/images/2020/adobe-campaign-debug-xtk-funclist-data-preview.jpg)
+
+Source:
 - https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Adding_additional_SQL_functions.html#General_structure_of_package_to_import
 - https://forums.adobe.com/thread/2382673

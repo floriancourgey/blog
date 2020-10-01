@@ -46,6 +46,8 @@ Adobe Campaign lets us create custom SQL functions that will be available in the
 - `name="other" label="Others"`
 - `name="window" label="Windowing functions"`
 
+![todo](/assets/images/2020/adobe-campaign-debug-xtk-funclist-specs.jpg)
+
 ## XML package installation
 
 Import it as a regular package from `Tools > Advanced > Import package`:

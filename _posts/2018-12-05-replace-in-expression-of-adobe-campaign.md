@@ -1,23 +1,30 @@
 ---
-title: Custom SQL functions in Adobe Campaign
+title: Custom SQL functions Best Pratices (Adobe Campaign)
 categories: [opensource,adobe campaign]
 redirect_from: /2018/12/replace-in-expression-of-adobe-campaign
 ---
-
+Create your own SQL functions to be used as XTK expressions in Adobe Campaign Query Editor!
 <!--more-->
+## Intro
+Adobe Campaign lets us create custom SQL functions that will be available in the functions list, in the Expression Editor. With that in mind, let's create an SQL String Replace function in Adobe Campaign:
+![](/assets/images/2020/adobe-campaign-debug-xtk-funclist-string-replace.jpg)
+
 ## Create the XML package definition
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- namespace, name and label are for information only -->
 <package
   namespace   = "nms"
-  name        = "myNms-funclist-replace"
-  label       = "StringReplace SQL Additional function"
+  name        = "fco-funclist"
+  label       = "FCO SQL Additional functions"
   buildVersion= "6.7"
   buildNumber = "8937">
   <entities schema="xtk:funcList">
-    <funcList name="StringReplace" namespace="fco"><!-- The pair "namespace:name" is the real id of the function. To update, use the same pair. -->
-      <group name="string" label="String"><!-- define in which group the function belongs to -->
+    <!-- The pair "namespace:name" is the id of the functions List. To update, use the same pair -->
+    <funcList name="StringReplace" namespace="fco">
+      <!-- The groupe "name" defined the group the function belongs to -->
+      <group name="string" label="String">
+        <!-- The "name" value is the function id and label. To update, use the same name -->
         <function name="StringReplace" type="string" args="(&lt;LookIn&gt;, &lt;From&gt;, &lt;To&gt;)"
           minArgs="3" maxArgs="3"
           help="Replace all occurrences of 'replaceThis' by 'byThis' in 'text'. StringReplace(text, replaceThis, byThis)"

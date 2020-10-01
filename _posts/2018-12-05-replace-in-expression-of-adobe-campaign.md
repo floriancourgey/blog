@@ -54,8 +54,19 @@ Import it as a regular package from `Tools > Advanced > Import package`:
 ![todo](/assets/images/2018/12/adobe-campaign-package-install-3.jpg)
 
 <div class="alert alert-danger">
-  You must restart the server for the new SQL function to be available!
+  You must restart the `web` server for the new SQL function to be available! Use `nlserver restart web`:
 </div>
+
+![todo](/assets/images/2020/adobe-campaign-debug-xtk-funclist-server-restart.jpg)
+
+```console
+16:19:28 >>> Objects with a 'xtk:package' schema cannot be added to a package.
+16:29:09 >   Enumerating the file entities...
+16:29:10 >   Writing entities in the database...
+16:29:10 >   Saving data related to packages...
+16:29:10 >   Package 'StringReplace SQL Additional function': Saving entities of type 'xtk:funcList'...
+16:29:10 >   Installation of packages successful.
+```
 
 ## Check installed SQL functions
 To debug installed SQL functions, open the Generic Query Editor on `xtk:funcList` and select `data` as Data to Extract:

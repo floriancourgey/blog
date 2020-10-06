@@ -2,10 +2,9 @@
 title: HTTP Post for Adobe Campaign SOAP calls and queryDef from client-side
 author: Florian Courgey
 layout: post
-categories:
-  - opensource
-  - adobe campaign
+categories: [opensource,adobe campaign]
 ---
+
 SOAP calls are not really handy when it comes to deploy to external vendors. Luckily, we can use a classic HTTP Post as we would do for a REST API.
 
 <!--more-->
@@ -81,7 +80,7 @@ Request:
          <urn:sessiontoken>login/password</urn:sessiontoken>
          <urn:domDoc>
             <broadLogRcp-collection xtkschema="nms:broadLogRcp">
-              <broadLogRcp id="129106000" status="5" _operation="update" _key="@id"/>
+              <broadLogRcp id="129106000" status="5" _operation="update" _key="@id" eventDate="2018-12-25 11:05:59"/>
               <broadLogRcp id="129117000" status="4" _operation="update" _key="@id"/>
             </broadLogRcp-collection>
          </urn:domDoc>

@@ -142,7 +142,7 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Facebook Sharing Debugger (Test og: meta sharing tags)](https://developers.facebook.com/tools/debug/sharing/)
 - [Online share-able collaborative text editor collabedit.com](http://collabedit.com/)
 - [Check CSS & HTML rules for Emails on caniemail.com](https://www.caniemail.com/)
-- [SQL diagram Online creator](https://dbdiagram.io/home)
+- [SQL diagram Online creator on dbdiagram.io](https://dbdiagram.io/home)
 - [Specifications creation & sharing on Swagger.io](https://swagger.io/)
 
 <script>

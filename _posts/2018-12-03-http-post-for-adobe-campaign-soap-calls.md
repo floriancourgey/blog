@@ -10,7 +10,7 @@ SOAP calls are not really handy when it comes to deploy to external vendors. Luc
 
 <!--more-->
 
-## Example with `queryDef#ExecuteQuery` to get a list of recipients by email
+## Example with `xtk:queryDef#ExecuteQuery` to get a list of recipients by email
 
 Use the following settings:
 - The soap router as the endpoint `https://your-instance.campaign.adobe.com/nl/jsp/soaprouter.jsp` 
@@ -68,8 +68,8 @@ Gives the following response with `<recipient-collection>`:
 
 *See [Adobe Campaign SOAP calls](https://docs.campaign.adobe.com/doc/AC/en/CFG_API_Web_service_calls.html) for details.*
 
-## Example with `xtk:session#WriteCollection` to bulk update any object
-`SOAPAction`:`xtk:session#WriteCollection`
+## Example with `xtk:persist#WriteCollection` to bulk update any object
+`SOAPAction`:`xtk:persist#WriteCollection`
 
 
 Request:
@@ -98,6 +98,22 @@ Response
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
+Don't use `xtk:session#WriteCollection` as you'll get a `SOP-330024` error:
+
+```xml
+<?xml version='1.0'?>
+<SOAP-ENV:Envelope xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/'>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode>SOAP-ENV:Server</faultcode>
+            <faultstring xsi:type='xsd:string'>SOP-330011 Error while executing the method 'WriteCollection' of service 'xtk:session'.</faultstring>
+            <detail xsi:type='xsd:string'>SOP-330024 Unspecified function library ('library' attribute) for JavaScript SOAP call 'WriteCollection' in schema 'xtk:session'.</detail>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
 
 ## Example with a custom Javascript method
 

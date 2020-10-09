@@ -12,13 +12,13 @@ and send marketing communications with Product data such as Image, Title and Pri
 
 ## Schema, form and navigation creation
 
-### Data Schema `grl:productExtensions`
+### Data Schema `fco:productExtensions`
 
 Schema with basic fields (string, memo [can contain XML/HTML], long)
 
 ```xml
 <srcSchema entitySchema="xtk:srcSchema" img="xtk:schema.png" label="Product Extensions"
-           mappingType="sql" name="productExtension" namespace="grl" xtkschema="xtk:srcSchema">
+           mappingType="sql" name="productExtension" namespace="fco" xtkschema="xtk:srcSchema">
   <element autopk="true" label="Product Extensions" labelSingular="Product Extension" name="productExtension">
     <!-- Key -->
     <key>
@@ -44,13 +44,13 @@ Schema with basic fields (string, memo [can contain XML/HTML], long)
 </srcSchema>
 ```
 
-### Input form `grl:productExtensions`
+### Input form `fco:productExtensions`
 
 To create and edit records.
 
 ```xml
 <form entitySchema="xtk:form" img="xtk:form.png" label="productExtension" name="productExtension"
-      namespace="grl" xtkschema="xtk:form">
+      namespace="fco" xtkschema="xtk:form">
   <container colcount="2">
     <container>
       <input xpath="@code"/>
@@ -72,17 +72,17 @@ To create and edit records.
 </form>
 ```
 
-### Navigation Hierarchy `grl:core`
+### Navigation Hierarchy `fco:core`
 
 To add a folder in the Navigation Tree.
 
 ```xml
 <navtree entitySchema="xtk:navtree" img="nl:folders.png" label="core" name="core"
-         namespace="grl" xtkschema="xtk:navtree">
+         namespace="fco" xtkschema="xtk:navtree">
   <model name="root">
     <model label="Custom" name="custom">
       <nodeModel img="nms:webformmodel.png" name="refProductExtension">
-        <view img="nms:webformmodel.png" label="Product Extensions" name="listdet" schema="grl:productExtension" type="listdet">
+        <view img="nms:webformmodel.png" label="Product Extensions" name="listdet" schema="fco:productExtension" type="listdet">
           <columns>
             <node xpath="@code"/>
             <node xpath="@title"/>
@@ -125,7 +125,7 @@ Overview:
 
 Details:
 1. Set URL to `https://raw.githubusercontent.com/darkslategrey/cd/master/fr_eur_googlebase.xml`
-1. Set schema to `grl:productExtensions` and condition to `@id > 0`
+1. Set schema to `fco:productExtensions` and condition to `@id > 0`
 1. Add 2 custom string fields `@code` and `@title` with expression `''`
 
 ![todo](/assets/images/2020/acc-google-shopping-product-import-enrichment.jpg)

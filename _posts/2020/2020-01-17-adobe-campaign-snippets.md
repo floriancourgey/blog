@@ -27,6 +27,7 @@ Excerpt here...
 ```
 
 ## Handling XML in JavaScript
+### DOMDocument.load
 ```js
 var xmlDoc = DOMDocument.load(vars.filename);
 var entries = xmlDoc.getElementsByTagName('entry');
@@ -37,6 +38,18 @@ for each(var entry in entries){
 	  var recCount = sqlExec(sql);
 	  logInfo('('+recCount+')', sql);
 }
+```
+### DOMDocument.fromXMLString
+```js
+try {
+  var mData = sqlGetMemo('SELECT mData FROM nmsDelivery WHERE iDeliveryId = $(l)', record.$id); // get memo from DB, @return string
+} catch (error) {
+  continue;
+}
+var doc = DOMDocument.fromXMLString(mData); // convert to DOMDocument
+var subject = doc.root.getValue('mailParameters/subject'); // root is a DOMElement and getValue @return string
+var cleanedSubject = subject;
+cleanedSubject = cleanedSubject.replace(/(\r\n)/gm, ''); // remove line breaks
 ```
 
 ## Filtering

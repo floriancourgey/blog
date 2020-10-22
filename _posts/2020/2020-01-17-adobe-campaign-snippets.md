@@ -81,6 +81,16 @@ for each(var record in records.getElements()){
 }
 ```
 
+## Case/When in XTK
+```js
+Case(
+  When([target/@nature] = 'transactional', [target/@created]),
+  When([target/scheduling/@extracted] != '', [target/scheduling/@extracted]),
+  When([target/scheduling/@contactDate] != '', [target/scheduling/@contactDate]),              
+  Else('')
+)
+```
+
 ## Dates
 ```javascript
 formatDate(getCurrentDate(), '%4Y%2M%2D-%2H%2N%2S'); // "20190430-150837" for folder names

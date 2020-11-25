@@ -1,7 +1,6 @@
 ---
 title: Custom SQL functions Best Pratices (Adobe Campaign)
 categories: [opensource,adobe campaign]
-redirect_from: /2018/12/replace-in-expression-of-adobe-campaign
 ---
 Create your own SQL functions to be used as XTK expressions in Adobe Campaign Query Editor!
 <!--more-->

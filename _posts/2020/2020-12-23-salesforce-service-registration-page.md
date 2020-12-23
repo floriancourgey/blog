@@ -6,8 +6,8 @@ Excerpt here...
 <p class="text-center">🐍👑🌍</p>
 <!--more-->
 
-- Create a standard Registration Page
-- Upload on force.com
-- Create a custom Registration Page
+- Create a Simple Registration Page (standard controller with standard fields, simple Static Resources)
+- Create a Custom Registration Page (custom controller with new fields, Resources in archive)
 - Send email
-- Deploy
+- Test & deploy 
+- Public Site on force.com + Resource Cache to public

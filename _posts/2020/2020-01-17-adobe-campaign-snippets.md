@@ -106,3 +106,21 @@ logInfo('Getting option:', optionName);
 var optionValue = getOption(optionName);
 setOption('otherOption', optionValue);
 ```
+
+## Change Continuous Delivery activity XML settings via Javascript
+```js
+var month = formatDate(getCurrentDate(), '%2M'); // 01, 02, 03...
+var internalName = 'myInternalName_'+month;
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: "nms:delivery", operation: "get", // "get" does a SQL "LIMIT 1"
+  select: { node: [{expr: '@id'}] }, // get @id only
+  where: { 
+    condition: [
+      {expr: "@internalName = '"+internalName+"'"},
+    ],
+  }
+}});
+var deliveryTemplate = query.ExecuteQuery();
+logInfo('activity.scenario_id:', deliveryTemplate.$id);
+activity.scenario_id = deliveryTemplate.$id;
+```

@@ -97,3 +97,12 @@ formatDate(getCurrentDate(), '%4Y%2M%2D-%2H%2N%2S'); // "20190430-150837" for fo
 
 <%= formatDate(getCurrentDate(), '%4Y%2M') %> // "202005" for delivery labels [scenario/@useLabelScript]
 ```
+
+## Working with options and current month
+```js
+var month = formatDate(getCurrentDate(), '%2M'); // 01, 02, 03...
+var optionName = 'myOptionName_'+month;
+logInfo('Getting option:', optionName);
+var optionValue = getOption(optionName);
+setOption('otherOption', optionValue);
+```

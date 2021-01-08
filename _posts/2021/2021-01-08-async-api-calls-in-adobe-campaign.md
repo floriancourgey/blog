@@ -9,8 +9,12 @@ Speed up your HTTP calls with parallele HttpClientRequest API calls! Ideal for b
 
 <!--more-->
 
+## Business Case
 
-## Use h2 for each section
+Use async HttpClientRequest executions for External Delivery that calls a vendor with unit API calls. Here, the Delivery has a Routing of type "External" with a Post-Processing workflow containing: a Signal, an Javascript code for initialization, a File Loading (containing broadlog id & content), Update date to Update braodlogs status to Pending and the Javascript code with API calls:
+![](/assets/images/2021/adobe-campaign-async-api-call-HttpClientRequest.jpg)
+
+## Javascript code
 ```js
 // get data from previous activity
 var query = NLWS.xtkQueryDef.create({queryDef:{
@@ -82,7 +86,7 @@ function sendNext(context) {
   }
 } 
 
-// Start N requests
+// Start N requests with context as a JSON
 sendNext({id: 1});
 sendNext({id: 2});
 sendNext({id: 3});
@@ -93,5 +97,5 @@ sendNext({id: 6});
 // Wait until all requests are completed
 HttpClientRequest.wait(requests);
 
-logInfo('Javascript Done');
+logInfo('Javascript done');
 ```

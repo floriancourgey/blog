@@ -14,6 +14,8 @@ Speed up your HTTP calls with parallele HttpClientRequest API calls! Ideal for b
 Use async HttpClientRequest executions for External Delivery that calls a vendor with unit API calls. Here, the Delivery has a Routing of type "External" with a Post-Processing workflow containing: a Signal, an Javascript code for initialization, a File Loading (containing broadlog id & content), Update date to Update braodlogs status to Pending and the Javascript code with API calls:
 ![](/assets/images/2021/adobe-campaign-async-api-call-HttpClientRequest.jpg)
 
+Note: Updating broadlogs Status=Pending is not required if the Delivery Retrieval Mode is set to Manual. Please check Delivery Setup Chapter.
+
 ## Javascript code
 ```js
 // get data from previous activity

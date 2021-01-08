@@ -106,6 +106,8 @@ HttpClientRequest.wait(requests);
 logInfo('Javascript done');
 ```
 
+Documentation for HttpClientRequest.execute: [Adobe Campaign JsAPI - HttpClientRequest asynchronous](https://docs.adobe.com/content/help/en/campaign-classic/technicalresources/api/c-HttpClientRequest.html?hl=asynchronous)
+
 ## Appendix: External Delivery setup
 
 ### Post-Processing workflow
@@ -127,5 +129,4 @@ Create a new `/Administration/Platform/External Account` with:
 
 Create a new Delivery with:
 - General: Routing: `fcoAsyncPostProcessing`
-- Analysis: Retrieval mode: `A result file determines sent and failed messages` (upon delivery execution, broadlogs will have Status=Pending)
-
+- Analysis: Retrieval mode: `A result file determines sent and failed messages` (upon delivery execution, broadlogs will have Status=Pending. Documentation for Delivery Validation: [Adobe Campaign Classic - Sending Direct Mail](https://experienceleague.adobe.com/docs/campaign-classic/using/sending-messages/sending-direct-mail/validating.html?lang=en#sending-messages))

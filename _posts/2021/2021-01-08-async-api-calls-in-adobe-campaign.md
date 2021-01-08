@@ -27,6 +27,7 @@ var query = NLWS.xtkQueryDef.create({queryDef:{
 var records = query.ExecuteQuery().getElements();
 
 var endpoint = getOption('endpoint');
+var apiKey = getOption('apiKey');
 
 // Async API calls: for faster execution, we do N API call at a time
 // @see https://docs.adobe.com/content/help/en/campaign-classic/technicalresources/api/c-HttpClientRequest.html
@@ -37,9 +38,13 @@ var requests = []; // use to store all HttpClientRequest for "HttpClientRequest.
 // function called after each async API call
 var onComplete = function(request, context, status){
   try {
+    // any request field may be used i.e. the API key header
+    logInfo(req.header["X-API-Key"]);
+    // any context value may be used, i.e. the record id
     var recordId = context.recordId;
-    var request = request.response;
-    // parse XML
+    // get response data
+    var response = request.response;
+    // for example, parse XML
     var xmlDoc = DOMDocument.fromXMLString(String(resp.body));
     // get a node
     var node1 = xmlDoc.getElementsByTagName("node1");
@@ -68,6 +73,7 @@ function sendNext(context) {
     var req = new HttpClientRequest(endpoint);
     req.complete = onComplete;
     req.header["Content-Type"] = "text/xml; charset=utf-8";
+    req.header["X-API-Key"] = apiKey;
     req.method = "POST";
     req.body = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sms="SMS">' +
       // [...]

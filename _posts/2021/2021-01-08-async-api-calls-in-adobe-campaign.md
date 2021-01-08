@@ -1,5 +1,5 @@
 ---
-title: Asynchronous API calls from Adobe Campaign
+title: Asynchronous API calls from Adobe Campaign (& External Delivery)
 categories: [opensource,adobe campaign]
 ---
 
@@ -105,3 +105,27 @@ HttpClientRequest.wait(requests);
 
 logInfo('Javascript done');
 ```
+
+## Appendix: External Delivery setup
+
+### Post-Processing workflow
+
+Create an empty Workflow `fcoAsyncPostProcessing`.
+
+### Routing
+
+Create a new `/Administration/Platform/External Account` with:
+- Name: `fcoAsyncRouting`
+- Type: `Routing`
+- Enabled: `Yes`
+- Delivery Mode: `External`
+- Post-Processing: `fcoAsyncPostProcessing`
+
+![](/assets/images/2021/adobe-campaign-async-api-call-external-delivery.jpg)
+
+### Delivery Template
+
+Create a new Delivery with:
+- General: Routing: `fcoAsyncPostProcessing`
+- Analysis: Retrieval mode: `A result file determines sent and failed messages` (upon delivery execution, broadlogs will have Status=Pending)
+

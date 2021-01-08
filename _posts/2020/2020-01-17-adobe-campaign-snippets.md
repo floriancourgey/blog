@@ -124,3 +124,43 @@ var deliveryTemplate = query.ExecuteQuery();
 logInfo('activity.scenario_id:', deliveryTemplate.$id);
 activity.scenario_id = deliveryTemplate.$id;
 ```
+
+## Asynchronous HTTP calls
+
+For details, please check [Async API calls in Adobe Campaign](/2021/01/async-api-calls-in-adobe-campaign)
+
+```js
+var records = ...; // must be set
+var requests = []; // use to store all HttpClientRequest for "HttpClientRequest.wait(requests)"
+
+var onComplete = function(request, context, status){
+  // do your things
+  sendNext(context);
+}
+
+function sendNext(context) {
+  while(records.length != 0) { // while list is not empty
+    var record = records.shift(); // take and remove first record
+    var req = new HttpClientRequest(endpoint);
+    req.complete = onComplete;
+    try {
+      var hasProxy = false;
+      var async = true;
+      var timeout = 2000;
+      req.execute(hasProxy, async, timeout, context);
+      requests.push(req);
+      return; // important
+    } catch(error){
+      logWarning('Error while getting response, continue. Error:', error);
+      continue; // continue because not called by onComplete
+    }
+  }
+} 
+
+// Start N requests with context as a JSON
+sendNext({id: 1});
+sendNext({id: 2});
+
+// Wait until all requests are completed
+HttpClientRequest.wait(requests);
+```

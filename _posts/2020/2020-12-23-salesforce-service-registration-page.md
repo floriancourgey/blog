@@ -10,4 +10,4 @@ Excerpt here...
 - Create a Custom Registration Page (custom controller with new fields, Resources in archive)
 - Send email
 - Test & deploy 
-- Public Site on force.com + Resource Cache to public
+- Public Site on force.com (debug with "Preview as Admin) + Profile object access settings + Resource Cache to public 

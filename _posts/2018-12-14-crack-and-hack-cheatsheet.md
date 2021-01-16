@@ -4,10 +4,11 @@ author: Florian Courgey
 layout: post
 categories: [opensource,linux,server,network,unix,crack,hack]
 ---
-Cheatsheet for various unix tools such as enumeration, nmap, radare2 and volatility.
+Cheatsheet for various unix tools such as metasploit framework, enumeration, nmap, radare2 and volatility.
 <!--more-->
 ## Introduction
 <style>#introduction:before{content: "";counter-increment: h2 -1}</style>
+1. [Metasploit Framework](#metasploit)
 1. [Network scanning with nmap](#nmap)
 1. [SQL injection with sqlmap](#sqlmap)
 1. [Reverse engineering with radare2](#radare2)
@@ -17,6 +18,36 @@ Cheatsheet for various unix tools such as enumeration, nmap, radare2 and volatil
 1. [Unix server enumeration](#enumeration)
 
 You can also check out the [awesome list for CTFs (github.com/apsdehal/awesome-ctf)](https://github.com/apsdehal/awesome-ctf#readme) and the [awesome list for Security (github.com/sindresorhus/awesome)](https://github.com/sindresorhus/awesome#security).
+
+## Metasploit
+
+Download from [Metasploit nightly builds (Github doc)](https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers)
+
+```console
+$ /opt/metasploit-framework/bin/msfconsole
+$ msf6> search mysql # search MySQL exploits
+Matching Modules
+================
+   #   Name                                                  Disclosure Date  Rank       Check  Description
+   -   ----                                                  ---------------  ----       -----  -----------
+   10  auxiliary/scanner/mysql/mysql_login                                    normal     No     MySQL Login Utility
+$ msf6> use auxiliary/scanner/mysql/mysql_login # use exploit, alias: use 10
+$ msf6 auxiliary(scanner/mysql/mysql_login)> info # get quick exploit overview
+Name: MySQL Login Utility
+     Module: auxiliary/scanner/mysql/mysql_login
+    License: Metasploit Framework License (BSD)
+       Rank: Normal
+Basic options:
+  Name              Current Setting  Required  Description
+  ----              ---------------  --------  -----------
+  BLANK_PASSWORDS   true             no        Try blank passwords for all users
+$ msf6 auxiliary(scanner/mysql/mysql_login)> show options # show only options, alias: options
+$ msf6 auxiliary(scanner/mysql/mysql_login)> show actions # show only actions
+$ msf6 auxiliary(scanner/mysql/mysql_login)> set STOP_ON_SUCCESS true # set action only for this exploit
+$ msf6 auxiliary(scanner/mysql/mysql_login)> setg USERNAME root # set action globally for all exploits
+$ msf6 auxiliary(scanner/mysql/mysql_login)> setg THREADS 20 # set multiple threads to run faster
+$ msf6 auxiliary(scanner/mysql/mysql_login)> run # run exploit
+```
 
 ## nmap
 

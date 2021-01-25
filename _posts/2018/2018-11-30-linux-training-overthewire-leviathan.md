@@ -13,13 +13,13 @@ Excerpt here...
 <!--more-->
 
 This post is part of a series:
-- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
-- [Linux training with overthewire Part 4: Natas 1-10]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})
-- [Linux training with overthewire Part 5: Natas 11-20]({% post_url 2018-11-30-linux-training-overthewire-natas-2 %})
+- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-1 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-3 %})
+- [Linux training with overthewire Part 4: Natas 1-10]({% post_url 2018/2018-11-30-linux-training-overthewire-natas-1 %})
+- [Linux training with overthewire Part 5: Natas 11-20]({% post_url 2018/2018-11-30-linux-training-overthewire-natas-2 %})
 - Linux training with overthewire Part 6: Leviathan
-- [Linux training with overthewire Part 7: Krypton]({% post_url 2018-11-30-linux-training-overthewire-krypton %})
+- [Linux training with overthewire Part 7: Krypton]({% post_url 2018/2018-11-30-linux-training-overthewire-krypton %})
 
 ### Level 0 - `ls` and `cat`
 ```bash
@@ -71,8 +71,8 @@ ssh -p 2223 leviathan2@leviathan.labs.overthewire.org
 ```
 
 This post is part of a series:
-- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
-- [Linux training with overthewire Part 4: Natas]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})
+- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-1 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-3 %})
+- [Linux training with overthewire Part 4: Natas]({% post_url 2018/2018-11-30-linux-training-overthewire-natas-1 %})
 - Linux training with overthewire Part 5: Leviathan

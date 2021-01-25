@@ -8,7 +8,7 @@ categories:
   - server
 ---
 This post is the part 2 of the tutorial collection on how to migrate from Wordpress to Jekyll.
-- [Part 1. Introduction]({{ site.baseurl }}{% post_url 2018-11-21-migrate-from-wordpress-to-jekyll %})
+- [Part 1. Introduction]({% post_url 2018/2018-11-21-migrate-from-wordpress-to-jekyll %})
 - Part 2. Create the Search component
 
 ## Simple method: text search with SimpleJekyllSearch

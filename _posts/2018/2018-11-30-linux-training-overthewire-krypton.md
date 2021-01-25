@@ -13,12 +13,12 @@ Excerpt here...
 <!--more-->
 
 This post is part of a series:
-- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
-- [Linux training with overthewire Part 4: Natas 1-10]({% post_url 2018-11-30-linux-training-overthewire-natas-1 %})
-- [Linux training with overthewire Part 5: Natas 11-20]({% post_url 2018-11-30-linux-training-overthewire-natas-2 %})
-- [Linux training with overthewire Part 6: Leviathan]({% post_url 2018-11-30-linux-training-overthewire-leviathan %})
+- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-1 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-3 %})
+- [Linux training with overthewire Part 4: Natas 1-10]({% post_url 2018/2018-11-30-linux-training-overthewire-natas-1 %})
+- [Linux training with overthewire Part 5: Natas 11-20]({% post_url 2018/2018-11-30-linux-training-overthewire-natas-2 %})
+- [Linux training with overthewire Part 6: Leviathan]({% post_url 2018/2018-11-30-linux-training-overthewire-leviathan %})
 - Linux training with overthewire Part 7: Krypton
 
 
@@ -46,7 +46,7 @@ $ cat krypton2 | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 LEVEL TWO PASSWORD ROTTEN
 ```
 
-> Note: Same as [Bandit level 11]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %}#level-11---rot13-without-any-programming-language)
+> Note: Same as [Bandit level 11]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-2 %}#level-11---rot13-without-any-programming-language)
 
 > See [ROT13 on Wikipedia](https://en.wikipedia.org/wiki/ROT13)
 
@@ -197,8 +197,8 @@ Viegenere breaker in JCrypTool:
 
 
 This post is part of a series:
-- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018-11-30-linux-training-overthewire-bandit-1 %})
-- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018-11-30-linux-training-overthewire-bandit-2 %})
-- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018-11-30-linux-training-overthewire-bandit-3 %})
+- [Linux training with overthewire Part 1: Bandit 1-10]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-1 %})
+- [Linux training with overthewire Part 2: Bandit 11-20]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-2 %})
+- [Linux training with overthewire Part 3: Bandit 21-30]({% post_url 2018/2018-11-30-linux-training-overthewire-bandit-3 %})
 - Linux training with overthewire Part 4: Natas
-- [Linux training with overthewire Part 5: Leviathan]({% post_url 2018-11-30-linux-training-overthewire-leviathan %})
+- [Linux training with overthewire Part 5: Leviathan]({% post_url 2018/2018-11-30-linux-training-overthewire-leviathan %})

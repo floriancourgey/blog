@@ -5,7 +5,7 @@ categories: [jekyll, opensource, server]
 
 This post is the part 1 of the tutorial collection on how to migrate from Wordpress to Jekyll.
 - Part 1. Introduction
-- [Part 2. Create the Search component]({{ site.baseurl }}{% post_url 2018-11-21-migrate-from-wordpress-to-jekyll-2 %})
+- [Part 2. Create the Search component]({% post_url 2018/2018-11-21-migrate-from-wordpress-to-jekyll-2 %})
 
 ## Install Jekyll locally
 See [the Jekyll homepage](https://jekyllrb.com/)

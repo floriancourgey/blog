@@ -1,6 +1,7 @@
 ---
 title: Send Message Center realtime emails from Workflows! (Javascript)
 categories: [opensource,adobe campaign]
+author: "Yannick Le Voguer"
 ---
 
 From a workflow in Classic instance A, send a SOAP message to Message Center instance B.

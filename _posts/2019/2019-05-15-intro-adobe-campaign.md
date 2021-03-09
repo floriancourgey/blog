@@ -54,11 +54,11 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Folders organization Best Practices](https://helpx.adobe.com/campaign/kb/organization-folders-explorer.html)
 
 ## Basic objects
-- [All about Recipients](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/profile-management/about-profiles.html)
-- [All about Marketing Campaigns & Deliveries](https://docs.adobe.com/content/help/en/campaign-classic/using/orchestrating-campaigns/orchestrate-campaigns/setting-up-marketing-campaigns.html)
-- [Data Schemas Reference](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/schema-reference/elements-and-attributes.html)
-- [Input Forms Reference](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/input-forms/form-structure.html)
-- [Physical data Model & tables relations](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/data-model/data-model-description.html) - Relational diagrams between objects with primary keys, foreign keys and fields
+- [All about Recipients](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/profile-management/about-profiles.html?lang=en#getting-started)
+- [All about Marketing Campaigns & Deliveries](https://experienceleague.adobe.com/docs/campaign-classic/using/orchestrating-campaigns/orchestrate-campaigns/setting-up-marketing-campaigns.html?lang=en#orchestrating-campaigns)
+- [Data Schemas Reference](https://experienceleague.adobe.com/docs/campaign-classic/using/configuring-campaign-classic/schema-reference/elements-attributes/element.html?lang=en#content-model-4)
+- [Input Forms Reference](https://experienceleague.adobe.com/docs/campaign-classic/using/configuring-campaign-classic/input-forms/form-structure.html?lang=en#configuring-campaign-classic)
+- [Physical data Model & tables relations](https://experienceleague.adobe.com/docs/campaign-classic/using/configuring-campaign-classic/data-model/data-model-description.html?lang=en#description-main-tables) - Relational diagrams between objects with primary keys, foreign keys and fields
 - Repository of Activities: [Targeting](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/targeting-activities/about-targeting-activities.html), [Flow Control](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/flow-control-activities/about-flow-control-activities.html), [Action](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/action-activities/about-action-activities.html), [Event](https://docs.adobe.com/content/help/en/campaign-classic/using/automating-with-workflows/event-activities/about-event-activities.html)
 - [External accounts](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/administration-basics/external-accounts.html)
 - [Navigation hierarchy](https://docs.adobe.com/content/help/en/campaign-classic/using/configuring-campaign-classic/navigation-hierarchy/configuration.html)

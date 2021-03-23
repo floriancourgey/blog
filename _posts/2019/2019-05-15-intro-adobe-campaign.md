@@ -114,8 +114,9 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Errors codes and translations](https://docs.adobe.com/content/help/en/campaign-classic/technicalresources/error_messages/error_codes.html)
 
 *Links below require access from Adobe.*
-- [Adobe Console](https://adminconsole.adobe.com/overview) - Manage Products & Users
-- [Adobe Control Panel](https://experience.adobe.com/) - Manage Instances, SFTP, Certificates, SSH Keys
+- [Adobe Console & Support](https://adminconsole.adobe.com/overview) - Manage Products, Users & Tickets
+- [Adobe Control Panel](https://experience.adobe.com/#controlpanel) - Manage Instances, SFTP, Certificates, SSH Keys
+- [Adobe Software Distribution](https://experience.adobe.com/#/downloads/content/software-distribution/en/campaign.html) - Download Adobe Campaign Classic package for local installation (Debian, Red Hat, Windows) & Console
 - [Support tickets - OLD](https://support.neolane.net/ops/dashboardExtranet.jssp) - Create and manage communication with Adobe dedicated Support
 - [Download center - OLD](https://support.neolane.net/webApp/downloadCenter) - Download installation RPM/EXE, Client EXE, JS API as CHM..
 

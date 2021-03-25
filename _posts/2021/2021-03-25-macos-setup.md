@@ -14,6 +14,11 @@ $ csrutil disable
 Reboot
 ```
 
+## dev tools
+```console
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ## Old files cleanup
 ```console
 $ sudo rm -rf /Library/Updates/* # macOS old updates files

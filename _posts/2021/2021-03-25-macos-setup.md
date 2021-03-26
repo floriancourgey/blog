@@ -15,8 +15,11 @@ Reboot
 ```
 
 ## dev tools
-```console
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```bash
+# Homebrew package manager
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install iterm2 # iTerm2 - improved terminal
+brew install zsh # zsh - improved shell
 ```
 
 ## Old files cleanup

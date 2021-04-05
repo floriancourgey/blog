@@ -37,6 +37,7 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal; // for InternalSpriteUtility
+using System.Linq; // for Cast()
 
 public class UnityTools : MonoBehaviour{
      [MenuItem("Tools/FCO/Compute sprites")]
@@ -48,8 +49,8 @@ public class UnityTools : MonoBehaviour{
 
         string folder = "myfolder";
 
-        Object[] resources = Resources.LoadAll(folder, typeof(Texture2D));
-        Debug.Log("ComputeSprites: resources.Length: " + resources.Length);
+        Texture2D[] textures = Resources.LoadAll(folder, typeof(Texture2D)).Cast<Texture2D>().ToArray();
+        Debug.Log("ComputeSprites: textures.Length: " + textures.Length);
 
         List<string> allowlist = new List<string>{
             "character15",
@@ -57,7 +58,7 @@ public class UnityTools : MonoBehaviour{
             "character41",
         };
 
-         foreach (Object resource in resources){
+         foreach (Texture2D texture in textures){
              Texture2D texture = resource as Texture2D;
              if(!allowlist.Contains(texture.name)){
                  continue;
@@ -116,6 +117,7 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal; // for InternalSpriteUtility
+using System.Linq; // for Cast()
 
 public class UnityTools : MonoBehaviour{
      [MenuItem("Tools/FCO/Compute sprites")]
@@ -127,8 +129,8 @@ public class UnityTools : MonoBehaviour{
 
         string folder = "myfolder";
 
-        Object[] resources = Resources.LoadAll(folder, typeof(Texture2D));
-        Debug.Log("ComputeSprites: resources.Length: " + resources.Length);
+        Texture2D[] textures = Resources.LoadAll(folder, typeof(Texture2D)).Cast<Texture2D>().ToArray();
+        Debug.Log("ComputeSprites: textures.Length: " + textures.Length);
 
         List<string> allowlist = new List<string>{
             "character15",
@@ -136,8 +138,7 @@ public class UnityTools : MonoBehaviour{
             "character41",
         };
 
-         foreach (Object resource in resources){
-             Texture2D texture = resource as Texture2D;
+         foreach (Texture2D texture in textures){
              if(!allowlist.Contains(texture.name)){
                  continue;
              }

@@ -11,10 +11,18 @@ Update and Slice all your Sprite Assets at once with `InternalSpriteUtility.Gene
 
 <!--more-->
 
-## Prerequirements
+## Intro
 
-Please ensure that:
-- sprites are located in `Assets/Resources/myfolder`
+Prerequirements:
+- Sprites are located in `Assets/Resources/myfolder`
+- Create a Script in `Assets/Scripts/UnityTools.cs`
+
+Docs:
+- Unity Asset & Resource Learn Tutorial https://learn.unity.com/tutorial/assets-resources-and-assetbundles/
+- TextureImporter https://docs.unity3d.com/ScriptReference/TextureImporter.html
+- SpriteMetaData https://docs.unity3d.com/ScriptReference/SpriteMetaData.html
+- Resources.LoadAll https://docs.unity3d.com/ScriptReference/Resources.LoadAll.html
+
 
 ## Slice by Cell Size (`with` empty rects)
 

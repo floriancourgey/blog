@@ -5,6 +5,8 @@ categories: [unity,script,opensource]
 
 Update and Slice all your Sprite Assets at once with `InternalSpriteUtility.GenerateGridSpriteRectangles` and `AssetDatabase.ImportAsset` in Unity3D!
 
+![](/assets/images/2021/unity-bulk-slice-run-script.png)
+
 <p class="text-center">🐍👑🌍</p>
 
 <!--more-->
@@ -17,6 +19,15 @@ Please ensure that:
 ## Slice by Cell Size (`with` empty rects)
 
 Divide Sprites by a given Width+Height:
+- name_0x0
+- name_0x1
+- name_0x2
+- [...]
+- name_1x0
+- name_1x1
+- [...]
+
+Script may be run via `Tools` > `FCO`> `Compute Sprites`.
 
 ![](/assets/images/2021/unity-bulk-slice-with-empty-rects.png)
 
@@ -35,7 +46,7 @@ public class UnityTools : MonoBehaviour{
         int sliceWidth = 64;
         int sliceHeight = 64;
 
-        string folder = "sprite/characters";
+        string folder = "myfolder";
 
         Object[] resources = Resources.LoadAll(folder, typeof(Texture2D));
         Debug.Log("ComputeSprites: resources.Length: " + resources.Length);
@@ -63,7 +74,6 @@ public class UnityTools : MonoBehaviour{
             ti.textureCompression = TextureImporterCompression.Uncompressed;
 
              List<SpriteMetaData> newData = new List<SpriteMetaData>();
-             int indexTotal = 0; // for sprite name
              
             //  https://answers.unity.com/questions/1113025/batch-operation-to-slice-sprites-in-editor.html
             for (int i = 0; i < texture.width; i += sliceWidth){
@@ -74,11 +84,10 @@ public class UnityTools : MonoBehaviour{
                      smd.alignment = SpriteAlignment.Center;
                      int rowNum = (texture.height - j) / sliceHeight;
                      int colNum = i / sliceWidth;
-                     smd.name =  texture.name+"_"+indexTotal;
+                     smd.name = texture.name+"_"+rowNum+"x"+colNum; // "name_1x7" for 2nd row & 8th column
                      smd.rect = new Rect(i, j - sliceHeight, sliceWidth, sliceHeight);
 
                      newData.Add(smd);
-                     indexTotal++;
                  }
              }
 
@@ -92,9 +101,14 @@ public class UnityTools : MonoBehaviour{
 ```
 
 ## Slice by Cell Size (`without` empty rects)
-![](/assets/images/2021/unity-bulk-slice-without-empty-rects.png)
 
 Divide Sprites by a given Width+Height, ignoring empty Rectangles:
+- name_0
+- name_1
+- name_2
+- [...]
+
+![](/assets/images/2021/unity-bulk-slice-without-empty-rects.png)
 
 ```csharp
 using UnityEngine;
@@ -111,7 +125,7 @@ public class UnityTools : MonoBehaviour{
         int sliceWidth = 64;
         int sliceHeight = 64;
 
-        string folder = "sprite/characters";
+        string folder = "myfolder";
 
         Object[] resources = Resources.LoadAll(folder, typeof(Texture2D));
         Debug.Log("ComputeSprites: resources.Length: " + resources.Length);
@@ -144,13 +158,12 @@ public class UnityTools : MonoBehaviour{
             // https://forum.unity.com/threads/custom-texture-importer-for-automatically-generating-sprites-not-working.1022650/
             Rect[] rects = InternalSpriteUtility.GenerateGridSpriteRectangles(
                 texture, Vector2.zero, new Vector2(sliceWidth,sliceHeight), Vector2.zero);
-            for (int i = 0; i < rects.Length; i++)
-            {
+            for (int i = 0; i < rects.Length; i++){
                 SpriteMetaData smd = new SpriteMetaData();
                 smd.rect = rects[i];
                 smd.pivot = new Vector2(0.5f, 0.5f);
                 smd.alignment = (int)SpriteAlignment.Center;
-                smd.name = texture.name+"_"+indexTotal;
+                smd.name = texture.name+"_"+indexTotal; // name_41
                 newData.Add(smd);
                 indexTotal++;
             }
@@ -162,5 +175,7 @@ public class UnityTools : MonoBehaviour{
          Debug.Log("ComputeSprites: done");
      }
  }
-
 ```
+
+Finale Sprites structure:
+![](/assets/images/2021/unity-bulk-slice-project-structure.png)

@@ -123,7 +123,6 @@ Edit the `for` loop as follow:
 
 ```csharp
 List<SpriteMetaData> newData = new List<SpriteMetaData>();
-int indexTotal = 0; // for sprite name
 
 // https://forum.unity.com/threads/custom-texture-importer-for-automatically-generating-sprites-not-working.1022650/
 Rect[] rects = InternalSpriteUtility.GenerateGridSpriteRectangles(
@@ -133,9 +132,8 @@ for (int i = 0; i < rects.Length; i++){
      smd.rect = rects[i];
      smd.pivot = new Vector2(0.5f, 0.5f);
      smd.alignment = (int)SpriteAlignment.Center;
-     smd.name = texture.name+"_"+indexTotal; // name_41
+     smd.name = texture.name+"_"+i; // name_41
      newData.Add(smd);
-     indexTotal++;
 }
 ```
 

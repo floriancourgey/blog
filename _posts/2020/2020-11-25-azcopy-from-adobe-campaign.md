@@ -75,7 +75,7 @@ azcopy('cp '+vars.filename+' "https://instance.blob.core.windows.net/container/f
 
 Output:
 ```console
-11/25/2020 12:37:17 PM	XSV-350201 Execute the command '/home/customers/guerlain/incoming/bin/azcopy_linux_amd64_10.7.0/azcopy cp "/home/customers/guerlain/incoming/xxx.txt" "https://instance.blob.core.windows.net
+11/25/2020 12:37:17 PM	XSV-350201 Execute the command '/home/customers/instance_name/incoming/bin/azcopy_linux_amd64_10.7.0/azcopy cp "/home/customers/instance_name/incoming/xxx.txt" "https://instance.blob.core.windows.net
 11/25/2020 12:37:17 PM	/folder1/folder2/?SAS"' with user ''.
 11/25/2020 12:37:19 PM	INFO: Scanning...
 11/25/2020 12:37:19 PM	INFO: Any empty folders will not be processed, because source and/or destination doesn't have full folder support
@@ -96,6 +96,8 @@ Output:
 
 Note: the log file is available in `/usr/local/neolane/.azcopy/`.
 
+Note 2: if using file instead of blob, change URL to `.file` instead of `.blob`.
+
 ### Refactor with Adobe Campaign `options` for re-use and environments management
 Create a Javascript code `fco:helpers` and add the following:
 ```js
@@ -114,9 +116,9 @@ function azcopyCopy(account, container, token, file){
 Then, in a workflow:
 ```js
 loadLibrary('fco:helpers');
-var account = getOption('grlAzureClientelingCampaignAccount');//'https://azure_instance.blob.core.windows.net';
-var container = getOption('grlAzureClientelingCampaignContainer');//'/folder1/folder2/';
-var token = getOption('grlAzureClientelingCampaignToken');//'?sv=20YY-12-01&ss=xxx&srt=xxx&sp=xxx&se=20YY-01-01TxxxZ&st=20YY-01-01TxxxZ&spr=https&sig=xxx';
+var account = getOption('fcoAzureClientelingCampaignAccount');//'https://azure_instance.blob.core.windows.net';
+var container = getOption('fcoAzureClientelingCampaignContainer');//'/folder1/folder2/';
+var token = getOption('fcoAzureClientelingCampaignToken');//'?sv=20YY-12-01&ss=xxx&srt=xxx&sp=xxx&se=20YY-01-01TxxxZ&st=20YY-01-01TxxxZ&spr=https&sig=xxx';
 var file = vars.filename;
 azcopyCopy(account, container, token, file);
 ```

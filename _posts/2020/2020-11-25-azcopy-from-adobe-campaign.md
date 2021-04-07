@@ -36,6 +36,8 @@ azcopy('-h'); // call "azcopy -h"
 azcopy('env'); // call "azcopy env"
 ```
 
+/!\ Update the value of `azcopyPath` with the full filepath on your instance. On AWS instances, it starts with `/sftp/instance_name/`, whereas on old instances it starts with `/home/customers/instance_name`.
+
 ![](/assets/images/2020/adobe-campaign-azcopy-execute-help-env.jpg)
 
 Azcopy is installed and ready to use!
@@ -58,9 +60,17 @@ Output:
 
 ## Upload file from Adobe Campaign to Azure
 
+### Usage with SAS token (Recommended)
+
+With an absolute filepath:
+
+```js
+azcopy('cp "/sftp/instance/my_file.csv" "https://instance.blob.core.windows.net/container/folder1/folder2/?{Your SAS here}"'); // use with SAS
 ```
-azcopy('cp "./my_file.csv" "https://instance.blob.core.windows.net/container/folder1/folder2/?{Your SAS here}"'); // use with SAS
-azcopy('cp /Source:myfile.csv /Dest:https://instance.blob.core.windows.net/container/folder1/folder2/ /destKey:{Your Key here}'); // use with Key
+
+With `vars.filename` coming from a previous Workflow Activity:
+```js
+azcopy('cp '+vars.filename+' "https://instance.blob.core.windows.net/container/folder1/folder2/?{Your SAS here}"'); // use with SAS
 ```
 
 Output:
@@ -85,4 +95,36 @@ Output:
 ```
 
 Note: the log file is available in `/usr/local/neolane/.azcopy/`.
+
+### Refactor with Adobe Campaign `options` for re-use and environments management
+Create a Javascript code `fco:helpers` and add the following:
+```js
+function azcopy(command){
+  var azcopyPath = '/home/customers/instance_name/incoming/bin/azcopy_linux_amd64_10.7.0/azcopy'; // change with your actual path
+  var result = execCommand(azcopyPath+' '+command, true); // @return [linux result code, output] @see https://blog.floriancourgey.com/2019/03/adobe-campaign-helpers
+  for each (var line in result[1].split('\n')){ 
+      logInfo(''+line); // display output
+  }
+}
+function azcopyCopy(account, container, token, file){
+  azcopy('copy "'+file+'" "'+account+container+token+'"');
+}
+```
+
+Then, in a workflow:
+```js
+loadLibrary('fco:helpers');
+var account = getOption('grlAzureClientelingCampaignAccount');//'https://azure_instance.blob.core.windows.net';
+var container = getOption('grlAzureClientelingCampaignContainer');//'/folder1/folder2/';
+var token = getOption('grlAzureClientelingCampaignToken');//'?sv=20YY-12-01&ss=xxx&srt=xxx&sp=xxx&se=20YY-01-01TxxxZ&st=20YY-01-01TxxxZ&spr=https&sig=xxx';
+var file = vars.filename;
+azcopyCopy(account, container, token, file);
+```
+
+### Usage with Dest Key (deprecated)
+```js
+azcopy('cp /Source:myfile.csv /Dest:https://instance.blob.core.windows.net/container/folder1/folder2/ /destKey:{Your Key here}'); // use with Key
+```
+
+
 

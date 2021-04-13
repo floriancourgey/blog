@@ -56,10 +56,23 @@ The SFTP activity is configured to display the SFTP session logs to help trouble
 
 ![](/assets/images/2020/adobe-campaign-sftp-ssh-keys-connction.jpg)
 
-Note: the SFTP activity uses `~/.ssh/id_dsa` instead of `~/.ssh/id_rsa`:
+### Note 1: the SFTP activity uses `~/.ssh/id_dsa` instead of `~/.ssh/id_rsa`:
 ![](/assets/images/2020/adobe-campaign-sftp-ssh-keys-activity.jpg)
+```console
+04/13/2021 1:42:48 PM	fileTransfer	* Using ssh public key file /usr/local/neolane/.ssh/id_dsa.pub
+04/13/2021 1:42:48 PM	fileTransfer	* Using ssh private key file /usr/local/neolane/.ssh/id_dsa
+04/13/2021 1:42:48 PM	fileTransfer	* SSH public key authentication failed: Unable to open public key file
+04/13/2021 1:42:48 PM	fileTransfer	* Authentication failure
+04/13/2021 1:42:48 PM	fileTransfer	* SSH DISCONNECT starts now
+04/13/2021 1:42:48 PM	fileTransfer	* SSH DISCONNECT is done
+04/13/2021 1:42:48 PM	fileTransfer	* Login denied
+04/13/2021 1:42:48 PM	fileTransfer	Login denied
+04/13/2021 1:42:48 PM	fileTransfer	CRL-290002 Download error in cURL
+```
 
-Note 2: the green area shows that the IP+port are reachable. It means that:
+So you might need to copy `id_rsa` to `id_dsa`.
+
+### Note 2: the green area shows that the IP+port are reachable. It means that:
 - The IP exists (public IP)
 - The port is open and accept connections
 - The firewall installed on this server has accepted us (may be via IP whitelisting)

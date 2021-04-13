@@ -70,7 +70,13 @@ The SFTP activity is configured to display the SFTP session logs to help trouble
 04/13/2021 1:42:48 PM	fileTransfer	CRL-290002 Download error in cURL
 ```
 
-So you might need to copy `id_rsa` to `id_dsa`.
+So you might need to copy `id_rsa` to `id_dsa`:
+```js
+loadLibrary('fco:helpers');
+sh.exec('cp ~/.ssh/id_rsa ~/.ssh/id_dsa');
+sh.exec('cp ~/.ssh/id_rsa.pub ~/.ssh/id_dsa.pub');
+sh.exec('ls -alh ~/.ssh/');
+```
 
 ### Note 2: the green area shows that the IP+port are reachable. It means that:
 - The IP exists (public IP)

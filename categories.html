@@ -10,9 +10,10 @@ title: Categories
   <section id="{{ category_name | slugize }}" class="category">
     <h3 class="category-head">{{ category_name }}</h3>
     <a name="{{ category_name | slugize }}"></a>
-    {% for post in site.categories[category_name] %}
+    {% assign postsSorted = site.categories[category_name] | sort: 'date' | reverse %}
+    {% for post in postsSorted %}
     <article class="archive-item">
-      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
+      <h4>{{ post.date | date: "%d %b %Y" }} - <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
     </article>
     {% endfor %}
   </section>

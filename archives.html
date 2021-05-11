@@ -10,7 +10,8 @@ title: Archives
 </style>
 
 {% assign current_year = 0 %}
-{% for post in site.posts %}
+{% assign postsSorted = site.posts | sort: 'date' | reverse %}
+{% for post in postsSorted %}
     {% assign post_year = post.date | date: "%Y" %}
     {% if current_year != post_year %}
       {% assign current_year = post_year %}

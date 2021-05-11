@@ -12,16 +12,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ "/" | relative_url }}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ "categories" | relative_url }}">Categories</a>
-        </li>
-        <li class="nav-item">
           <div class="btn-group">
-            <a class="nav-link" href="{{ "/categories?id=prestashop" | relative_url }}">Prestashop</a>
             <a href="#" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="sr-only">Toggle Dropdown</span>
+              🐧 Prestashop
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="{{ "/categories?id=prestashop 1.7" | relative_url }}">Prestashop 1.7</a>
@@ -30,25 +24,54 @@
         </li>
         <li class="nav-item">
           <div class="btn-group">
-            <a class="nav-link" href="{{ "/categories?id=adobe campaign" | relative_url }}">Adobe Campaign</a>
             <a href="#" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="sr-only">Toggle Dropdown</span>
+              📤 Adobe Campaign
             </a>
             <div class="dropdown-menu">
+              <h4 class="dropdown-header">Adobe Campaign Integrations</h4>
+              <a class="dropdown-item" href="{{ 'azcopy-from-adobe-campaign' | relative_url }}">🟦 Integrate ACC to <b>Azure Blob</b></a>
+              <a class="dropdown-item" href="{{ 'adobe-campaign-to-git' | relative_url }}">🐙 Integrate ACC to <b>Git Repository</b></a>
+              <a class="dropdown-item" href="{{ 'google-shopping-products-import-into-acc' | relative_url }}">🛍️ Integrate <b>Google Shopping</b> to ACC</a>
+              <a class="dropdown-item" href="{{ 'dqm-workflow-javascript-with-query-and-api' | relative_url }}">🔡 Integrate ACC to External DQM vendor</a>
+              <a class="dropdown-item" href="{{ 'use-javascript-libraries-in-adobe-campaign' | relative_url }}/">📚 Integrate Javascript libraries to ACC</a>
+              <div class="dropdown-divider"></div>
+              <h4 class="dropdown-header">Adobe Campaign Tutorials</h4>
               <a class="dropdown-item" href="{{ "/awesome-adobe-campaign" | relative_url }}">ACC Getting started guide (awesome list)</a>
               <a class="dropdown-item" href="{{ "/2020/01/adobe-campaign-snippets" | relative_url }}">ACC snippets</a>
               <a class="dropdown-item" href="{{ "/2018/09/adobe-campaign-input-form-helper/" | relative_url }}">Input Forms reference</a>
               <a class="dropdown-item" href="{{ "/2018/08/use-querydef-the-database-toolkit-in-adobe-campaign" | relative_url }}">queryDef & Database reference</a>
               <a class="dropdown-item" href="{{ "/2019/03/using-dates-in-adobe-campaign" | relative_url }}">Date Best Practices</a>
               <a class="dropdown-item" href="{{ "/2020/09/delivery-post-processing-best-practices-adobe-campaign" | relative_url }}">Delivery post-processing Best Practices</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ "/categories?id=adobe campaign" | relative_url }}">All Adobe Campaign</a>
             </div>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% post_url 2018/2018-11-30-linux-training-overthewire-bandit-1 %}">OverTheWire/Linux</a>
+          <div class="btn-group">
+            <a href="#" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ☁️ Salesforce
+              <span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ "categories" | relative_url }}">Categories</a>
+              <a class="dropdown-item" href="{{ "archives" | relative_url }}">Archives</a>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ "archives" | relative_url }}">Archives</a>
+          <div class="btn-group">
+            <a href="#" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              All
+              <span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ "categories" | relative_url }}">Categories</a>
+              <a class="dropdown-item" href="{{ "archives" | relative_url }}">Archives</a>
+              <a class="dropdown-item" href="{% post_url 2018/2018-11-30-linux-training-overthewire-bandit-1 %}">OverTheWire/Linux</a>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <div class="btn-group">

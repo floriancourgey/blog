@@ -6,10 +6,8 @@
 ## Install & run
 ```console
 $ ruby -v
-$ bundle install
-$ jekyll serve
-$ bundle exec jekyll serve # to be sure to use jekyll/gems from that folder
-Server address: http://127.0.0.1:4000/
+$ bundle install --path vendor/bundle
+$ bundle exec jekyll serve # Server address: http://127.0.0.1:4000/
 ```
 
 ## Create a post

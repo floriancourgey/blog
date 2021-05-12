@@ -4,7 +4,7 @@
   {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
 
   <nav class="container navbar navbar-expand-lg navbar-light ">
-    <a class="navbar-brand" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="navbar-brand" href="{% link index.html %}">{{ site.title | escape }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,7 +18,7 @@
               🐧 Prestashop
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{ "/categories?id=prestashop 1.7" | relative_url }}">Prestashop 1.7</a>
+              <a class="dropdown-item" href="{% link categories.html %}?id=prestashop 1.7">Prestashop 1.7</a>
             </div>
           </div>
         </li>
@@ -37,14 +37,14 @@
               <a class="dropdown-item" href="{% post_url 2018/2018-10-15-use-javascript-libraries-in-adobe-campaign %}/">📚 Integrate Javascript libraries to ACC</a>
               <div class="dropdown-divider"></div>
               <h4 class="dropdown-header">Adobe Campaign Tutorials</h4>
-              <a class="dropdown-item" href="{{ "/awesome-adobe-campaign" | relative_url }}">ACC Getting started guide (awesome list)</a>
-              <a class="dropdown-item" href="{{ "/2020/01/adobe-campaign-snippets" | relative_url }}">ACC snippets</a>
-              <a class="dropdown-item" href="{{ "/2018/09/adobe-campaign-input-form-helper/" | relative_url }}">Input Forms reference</a>
-              <a class="dropdown-item" href="{{ "/2018/08/use-querydef-the-database-toolkit-in-adobe-campaign" | relative_url }}">queryDef & Database reference</a>
-              <a class="dropdown-item" href="{{ "/2019/03/using-dates-in-adobe-campaign" | relative_url }}">Date Best Practices</a>
-              <a class="dropdown-item" href="{{ "/2020/09/delivery-post-processing-best-practices-adobe-campaign" | relative_url }}">Delivery post-processing Best Practices</a>
+              <a class="dropdown-item" href="{% post_url 2019/2019-05-15-intro-adobe-campaign %}">ACC Getting started guide (awesome list)</a>
+              <a class="dropdown-item" href="{% post_url 2020/2020-01-17-adobe-campaign-snippets %}">ACC snippets</a>
+              <a class="dropdown-item" href="{% post_url 2018/2018-09-06-adobe-campaign-input-form-helper %}">Input Forms reference</a>
+              <a class="dropdown-item" href="{% post_url 2018/2018-08-03-use-querydef-the-database-toolkit-in-adobe-campaign %}">queryDef & Database reference</a>
+              <a class="dropdown-item" href="{% post_url 2019/2019-03-13-using-dates-in-adobe-campaign %}">Date Best Practices</a>
+              <a class="dropdown-item" href="{% post_url 2020/2020-09-21-delivery-post-processing-best-practices-adobe-campaign %}">Delivery post-processing Best Practices</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ "/categories?id=adobe campaign" | relative_url }}">All Adobe Campaign</a>
+              <a class="dropdown-item" href="{% link categories.html %}?id=adobe campaign">All Adobe Campaign</a>
             </div>
           </div>
         </li>
@@ -55,8 +55,8 @@
               <span class="sr-only">Toggle Dropdown</span>
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{ "categories" | relative_url }}">Categories</a>
-              <a class="dropdown-item" href="{{ "archives" | relative_url }}">Archives</a>
+              <a class="dropdown-item" href="{% link categories.html %}">Categories</a>
+              <a class="dropdown-item" href="{% link archives.html %}">Archives</a>
             </div>
           </div>
         </li>
@@ -67,8 +67,8 @@
               <span class="sr-only">Toggle Dropdown</span>
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{ "categories" | relative_url }}">Categories</a>
-              <a class="dropdown-item" href="{{ "archives" | relative_url }}">Archives</a>
+              <a class="dropdown-item" href="{% link categories.html %}">Categories</a>
+              <a class="dropdown-item" href="{% link archives.html %}">Archives</a>
               <a class="dropdown-item" href="{% post_url 2018/2018-11-30-linux-training-overthewire-bandit-1 %}">OverTheWire/Linux</a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 ---
 title: How to work with the symfony kernel anywhere in Prestashop 1.7
 permalink: /2018/05/how-to-work-with-the-symfony-kernel-anywhere-in-prestashop-1-7/
-categories: [opensource, symfony, kernel]
+categories: [opensource, symfony, kernel, prestashop]
 ---
 
 You want to fully tak advantage of symfony in your Prestashop application? Use the symfony kernel! By default, the $kernel variable is only available in the Backoffice section, but here's a tuto on how to use it also on the Frontoffice. Once the kernel is set up, you can use any symfony services, such as Doctrine, Twig, Monolog! Awesome 😃
@@ -46,7 +46,7 @@ class MyModule extends Module {
         global $kernel;
         if($kernel){
           self::$kernel = $kernel;
-        } 
+        }
         // otherwise create it manually
         else {
           require_once _PS_ROOT_DIR_.'/app/AppKernel.php';

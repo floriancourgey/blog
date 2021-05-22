@@ -64,14 +64,23 @@ article.post {
   }
   h2 {
     counter-increment: h2;
+    counter-reset: h3 0;
     &:before {
-      content: counter(h2, upper-roman) ". ";
+      content: counter(h2) ". ";
     }
   }
   h3 {
-    font-size: 16px;
+    font-size: 19px;
     text-transform: uppercase;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: darkslategray;
+    font-style: italic;
+    counter-increment: h3;
+    &:before {
+      // content: counter(h2) "." counter(h3, upper-alpha) ". ";
+      content: counter(h3, upper-alpha) ". ";
+    }
   }
 }
 /******************************

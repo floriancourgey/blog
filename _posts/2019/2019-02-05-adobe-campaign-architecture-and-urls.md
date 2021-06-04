@@ -21,6 +21,36 @@ By default AC7 runs uses Tomcat on port 8080. However, for security reasons, it 
 - Tomcat config file `/tomcat-7/conf/server.xml`
 - Apache confing file `/tomcat-7/conf/apache_neolane.conf`
 
+```console
+/usr/local/neolane/nl6/
+  /bin,conf,customers,datakit,deprecated,examples,java,lang,migration,rsetup,tomcat-7,web,zoneinfo
+  /logs
+    catalina.YYYY-MM-DD.log
+  /var # default directory for workflow activities
+    /res
+      /<instanceName>
+        
+    /<instanceName>
+      /billing
+      /export
+      /incoming
+      /log
+        inMail.log
+        mta.log
+        runwf.log
+        stat.log
+        wfserver.log
+      /mta
+      /postupgrade
+      /redir
+      /upload
+      /workflow
+        wf-<internalName>
+          httpTransfer
+            xxx.xml
+      logins.log
+```
+
 Both files use the same config:
 
 Desc | URL | Local path

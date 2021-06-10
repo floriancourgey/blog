@@ -9,7 +9,7 @@ Excerpt here...
 ## Apex Trigger
 
 ```java
-trigger FcoCaseTrigger on Case (after update) {
+trigger FcoCaseTrigger on Case (before insert,before update,before delete,after insert,after update,after delete,after undelete) {
     if(Trigger.Isupdate){
         FcoCaseHelper.process(Trigger.new);
     }

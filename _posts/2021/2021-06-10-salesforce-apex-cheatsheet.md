@@ -6,6 +6,16 @@ Excerpt here...
 <p class="text-center">🐍👑🌍</p>
 <!--more-->
 
+## Apex Trigger
+
+```java
+trigger FcoCaseTrigger on Case (after update) {
+    if(Trigger.Isupdate){
+        FcoCaseHelper.process(Trigger.new);
+    }
+}
+```
+
 ## HTTP GET Callout
 
 Make sure to whitelist the external URL in Setup>Security>`Remote Site Settings`.

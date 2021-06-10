@@ -14,6 +14,16 @@ trigger FcoCaseTrigger on Case (before insert,before update,before delete,after 
         FcoCaseHelper.process(Trigger.new);
     }
 }
+
+@isTest
+public with sharing class FcoCaseTriggerTest {
+    @isTest private static void test() {
+    	Case c = new Case(Name='TestCase');
+	insert c;
+	List<Case> createdCases = [Select Id from Case where Name != ''];
+        System.assertEquals(true, createdCases.size() >= size);
+    }
+}
 ```
 
 ## HTTP GET Callout

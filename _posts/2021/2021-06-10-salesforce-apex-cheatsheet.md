@@ -41,6 +41,17 @@ for (Object record: records) {
   Map<String, Object> mapped = (Map<String, Object>)record;
   String sku = (String)mapped.get('id');
 }
+
+@isTest
+global class FcoCalloutMock implements HttpCalloutMock {
+    global HTTPResponse respond(HTTPRequest request) {
+        HttpResponse response = new HttpResponse();
+        response.setHeader('Content-Type', 'application/json');
+        response.setBody('[{"id": 1}]');
+        response.setStatusCode(200);
+        return response; 
+    }
+}
 ```
 
 ## Schedule Apex Job

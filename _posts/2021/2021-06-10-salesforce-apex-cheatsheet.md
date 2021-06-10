@@ -38,6 +38,11 @@ global class FcoSchedule implements Schedulable {
 FcoSchedule x = new FcoSchedule();
 // Seconds Minutes Hours Day_of_month Month Day_of_week Year
 String CRON_EXP = '0 0 1 * * ? *'; // https://www.freeformatter.com/cron-expression-generator-quartz.html
-String jobID = System.schedule('JobName', CRON_EXP, x);
-System.debug(jobID);
+String jobId = System.schedule('JobName', CRON_EXP, x);
+System.debug(jobId);
+```
+
+Stop job from `Scheduled Jobs`>Delete or:
+```java
+System.abortJob(jobId);
 ```

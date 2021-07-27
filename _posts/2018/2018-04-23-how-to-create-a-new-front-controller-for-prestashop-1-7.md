@@ -1,15 +1,6 @@
 ---
-id: 390
 title: 'Create a new front controller from scratch (Part 2/2) [Prestashop 1.7]'
-date: 2018-04-23T16:01:18+00:00
-author: Florian Courgey
-layout: post
-guid: https://floriancourgey.com/?p=390
-permalink: /2018/04/how-to-create-a-new-front-controller-for-prestashop-1-7/
-categories:
-  - opensource
-  - prestashop
-  - prestashop 1.7
+categories: [opensource,prestashop,prestashop 1.7]
 ---
 Prestashop can be used to display any page that you want. Either it's pure HTML or templated data with Smarty, or even Twig since Prestashop 1.7! In this tutorial, we will create front controller to get a new URL to display organized data from the database.
 
@@ -57,7 +48,7 @@ Don't forget to clear your Class Cache by removing `app/cache/prod/class_index.p
 
 Go to http://localhost/prestashop/my-pasta and you should hit the constructor of PastaController:
 
-<img class="aligncenter size-full wp-image-655" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-the-Front-PastaController.jpg?resize=347%2C123&#038;ssl=1" alt="" width="347" height="123" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-the-Front-PastaController.jpg?w=347&ssl=1 347w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-the-Front-PastaController.jpg?resize=300%2C106&ssl=1 300w" sizes="(max-width: 347px) 100vw, 347px" data-recalc-dims="1" />
+![todo](/assets/images/2018/04/This-is-the-Front-PastaController.jpg)
 
 But... This is ugly. Let's create a template 😎
 
@@ -90,7 +81,7 @@ class PastaController extends FrontController {
 
 Looks definitely better:
 
-<img class="aligncenter size-full wp-image-658" src="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-pasta-index.tpl-served-by-Pasta-Controller.jpg?resize=525%2C221&#038;ssl=1" alt="" width="525" height="221" srcset="https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-pasta-index.tpl-served-by-Pasta-Controller.jpg?w=1472&ssl=1 1472w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-pasta-index.tpl-served-by-Pasta-Controller.jpg?resize=300%2C127&ssl=1 300w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-pasta-index.tpl-served-by-Pasta-Controller.jpg?resize=768%2C324&ssl=1 768w, https://i0.wp.com/floriancourgey.com/wp-content/uploads/2018/04/This-is-pasta-index.tpl-served-by-Pasta-Controller.jpg?resize=1024%2C432&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![todo](/assets/images/2018/04/This-is-pasta-index.tpl-served-by-Pasta-Controller.jpg)
 
 (Don't forget to Set the Twig Cache to `Recompile templates if the files have been updated` in the Backoffice > Advanced Parameters > Performance)
 
@@ -171,9 +162,9 @@ and your template
 
 You now have some templated data in your completely new Front Page:
 
-<img class="aligncenter size-full wp-image-661" src="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Pasta-displayed-with-templated-data-from-new-Front-Controller.jpg?resize=525%2C303&#038;ssl=1" alt="" width="525" height="303" srcset="https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Pasta-displayed-with-templated-data-from-new-Front-Controller.jpg?w=1527&ssl=1 1527w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Pasta-displayed-with-templated-data-from-new-Front-Controller.jpg?resize=300%2C173&ssl=1 300w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Pasta-displayed-with-templated-data-from-new-Front-Controller.jpg?resize=768%2C443&ssl=1 768w, https://i1.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Pasta-displayed-with-templated-data-from-new-Front-Controller.jpg?resize=1024%2C590&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![todo](/assets/images/2018/04/Pasta-displayed-with-templated-data-from-new-Front-Controller.jpg)
 
-More info on the `Db`/`DbQuery` classes in this [tutorial about avoiding raw SQL with Prestashop](https://floriancourgey.com/2018/04/use-db-the-database-class-in-prestashop-1-7/).
+More info on the `Db`/`DbQuery` classes in [Best Practices to use the Db class in Prestashop](https://floriancourgey.com/2018/04/use-db-the-database-class-in-prestashop-1-7/).
 
 ### 4.2 Redirect the customer if not logged (non-guest area)
 
@@ -194,7 +185,7 @@ class PastaController extends FrontController {
 
 Refresh your page, and you are being redirected to the login! Log in, and you will be presented with the front Pasta page.
 
-<img class="aligncenter size-full wp-image-665" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=525%2C255&#038;ssl=1" alt="" width="525" height="255" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?w=1531&ssl=1 1531w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=300%2C146&ssl=1 300w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=768%2C373&ssl=1 768w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg?resize=1024%2C498&ssl=1 1024w" sizes="(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px" data-recalc-dims="1" />
+![todo](/assets/images/2018/04/Front-Controller-redirects-to-login-to-force-registered-customers.jpg)
 
 More info on [how to redirect with Prestashop (from front and back)](https://floriancourgey.com/2018/04/redirects-in-prestashop-1-7/).
 

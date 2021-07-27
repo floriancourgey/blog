@@ -112,20 +112,51 @@ function execute(hasProxy=false, async=false, context=null, timeout=300000)
 ```
 
 ```js
-var url = 'https://jsonplaceholder.typicode.com/users/1';
-var req = new HttpClientRequest(url);
+// get records from previous transition
+var query = NLWS.xtkQueryDef.create({queryDef:{ [...] }}); // @see https://blog.floriancourgey.com/2018/08/use-querydef-the-database-toolkit-in-adobe-campaign#select-raw-data-from-workflow-transition
+var records = query.ExecuteQuery().getElements();
 
-// create callback
-var callback = function(req, context, status) {
-  if( status == "success" )
-    logInfo("Receiving " + context + ": " +  req.url + ": code = " + req.response.code)
-  else
-    logWarning("Error " + context + ": " + req.url + ": " + status)
+var successRequests = []; // used to store successfuly HttpClientRequest for "HttpClientRequest.wait(requests)"
+var failedRequests = []; // used to store failed HttpClientRequest, if a retry is needed
+
+// function called after each async API call
+var onComplete = function(req, context, status){
+  // compute the response: get data from var xmlDoc = DOMDocument.fromXMLString(String(resp.body)); then sqlExec(...)
+  // call next
+  sendNext(context);
 }
-// assign callback
-req.complete = callback;
-// go
-req.execute(false, true, null, 5000);
+
+// for each record
+function sendNext(context) {
+  // Repeat until the first execute() passes
+  while(records.length != 0) {
+    // get and remove first element
+    var record = records.shift();
+    // create request
+    var req = new HttpClientRequest(endpoint);
+    req.complete = onComplete; // assign complete callback
+    var hasProxy = false;
+    var async = true;
+    var timeout = 2000;
+    try {
+      req.execute(hasProxy, async, timeout, context);
+      successRequests.push(req); // store successful requests
+      return; // exit sendNext function because will be called by onComplete
+    } catch (error) {
+      logWarning('Error:', error);
+      failedRequests.push(req); // store failed requests
+      continue; // continue because not called by onComplete
+    }
+  }
+}
+
+// Start 3 requests at the same time
+sendNext({id:1}); // use any variable, such as an id, to debug
+sendNext({id:2});
+sendNext({id:3});
+
+// Wait until all requests are completed
+HttpClientRequest.wait(requests);
 ```
 
 See [JSAPI execute](https://docs.campaign.adobe.com/doc/AC/en/jsapi/m-HttpClientRequest-execute.html) reference

@@ -270,6 +270,29 @@ $  ssh-keygen -lf .ssh/id_rsa.pub
 
 ## Programming
 
+### Git
+
+```bash
+git init
+git clone <repo> [<dir>]
+git status
+git diff
+git fetch # see remote changes
+git pull # apply remote changes
+git add . # add local changes to next commit
+git commit -m 'commit msg' # create commit
+git branch <branch> # create a branch
+git checkout <branch> # switch to branch
+git branch -d <branch> # delete a branch
+git tag <tag name> # create a tag for current commit
+git remote -v # list remotes
+git remote add <remote name> <repo url> # add remote
+git remote rm <remote name> # delete remote
+git config -l
+git reset --hard <commit sha> # revert to commit
+git push -f # force push
+```
+
 ### PHP and composer
 ```bash
 php -v # PHP version (5.6, 7.2...)

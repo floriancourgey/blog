@@ -7,7 +7,7 @@ layout: default
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">
-      {{ page.title | escape }}
+      {{ page.title | smartify }}
     </h1>
     <div class="row post-meta">
       <p class="col-6">
@@ -80,10 +80,10 @@ layout: default
         {% assign previous = site.posts[0] %}
     {% endif %}
     <div class="col-sm">
-        <a href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
+        <a href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{ previous.title | smartify }}">
             <div>
                 <h6>← Previous Project</h6>
-                <h4>{{previous.title}}</h4>
+                <h4>{{ previous.title | smartify }}</h4>
             </div>
         </a>
     </div>
@@ -95,10 +95,10 @@ layout: default
         {% assign next = site.posts[lastPostIndex] %}
     {% endif %}
     <div class="col-sm text-right">
-        <a href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
+        <a href="{{site.baseurl}}{{next.url}}" title="next Post: {{ next.title | smartify }}">
             <div>
                 <h6>Next Project →</h6>
-                <h4>{{next.title}}</h4>
+                <h4>{{ next.title | smartify }}</h4>
             </div>
         </a>
     </div>

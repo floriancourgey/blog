@@ -5,9 +5,10 @@
 
 ## Install & run
 ```console
-$ ruby -v
-$ bundle install --path vendor/bundle
-$ bundle exec jekyll serve # Server address: http://127.0.0.1:4000/
+$ docker-compose up # Server address: http://127.0.0.1:4000/
+# docker exec bash
+$ bundle install
+
 ```
 
 ## Create a post

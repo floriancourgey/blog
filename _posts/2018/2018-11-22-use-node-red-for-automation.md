@@ -53,7 +53,11 @@ Double-clicking on the Debug node displays the configuration:
 
 ### Connect to Open Weather Map
 
-Create API key on [Open Weather Map](https://openweathermap.org) or use the default one for testing [https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22](https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22)
+Create API key on [Open Weather Map](https://openweathermap.org) and use it in the following endpoint:
+
+`https://api.openweathermap.org/data/2.5/weather?q=Paris,fr&appid=[APP_ID]&units=metric`
+
+Default call for testing [https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22](https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22)
 
 Look for the node `http request`, set the endpoint and change the return to be a JSON object:
 ![todo](/assets/images/2018/11/node-red-http-request.png)

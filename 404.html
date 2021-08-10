@@ -20,7 +20,11 @@ title: Page not found!
 
   <!-- Sentry.io -->
   {% if jekyll.environment == 'production' %}
-    <script src="https://browser.sentry-cdn.com/4.4.1/bundle.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://browser.sentry-cdn.com/6.11.0/bundle.min.js"
+      integrity="sha384-c+8PXtRnYfCKsSEvgtDqFeJvhjltkNLIUB1vcWKW4EleABoS4jh87UrE+1nQXg+g"
+      crossorigin="anonymous"
+    ></script>
     <script src="{{site_url}}/assets/js/sentry.js" charset="utf-8"></script>
     <script type="text/javascript">
       if(undefined !== Sentry){

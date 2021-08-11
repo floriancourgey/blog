@@ -1,12 +1,6 @@
 ---
 title: UNIX cheatsheet
-author: Florian Courgey
-layout: post
-categories:
-  - opensource
-  - bash
-  - shell
-  - unix
+categories: [opensource,bash,shell,unix]
 ---
 
 Cheatsheet with filesystem, commands and common utilities for UNIX based systems (Linux, Mac).
@@ -315,6 +309,8 @@ python --version # Python version (2.7, 3.2...)
 python # REPL interactive shell (exit with exit())
 python -c 'import os; print(os.urandom(16))' # execute code
 pip install requests # install module requests
+python2 -m SimpleHTTPServer # basic HTTP server. Serve static files from current dir
+python3 -m http.server 8000 # basic HTTP server. Serve static files from current dir
 ```
 
 ### Ruby, Gem and Jekyll

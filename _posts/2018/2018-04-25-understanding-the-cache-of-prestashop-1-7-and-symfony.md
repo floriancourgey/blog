@@ -1,6 +1,5 @@
 ---
 title: Understanding the cache of Prestashop 1.7 (and Symfony)
-guid: https://floriancourgey.com/?p=427
 permalink: /2018/04/understanding-the-cache-of-prestashop-1-7-and-symfony/
 categories: [prestashop,prestashop 1.7,symfony]
 ---

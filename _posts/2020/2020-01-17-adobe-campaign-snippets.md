@@ -81,6 +81,44 @@ for each(var record in records.getElements()){
 }
 ```
 
+## Insert raw data in workflow
+```js
+```
+
+## Data Quality Management (DQM) with XTK expression
+```js
+var xtkFields = ['@email', '@mobilePhone', '@phone', '@firstName', '@lastName', '@middleName', ];
+xtkFields = xtkFields.map(function(x){return 'COALESCE('+x+', \'\')';}); // [COALESCE(@email, ''), COALESCE(@firstName, '')...]
+xtkFields = xtkFields.join('+'); // "COALESCE(@email, '')+COALESCE(@firstName, '')...]"
+var query = NLWS.xtkQueryDef.create({queryDef: {
+  schema: 'nms:recipient', operation: 'select', lineCount: 999999999, // /!\ lineCount defaults to 10,000
+select: { node: [{expr: "@id"}, {expr: xtkFields, alias: '@text'}] },
+  where: { 
+    condition: [
+      {expr: xtkFields+" LIKE '%<%'", boolOperator: 'OR'}, // look for <
+      {expr: xtkFields+" LIKE '%>%'", boolOperator: 'OR'}, // look for >
+      {expr: xtkFields+" LIKE '%&%'", boolOperator: 'OR'}, // look for &
+    ],
+  }
+}});
+var records = query.ExecuteQuery(); // DOMElement
+for each(var record in records.getElements()){
+  logInfo(record.$id, record.$text);
+}
+```
+
+## Data Quality Management (DQM) with SQL expression
+```js
+var sqlFields = ['sEmail', 'sMobilePhone', 'sPhone', 'sFirstName', 'sLastName', 'sMiddleName', ];
+var sql = 'SELECT iRecipientId FROM NmsRecipient WHERE '+
+  'CONCAT('+sqlFields.join(',')+') LIKE \'%<%\' OR '+
+  'CONCAT('+sqlFields.join(',')+') LIKE \'%>%\' OR '+
+  'CONCAT('+sqlFields.join(',')+') LIKE \'%&%\' '
+;
+var document = sqlSelect('document,@id:long', sql);
+logInfo(document); // <select> <document id="XXX"/> </select>
+```
+
 ## Case/When in XTK
 ```js
 Case(

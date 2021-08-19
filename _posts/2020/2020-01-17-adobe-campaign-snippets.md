@@ -52,6 +52,29 @@ var cleanedSubject = subject;
 cleanedSubject = cleanedSubject.replace(/(\r\n)/gm, ''); // remove line breaks
 ```
 
+## Adobe Campaign audit trail for Schemas
+
+Will create 4 fields: `@created` & `@lastModified` (datetime), `@createdBy-id` & `@modifiedBy-id` (long). Will be automaticaly updated at record creation & update with the `Update data` activity. Use `Advanced>Disable audit` to disable the update of those fields.
+
+Best practice: Use it for any table with less than 10,000 records.
+
+XML for Schema:
+```xml
+<!-- audit -->
+<element aggregate="xtk:common:auditTrail" name="auditTrail"/>
+```
+
+JS for data migration in SQL:
+```js
+var tables = ['customAbc','customDef',];
+for each(var table in tables){
+  var sql = 'UPDATE '+table+' SET tsLastModified=oldField, tsCreated=oldField';
+  logInfo(sql);
+  var count = sqlExec(sql);
+  logInfo('> '+count+' records updated');
+}
+```
+
 ## Filtering
 ```console
 0|@created|#2020-01-30 23:00:00.000Z#|>=|||||0|/|0

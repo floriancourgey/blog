@@ -12,9 +12,9 @@ Excerpt here...
 **bold** *italic*  ~~strikethrough~~
 
 ## Summary
-- 
-- 
-- 
+-
+-
+-
 
 ## Get and install an NPM library
 
@@ -29,11 +29,3 @@ var validator = new function(){
   }
 }
 ```
-
-![todo](/assets/images/2019/01/image.png)
-
-And test it in a workflow:
-![todo](/assets/images/2019/01/image.png)
-![todo](/assets/images/2019/01/image.png)
-
-

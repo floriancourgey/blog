@@ -1,6 +1,5 @@
 ---
 title: Sub-workflow activity in Adobe Campaign
-redirect_from: /2018/07/sub-workflow-activity-in-adobe-campaign/
 categories: [adobe campaign, automation, javascript, neolane, opensource]
 ---
 
@@ -18,9 +17,9 @@ is going to call the child workflow (which will edit these variables)
 
 ![](/assets/images/2018/07/Sub-workflow-Child.jpg)
 
-We will also discuss [Pros & Cons](#pros-and-cons) of this approach, and what we can do to [go further](#going-further) with for example a File Collector/File Transfer.
+We will also discuss [Pros & Cons](#pros--cons) of this approach, and what we can do to [go further](#going-further) with for example a File Collector/File Transfer.
 
-## Step 1. Setup the Master workflow
+## Setup the Master workflow
 
 ![](/assets/images/2018/07/Sub-workflow-Master-step-1.jpg)
 
@@ -34,7 +33,7 @@ And `print x` has the following JavaScript code:
 logInfo('x: '+instance.vars.x)
 ```
 
-## Step 2. Create the Child sub-workflow
+## reate the Child sub-workflow
 
 ![](/assets/images/2018/07/Sub-workflow-Child.jpg)
 
@@ -53,7 +52,7 @@ Then, the test Activity is really standard, made just for the example here:
 
 ![](/assets/images/2018/07/Sub-workflow-Child-test-activity.jpg)
 
-## Step 3. Complete the Master Activity
+## Complete the Master Activity
 
 Open the Sub-workflow Activity, and Select the Child Sub-workflow, it will automatically create an outbound transition with the label of the Starting Jump in the Child Sub-Workflow.
 
@@ -63,7 +62,7 @@ Finish the workflow by adding what you need. Here, we're just gonna print the va
 
 ![](/assets/images/2018/07/Sub-workflow-Master-final-step.jpg)
 
-## Step 4. Run and Enjoy!
+## Run and Enjoy!
 
 Go ahead and run the Master workflow. You can see the transition arrows getting blue until they hit the End Activity. Well done! Go back to the Child sub-workflow, and refresh it.
 
@@ -75,15 +74,13 @@ Ok. But what happened? `x`  has a value of `1`, so in the Child workflow, its va
 
 ![](/assets/images/2018/07/Sub-workflow-Master-logs.jpg)
 
-&nbsp;
-
 But *look closely*, a couple of things happens:
 
   * Child logs are empty: ![](/assets/images/2018/07/Sub-workflow-Child-empty-logs.jpg)
   * Child logs are in the Master logs, labelled by `subworkflow`
   * The Child has modified `x` to `99`, and sent it back to the Master, but the modification is not persisted. `x` is still equal to `1`: ![](/assets/images/2018/07/Sub-workflow-Master-logs-1.jpg)
   * Child sub-workflow is still in `Being Edited` status, and its transition arrows are untouched: ![](/assets/images/2018/07/Sub-workflow-Child-still-in-Being-Edited-status.jpg)
-  This means you cannot `Right click > Display the target`. Which is a real pain in case of debugging! This is a major disadvantage of this method (see below for [Pros & Cons](#pros-and-cons))
+  This means you cannot `Right click > Display the target`. Which is a real pain in case of debugging! This is a major disadvantage of this method (see below for [Pros & Cons](#pros--cons))
 
 ## Pros & Cons
 

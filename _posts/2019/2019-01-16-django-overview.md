@@ -1,16 +1,18 @@
 ---
 title: Django Python web server overview
-author: Florian Courgey
-layout: post
 categories: [opensource,linux,server,python,django]
-date: 2019-01-16 11:31:16
 ---
+
 While Django was created in 2005 by a newspaper web team, it is now a generic web development framework used by Big sites such as Instagram, Pinterest or BitBucket. Let's see in 5 minutes how 50 lines of code can create a fully featured CRUD modern web app.
 
 <div class="text-center">🐍👑🌍</div>
+
 <!--more-->
+
 ## Introduction
+
 A Django project consists of multiple apps. Each app is structured following the [MVT pattern](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction#What_does_Django_code_look_like): Models (Database entities with mappings), Views (same as the MVC "controllers") and Templates (same as the MVC "views"):
+
 ```bash
 ├── blog/
 │   ├── models.py
@@ -22,6 +24,7 @@ A Django project consists of multiple apps. Each app is structured following the
 ```
 
 ## Installation and first project
+
 ```bash
 $ python --version # 3.7.0
 $ pip install django # 2.1.5
@@ -34,6 +37,7 @@ $ django-admin startproject django_overview && cd django_overview && tree
 $ ./manage.py runserver
 Starting development server at http://127.0.0.1:8000/
 ```
+
 Annnd check that everything's working as expected 🙃:
 <div class="text-center">
   <video autoplay loop muted playsinline height="250">
@@ -42,7 +46,9 @@ Annnd check that everything's working as expected 🙃:
 </div>
 
 ## Install admin
+
 Django comes with a fully featured **authentication**, **permissions** and **backoffice** systems. You first need to update the database with the default migrations. To apply them, run the command `migrate`. Then, create an admin with `createsuperuser` and head to [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/):
+
 ```bash
 $ ./manage.py migrate
 $ ./manage.py createsuperuser
@@ -56,6 +62,7 @@ And the Update entity form, with breadcrumbs and the history of updates:
 ![](/assets/images/2019/01/django-admin-users-update.jpg)
 
 ## Dead simple CRUD app
+
 Let's create our first CRUD app, an e-commerce store with sellable products. We got X steps:
 1. Create the app structure with `startapp`
 1. Enable the app in the project
@@ -64,6 +71,7 @@ Let's create our first CRUD app, an e-commerce store with sellable products. We 
 1. Activate the admin interface
 
 ### Create the app
+
 ```bash
 $ chmod +x ./manage.py && ./manage.py startapp shop && tree # for Windows, just do "python manage.py startapp blog"
 |   manage.py
@@ -78,6 +86,7 @@ $ chmod +x ./manage.py && ./manage.py startapp shop && tree # for Windows, just 
 ```
 
 ### Activate the app
+
 And activate the `shop` app in the `django_overview/settings.py` whitelisted apps:
 ```python
 INSTALLED_APPS = [
@@ -87,7 +96,9 @@ INSTALLED_APPS = [
 ```
 
 ### Create the db schema
+
 Edit `shop/models.py` to create our `Product` model:
+
 ```python
 from django.db import models
 
@@ -103,13 +114,16 @@ class Product(models.Model):
 ```
 
 ### Update the db
+
 ```bash
 $ ./manage.py makemigrations # creates shop/migrations/0001_initial.py
 $ ./manage.py migrate # runs shop/migrations/0001_initial.py
 ```
 
 ### Activate the django app admin
+
 Open `shop/admin.py` and add the following:
+
 ```python
 from django.contrib import admin
 from .models import Product
@@ -161,12 +175,11 @@ That's the power of django... **Less than 50 lines** of code for:
   - Views (shop/views.py which acts as a controller)
   - Templates (shop/templates/index.html with Django templating syntax)
 
-➡️ Explore the Django MVT with the next tutorial [XXX](abc.com) ⬅️
+
 
 ### This tutorial is part of The Django Series:
-- x
-- x
-- x
+- [Django advanced Frontend tips]({% post_url 2019/2019-01-16-django-advanced-frontend %}) ⬅️
+- [Django advanced Admin tips]({% post_url 2019/2019-01-16-django-advanced-admin %}) ⬅️
 
 *Reference:*
 - *https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction*

@@ -45,7 +45,13 @@ Markdown reference
 ```bash
 $ echo 'my_algolia_key' > _algolia_api_key
 $ bundle install --gemfile=Gemfile.dev
-$ jekyll algolia
+$ bundle exec jekyll algolia
+```
+
+## htmlproofer
+```bash
+$ htmlproofer --allow_hash_href --empty_alt_ignore --assume_extension --disable_external ./_site &> h
+tmlproofer/htmlproofer.log
 ```
 
 ## Jekyll on Github

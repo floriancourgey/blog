@@ -11,4 +11,3 @@ Insert raw data from any source (csv, xml, http web calls...) to a workflow temp
 
 
 ## Use h2 for each section
-![todo](/assets/images/2019/01/image.png)

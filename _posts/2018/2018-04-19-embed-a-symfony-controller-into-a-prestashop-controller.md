@@ -5,7 +5,7 @@ categories:
   - prestashop
   - prestashop 1.7
 ---
-We are migrating from 100% Symfony to Prestashop 1.7 but we would like to keep and re-use our existing codebase. Here&#8217;s a how-to.
+We are migrating from 100% Symfony to Prestashop 1.7 but we would like to keep and re-use our existing codebase. Here's a how-to.
 
 ## How Symfony works
 

@@ -191,10 +191,14 @@ More info on [how to redirect with Prestashop (from front and back)](https://flo
 
 ### 4.3 Use the GET parameters from URL
 
-<pre class="lang:php decode:true ">// todo</pre>
+```php
+// todo
+```
 
 ### 4.4 Use Twig instead of Smarty 🌱🌿
 
-<pre class="lang:php decode:true">// todo</pre>
+```php
+// todo
+```
 
 <img class="aligncenter" src="https://i2.wp.com/media.giphy.com/media/pCO5tKdP22RC8/giphy.gif?w=525&#038;ssl=1" data-recalc-dims="1" />

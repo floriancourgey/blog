@@ -20,13 +20,13 @@ Create a JS Activity like this:
 
 <img class="aligncenter size-full wp-image-902" src="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/js-activity.jpg?resize=401%2C118&#038;ssl=1" alt="" width="401" height="118" srcset="https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/js-activity.jpg?w=401&ssl=1 401w, https://i2.wp.com/floriancourgey.com/wp-content/uploads/2018/08/js-activity.jpg?resize=300%2C88&ssl=1 300w" sizes="(max-width: 401px) 100vw, 401px" data-recalc-dims="1" />
 
-We have no knowledge of the server, let&#8217;s start our digging with some basic commands:
+We have no knowledge of the server, let's start our digging with some basic commands:
 
 ```js
 execCommand("id");
 ```
 
-The workflow finishes with success, but there&#8217;s no output. Edit it like this:
+The workflow finishes with success, but there's no output. Edit it like this:
 
 ```js
 var result = execCommand("id");
@@ -39,7 +39,7 @@ Because `execCommand`  signature is as follow:
 /**
  * @param cmd Bash command to be executed on the server
  * @return array[int status, string response]
- * @throw Exception if 
+ * @throw Exception if
  *   - command failed
  *   - the neolane user doesn't have the "createProcess" right
  */
@@ -56,7 +56,7 @@ function exec(command, log){
   var result = execCommand(command);
   var lines = result[1].split("\n");
   if(log){
-    for each (var line in lines){ 
+    for each (var line in lines){
       logInfo("" + line);
     }
   }

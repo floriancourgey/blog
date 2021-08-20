@@ -5,7 +5,7 @@ categories: [grep,opensource,powershell,windows]
 
 ## Display occurences
 
-Display occurences of lines ending with &#8220;,2018&#8221; in all CSV of a folder
+Display occurences of lines ending with ",2018" in all CSV of a folder
 ```powershell
 select-string *.csv -pattern ",2018$"
 ```

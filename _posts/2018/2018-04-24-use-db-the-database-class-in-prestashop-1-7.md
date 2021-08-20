@@ -155,7 +155,7 @@ public function getMsgError() // returns the latest error message, if the query 
 public function getNumberError() // returns the latest error number, if the query has failed.
 ```
 
-## Physical data model &#8211; MPD
+## Physical data model - MPD
 ![Relationships (1-1 & 1-N) between Prestashop tables](/assets/images/2018/04/prestashop-mpd-large.gif)
 
 *Source: [https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs](https://www.prestashop.com/fr/blog/nouveaux_outils_pour_les_developpeurs)*

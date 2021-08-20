@@ -1,21 +1,14 @@
 ---
-id: 968
 title: Text file splitter JS (Adobe Campaign)
-date: 2018-08-14T19:30:27+00:00
-author: Florian Courgey
-layout: post
-guid: https://floriancourgey.com/?p=968
-permalink: /2018/08/text-file-splitter-js-adobe-campaign/
-tinymce-comment-field_enabled:
-  - "1"
-categories:
-  - opensource
+categories: [opensource, adobe campaign]
 ---
-Splits a text file into multiple chunks based on number of occurences found (e.g. split an XML file every 50 <node>), with configurable prefix (e.g. <xml><nodes>) and suffix (e.g. </nodes></xml>).
+
+Splits a text file into multiple chunks based on number of occurences found (e.g. split an XML file every 50 `<node>`), with configurable prefix (e.g. `<xml><nodes>`) and suffix (e.g. `</nodes></xml>`).
 
 <!--more-->
 
-<pre class="lang:js decode:true ">vars.header = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;\n&lt;orders xmlns="http://www.demandware.com/xml/impex/customer/2006-10-31"&gt;'; 
+```js
+vars.header = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;\n&lt;orders xmlns="http://www.demandware.com/xml/impex/customer/2006-10-31"&gt;';
 vars.ommitFirstHeader = true;
 vars.occurence = '&lt;order order-no';
 vars.maxOccurencesPerFile = 150;
@@ -24,13 +17,10 @@ vars.footer = '&lt;/orders&gt;';
 vars.inputDir = getIncoming() + 'dev/';
 vars.outputDir = getWebIncoming();
 vars.fileFormat = 'WEB_20180814134030.xml'; // *.xml
-</pre>
+```
 
-&nbsp;
-
-&nbsp;
-
-<pre class="lang:js decode:true">/**
+```js
+/**
  * Splits a file such as:
  * A
  * A
@@ -45,7 +35,7 @@ vars.fileFormat = 'WEB_20180814134030.xml'; // *.xml
  * header
  * A
  * footer
- * 
+ *
  * with params occurence="A", times=2
  */
 
@@ -99,6 +89,4 @@ for(var i in lines){
 }
 // last one
 f.writeln(textToWrite)
-</pre>
-
-&nbsp;
+```

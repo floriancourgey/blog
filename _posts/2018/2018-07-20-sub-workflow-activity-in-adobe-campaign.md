@@ -92,7 +92,7 @@ But *look closely*, a couple of things happens:
 - Unable to Display the target
 - Unable to see the count of intermediate populations
 - Logs are aggregated in the Master workflow
-- Child logs are labelled &#8220;sub-workflow&#8221; so we don&#8217;t know the activity it&#8217;s been called from
+- Child logs are labelled "sub-workflow" so we don't know the activity it's been called from
 
 ## Going further
 

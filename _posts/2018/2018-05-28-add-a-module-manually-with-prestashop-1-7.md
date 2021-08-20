@@ -5,7 +5,7 @@ permalink: /2018/05/add-a-module-manually-with-prestashop-1-7/
 categories: [opensource,prestashop]
 ---
 
-Your UI is not working? Your Backoffice doesn&#8217;t allow you to install a module anymore because you tweaked it? You can install a module by hand in SQL directly by following this tutorial.
+Your UI is not working? Your Backoffice doesn't allow you to install a module anymore because you tweaked it? You can install a module by hand in SQL directly by following this tutorial.
 
 <!--more-->
 

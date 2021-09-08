@@ -35,7 +35,7 @@ tmpfs 999528 0 999528 0% /dev/shm
 tmpfs 5120 24 5096 1% /run/lock
 tmpfs 999528 0 999528 0% /sys/fs/cgroup
 cgmfs 100 0 100 0% /run/cgmanager/fs
-tmpfs 199908 0 199908 0% /run/user/1000</pre>
+tmpfs 199908 0 199908 0% /run/user/1000
 ```
 
 ## Which directory is full?

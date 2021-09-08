@@ -6,7 +6,7 @@ permalink: /adobe-mvp
 
 After many years of contribution to the Adobe Cloud ecosystem, especially Adobe Campaign, I've been nominated and certified as an "Adobe Community Advisor" at LVMH for 2021 and 2022! Read more to know about the Adobe Influencer Swag!
 
-<p class="text-center">🎒📝💧</p>
+<p class="text-center">🏆🎒📝🏆</p>
 
 <!--more-->
 

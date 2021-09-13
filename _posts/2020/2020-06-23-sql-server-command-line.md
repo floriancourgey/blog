@@ -14,16 +14,18 @@ categories: [sql,sql server,cmd,powershell]
 ```console
 > where bcp
 C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\bcp.exe
-> bcp "select col1 from my_table where col2='ABC';" queryout "C:\Users\Florian\sql-server-bcp.csv" -c -t "," -r "\n" -S myserver.local -T
+> bcp "select col1 from my_table where col2='ABC';" queryout sql-server-bcp.csv -c -t "," -r "\n" -S myserver.local -T
 > bcp -i "C:\Users\Florian\sql-server-bcp-query.sql" queryout "C:\Users\Florian\sql-server-bcp.csv" -c -t "," -r "\n" -S myserver.local -T
+> bcp "select col1,col2 from [db].[dbo].[view1] where market='X'" queryout abc.txt -S server.local -T -c -t "," -r "\n" -C 65001
 ```
 with:
-- `queryout` filepath for the result
+- `queryout` filepath for the result file
 - `-t` field separator (`,` `;` `|`)
 - `-r` row separator (`\n`)
 - `-S` server IP
 - `-T` trust connection
 - `-i` input file
+- `-C` character encoding, use `65001` for UTF-8
 
 Full usage:
 ```console

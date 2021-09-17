@@ -54,6 +54,37 @@ global class FcoCalloutMock implements HttpCalloutMock {
 }
 ```
 
+## HTTP POST to SOAP Adobe Campaign
+
+Recipients broadlogs update
+
+```java
+Http http = new Http();
+HttpRequest request = new HttpRequest();
+request.setEndpoint('https://xxx.neolane.net/nl/jsp/soaprouter.jsp');
+request.setMethod('POST');
+request.setHeader('Content-Type', 'application/xml');
+request.setHeader('SOAPAction', 'xtk:persist#WriteCollection');
+String body = 
+'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:xtk:session">'+
+   '<soapenv:Header/>'+
+   '<soapenv:Body>'+
+      '<urn:WriteCollection>'+
+         '<urn:sessiontoken>user_name/pass_word</urn:sessiontoken>'+
+         '<urn:domDoc>'+
+            '<broadLogRcp-collection xtkschema="nms:broadLogRcp">'+
+              '<broadLogRcp id="129106000" status="5" _operation="update" _key="@id" eventDate="2018-12-25 11:05:59"/>'+
+              '<broadLogRcp id="129117000" status="4" _operation="update" _key="@id" eventDate="2018-12-25 11:05:59"/>'+
+            '</broadLogRcp-collection>'+
+         '</urn:domDoc>'+
+      '</urn:WriteCollection>'+
+   '</soapenv:Body>'+
+'</soapenv:Envelope>';
+request.setBody(body);
+HttpResponse response = http.send(request);
+System.debug(response.getBody());
+```
+
 ## Schedule Apex Job
 
 Find jobs in Setup>Environments>Jobs>`Scheduled Jobs`.

@@ -108,3 +108,23 @@ Stop job from `Scheduled Jobs`>Delete or:
 ```java
 System.abortJob(jobId);
 ```
+
+## Parent-child SOQL request (and datetime)
+```java
+Datetime dtFrom = DateTime.newInstance(2021,09,01,00,0,0);
+List<Sale__c> sales = [
+    SELECT 
+	Id, Name, Locale__c,
+	(
+	    SELECT Id, Quantity__c, Product__c, Amount__c 
+	    FROM Ticket_Lines__r 
+	    WHERE Quantity__c>0 AND Amount__c>0
+	)
+    FROM Sale__c 
+    WHERE Purchase_Date__c > :dtTo
+];
+for(Sale__c sale: sales){
+    System.debug(sale.Ticket_Lines__r.size()+' lines');
+}
+```
+

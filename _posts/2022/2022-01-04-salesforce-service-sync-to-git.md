@@ -7,17 +7,18 @@ categories: [salesforce,git,opensource]
 
 <!--more-->
 
-## Notes
-- Create empty Git repo "myinstance"
-- from VM, git clone "salesforce-service-sync" "myinstance-sync"
-- cd "myinstance-sync" && git clone git-username@myinstance "instance"
-- sfdx force:project:create -n instance
-- cd instance && git status
+## First setup
+- Create empty Git repo "myinstance-repo"
+- git clone git-username@myinstance-repo
+- sfdx force:project:create -n myinstance-repo
+- cd myinstance-repo && git status
 - git add .
 - git commit -m "sfdx project"
 - git push
-- sfdx force:config:set defaultusername=alias
-- sfdx force:source:retrieve -n manifest/package.xml
+- sfdx force:config:set defaultusername=myalias
+
+## Recurring
+- sfdx force:source:retrieve -u myalias -x manifest/package.xml
 - git add .
 - git commit -m "package"
 - git push

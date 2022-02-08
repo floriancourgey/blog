@@ -104,6 +104,11 @@ The online version is available on [https://linux.die.net/man/{section id}/{name
 
 ## CRON
 
+```bash
+crontab -l # list
+crontab -e # edit
+```
+
 ## IP
 
 IPs with CIDR notation. [Compute CIDR notation with online tool](https://ipaddressguide.com/cidr)
@@ -174,6 +179,16 @@ n # repeat find (next occurence)
 1G # go to line 1
 99G # go to line 99
 G # go to end of file
+```
+
+## process & pid
+```bash
+pidof vscode # 123 456 789
+ps aux | grep vscode # 
+pgrep vscode
+kill -[signal] PID
+kill -SIGTERM 123
+killall -15 vscode
 ```
 
 ## Encode & decode

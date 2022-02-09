@@ -6,6 +6,24 @@ Excerpt here...
 <p class="text-center">🐍👑🌍</p>
 <!--more-->
 
+## SOQL, Loops, dates, exception
+
+```java
+// soql
+List<Account> accounts = [SELECT Id, Name FROM Account];
+for(Account account : accounts){
+  throw new IllegalArgumentException('Test'); // Exception class is abstract. Use Exceptions.SystemException, ApplicationException
+}
+Account a = new Account(Name='');
+insert a;
+a.Name = 'New name';
+update a;
+// date
+datetime nowDatetime = datetime.now(); // for saleItemGeneratedId PLOCRM-21
+string nowDate = nowDatetime.format('yyyyMMdd');
+string nowTime = nowDatetime.format('HHmmss');
+```
+
 ## Apex Trigger
 
 ```java

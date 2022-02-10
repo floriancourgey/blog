@@ -11,6 +11,7 @@ Excerpt here...
 ```java
 // soql
 List<Account> accounts = [SELECT Id, Name FROM Account];
+System.debug('size: '+accounts.size());
 for(Account account : accounts){
   throw new IllegalArgumentException('Test'); // Exception class is abstract. Use Exceptions.SystemException, ApplicationException
 }

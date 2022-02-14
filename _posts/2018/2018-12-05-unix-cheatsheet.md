@@ -369,6 +369,26 @@ public class MyClass {
 }
 ```
 
+### Csharp
+```csharp
+using System.Linq; // Where
+using System.Collections.Generic; // List
+public class Main {
+  public Main() {
+    List<Car> availableCars = allCars.Where(x => x.isAvailable);
+    Car car;
+    try {
+        car = availableCar.Find(x => x.id == "xxx");
+    } catch (Exception e){
+        car = new Car{
+            id = "xxx"
+        };
+    }
+  }
+}
+```
+
+
 ### Docker
 ```bash
 docker pull ubuntu # download images from hub.docker.com: alpine, mysql...

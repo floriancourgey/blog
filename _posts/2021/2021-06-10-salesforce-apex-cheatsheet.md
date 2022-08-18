@@ -1,5 +1,5 @@
 ---
-title: Salesforce Apex Cheatsheet
+title: Salesforce Service APEX Cheatsheet
 categories: [salesforce,apex]
 ---
 Excerpt here...
@@ -45,7 +45,7 @@ public with sharing class FcoCaseTriggerTest {
 }
 ```
 
-## HTTP GET Callout
+## HTTP GET Request
 
 Make sure to whitelist the external URL in Setup>Security>`Remote Site Settings`.
 
@@ -73,9 +73,9 @@ global class FcoCalloutMock implements HttpCalloutMock {
 }
 ```
 
-## HTTP POST to SOAP Adobe Campaign
+## HTTP POST Request to SOAP API
 
-Recipients broadlogs update
+Ex: Adobe Campaign Recipients broadlogs update
 
 ```java
 Http http = new Http();
@@ -103,6 +103,36 @@ request.setBody(body);
 HttpResponse response = http.send(request);
 System.debug(response.getBody());
 ```
+
+## HTTP POST Request to Marketing Cloud REST API
+```java
+Http http = new Http();
+// auth
+HttpRequest request = new HttpRequest();
+request.setEndpoint('https://xxx.auth.marketingcloudapis.com/v2/token');
+request.setMethod('POST');
+request.setHeader('Content-Type', 'application/json');
+String body = '{"grant_type": "client_credentials","client_id": "xxx","client_secret": "xxx","scope": "email_read email_write email_send","account_id": "xxx"}';
+request.setBody(body);
+HttpResponse response = http.send(request);
+System.debug(response.getBody());
+Object record = (Object) JSON.deserializeUntyped(response.getBody());
+Map<String, Object> mapped = (Map<String, Object>)record;
+String access_token = (String)mapped.get('access_token');
+System.debug(access_token);
+// call
+request = new HttpRequest();
+request.setEndpoint('https://xxx.rest.marketingcloudapis.com/messaging/v1/email/messages/');
+request.setMethod('POST');
+request.setHeader('Authorization', 'Bearer '+access_token);
+request.setHeader('Content-Type', 'application/json');
+body = '{  "definitionKey": "Auto_WW_DoubleOptinQRCode",  "recipients": [{      "contactKey": "0034H00002ZiYo5QAF",      "to": "fcourgey20220818b@yopmail.com",      "attributes": {        "FirstName": "John",        "LastName": "Doe"      }  }]}';
+request.setBody(body);
+response = http.send(request);
+System.debug(response.getBody());
+```
+
+See [Marketing Cloud REST API](/2022/08/salesforce-marketing-cloud-rest-api).
 
 ## Schedule Apex Job
 

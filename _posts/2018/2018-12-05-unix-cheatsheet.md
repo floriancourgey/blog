@@ -116,22 +116,6 @@ IPs with CIDR notation. [Compute CIDR notation with online tool](https://ipaddre
 - `/24` = 256 IP range (mask 255.255.255.0): `1.1.1.1/24` = range from `1.1.1.0` to `1.1.1.255`
 - `/22` = 1,024 (4 * 256) IP range (mask 255.255.252.0): `1.1.1.1/22` = range from `1.1.0.0` to `1.1.3.255`
 
-## Debian
-Names coming from [Toy story characters](https://www.debian.org/doc/manuals/debian-faq/ch-ftparchives#s-sourceforcodenames)
-```bash
-Debian 9 # stretch, 2017
-Debian 8 # jessie, 2015
-Debian 7 # wheezy, 2013
-Debian 6.0 # squeeze, 2011
-Debian 5.0 # lenny, 2009
-Debian 4.0 # etch
-Debian 3.1 # sarge
-Debian 3.0 # woody
-Debian 2.2 # potato
-Debian 2.1 # slink
-Debian 2.0 # hamm
-```
-
 ## curl
 ```bash
 curl site.com # protocol defaulted to http
@@ -275,6 +259,25 @@ Compute the RSA key fingerprint
 ```console
 $  ssh-keygen -lf .ssh/id_rsa.pub
 2048 SHA256:XXXXAAXXX user@machine (RSA)
+```
+
+## Distributions
+
+### Debian / Ubuntu
+
+- Debian Names coming from [Toy story characters](https://www.debian.org/doc/manuals/debian-faq/ch-ftparchives#s-sourceforcodenames). Debian 9 (stretch 2017), Debian 8 (jessie 2015), Debian 7 (wheezy, 2013)
+
+```console
+# apt update
+# apt upgrade
+# apt install git
+```
+
+### Red Hat Enterprise Edition (RHEL) / Fedora / CentOS
+
+```console
+# dnf upgrade
+# dnf install git
 ```
 
 ## Programming

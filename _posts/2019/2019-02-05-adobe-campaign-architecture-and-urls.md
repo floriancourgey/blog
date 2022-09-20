@@ -81,6 +81,8 @@ Application server `https://myserver-mkt-prod1.campaign.adobe.com` (HTTPS) or `h
 - `/nl/webForms/defaultWebApp.css` -> `/usr/local/neolane/nl6/web/webforms/defaultWebApp.css`
 - `/webApp/{webApp-internalName` -> web apps
 - `/{jssp-namespace}/{jssp-name}.jssp` -> JSSP pages
+- `/nl/jsp/logon.jsp` -> Logon page, redirects to Client install/download page
+- `/nl/jsp/install.jsp` -> Client install/download page
 
 ## Resources
 CDN Ressources server `http://res.my-customserver.com`:

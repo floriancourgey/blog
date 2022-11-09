@@ -10,8 +10,11 @@ categories: [salesforce,marketing,sql]
 ## Standard tables
 ```console
 _bounce
-_Click: SubscriberID, JobID, EventDate, URL, LinkName
+_Click: SubscriberID, JobID, EventDate, URL, LinkName (https://help.salesforce.com/s/articleView?id=sf.mc_as_data_view_click.htm&type=5)
 _Open
 _Complaint
 _Journey
 ```
+## Salesforce JOIN help
+
+- [Trailhead Query Data with SQL](https://trailhead.salesforce.com/fr/content/learn/modules/marketing-cloud-data-management/query-data-with-sql)

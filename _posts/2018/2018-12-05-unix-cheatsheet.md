@@ -65,6 +65,8 @@ mktemp # create a file and print its name, relative to $TMPDIR if set, else /tmp
 mktemp -d # create a directory
 printenv | less # print env vars
 ls -l $(which python) # command substitution with $(cmd-here)
+passwd # update password for current user
+sudo passwd user_name # update password for user_name
 ```
 [man id](https://linux.die.net/man/1/id), [man who](https://linux.die.net/man/1/who), [man ls](https://linux.die.net/man/1/ls)
 

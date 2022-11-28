@@ -261,6 +261,16 @@ $  ssh-keygen -lf .ssh/id_rsa.pub
 2048 SHA256:XXXXAAXXX user@machine (RSA)
 ```
 
+Connect from client to host
+```console
+$ ssh user@host
+```
+
+Copy SSH key from client to host
+```console
+$ ssh-copy-id user@host
+```
+
 ## Distributions
 
 ### Debian / Ubuntu

@@ -61,6 +61,7 @@ pwd # Print Working Dir
 ls -alh # list a=All (even hidden .) as a l=List in a h=Human-readable format
 ls -ld /usr/{,local/}{bin,sbin,lib} # ls only dir with Shell Expansion
 mkdir {2019..2021}-0{1..9} {2019..2021}-{10..12} # Shell expansion with numbers
+mkdir -p /opt/dirA/diB # recursive
 mktemp # create a file and print its name, relative to $TMPDIR if set, else /tmp
 mktemp -d # create a directory
 printenv | less # print env vars

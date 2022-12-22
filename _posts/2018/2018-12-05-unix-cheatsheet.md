@@ -319,7 +319,7 @@ git tag <tag name> # create a tag for current commit
 git remote -v # list remotes
 git remote add <remote name> <repo url> # add remote
 git remote rm <remote name> # delete remote
-git config -l
+git config --list --show-origin
 git reset --hard <commit sha> # revert to commit
 git push -f # force push
 ```

@@ -8,17 +8,24 @@ categories: [salesforce,git,opensource]
 <!--more-->
 
 ## First setup
+
 - Create empty Git repo "myinstance-repo"
-- git clone git-username@myinstance-repo
-- sfdx force:project:create -n myinstance-repo
-- cd myinstance-repo && git status
-- git add .
-- git commit -m "sfdx project"
-- git push
-- sfdx force:config:set defaultusername=myalias
+
+```bash
+git clone git-username@myinstance-repo
+sfdx force:project:create -n myinstance-repo
+cd myinstance-repo && git status
+git add .
+git commit -m "sfdx project"
+git push
+sfdx force:config:set defaultusername=myalias
+```
 
 ## Recurring
-- sfdx force:source:retrieve -u myalias -x manifest/package.xml
-- git add .
-- git commit -m "package"
-- git push
+
+```bash
+sfdx force:source:retrieve -u myalias -x manifest/package.xml
+git add .
+git commit -m "package"
+git push
+```

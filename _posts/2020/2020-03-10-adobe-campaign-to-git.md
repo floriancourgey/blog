@@ -30,8 +30,8 @@ Example from Linux VM environment:
 
 ```bash
 $ pwd # /home/user
-$ git clone https://github.com/floriancourgey/adobe-campaign-sync adobe-campaign-sync-instance1 # 1 folder for 1 instance
-$ cd adobe-campaign-sync-instance1
+$ git clone https://github.com/floriancourgey/adobe-campaign-sync myinstance-prod # 1 folder per instance
+$ cd myinstance-prod
 # if behind a corporate firewall, set HTTP proxy
 $ npm config set proxy http://x.x.x.x:port
 $ npm config set https-proxy http://x.x.x.x:port
@@ -48,15 +48,15 @@ $ git clone git@github.com/user/instance1.git instance
 $ cp .env.dist .env
 $ vim .env
 $ node src/download.js # download data schemas
-$ cd instance && git status && cd .. # check
-$ node src/git.js # git commit & push
+$ cd instance && git status # check
+$ git add . && git commit -m "$(date +%Y-%m-%d_%H:%M:%S)" && git push
 ```
 
 That's it! Set up a CRON every 15 min:
 
 ```bash
 $ crontab -e
-*/15 * * * * cd /home/user/adobe-campaign-sync-instance1 && node src/download.js && node src/git.js
+*/15 * * * * cd ~/myinstance-prod && node src/download.js && cd instance && git add . && git commit -m "$(date +%Y-%m-%d_%H:%M:%S)" && git push
 ```
 
 Source code on [github.com/floriancourgey/adobe-campaign-sync](https://github.com/floriancourgey/adobe-campaign-sync)

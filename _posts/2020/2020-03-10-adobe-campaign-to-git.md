@@ -27,7 +27,9 @@ Set up a small software in a VM (or your own PC) to backup your Adobe instances 
 ### Setup
 
 Example from Linux VM environment:
-```bash$ pwd # /home/user
+
+```bash
+$ pwd # /home/user
 $ git clone https://github.com/floriancourgey/adobe-campaign-sync adobe-campaign-sync-instance1 # 1 folder for 1 instance
 $ cd adobe-campaign-sync-instance1
 # if behind a corporate firewall, set HTTP proxy
@@ -38,6 +40,7 @@ $ npm install
 ```
 
 ### Launch
+
 ```bash
 # note: clone with a GIT url, not an HTPPS, otherwise SSH autologin with the SSH public key won't work
 $ git clone git@github.com/user/instance1.git instance
@@ -50,6 +53,7 @@ $ node src/git.js # git commit & push
 ```
 
 That's it! Set up a CRON every 15 min:
+
 ```bash
 $ crontab -e
 */15 * * * * cd /home/user/adobe-campaign-sync-instance1 && node src/download.js && node src/git.js

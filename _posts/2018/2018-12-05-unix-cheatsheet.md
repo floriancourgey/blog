@@ -111,6 +111,12 @@ The online version is available on [https://linux.die.net/man/{section id}/{name
 crontab -l # list
 crontab -e # edit
 ```
+CRON examples
+```bash
+# comment
+05 * * * * cd ~/abc && node src/download.js
+# MINUTE(0-59) HOUR(0-24) DAY(1-31) MONTH(1-12) WEEKDAY(Sunday 0 to Saturday 6)
+```
 
 ## IP
 

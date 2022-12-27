@@ -45,6 +45,9 @@ See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 </div>
 
 ## Bash basics
+
+### Bash architecture
+
 <div>
   <img src="https://developer.ibm.com/developer/tutorials/l-linux-shells/images/figure1.gif" style="max-height:150px"/>
 </div>
@@ -54,6 +57,7 @@ See [wikipedia Unix_filesystem](https://en.wikipedia.org/wiki/Unix_filesystem)
 
 Source on [IBM developers](https://developer.ibm.com/tutorials/l-linux-shells/)
 
+### Bash main commands
 ```bash
 id # Identification, displays current user (and uid), main group (and guid) and other groups (with guid)
 who -H # Who is logged in, with h=column Headers
@@ -70,6 +74,8 @@ passwd # update password for current user
 sudo passwd user_name # update password for user_name
 ```
 [man id](https://linux.die.net/man/1/id), [man who](https://linux.die.net/man/1/who), [man ls](https://linux.die.net/man/1/ls)
+
+### Bash IO
 
 ```bash
 echo -e "hello\n$(cat file)" > file # prepend to file
@@ -89,6 +95,25 @@ ls -l &> /dev/null # totally wipes output (i.e for silent CRON)
 echo $? # last return code. 0 is success, 126 is found but not executable, 127 is not found, any non-zero integer is failure
 ```
 [TLDP redirection](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-3.html), [wiki exit status](https://en.wikipedia.org/wiki/Exit_status)
+
+### Bash file
+
+```bash
+$ vim myfile
+#!/bin/bash
+case $1 in
+    login)
+        echo "Logged in"
+        ;;
+    *)  echo "Incorrect command"
+        ;;
+esac
+```
+
+```console
+$ ./myfile login
+Logged in
+```
 
 ## UNIX man
 The UNIX manual is divised into 10 sections:

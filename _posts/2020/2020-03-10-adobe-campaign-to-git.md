@@ -64,3 +64,26 @@ $ crontab -e
 ```
 
 Source code on [github.com/floriancourgey/adobe-campaign-sync](https://github.com/floriancourgey/adobe-campaign-sync)
+
+### Multi-instance setup
+
+```console
+~/
+  adobe-campaign-sync/
+  instance1-preprod/
+    .env
+    instance/
+      .git/ connected to repo1 @ preprod
+  instance1-prod/
+    .env
+    instance/
+      .git/ connected to repo1 @ main
+  instance2-preprod/
+    .env
+    instance/
+      .git/ connected to repo2 @ preprod
+  instance2-prod/
+    .env
+    instance/
+      .git/ connected to repo2 @ main
+```

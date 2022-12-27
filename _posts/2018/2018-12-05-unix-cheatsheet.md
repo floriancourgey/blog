@@ -132,9 +132,10 @@ The online version is available on [https://linux.die.net/man/{section id}/{name
 
 ## CRON
 
-```bash
-crontab -l # list
-crontab -e # edit
+```console
+$ crontab -l # list
+$ crontab -e # edit
+# tail -f /var/log/cron
 ```
 CRON examples
 ```bash

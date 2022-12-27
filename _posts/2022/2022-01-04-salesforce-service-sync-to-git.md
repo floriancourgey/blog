@@ -44,3 +44,11 @@ $ cd myinstance-repo
 $ sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml
 $ git add . && git commit -m "package" && git push
 ```
+
+## CRON job
+
+```console
+$ crontab -e
+27 * * * * cd ~/myinstance-repo && sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml && git add . && git commit -m "$(date +%Y-%m-%d_%H:%M:%S)" && git push
+# generates a commit like "2022-12-27_16:30:07"
+```

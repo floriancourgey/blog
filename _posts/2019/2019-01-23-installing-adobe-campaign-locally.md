@@ -79,7 +79,7 @@ uid=1001(neolane) gid=1001(neolane) groups=1001(neolane)
 /usr/local/neolane
 drwxrwxr-x. 14 neolane neolane 187 Feb 13 14:01 nl6
 -bash-4.2$ vim ~/.bash_profile
-export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/lib/amd64/server/
+export LD_LIBRARY_PATH=/usr/local/neolane/nl6/lib/:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/amd64/:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/amd64/server/
 export PATH=$PATH:/usr/local/neolane/nl6/bin/
 alias ll="ls -alh"
 PS1="[\u@\h \w]\$ "
@@ -122,9 +122,8 @@ host    all             all             ::1/128                 md5
 [fco@localhost ~]$ sudo su - postgres
 [postgres@localhost ~]$ createuser --interactive # create a PostgreSQL role (user)
 dbuser1
-[postgres@localhost ~]$ psql # open the PostgreSQL shell
-
 [postgres@localhost ~]$ createdb dbuser1 # create a PostgreSQL database with the same name
+[postgres@localhost ~]$ psql # open the PostgreSQL shell
 postgres=# ALTER USER dbuser1 PASSWORD 'dbpwd1'; # set a password for the SQL user
 postgres=# \q
 [postgres@localhost ~]$ exit
@@ -141,8 +140,8 @@ You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or
 ## Set up instance
 We'll set up an instance named `instance1`, with default user `internal` and password `internal` (See [Adobe doc for nlserver config](https://docs.campaign.adobe.com/doc/AC/en/INS_Appendices_Command_lines.html)).
 ```console
-$ nlserver config -verbose -addinstance:instance1/*/eng
-$ nlserver config -internalpassword
+[neolane@localhost ~]$ nlserver config -verbose -addinstance:instance1/*/eng
+[neolane@localhost ~]$ nlserver config -internalpassword
 internal
 16:23:48 >   Password successfully changed for account 'internal' (authentication mode 'nl').
 ```

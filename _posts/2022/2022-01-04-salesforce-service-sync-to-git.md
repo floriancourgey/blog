@@ -29,7 +29,7 @@ $ sfdx force:org:display -u myinstance_username --verbose --json
 ## Setup for automatic backups from headless VM
 
 ```console
-$ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass usage of gnome-keyring
+$ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass usage of gnome-keyring (errors: X11 $DISPLAY, secret-tool org.freedesktop.Secret.Error.IsLocked)
 $ git clone git-username@myinstance-repo
 $ cd myinstance-repo
 $ sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml

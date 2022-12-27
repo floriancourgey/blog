@@ -9,13 +9,15 @@ categories: [salesforce,git,opensource]
 
 ## Setup from Personal PC
 
-- Create empty Git repo "myinstance-repo"
+- From browser, create an empty Git repo "myinstance-repo"
+- From ~/
 
 ```console
-$ git clone git-username@myinstance-repo
-$ sfdx force:project:create -n myinstance-repo
+$ sfdx force:auth:web:login -r https://test.salesforce.com # authorize Org
+$ git clone git-username@myinstance-repo # pull git repo
+$ sfdx force:project:create -n myinstance-repo # init sf project into repo
 $ cd myinstance-repo && git status
-$ vim manifest/package.xml
+$ vim manifest/package.xml # create package
 TBD
 $ git add . && git commit -m "sfdx project" && git push
 $ sfdx force:org:display -u myinstance_username --verbose --json
@@ -28,8 +30,12 @@ $ sfdx force:org:display -u myinstance_username --verbose --json
 
 ## Setup for automatic backups from headless VM
 
+From ~/
 ```console
-$ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass usage of gnome-keyring (errors: X11 $DISPLAY, secret-tool org.freedesktop.Secret.Error.IsLocked)
+$ vim authFile.json
+paste JSON data from Personal PC
+$ sfdx force:auth:sfdxurl:store -f authFile.json
+$ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass SFDX usage of gnome-keyring (errors: X11 $DISPLAY, secret-tool org.freedesktop.Secret.Error.IsLocked)
 $ git clone git-username@myinstance-repo
 $ cd myinstance-repo
 $ sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml

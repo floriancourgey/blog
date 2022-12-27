@@ -17,6 +17,7 @@ $ sfdx force:auth:web:login -r https://test.salesforce.com # authorize Org
 $ git clone git-username@myinstance-repo # pull git repo
 $ sfdx force:project:create -n myinstance-repo # init sf project into repo
 $ cd myinstance-repo && git status
+$ mkdir manifest
 $ vim manifest/package.xml # create package
 TBD
 $ git add . && git commit -m "sfdx project" && git push

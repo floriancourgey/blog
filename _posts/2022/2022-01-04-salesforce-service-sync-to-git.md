@@ -7,7 +7,21 @@ categories: [salesforce,git,opensource]
 
 <!--more-->
 
-## Setup from Personal PC
+## Overview
+
+## Architecture
+
+## Instructions
+
+### Prerequisites
+
+- Basic linux knowledge (check [LINUX cheatshet](/2018/12/unix-cheatsheet) for help)
+- Basic Salesforce knowledge (check [Apex cheatsheet](2021/06/salesforce-apex-cheatsheet) for help)
+- Salesforce Service cloud instance with admin username
+- Github.com account
+- Basic git knowledge
+
+### Setup from Personal PC
 
 - From browser, create an empty Git repo "myinstance-repo"
 - From ~/
@@ -29,7 +43,7 @@ $ sfdx force:org:display -u myinstance_username --verbose --json
 }
 ```
 
-## Setup for automatic backups from headless VM
+### Setup for automatic backups from headless VM
 
 From ~/
 ```console
@@ -45,7 +59,7 @@ $ sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml
 $ git add . && git commit -m "package" && git push
 ```
 
-## CRON job
+### Make it recurrent with CRON jobs
 
 ```console
 $ crontab -e

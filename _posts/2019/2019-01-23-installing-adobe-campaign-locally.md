@@ -37,7 +37,7 @@ Local install Adobe Campaign to set up your own development environment! Useful 
 1. Restart the machine, accept the licence and log in
 1. Open up a terminal. You should have the following:
 ![](/assets/images/2019/02/fedora-workstation-first-terminal.jpg)
-1. Install Virtual Box Guest Addition to enable copy/paste
+1. Install Virtual Box Guest Addition to enable copy/paste (`sudo yum groupinstall "Development Tools" && sudo yum install kernel-devel elfutils-libelf-devel`, then VM > Devices > Install Guest Additions)
 1. Optional: Install Gnome instead of Gnome Classic, see [tuto on stackexchange](https://unix.stackexchange.com/questions/181503/how-to-install-desktop-environments-on-centos-7)
 1. see https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1 for details
 

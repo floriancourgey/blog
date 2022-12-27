@@ -311,17 +311,24 @@ $ ssh-copy-id user@host
 
 - Debian Names coming from [Toy story characters](https://www.debian.org/doc/manuals/debian-faq/ch-ftparchives#s-sourceforcodenames). Debian 9 (stretch 2017), Debian 8 (jessie 2015), Debian 7 (wheezy, 2013)
 
+As root:
 ```console
-# apt update
-# apt upgrade
-# apt install git
+apt update # check for new versions
+apt upgrade # install new versions
+apt install git
 ```
 
 ### Red Hat Enterprise Edition (RHEL) / Fedora / CentOS
 
-```console
-# dnf upgrade
-# dnf install git
+As root:
+```bash
+dnf check-update # check for new versions
+dnf upgrade # install new versions
+dnf list --all # list installed
+
+dnf info git
+dnf install git
+dnf remove git
 ```
 
 ## Programming

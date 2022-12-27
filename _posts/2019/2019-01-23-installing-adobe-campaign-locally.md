@@ -4,7 +4,7 @@ categories: [opensource,adobe campaign]
 redirect_from: /install-acc
 ---
 
-Install Adobe Campaign on any computer locally on a VM to set up your own development environment. Plus, access to any VM feature such as snapshots and duplication. This dev setup is for testing and demo only. Configuring Apache on port 443 to receive traffic as a web server allows a more secure connection.
+Local install Adobe Campaign to set up your own development environment! Useful for testing and demo. Plus, access to any VM feature such as snapshots and duplication.
 
 ![](/assets/images/2019/03/adobe-campaign-install-architecture-network.jpg)
 
@@ -12,7 +12,7 @@ Install Adobe Campaign on any computer locally on a VM to set up your own develo
 
 <!--more-->
 
-## Introduction
+## Summary
 1. Install Centos on VirtualBox
 1. Install Java 8 JDK
 1. Download and install Adobe Campaign `.rpm` package
@@ -22,14 +22,12 @@ Install Adobe Campaign on any computer locally on a VM to set up your own develo
 1. Install postgresql
 1. Connect from your client
 
-- Installation guide for AC6.1 https://docs.campaign.adobe.com/doc/archives/en/610/installation-v6.1-en.pdf
-- `thirdparty6-XXXX-.rpm` is now included in the main package, cf https://docs.campaign.adobe.com/doc/AC/en/RN_legacy.html#8763
-- Installation guide for AC7 https://docs.campaign.adobe.com/doc/AC/en/INS_Installing_Campaign_in_Linux__Prerequisites.html
+- Note: [Official AC7 Adobe installation guide](https://experienceleague.adobe.com/docs/campaign-classic/using/installing-campaign-classic/install-campaign-on-prem/installing-campaign-in-linux-/installing-packages-with-linux.html?lang=en)
 
 ## Prerequisites: CentOS 7 x64 on Virtualbox
-1. Get virtual box from [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
+1. Get VirtualBox from [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 1. Get Centos ISO from [centos.org/download](https://www.centos.org/download/). I'll be using [CentOS-7-x86_64-DVD-1810.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
-1. Spin up a `Red Hat` instance with the ISO loaded, and install it with the following settings:
+1. Spin up a `Red Hat` instance with the ISO loaded and a `8gb disk`. Then, install it with the following settings:
     1. Software Selection:
         1. `Server with a GUI` > Add `PostgreSQL Database Server` ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc))
     1. `Connected to Ethernet`

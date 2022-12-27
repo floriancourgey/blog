@@ -37,6 +37,7 @@ $ vim authFile.json
 paste JSON data from Personal PC
 $ sfdx force:auth:sfdxurl:store -f authFile.json
 Successfully authorized myinstance_username with org ID 00xxxXXXXXxxXXXX
+$ rm authFile.json
 $ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass SFDX usage of gnome-keyring (errors: X11 $DISPLAY, secret-tool org.freedesktop.Secret.Error.IsLocked)
 $ git clone git-username@myinstance-repo
 $ cd myinstance-repo

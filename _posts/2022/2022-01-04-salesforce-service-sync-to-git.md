@@ -59,6 +59,29 @@ $ sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml
 $ git add . && git commit -m "package" && git push
 ```
 
+### Multi-instance setup
+```console
+~/
+  .sfdx/
+    alias.json
+    instance1_preprod.json
+    instance1_prod.json
+    instance2_preprod.json
+    instance2_prod.json
+  instance1-preprod/
+    .git/ connected to repo1 @ preprod
+    force-app/
+  instance1-prod/
+    .git/ connected to repo1 @ main
+    force-app/
+  instance2-preprod/
+    .git/ connected to repo2 @ preprod
+    force-app/
+  instance2-prod/
+    .git/ connected to repo2 @ main
+    force-app/
+```
+
 ### Make it recurrent with CRON jobs
 
 ```console

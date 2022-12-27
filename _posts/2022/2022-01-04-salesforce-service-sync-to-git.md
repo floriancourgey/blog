@@ -29,6 +29,7 @@ $ sfdx force:org:display -u myinstance_username --verbose --json
 ## Setup for automatic backups from headless VM
 
 ```console
+$ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass usage of gnome-keyring
 $ git clone git-username@myinstance-repo
 $ cd myinstance-repo
 $ sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml

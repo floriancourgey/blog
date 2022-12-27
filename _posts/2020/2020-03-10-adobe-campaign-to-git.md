@@ -21,8 +21,12 @@ Set up a small software in a VM (or your own PC) to backup your Adobe instances 
 ## Instructions
 
 ### Prerequisites
-- ACC instance publicly available & admin account
-- Environment with NodeJS installed (local computer, VM..)
+- Basic linux knowledge (check [LINUX cheatshet](/2018/12/unix-cheatsheet) for help)
+- Basic Adobe Campaign knowledge (check [Awesome Adobe Campaign](/awesome-adobe-campaign)) for help)
+- Adobe Campaign Classic instance with admin username
+- Github.com account
+- Basic git knowledge
+- Environment with NodeJS installed (local computer or VM)
 
 ### Setup
 

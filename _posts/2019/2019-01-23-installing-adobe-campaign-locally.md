@@ -37,9 +37,18 @@ Local install Adobe Campaign to set up your own development environment! Useful 
 1. Restart the machine, accept the licence and log in
 1. Open up a terminal. You should have the following:
 ![](/assets/images/2019/02/fedora-workstation-first-terminal.jpg)
-1. Install Virtual Box Guest Addition to enable copy/paste (`sudo yum groupinstall "Development Tools" && sudo yum install kernel-devel elfutils-libelf-devel`, then VM > Devices > Install Guest Additions)
-1. Optional: Install Gnome instead of Gnome Classic, see [tuto on stackexchange](https://unix.stackexchange.com/questions/181503/how-to-install-desktop-environments-on-centos-7)
-1. see https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1 for details
+
+Optional notes:
+- Install Virtual Box Guest Addition to enable copy/paste:
+
+```bash
+sudo yum groupinstall "Development Tools" # 111 Mb
+sudo yum install kernel-devel elfutils-libelf-devel # 38 Mb
+```
+then VM > Devices > Install Guest Additions)
+
+- Install Gnome instead of Gnome Classic, see [tuto on stackexchange](https://unix.stackexchange.com/questions/181503/how-to-install-desktop-environments-on-centos-7)
+- see https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1 for details
 
 ## Java 8 JDK
 The JRE is not enough, we need the JDK via the `java-1.8.0-openjdk-devel` package:
@@ -48,7 +57,7 @@ The JRE is not enough, we need the JDK via the `java-1.8.0-openjdk-devel` packag
 openjdk version "1.8.0_191"
 OpenJDK Runtime Environment (build 1.8.0_191-b12)
 OpenJDK 64-Bit Server VM (build 25.191-b12, mixed mode)
-[fco@localhost ~]$ sudo yum install java-1.8.0-openjdk-devel
+[fco@localhost ~]$ sudo yum install java-1.8.0-openjdk-devel # 194 Mb
 [fco@localhost ~]$ javac -version
 javac 1.8.0_191
 ```
@@ -56,7 +65,7 @@ javac 1.8.0_191
 ## AC7 rpm package
 Let's do all of our work in `~/ac`.
 
-Download the `.rpm` file from the Download Center ([support.neolane.net/webApp/downloadCenter](https://support.neolane.net/webApp/downloadCenter?__userConfig=psaDownloadCenter)). Then:
+Download the `.rpm` file from the Download Center (Before 2022 on [support.neolane.net/webApp/downloadCenter](https://support.neolane.net/webApp/downloadCenter?__userConfig=psaDownloadCenter)). Then:
 ```console
 [fco@localhost ~]$ cd && mkdir ac && cd ac
 [fco@localhost ~/ac]$ sudo yum install -y ./nlserver6-8864-x86_64_rh7.rpm

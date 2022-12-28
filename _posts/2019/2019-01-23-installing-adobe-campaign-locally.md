@@ -113,8 +113,11 @@ By default CentOS uses `firewall-cmd` to block incoming connections. We have to 
 
 ```console
 [fco@localhost ~]$ sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+success
 [fco@localhost ~]$ sudo firewall-cmd --zone=public --add-port=8080/udp --permanent
+success
 [fco@localhost ~]$ sudo firewall-cmd --reload
+success
 ```
 
 ## Install postgresql

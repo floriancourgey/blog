@@ -125,6 +125,9 @@ Init PostgreSQL with a SQL user `dbuser1` (password `dbpwd1`), a SQL database `d
 ```console
 [fco@localhost ~]$ sudo yum install postgresql-server postgresql-contrib # not needed if already installed via the Centos package selection
 [fco@localhost ~]$ sudo postgresql-setup initdb
+Initializing database ... OK
+[fco@localhost ~]$ sudo systemctl start postgresql # start PostgreSQL now
+[fco@localhost ~]$ sudo systemctl enable postgresql # and at boot
 [fco@localhost ~]$ sudo vim /var/lib/pgsql/data/pg_hba.conf # replace ident by md5
 host    all             all             127.0.0.1/32            md5
 host    all             all             ::1/128                 md5
@@ -137,8 +140,7 @@ postgres=# ALTER USER dbuser1 PASSWORD 'dbpwd1'; # set a password for the SQL us
 postgres=# \q
 [postgres@localhost ~]$ exit
 [fco@localhost ~]$ sudo adduser dbuser1 # create a Linux user with the same name
-[fco@localhost ~]$ sudo systemctl start postgresql # start PostgreSQL now
-[fco@localhost ~]$ sudo systemctl enable postgresql # and at boot
+
 ```
 
 ![](/assets/images/2019/02/adobe-campaign-postgresql-install.png)
@@ -147,19 +149,29 @@ You can check your PostreSQL setup by connecting to your Guest via SqlEctron (or
 
 
 ## Set up instance
+
 We'll set up an instance named `instance1`, with default user `internal` and password `internal` (See [Adobe doc for nlserver config](https://docs.campaign.adobe.com/doc/AC/en/INS_Appendices_Command_lines.html)).
+
 ```console
 [neolane@localhost ~]$ nlserver config -verbose -addinstance:instance1/*/eng
+08:59:01 >   Creation of the server configuration file '/usr/local/neolane/nl6/conf/config-instance1.xml'
 [neolane@localhost ~]$ nlserver config -internalpassword
-internal
+Enter the current password.
+Password: <EMPTY>
+Enter the new password.
+Password: internal
+Confirmation: internal
 16:23:48 >   Password successfully changed for account 'internal' (authentication mode 'nl').
 ```
+
 Note your VM IP, next to `inet`, here `10.3.112.82`:
+
 ```console
 $ ifconfig
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 10.3.112.82  netmask 255.255.255.0  broadcast 10.3.112.255
 ```
+
 Connect with your client `internal/internal` to `http://10.3.112.82:8080`:
 ![](/assets/images/2019/02/adobe-campaign-login-as-internal.jpg)
 

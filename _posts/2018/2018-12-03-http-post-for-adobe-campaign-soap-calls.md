@@ -167,8 +167,14 @@ Displays the following response:
 </SOAP-ENV:Envelope>
 ```
 
-## Client-side wrapper to get as JSON with `NL.DataSource.QueryDef.get()`
-Get all workflows (limit 15) from JS Chrome Dev tools (client side)
+## Client-side calls from client browser
+
+The following code must be run from a client-side Javascript environment, e.g. browser console, Chrome dev tools
+
+### Client-side wrapper to get as JSON with `NL.DataSource.QueryDef.get()`
+
+Get 15 workflows with `NL.DataSource.QueryDef`:
+
 ```js
 var callbacks = {
   onComplete: function(){console.log('onComplete')},
@@ -190,7 +196,12 @@ var start = 0, lineCount = 15;
 q.get(start, lineCount, callbacks);
 ```
 
+![todo](/assets/images/2022/adobe-campaign-client-side-nl-datasource.jpg)
+
 ## Client-side wrapper to get as XML with `NL.QueryDef.execute()`
+
+Get 15 deliveries with `NL.QueryDef`:
+
 ```js
 var a = new NL.QueryDef("nms:delivery","select");
 a.setLineCount(15);
@@ -199,3 +210,4 @@ a.asyncTarget.onXtkQueryCompleted = function(queryDef, resultXml, f){console.log
 a.execute(NL.session.soapRouterURL, "", this);
 ```
 
+![todo](/assets/images/2022/adobe-campaign-client-side-nl-querydef.jpg)

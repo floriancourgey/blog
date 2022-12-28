@@ -25,20 +25,20 @@ Local install Adobe Campaign to set up your own development environment! Useful 
 - Note: [Official AC7 Adobe installation guide](https://experienceleague.adobe.com/docs/campaign-classic/using/installing-campaign-classic/install-campaign-on-prem/installing-campaign-in-linux-/installing-packages-with-linux.html?lang=en)
 
 ## Prerequisites: CentOS 7 x64 on Virtualbox
-1. Get VirtualBox from [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
+1. Install VirtualBox from [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 1. Get Centos ISO from [centos.org/download](https://www.centos.org/download/). I'll be using [CentOS-7-x86_64-DVD-1810.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
 1. Spin up a `Red Hat` instance with the ISO loaded and a `8gb disk`. Then, install it with the following settings:
     1. Software Selection:
-        1. `Server with a GUI` > Add `PostgreSQL Database Server` ([instructions on youtube](https://www.youtube.com/watch?v=Pcl417NR2xc))
+        1. `Server with a GUI` > Add `PostgreSQL Database Server` & `Development Tools`
     1. `Connected to Ethernet`
     1. user `fco` with `sudo` privileges
 ![](/assets/images/2019/02/fedora-workstation-install-disk.jpg)
-1. Shutdown the machine, remove the ISO from the boot settings, set the network setting to `Bridged adapter`
 1. Restart the machine, accept the licence and log in
 1. Open up a terminal. You should have the following:
 ![](/assets/images/2019/02/fedora-workstation-first-terminal.jpg)
 
 Optional notes:
+- [Youtube tutorial to install CentOS 7 on VirtualBox](https://www.youtube.com/watch?v=Pcl417NR2xc)
 - Install Virtual Box Guest Addition to enable copy/paste:
 
 ```bash

@@ -28,6 +28,7 @@ categories: [salesforce,git,opensource]
 
 ```console
 $ sfdx force:auth:web:login -r https://test.salesforce.com # authorize Org
+Successfully authorized myinstance_username with org ID 00xxxxxxXXXxx
 $ git clone git-username@myinstance-repo # pull git repo
 $ sfdx force:project:create -n myinstance-repo # init sf project into repo
 $ cd myinstance-repo && git status

@@ -3,7 +3,7 @@ title: Salesforce Service Cloud synchronization to Git repository
 categories: [salesforce,git,opensource]
 ---
 
-<p class="text-center">🐍👑🌍</p>
+<p class="text-center">🌩️🔛🐙</p>
 
 <!--more-->
 
@@ -50,10 +50,10 @@ From ~/
 ```console
 $ vim authFile.json
 paste JSON data from Personal PC
+$ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass SFDX usage of gnome-keyring (errors: X11 $DISPLAY, secret-tool org.freedesktop.Secret.Error.IsLocked)
 $ sfdx force:auth:sfdxurl:store -f authFile.json
 Successfully authorized myinstance_username with org ID 00xxxXXXXXxxXXXX
 $ rm authFile.json
-$ export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true # to bypass SFDX usage of gnome-keyring (errors: X11 $DISPLAY, secret-tool org.freedesktop.Secret.Error.IsLocked)
 $ git clone git-username@myinstance-repo
 $ cd myinstance-repo
 $ sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml
@@ -86,7 +86,23 @@ $ git add . && git commit -m "package" && git push
 ### Make it recurrent with CRON jobs
 
 ```console
+$ vim cronjobs.bash
+#!/bin/bash
+export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
+githubToken="insert_your_github_token"
+
+case $1 in
+    instance1-preprod)
+        cd ~/instance1-preprod && ~/sfdx/bin/sfdx force:source:retrieve -u user1@instance1-preprod -x manifest/package.xml && git add . && git commit -m "$(date +%Y-%m-%d_%H:%M:%S)" && git push https://$githubToken@github.com/MY_ORG/INSTANCE1
+    ;;
+    instance1-prod)
+        cd ~/instance1-prod && ~/sfdx/bin/sfdx force:source:retrieve -u user1@instance1-prod -x manifest/package.xml && git add . && git commit -m "$(date +%Y-%m-%d_%H:%M:%S)" && git push https://$githubToken@github.com/MY_ORG/INSTANCE1
+    ;;
+$ chmod +x cronjobs.bash
+$ ./cronjobs.bash instance1-preprod # test
 $ crontab -e
-27 * * * * cd ~/myinstance-repo && sfdx force:source:retrieve -u myinstance_username -x manifest/package.xml && git add . && git commit -m "$(date +%Y-%m-%d_%H:%M:%S)" && git push
-# generates a commit like "2022-12-27_16:30:07"
+20 * * * * ~/cronjobs.bash instance1-preprod
+25 * * * * ~/cronjobs.bash instance1-prod
 ```
+
+This will automatically generates commits like `2022-12-27_16:30:07` for both preprod & prod.

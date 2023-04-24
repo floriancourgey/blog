@@ -177,3 +177,31 @@ for(Sale__c sale: sales){
 }
 ```
 
+## Delete Apex from Production instance
+
+Create ZIP with below files and then deploy via https://workbench.developerforce.com/ `Migration`>`Deploy`:
+
+- `package.xml`
+```xml
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<package xmlns="http://soap.sforce.com/2006/04/metadata">
+     <version>30.0</version>
+</package>
+```
+
+
+- `destructiveChanges.xml`
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+     <types>
+          <members>Class1</members>
+	  <members>Class2</members>
+	  <members>Class3</members>
+          <name>ApexClass</name>
+     </types>
+<version>30.0</version>
+</Package>
+```
+
+Source https://www.salesforceben.com/way-to-delete-apex-classes-from-production/

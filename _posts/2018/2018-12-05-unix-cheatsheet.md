@@ -131,6 +131,12 @@ The UNIX manual is divised into 10 sections:
 
 The online version is available on [https://linux.die.net/man/{section id}/{name}](https://linux.die.net/man/). Usually, pages can be accessed with the section number and the name of the tool/function/page. For example, the man page for `strtod(3)` is available online at [https://linux.die.net/man/3/strtod](https://linux.die.net/man/3/strtod).
 
+## macOS
+
+```bash
+$ xcode-select --install # 2.72 Gb
+```
+
 ## CRON
 
 ```console

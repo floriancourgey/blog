@@ -135,6 +135,9 @@ The online version is available on [https://linux.die.net/man/{section id}/{name
 
 ```bash
 $ xcode-select --install # 2.72 Gb
+$ softwareupdate -l # list updates from Software Update Tool
+$ defaults write com.apple.finder AppleShowAllFiles YES; killall Finder # show hidden files
+$ system_profiler # View system information
 ```
 
 ## CRON

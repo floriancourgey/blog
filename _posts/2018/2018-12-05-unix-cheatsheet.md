@@ -140,6 +140,14 @@ $ defaults write com.apple.finder AppleShowAllFiles YES; killall Finder # show h
 $ system_profiler # View system information
 ```
 
+Disable SIP (System Integrity Protection) [Doc on developer.apple.com](https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection)
+- Restart in Recovery mode with Command-R during startup
+- Open Terminal:
+
+```bash
+csrutil disable
+```
+
 ## CRON
 
 ```console

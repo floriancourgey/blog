@@ -21,7 +21,10 @@ You can also check out the [awesome list for CTFs (github.com/apsdehal/awesome-c
 
 ## Metasploit
 
-Download from [Metasploit nightly builds (Github doc)](https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers)
+Links:
+- [New doc](https://docs.metasploit.com/)
+- [Old github doc](https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers)
+- [https://www.exploit-db.com/](https://www.exploit-db.com/)
 
 ```console
 $ /opt/metasploit-framework/bin/msfconsole

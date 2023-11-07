@@ -5,7 +5,7 @@ categories: [opensource,adobe campaign]
 <p class="text-center">⬇️📦🎯</p>
 <!--more-->
 
-1. Go to your download center and get the `.rpm` file
+1. Go to the Software Distribution page (https://experienceleague.adobe.com/docs/experience-cloud/software-distribution/home.html?lang=en and https://experience.adobe.com/#/downloads/content/software-distribution/en/general.html) and get the `.rpm` file
 ![](/assets/images/2019/01/adobe-campaign-rpm-file-download-center.jpg)
 
 2. Open it, open again the `.cpio` file to find the folder `./` which contains `etc` and `usr`

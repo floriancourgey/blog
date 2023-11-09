@@ -457,8 +457,9 @@ $ sudo firewall-cmd --reload
 ### 2023 update
 - Download: Get VM from osboxes.org > Centos 7.9 (https://www.osboxes.org/centos/)
 - Virtualbox: Configure the network to "bridged"
-- Virtualbox: Start the VM, login with 'osboxes', password 'osboxes.org'
-- VM: Applications > System tools > Settings > Network > Wired, set to `on`
+- Virtualbox: Start the VM, login with 'osboxes', password 'osboxes.org' (QWERTY keyboard by default)
+- VM: Top right corner > Network > Wired, set to `on`
 - VM: Applications > System tools > Terminal > $ ifconfig
 - (VM: firewall?)
 - Host: ssh-copy-id osboxes@<IP>
+- Host: Filezilla > export `rpm` to ~/Downloads

@@ -452,3 +452,13 @@ $ sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
 $ sudo firewall-cmd --reload
 ```
 ![](/assets/images/2019/02/adobe-campaign-install-sqlectron-connect.jpg)
+
+
+### 2023 update
+- Download: Get VM from osboxes.org > Centos 7.9 (https://www.osboxes.org/centos/)
+- Virtualbox: Configure the network to "bridged"
+- Virtualbox: Start the VM, login with 'osboxes', password 'osboxes.org'
+- VM: Applications > System tools > Settings > Network > Wired, set to `on`
+- VM: Applications > System tools > Terminal > $ ifconfig
+- (VM: firewall?)
+- Host: ssh-copy-id osboxes@<IP>

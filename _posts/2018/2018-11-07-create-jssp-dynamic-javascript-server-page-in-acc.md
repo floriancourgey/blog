@@ -1,22 +1,34 @@
 ---
 title: "How JSSPs work in ACC (Dynamic JavaScript Server Page)"
-date: 2018-11-07T16:21:31+00:00
+date: 2018-11-07
 permalink: /2018/11/create-jssp-dynamic-javascript-server-page-in-acc/
 categories: [adobe campaign, neolane]
 ---
-We can create server-generated pages in ACC. Here are some info about it. It will result in pages with  the .jssp extension.
+JSSP pages are server-side public web pages in Adobe Campaign Classic. Here are some info about it. It will result in pages with  the .jssp extension.
 
 <!--more-->
 
-## Doc
-JSSP come from a custom implementation of the Java JSSP project, [description and docs here](http://jssp.sourceforge.net/jssp_description.html), based on multiple Java EE objects such as the [HttpServletRequest class](https://docs.oracle.com/javaee/1.4/api/javax/servlet/http/HttpServletRequest.html). Note: as it's a custom implementation, many documented methods are not available.
+## Summary
 
-## Create a simple test page
+- JSSP origin
+- Create a simple test JSSP page
+- Create a GET JSON API endpoint
+- Create a POST JSON API endpoint
+- HttpServletRequest documentation
+- HttpServletResponse documentation
+- Encode/Decode URL
+
+## JSSP Origin
+
+JSSP come from a custom implementation of the Java JSSP project, [description and docs here](http://jssp.sourceforge.net/jssp_description.html), based on multiple Java EE objects such as the [HttpServletRequest class](https://docs.oracle.com/javaee/1.4/api/javax/servlet/http/HttpServletRequest.html). 
+
+Note: Adobe Campaign Classic JSSP are built on top of the JSSP initial project, so many JSSP methods are not available.
+
+## Create a simple test JSSP page
 
 Create a JSSP in any JSSP folder. The JSSP name will define the URL:
 
 The name `my_nms:my-page.jssp` will give us the URL `https://xxx.campaign.adobe.com/my_nms/my-page.jssp`.
-
 
 ![todo](/assets/images/2018/11/JSSP-code-with-name-and-namespace.jpg)
 
@@ -196,7 +208,7 @@ document.write(JSON.stringify(result));
 
 ![](/assets/images/2020/adobe-campaign-jssp-post-api.jpg)
 
-## Example of HttpServletRequest and HttpServletRequest
+## HttpServletRequest documentation
 
 ```html
 <%
@@ -255,10 +267,9 @@ getRemoteAddr(): E.F.G.H
 See <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">https://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a> for list of header names.
 
 
-## Explore HttpServletResponse API
+## HttpServletResponse documentation
 
 Noticed that we used `<% response.[...] %>`, what properties and methods are available? Response is of type `HttpServletResponse`.
-
 
 JS doc for HttpServletRequest
 ```js

@@ -350,7 +350,215 @@ dnf install git
 dnf remove git
 ```
 
-## Programming
+## Programming languages
+
+todo https://jsonplaceholder.typicode.com/users
+
+### PHP and composer
+
+```bash
+php -v # PHP version (5.6, 7.2...)
+php -a # REPL interactive shell (exit with exit)
+php -c php.ini # use this config file
+php -n # use no config file
+php -f file # parse and execute file
+php -r "echo 'test';" # execute PHP code without tags <? .. ?>
+php -i # displays phpinfo() for CLI
+php -S localhost:8000 -t web/ app.php # start the PHP built-in web server in the folder web/ with every requests sent to web/app.php on port 8000
+composer --version # 1.6
+composer require guzzlehttp/guzzle # install the guzzle package, public list on https://packagist.org/
+composer install # install deps from composer.lock
+composer exec phpunit # execute a bin from vendor/bin/
+```
+
+### Python and pip
+
+```bash
+python --version # Python version (2.7, 3.2...)
+python # REPL interactive shell (exit with exit())
+python -c 'import os; print(os.urandom(16))' # execute code
+pip install requests # install module requests
+python2 -m SimpleHTTPServer # basic HTTP server. Serve static files from current dir
+python3 -m http.server 8000 # basic HTTP server. Serve static files from current dir
+```
+
+```python
+class Car:
+    def __init__(self, id, name, is_available):
+        self.id = id
+        self.name = name
+        self.is_available = is_available
+    def __str__(self):
+        return f"Name: {self.name}, Id: {self.id}, Available: {self.is_available}"
+class Main:
+    def __init__(self):
+        countries = ["France", "USA", "Spain"]
+        countries.append("Italy")
+        available_cars = [car for car in all_cars if car.is_available and car.name in countries]
+
+        try:
+            my_car = next(car for car in available_cars if car.id == 999)
+        except StopIteration:
+            my_car = Car(-1, "xxx", True)  # Correcting the type to String
+        finally:
+            for car in available_cars:
+                print(car)
+if __name__ == "__main__":
+    Main()
+```
+
+### Ruby, Gem and Jekyll
+
+```bash
+ruby -v # Ruby version (2.2, 2.5...)
+gem -v # Gem version (2.7..)
+gem install bundler # install the bundler gem, public list on https://rubygems.org/gems
+jekyll doctor # checks modules and config
+jekyll build # one time build of ./site
+jekyll serve # starts local server
+```
+
+### NodeJS and npm
+
+```bash
+node -v # nodejs version (8.x, 10.x...)
+node -e "var a=1" # execute JS code
+node -p "var a=1" # execute JS code and print result
+node # REPL interactive shell (exit with .exit)
+npm -v # 5.x
+npm install package-x
+sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp # uninstall
+```
+
+Note: for a dev machine (single user, multiple node versions) don't install node/npm as root, use [nvm - Node Version Manager](https://github.com/nvm-sh/nvm) instead. More in this [Medium post](https://medium.com/@ExplosionPills/dont-use-sudo-with-npm-still-66e609f5f92)
+
+```javascript
+class Car {
+    constructor(id, name, isAvailable) {
+        this.id = id; this.name = name; this.isAvailable = isAvailable;
+    }
+    toString() { return `Name: ${this.name}, Id: ${this.id}, Available: ${this.isAvailable}`; }
+}
+
+class Main {
+    constructor() {
+        let countries = ["France", "USA", "Spain"];
+        const allCars = this.getCars(); // Assuming you have a method to get all cars
+        countries.add("Italy");
+        const availableCars = allCars.filter(x => x.isAvailable && countries.includes(x.name));
+        let myCar;
+        try {
+            myCar = availableCars.find(x => x.id === 999);
+        } catch (e) {
+            myCar = new Car("xxx");
+        } finally {
+            availableCars.forEach(car => {
+                console.log(car.toString());
+            });
+        }
+    }
+}
+
+new Main();
+
+```
+
+### Java
+
+```bash
+java -version
+javac -cp . *.java # compile to .class files
+java -cp . MyClass # run the MyClass class, based on .class files
+javac -classpath classes src/*.java -d classes/ && java -cp classes/ com.namespace.MyApp # one-shot build & run
+jar -cf myJar.jar classes/ # create JAR
+java -jar MyJar.jar # execute JAR Main-Class defined in MANIFEST.MF
+java -cp MyJar.jar com.namespace.ClassWithMainMethod
+```
+
+Note: `MyClass` should contain the `main` method:
+
+```java
+package fco;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+class Car {
+    private int id; private String name; private boolean isAvailable;
+    public Car(int id, String name, boolean isAvailable) {
+        this.id = id; this.name = name; this.isAvailable = isAvailable;
+    }
+    @Override
+    public String toString() {
+        return String.format("Name: %s, Id: %d, Available: %b", name, id, isAvailable);
+    }
+}
+
+public class Main {
+    public Main() {
+        List<String> countries = List.of("France", "USA", "Spain");
+        countries.add("Italy");
+        List<Car> availableCars = new ArrayList<>();
+        for (Car car : getCars()) {
+            if (car.isAvailable && countries.contains(car.getName())) {
+                availableCars.add(car);
+            }
+        }
+
+        Car myCar;
+        try {
+            myCar = availableCars.stream().filter(x -> x.getId() == 999).findFirst().orElse(null);
+        } catch (Exception e) {
+            myCar = new Car(-1, "xxx", true); // Correcting the type to String
+        } finally {
+            for (Car car : availableCars) {
+                System.out.println(car);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new Main();
+    }
+}
+
+```
+
+### Csharp, C#, Unity
+
+```csharp
+using System.Linq; // Where, Find
+using System.Collections.Generic; // List
+
+namespace fco {
+  public class Main {
+    public Main() {
+      List<string> countries = new List<string> {"France", "USA", "Spain"};
+      names.Add("Italy");
+      List<Car> availableCars = allCars.Where(x => x.isAvailable && countries.Contains(x.name)); // Lambda
+      Car myCar;
+      try {
+          myCar = availableCar.Find(x => x.id == 999);
+      } catch (Exception e){
+          myCar = new Car{
+              id = 123
+          };
+      } finally {
+        foreach(Car car in availableCars){
+          Console.WriteLine(car);
+        }
+      }
+    }
+  }
+  public class Car {
+    public bool isAvailable { get; set; }
+    public int id { get; set; }
+    public override string ToString(){ return $"Name {Name}, Id {Age}"; }
+  }
+}  
+```
+
+## Infra languages
 
 ### Git
 
@@ -374,93 +582,6 @@ git config --list --show-origin
 git reset --hard <commit sha> # revert to commit
 git push -f # force push
 ```
-
-### PHP and composer
-```bash
-php -v # PHP version (5.6, 7.2...)
-php -a # REPL interactive shell (exit with exit)
-php -c php.ini # use this config file
-php -n # use no config file
-php -f file # parse and execute file
-php -r "echo 'test';" # execute PHP code without tags <? .. ?>
-php -i # displays phpinfo() for CLI
-php -S localhost:8000 -t web/ app.php # start the PHP built-in web server in the folder web/ with every requests sent to web/app.php on port 8000
-composer --version # 1.6
-composer require guzzlehttp/guzzle # install the guzzle package, public list on https://packagist.org/
-composer install # install deps from composer.lock
-composer exec phpunit # execute a bin from vendor/bin/
-```
-
-### Python and pip
-```bash
-python --version # Python version (2.7, 3.2...)
-python # REPL interactive shell (exit with exit())
-python -c 'import os; print(os.urandom(16))' # execute code
-pip install requests # install module requests
-python2 -m SimpleHTTPServer # basic HTTP server. Serve static files from current dir
-python3 -m http.server 8000 # basic HTTP server. Serve static files from current dir
-```
-
-### Ruby, Gem and Jekyll
-```bash
-ruby -v # Ruby version (2.2, 2.5...)
-gem -v # Gem version (2.7..)
-gem install bundler # install the bundler gem, public list on https://rubygems.org/gems
-jekyll doctor # checks modules and config
-jekyll build # one time build of ./site
-jekyll serve # starts local server
-```
-
-### NodeJS and npm
-```bash
-node -v # nodejs version (8.x, 10.x...)
-node -e "var a=1" # execute JS code
-node -p "var a=1" # execute JS code and print result
-node # REPL interactive shell (exit with .exit)
-npm -v # 5.x
-npm install package-x
-sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* /usr/local/lib/dtrace/node.d ~/.npm ~/.node-gyp # uninstall
-```
-Note: for a dev machine (single user, multiple node versions) don't install node/npm as root, use [nvm - Node Version Manager](https://github.com/nvm-sh/nvm) instead. More in this [Medium post](https://medium.com/@ExplosionPills/dont-use-sudo-with-npm-still-66e609f5f92)
-
-### Java
-```bash
-java -version
-javac -cp . *.java # compile to .class files
-java -cp . MyClass # run the MyClass class, based on .class files
-javac -classpath classes src/*.java -d classes/ && java -cp classes/ com.namespace.MyApp # one-shot build & run
-jar -cf myJar.jar classes/ # create JAR
-java -jar MyJar.jar # execute JAR Main-Class defined in MANIFEST.MF
-java -cp MyJar.jar com.namespace.ClassWithMainMethod
-```
-Note: `MyClass` should contain the `main` method:
-```java
-package fco;
-import java.io.File;
-public class MyClass {
-  public static void main(final String[] args) { System.out.println("Hello World"); }
-}
-```
-
-### Csharp
-```csharp
-using System.Linq; // Where
-using System.Collections.Generic; // List
-public class Main {
-  public Main() {
-    List<Car> availableCars = allCars.Where(x => x.isAvailable);
-    Car car;
-    try {
-        car = availableCar.Find(x => x.id == "xxx");
-    } catch (Exception e){
-        car = new Car{
-            id = "xxx"
-        };
-    }
-  }
-}
-```
-
 
 ### Docker
 ```bash

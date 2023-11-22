@@ -15,5 +15,8 @@ PS as admin
 - internal
 - /nlserver.exe config -verbose -addinstance:instance1/*/eng
 
-# console
+# console as internal
 internal/internal
+
+# console as admin
+admin/admin

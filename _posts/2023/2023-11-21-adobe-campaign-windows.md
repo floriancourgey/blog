@@ -3,6 +3,14 @@ title: Install Adobe Campaign locally on Windows
 categories: [opensource,adobe campaign]
 ---
 
+Setting up and running Adobe Campaign Classic on a Windows 11 machine significantly facilitates the development process. In this guide, the installation steps will be outlined to simplify the development process on a local computer.
+
+<p class="text-center">⚫⬇️💻</p>
+
+<!--more-->
+
+![Adobe Campaign Classic v7 running workflows on Windows 11](/assets/images/2023/adobe-campaign-classic-windows-start-workflow-server.jpg)
+
 # Summary
 
 - Install `Java JDK 11`, `PostgreSQL 14`, `Adobe Campaign Classic v7`
@@ -150,4 +158,7 @@ All set!
 
 Create a recipient and check with pgAdmin: `public.nmsrecipient/neolane/postgres@PostgreSQL 14`
 
-
+# Notes
+- [Official Installation Guide on experienceleague.adobe.com](https://experienceleague.adobe.com/docs/campaign-classic/using/installing-campaign-classic/install-campaign-on-prem/installing-campaign-in-windows-/prerequisites-of-campaign-installation-in-windows.html?lang=en)
+- [Official Deployment Guide on experienceleague.adobe.com](https://experienceleague.adobe.com/docs/campaign-classic/using/installing-campaign-classic/initial-configuration/about-initial-configuration.html?lang=en)
+- Screenshots from a VMWare Windows 11 Virtual Machine (Windows11_22631.2715_Professional_en-us_arm64.iso)

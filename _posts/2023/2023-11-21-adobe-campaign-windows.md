@@ -5,10 +5,7 @@ categories: [opensource,adobe campaign]
 
 # Summary
 
-- Install `Java JDK 11`
-- Install `PostgreSQL 14`
-- Install `Adobe Campaign Classic Server v7`
-- Install `Adobe Campaign Classic Console v7`
+- Install `Java JDK 11`, `PostgreSQL 14`, `Adobe Campaign Classic v7`
 - Start the server `localhost`
 - Configure the instance `instance1`
 
@@ -138,4 +135,11 @@ Proceed to the Database creation with:
   - Password: `admin`
 
 # Connect as admin
-admin/admin
+
+Login with `admin`/`admin`. 
+
+All set!
+
+Create a recipient and check with pgAdmin: `public.nmsrecipient/neolane/postgres@PostgreSQL 14`
+
+

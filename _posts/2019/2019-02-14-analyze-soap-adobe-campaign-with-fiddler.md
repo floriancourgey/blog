@@ -329,6 +329,24 @@ Submitting job to the server
 16:51:20 - Creation of database successfully completed.
 ```
 
+Then, first login:
+
+- POST /nl/jsp/soaprouter.jsp, xtk:session#Logon, Response:
+```xml
+<sessionInfo>
+  <serverInfo advisedClientBuildNumber="0" advisedClientName="" advisedClientVersion="" allowSQL="false" buildNumber="9364" commitId="8f3ef8e" databaseId="uFE80000000000000650F0DF7EAD7C45100730D20" defaultNameSpace="cus" fohVersion="2" instanceName="instance1" majNumber="6" minClientBuildNumber="9333" minNumber="7" minNumberTechnical="0" releaseName="7.3.4" securityTimeOut="86400" serverDate="2023-11-24 01:06:23.846Z" servicePack="0" sessionTimeOut="86400" useVault="false" webView2Mode="1" xmlns="urn:xtk:session" />
+  <userInfo datakitInDatabase=true homeDir= instanceLocale=en-US locale=en-US login=admin loginCS=Administrator (admin) loginId=1059 noConsoleCnx=false orgUnitId=0 theme= timezone=America/Los_Angeles>
+    <login-group id="1060"/><login-right right="admin"/>
+    <installed-package name="billing" namespace="nms"/><installed-package name="core" namespace="nms"/>
+    <installed-package name="coreInteraction" namespace="nms"/><installed-package name="country" namespace="nms"/>
+    <installed-package name="folder" namespace="nms"/><installed-package name="heatmap" namespace="nms"/>
+    <installed-package name="japanLoc" namespace="nms"/><installed-package name="report" namespace="nms"/>
+    <installed-package name="ruleset" namespace="nms"/><installed-package name="systemStrings" namespace="nms"/>
+    <installed-package name="core" namespace="xtk"/></userInfo>
+    <option name="NmsTracking_UrlDelimiters" type="6" value="() {} []"/><option name="Nms_DefaultRcpSchema" type="6" value="nms:recipient"/>
+</sessionInfo>
+```
+
 # Reference
 - https://helpx.adobe.com/uk/campaign/kb/soap-traffic-fiddler.html
 

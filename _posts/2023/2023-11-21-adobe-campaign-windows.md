@@ -13,7 +13,7 @@ From the [Adobe Campaign compatibility matrix](https://experienceleague.adobe.co
 
 # Prerequisites
 
-- Administrator rights (for Java JDK, PostgreSQL and Adobe Campaign Classic server)
+- Windows with Administrator rights (for Java JDK, PostgreSQL and Adobe Campaign Classic server)
 
 # Installations
 
@@ -55,6 +55,8 @@ Run `7.0.9364\setup-client-7.0.9364.exe`
 
 ### Check installation
 
+![Verify Adobe Campaign dependencies installation](/assets/images/2023/adobe-campaign-classic-windows-install-dependencies.jpg)
+
 Powershell, as administrator:
 
 ```powershell
@@ -69,6 +71,8 @@ PS C:\Users\fco> nlserver pdump
 ```
 
 # Start the server from the command line
+
+![Server started from CLI](/assets/images/2023/adobe-campaign-classic-windows-start-server.jpg)
 
 Powershell, as administrator:
 
@@ -114,6 +118,8 @@ PS C:\Users\fco> nlserver config -verbose -addinstance:instance1/*/eng
 
 # Configure the instance from the Console
 
+![Instance configuration from the client](/assets/images/2023/adobe-campaign-classic-windows-configure-instance.jpg)
+
 Start the console from `C:\Users\fco.PC\Neolane\Adobe Campaign Classic v7 Client\bin\nlclient.exe`.
 
 Proceed to the Database creation with:
@@ -135,6 +141,8 @@ Proceed to the Database creation with:
   - Password: `admin`
 
 # Connect as admin
+
+![PostgreSQL SQL request check Adobe Campaign](/assets/images/2023/adobe-campaign-classic-windows-check-pgAdmin.jpg)
 
 Login with `admin`/`admin`. 
 

@@ -234,14 +234,6 @@ echo 'I-love-you' | base64 # base64 encode (SS1sb3ZlLXlvdQo=)
 echo 'SS1sb3ZlLXlvdQ==' | base64 -d # base64 decode (I-love-you)
 ```
 
-## GCC Gnu C Compiler
-
-```bash
-gcc -v
-gcc file1.c file2.c -O bin
-gcc -Wall file1.c file2.c -O bin # to print all warnings
-```
-
 ## PATH & softwares
 
 `/usr/local/bin` to install any bin shared amongst users on the local machine
@@ -353,6 +345,25 @@ dnf remove git
 ## Programming languages
 
 todo https://jsonplaceholder.typicode.com/users
+
+### C via gcc (Gnu C Compiler)
+
+```c
+#include <stdio.h>
+int main() {
+    char userInput[100];
+    printf("Enter a string: ");
+    scanf("%99s", userInput);
+    printf("You entered: %s\n", userInput);
+    return 0;
+}
+```
+
+```bash
+gcc -v # print version "gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)"
+gcc file1.c file2.c -O mybinary # compile to mybinary
+gcc -Wall file1.c file2.c -O bin # add -Wall to print all warnings
+```
 
 ### PHP and composer
 

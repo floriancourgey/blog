@@ -273,13 +273,20 @@ gzip -r dir # GZIP all files in dir
 gzip -d file1 # Decompress GZIP file
 ```
 
+## 7zip
+
+```bash
+7z l file.zip # List content of zip
+7z l -slt file.zip # slow technical information of zip
+```
+
 ## ZIP & UNZIP
 
 ```bash
 zip file.zip file1 file2
 unzip file.zip # Unzip in current dir
 unzip file.zip -d /target # Unzip in /target dir
-unzip -l file.zip # List (display) content of zip
+unzip -l file.zip # List content of zip
 unzip -t file.zip # Test if valid zip
 unzip -v file.zip # Display information such as Length, Method, CRC-32...
 unzip -j file.zip # Unzip without directory structure (flat)
@@ -340,6 +347,24 @@ dnf list --all # list installed
 dnf info git
 dnf install git
 dnf remove git
+```
+
+## Database
+
+### SQL
+
+```sql
+CREATE TABLE items (
+    id INT PRIMARY KEY,
+    price DECIMAL(10,2),
+    quantity FLOAT,
+    name VARCHAR(255),
+    description TEXT,
+    launch_date DATE,
+    created_at TIMESTAMP,
+    is_active BOOLEAN,
+    status ENUM('Active', 'Inactive', 'Pending')
+)
 ```
 
 ## Programming languages

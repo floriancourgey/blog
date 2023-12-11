@@ -4,10 +4,15 @@ author: Florian Courgey
 layout: post
 categories: [opensource,linux,server,network,unix,crack,hack]
 ---
+
 Cheatsheet for various unix tools such as metasploit framework, enumeration, nmap, radare2 and volatility.
+
 <!--more-->
+
 ## Introduction
+
 <style>#introduction:before{content: "";counter-increment: h2 -1}</style>
+
 1. [Metasploit Framework](#metasploit)
 1. [Network scanning with nmap](#nmap)
 1. [SQL injection with sqlmap](#sqlmap)
@@ -18,6 +23,18 @@ Cheatsheet for various unix tools such as metasploit framework, enumeration, nma
 1. [Unix server enumeration](#enumeration)
 
 You can also check out the [awesome list for CTFs (github.com/apsdehal/awesome-ctf)](https://github.com/apsdehal/awesome-ctf#readme) and the [awesome list for Security (github.com/sindresorhus/awesome)](https://github.com/sindresorhus/awesome#security).
+
+## Local file
+
+```bash
+$ file file1
+PC bitmap, Windows 3.x format, 2242 x 78 x 24, image size 524784, cbSize 524838, bits offset 54
+$ strings file2 | more
+$ xxd file3 | more
+$ binwalk file4
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+```
 
 ## Metasploit
 

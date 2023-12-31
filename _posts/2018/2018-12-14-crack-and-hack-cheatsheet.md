@@ -25,10 +25,9 @@ You can also check out the [awesome list for CTFs (github.com/apsdehal/awesome-c
 ## Local
 
 ```bash
-$ file file1
-PC bitmap, Windows 3.x format, 2242 x 78 x 24, image size 524784, cbSize 524838, bits offset 54
+$ file file1 # magic numbers
 $ strings file2 | more
-$ xxd file3 | more
+$ xxd file3 | more # enhanced version of hexdump
 $ binwalk file4
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
@@ -54,6 +53,9 @@ Linux hostname 3.16.0-4-amd64 \#1 SMP Debian 3.16.7-ckt25-1 (2016-03-06) x86_64 
 ```
 
 *Source: https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/*
+
+## Stega
+- [PhotoPea](https://www.photopea.com/) for `treshold` `level`
 
 ## Metasploit
 

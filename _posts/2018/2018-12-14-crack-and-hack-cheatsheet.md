@@ -37,6 +37,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 
 - [CyberChef](https://gchq.github.io/CyberChef/) for `base64` `url decode` `reverse` `string length` `parse ip`...
 - [MxToolbox](https://mxtoolbox.com/) for `DNS` `CNAME` `WhoIs` `DKIM` `SPF` `MX`...
+- [PhotoPea](https://www.photopea.com/) for `treshold` `level` `invert` (via "New adjustment layer")
 
 ## Server enumeration
 ```bash
@@ -54,8 +55,13 @@ Linux hostname 3.16.0-4-amd64 \#1 SMP Debian 3.16.7-ckt25-1 (2016-03-06) x86_64 
 
 *Source: https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/*
 
-## Stega
-- [PhotoPea](https://www.photopea.com/) for `treshold` `level`
+## Kali - Steganography
+
+```bash
+$ exiftool myfile
+$ binwalk -e myfile # to extract
+$ steghide info myfile
+```
 
 ## Metasploit
 

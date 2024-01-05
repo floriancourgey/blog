@@ -38,6 +38,8 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 - [CyberChef](https://gchq.github.io/CyberChef/) for `base64` `url decode` `reverse` `string length` `parse ip`...
 - [MxToolbox](https://mxtoolbox.com/) for `DNS` `CNAME` `WhoIs` `DKIM` `SPF` `MX`...
 - [PhotoPea](https://www.photopea.com/) for `treshold` `level` `invert` (via "New adjustment layer")
+- [https://georgeom.net/StegOnline/upload](StegOnline) Online stegsolve.jar
+- [https://www.dcode.fr/tools-list#image_processing](Dcode: Image Processing) Barcode Exif Channel Level
 
 ## Server enumeration
 ```bash

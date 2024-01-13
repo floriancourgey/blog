@@ -3,12 +3,24 @@
 [![](https://travis-ci.com/floriancourgey/blog.svg?branch=master)](https://travis-ci.com/floriancourgey/blog)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/floriancourgey/blog)
 
-## Install & run
+## Install & run (docker)
+
+### 🐳 Install (docker)
 ```console
 $ docker-compose up # Server address: http://127.0.0.1:4000/
 # docker exec bash
-$ bundle install
+```
 
+### 💻 Install (local)
+```console
+$ brew install chruby ruby-install
+$ ruby-install ruby 2.7.4 # from https://pages.github.com/versions/
+```
+
+### 🚀 Run
+```console
+$ bundle install
+$ bundle exec jekyll serve
 ```
 
 ## Create a post
@@ -53,19 +65,3 @@ $ bundle exec jekyll algolia
 $ htmlproofer --allow_hash_href --empty_alt_ignore --assume_extension --disable_external ./_site &> h
 tmlproofer/htmlproofer.log
 ```
-
-## Jekyll on Github
-- [Default `_config.yml`](https://help.github.com/articles/configuring-jekyll/)
-- [Allowed plugins](https://help.github.com/articles/configuring-jekyll-plugins/)
-
-## Changelog
-- 20190204 migration from https://github.com/floriancourgey/www to https://github.com/floriancourgey/blog
-- 20181214 Pages migrated from floriancourgey.github.io/tools (Crack, UNIX) & links to String, SEO, MPG
-- 20181213 Over The Wire series
-- 20181127 Algolia implemented
-- 20181120 Migration to Jekyll and first post on Github Pages https://blog.floriancourgey.com
-- 20180330 First post on https://floriancourgey.com (wordpress original website)
-
-## Useful links
-- https://cloudconvert.com
-- https://digital-forensics.sans.org/media/hex_file_and_regex_cheat_sheet.pdf

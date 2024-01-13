@@ -1,12 +1,9 @@
 source "https://rubygems.org"
 
-# to use a specific version of jekyll
-# gem "jekyll", "~> 3.8.5"
+# Github Pages https://pages.github.com/versions/
 
 # To upgrade, run `bundle update github-pages`.
-gem "github-pages", group: :jekyll_plugins
-# to use a specific version of github pages
-# gem "github-pages", "~> 217", group: :jekyll_plugins
+gem "github-pages", "~> 228", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

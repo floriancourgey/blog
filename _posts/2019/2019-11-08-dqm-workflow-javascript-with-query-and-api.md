@@ -11,11 +11,6 @@ Excerpt here...
 
 **bold** *italic*  ~~strikethrough~~
 
-## Summary
--
--
--
-
 ## Get and install an NPM library
 
 Get any email validator lib, such as [https://github.com/manishsaraan/email-validator](https://github.com/manishsaraan/email-validator/blob/master/index.js).

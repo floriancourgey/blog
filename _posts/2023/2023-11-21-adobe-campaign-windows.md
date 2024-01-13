@@ -11,12 +11,6 @@ Setting up and running Adobe Campaign Classic on a Windows 11 machine significan
 
 ![Adobe Campaign Classic v7 running workflows on Windows 11](/assets/images/2023/adobe-campaign-classic-windows-start-workflow-server.jpg)
 
-# Summary
-
-- Install `Java JDK 11`, `PostgreSQL 14`, `Adobe Campaign Classic v7`
-- Start the server `localhost`
-- Configure the instance `instance1`
-
 From the [Adobe Campaign compatibility matrix](https://experienceleague.adobe.com/docs/campaign-classic/using/release-notes/compatibility-matrix.html?lang=en#Tools)
 
 # Prerequisites

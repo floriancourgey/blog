@@ -7,15 +7,6 @@ Web Applications server-side public web pages in Adobe Campaign Classic, created
 
 <!-- more -->
 
-## Summary
-
-- How web apps work
-- Using the `ctx` variable
-- Update a record based on `ctx.record.@id`
-- Use images and enum
-- Client-side: `NL.QueryDef` SOAP calls
-- Client-side: `queryList.jssp` JSON calls
-
 ## How web apps work
 An ACC web app is just a visual tool to generate a JSSP page:
 

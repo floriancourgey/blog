@@ -8,16 +8,6 @@ JSSP pages are server-side public web pages in Adobe Campaign Classic. Here are 
 
 <!--more-->
 
-## Summary
-
-- JSSP origin
-- Create a simple test JSSP page
-- Create a GET JSON API endpoint
-- Create a POST JSON API endpoint
-- HttpServletRequest documentation
-- HttpServletResponse documentation
-- Encode/Decode URL
-
 ## JSSP Origin
 
 JSSP come from a custom implementation of the Java JSSP project, [description and docs here](http://jssp.sourceforge.net/jssp_description.html), based on multiple Java EE objects such as the [HttpServletRequest class](https://docs.oracle.com/javaee/1.4/api/javax/servlet/http/HttpServletRequest.html). 

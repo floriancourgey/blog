@@ -15,19 +15,6 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 
 <!--more-->
 
-## Table of Contents
-- [Overview](#overview)
-- [Tutorials](#tutorials)
-- [Workspace](#workspace)
-- [Basic objects](#basic-objects)
-- [Javascript help](#javascript-help)
-- [Changelog](#changelog)
-- [Marketing Campaigns & Deliveries](#marketing-campaigns--deliveries)
-- [Community](#community)
-- [Support](#support)
-- [Installation](#installation)
-- [](#)
-
 ## Overview
 - [Adobe Campaign Product Page on adobe.com](https://www.adobe.com/marketing/campaign.html)
 - [About Adobe Campaign Classic](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/starting-with-adobe-campaign/about-adobe-campaign-classic.html)

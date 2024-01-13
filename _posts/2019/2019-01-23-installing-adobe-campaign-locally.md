@@ -12,16 +12,6 @@ Local install Adobe Campaign to set up your own development environment! Useful 
 
 <!--more-->
 
-## Summary
-1. Install Centos on VirtualBox
-1. Install Java 8 JDK
-1. Download and install Adobe Campaign `.rpm` package
-1. Configure `~/.profile` for user `neolane` and start AC Application server
-1. Configure the firewall
-1. Change the default password
-1. Install postgresql
-1. Connect from your client
-
 - Note: [Official AC7 Adobe installation guide](https://experienceleague.adobe.com/docs/campaign-classic/using/installing-campaign-classic/install-campaign-on-prem/installing-campaign-in-linux-/installing-packages-with-linux.html?lang=en)
 
 ## Prerequisites: CentOS 7 x64 on Virtualbox

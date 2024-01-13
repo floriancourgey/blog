@@ -11,7 +11,7 @@ Excerpt here...
 
 **bold** *italic*  ~~strikethrough~~
 
-## if/else if/else in JavaScript Template (& gender)
+## HTML: if/else if/else in JavaScript Template (& gender)
 ```html
 {% raw %}
 <td>
@@ -26,7 +26,7 @@ Excerpt here...
 {% endraw %}
 ```
 
-## Handling XML in JavaScript
+## XML in JavaScript
 ### DOMDocument.load
 ```js
 var xmlDoc = DOMDocument.load(vars.filename);
@@ -52,7 +52,7 @@ var cleanedSubject = subject;
 cleanedSubject = cleanedSubject.replace(/(\r\n)/gm, ''); // remove line breaks
 ```
 
-## Adobe Campaign audit trail for Schemas
+## SQL: Adobe Campaign audit trail for Schemas
 
 Will create 4 fields: `@created` & `@lastModified` (datetime), `@createdBy-id` & `@modifiedBy-id` (long). Will be automaticaly updated at record creation & update with the `Update data` activity. Use `Advanced>Disable audit` to disable the update of those fields.
 
@@ -75,7 +75,7 @@ for each(var table in tables){
 }
 ```
 
-## Filtering
+## UI: Filtering
 ```console
 0|@created|#2020-01-30 23:00:00.000Z#|>=|||||0|/|0
 0|@blackList|0|=|AND||||0|/|0
@@ -86,7 +86,7 @@ for each(var table in tables){
 
 ![todo](/assets/images/2020/01/20200117-160032-screenshot-7.jpg)
 
-## Select raw data from workflow transition
+## JS: Select raw data from workflow transition
 ```javascript
 var query = NLWS.xtkQueryDef.create({queryDef: {
   schema: vars.targetSchema, operation: 'select', lineCount: 999999999, // /!\ lineCount defaults to 10,000
@@ -108,7 +108,7 @@ for each(var record in records.getElements()){
 ```js
 ```
 
-## Data Quality Management (DQM) with XTK expression
+## JS: Data Quality Management (DQM) with XTK expression
 ```js
 var xtkFields = ['@email', '@mobilePhone', '@phone', '@firstName', '@lastName', '@middleName', ];
 xtkFields = xtkFields.map(function(x){return 'COALESCE('+x+', \'\')';}); // [COALESCE(@email, ''), COALESCE(@firstName, '')...]
@@ -130,7 +130,7 @@ for each(var record in records.getElements()){
 }
 ```
 
-## Data Quality Management (DQM) with SQL expression
+## JS: Data Quality Management (DQM) with SQL expression
 ```js
 var sqlFields = ['sEmail', 'sMobilePhone', 'sPhone', 'sFirstName', 'sLastName', 'sMiddleName', ];
 var sql = 'SELECT iRecipientId FROM NmsRecipient WHERE '+
@@ -142,7 +142,7 @@ var document = sqlSelect('document,@id:long', sql);
 logInfo(document); // <select> <document id="XXX"/> </select>
 ```
 
-## Case/When in XTK
+## XTK: Case/When
 ```js
 Case(
   When([target/@nature] = 'transactional', [target/@created]),
@@ -152,14 +152,14 @@ Case(
 )
 ```
 
-## Dates
+## JS: Dates
 ```javascript
 formatDate(getCurrentDate(), '%4Y%2M%2D-%2H%2N%2S'); // "20190430-150837" for folder names
 
 <%= formatDate(getCurrentDate(), '%4Y%2M') %> // "202005" for delivery labels [scenario/@useLabelScript]
 ```
 
-## Working with options and current month
+## JS: Working with options and current month
 ```js
 var month = formatDate(getCurrentDate(), '%2M'); // 01, 02, 03...
 var optionName = 'myOptionName_'+month;
@@ -168,7 +168,7 @@ var optionValue = getOption(optionName);
 setOption('otherOption', optionValue);
 ```
 
-## Change Continuous Delivery activity XML settings via Javascript
+## JS: Change Continuous Delivery activity XML settings via Javascript
 ```js
 var month = formatDate(getCurrentDate(), '%2M'); // 01, 02, 03...
 var internalName = 'myInternalName_'+month;
@@ -186,7 +186,24 @@ logInfo('activity.scenario_id:', deliveryTemplate.$id);
 activity.scenario_id = deliveryTemplate.$id;
 ```
 
-## Asynchronous HTTP calls
+## JS: `vars` with array
+
+```js
+vars.markets= [
+ //'US',
+ 'GB',
+ 'FR',
+];
+vars.market = vars.markets.split(',')[0];
+```
+
+## JS: Create temporary linux file
+
+```js
+vars.filename = execCommand('mktemp')[1]+'-'+formatDate(new Date(), '%4Y-%2M-%2D')+'-ac7.csv'
+```
+
+## JS: Asynchronous HTTP calls
 
 For details, please check [Async API calls in Adobe Campaign](/2021/01/async-api-calls-in-adobe-campaign)
 

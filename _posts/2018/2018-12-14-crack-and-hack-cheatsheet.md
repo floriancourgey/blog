@@ -7,21 +7,6 @@ Cheatsheet for various unix tools such as metasploit framework, enumeration, nma
 
 <!--more-->
 
-## Introduction
-
-<style>#introduction:before{content: "";counter-increment: h2 -1}</style>
-
-1. [Metasploit Framework](#metasploit)
-1. [Network scanning with nmap](#nmap)
-1. [SQL injection with sqlmap](#sqlmap)
-1. [Reverse engineering with radare2](#radare2)
-1. [Memdump forensics with volatility](#volatility)
-1. [Google Dork Hacking](#google)
-1. [Wordlist & dictionnaries](#dictionnaries)
-1. [Unix server enumeration](#enumeration)
-
-You can also check out the [awesome list for CTFs (github.com/apsdehal/awesome-ctf)](https://github.com/apsdehal/awesome-ctf#readme) and the [awesome list for Security (github.com/sindresorhus/awesome)](https://github.com/sindresorhus/awesome#security).
-
 ## Local
 
 ```bash
@@ -336,6 +321,8 @@ Reference:
 - https://www.exploit-db.com/google-hacking-database
 - https://en.wikipedia.org/wiki/Google_hacking
 
-## Dictionnaries
+## Sources
+- [Awesome list for CTFs (github.com/apsdehal/awesome-ctf)](https://github.com/apsdehal/awesome-ctf#readme) 
+- [Awesome list for Security (github.com/sindresorhus/awesome)](https://github.com/sindresorhus/awesome#security).
 - [https://github.com/fuzzdb-project/fuzzdb/tree/master/wordlists-user-passwd](https://github.com/fuzzdb-project/fuzzdb/tree/master/wordlists-user-passwd)
 - [https://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre)](https://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre))

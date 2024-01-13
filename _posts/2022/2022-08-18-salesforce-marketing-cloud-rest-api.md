@@ -7,10 +7,6 @@ categories: [salesforce,opensource]
 
 <!--more-->
 
-## Intro
-1. Get token via .auth domain
-1. Call REST via .rest domain
-
 ## Get token
 1. Create client id & secret on Installed Packages>Components "API Integration" `/cloud/#app/Setup/InstalledPackages`
 1. Create a request with parameters from Step #1, endpoint `https://xxx.auth.marketingcloudapis.com/v2/token` and the following body:

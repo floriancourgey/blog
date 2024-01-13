@@ -40,6 +40,15 @@ layout: default
     </div>
   </header>
 
+  {% if page.toc %}
+    <aside class="toc">
+      <h5>Contents</h5>
+      <nav>
+        {% include toc.html html=content %}
+      </nav>
+    </aside>
+  {% endif %}
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>

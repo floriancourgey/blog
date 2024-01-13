@@ -17,7 +17,6 @@ manifest:
   scope: "/"
   start_url: "/"
 
-
 disqus:
   shortname: floriancourgey
 
@@ -39,12 +38,14 @@ defaults:
     values:
       layout: "post"
       author: "Florian Courgey"
+      toc: true
   - scope:
       path: ""
       type: "drafts"
     values:
       layout: "post"
       author: "Florian Courgey"
+      toc: true
   - scope:
       path: ""
       type: "authors"

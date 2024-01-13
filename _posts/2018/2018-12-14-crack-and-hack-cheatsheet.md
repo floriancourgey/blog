@@ -35,6 +35,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 
 ## Online
 
+- [Password generator](https://bitwarden.com/password-generator/)
 - [CyberChef](https://gchq.github.io/CyberChef/) for `base64` `url decode` `reverse` `string length` `parse ip`...
 - [MxToolbox](https://mxtoolbox.com/) for `DNS` `CNAME` `WhoIs` `DKIM` `SPF` `MX`...
 - [PhotoPea](https://www.photopea.com/) for `treshold` `level` `invert` (via "New adjustment layer")

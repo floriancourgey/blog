@@ -73,6 +73,9 @@ ls -l $(which python) # command substitution with $(cmd-here)
 passwd # update password for current user
 sudo passwd user_name # update password for user_name
 find . -name filename_here
+shutdown -P # power off (default)
+shutdown -r # reboot
+shutdown -c # cancel shutdown
 ```
 [man id](https://linux.die.net/man/1/id), [man who](https://linux.die.net/man/1/who), [man ls](https://linux.die.net/man/1/ls)
 

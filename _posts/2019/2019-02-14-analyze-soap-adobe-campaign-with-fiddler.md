@@ -1,5 +1,5 @@
 ---
-title: Analyze Adobe Campaign SOAP requests with Fiddler
+title: Analyze Adobe Campaign SOAP requests with Fiddler (HTTP Proxy)
 categories: [opensource,adobe campaign,fiddler]
 ---
 

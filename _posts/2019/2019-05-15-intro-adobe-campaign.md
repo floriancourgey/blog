@@ -89,6 +89,9 @@ This list only concerns Adobe Campaign Classic (and not the web-based version *A
 - [Security & Privacy Checklist](https://helpx.adobe.com/campaign/kb/acc-security.html)
 - [Getting Started with GDPR & CCPA](https://helpx.adobe.com/campaign/kb/campaign-privacy.html)
 
+## Extending Adobe Campaign
+- [ACC JS SDK](https://opensource.adobe.com/acc-js-sdk/index.html) - Javascript helpers to build ACC API: Custom NodeJS backend, AWS lambda functions, GraphQL API, command line tool (REPL)
+
 ## Community
 - [Official homepage for Campaign Classic](https://experienceleaguecommunities.adobe.com/t5/adobe-campaign-classic/ct-p/adobe-campaign-classic-community)
 - [Official Forum](https://experienceleaguecommunities.adobe.com/t5/adobe-campaign-classic-questions/qa-p/adobe-campaign-classic-questions)

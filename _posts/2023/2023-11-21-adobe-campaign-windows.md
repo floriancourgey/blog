@@ -142,6 +142,17 @@ Proceed to the Database creation with:
   - Adobe Campaign administrator password: Set or change the password
   - Password: `admin`
 
+# Start workflows
+
+```powershsell
+PS C:\Users\fco> nlserver start wfserver@instance1
+01:06:04 >   Application server for Adobe Campaign Classic (7.3.4 build 9364@8f3ef8e of 09/04/2023)
+01:06:05 >   Launching task 'wfserver@instance1' ('nlserver wfserver -tracefile:wfserver@instance1 -instance:instance1 -detach') in a new process
+01:06:05 >   Application server for Adobe Campaign Classic (7.3.4 build 9364@8f3ef8e of 09/04/2023)
+01:06:05 >   Starting workflow server (pid=12628, tid=7700)...
+01:06:05 >   Starting 1 connection(s) on pool 'default instance1' (PostgreSQL, server='localhost', login='neolane:neolane')
+```
+
 # Connect as admin
 
 ![PostgreSQL SQL request check Adobe Campaign](/assets/images/2023/adobe-campaign-classic-windows-check-pgAdmin.jpg)
@@ -151,6 +162,8 @@ Login with `admin`/`admin`.
 All set!
 
 Create a recipient and check with pgAdmin: `public.nmsrecipient/neolane/postgres@PostgreSQL 14`
+
+
 
 # Notes
 - [Official Installation Guide on experienceleague.adobe.com](https://experienceleague.adobe.com/docs/campaign-classic/using/installing-campaign-classic/install-campaign-on-prem/installing-campaign-in-windows-/prerequisites-of-campaign-installation-in-windows.html?lang=en)

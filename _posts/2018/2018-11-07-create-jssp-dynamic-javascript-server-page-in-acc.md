@@ -19,7 +19,7 @@ Note: Adobe Campaign Classic JSSP are built on top of the JSSP initial project, 
 
 Create a JSSP in any JSSP folder. The JSSP name will define the URL:
 
-The name `my_nms:my-page.jssp` will give us the URL `https://xxx.campaign.adobe.com/my_nms/my-page.jssp`.
+The name `my_nms:my-page.jssp` gives the URL `https://xxx.campaign.adobe.com/my_nms/my-page.jssp`.
 
 ![todo](/assets/images/2018/11/JSSP-code-with-name-and-namespace.jpg)
 
@@ -27,7 +27,7 @@ No need to publish, no cache, the page is instantly available:
 
 ![todo](/assets/images/2018/11/html-render-for-jssp.jpg)
 
-Note: Some clients may give you an error as the Header Content-Type is not defined. I.e. in [Restlet Client](https://restlet.com/modules/client/):
+Note: Some clients may give an error as the Header Content-Type is not defined. I.e. in [Restlet Client](https://restlet.com/modules/client/):
 
 ![todo](/assets/images/2018/11/html-render-in-restlet-client.jpg)
 
@@ -91,7 +91,7 @@ document.write(JSON.stringify(x));
 
 ![todo](/assets/images/2018/11/javascript-server-page-json-api.jpg)
 
-But try to `var delivery = NLWS.nmsDelivery.load('12435');`  and you'll get an Access Denied:
+But `var delivery = NLWS.nmsDelivery.load('12435');` results in an Access Denied:
 
 ```
 XTK-170019 Access denied.
@@ -145,11 +145,11 @@ home:
 Database is now accessible 😉
 
 <div class="alert alert-warning">
-  Don't use `logon` as is is deprecated and you'll get the Adobe Campaign error message (in Monitoring logs > web@default):
+  Don't use `logon` as is is deprecated and will get the Adobe Campaign error message (in Monitoring logs > web@default):
 
   The 'logon' JavaScript method is deprecated. Please use 'logonEscalation', 'logonWithUser', 'logonWithToken' or 'logonWithContext' instead.
   
-  So you may use `logonEscalation('webapp')`, `logonWithUser(login, password)`, `logonWithToken(token)` , `logonWithContext(context)`.
+  So use `logonEscalation('webapp')`, `logonWithUser(login, password)`, `logonWithToken(token)` , `logonWithContext(context)`.
 </div>
 
 

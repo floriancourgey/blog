@@ -4,6 +4,7 @@ date: 2018-11-07
 permalink: /2018/11/create-jssp-dynamic-javascript-server-page-in-acc/
 categories: [adobe campaign, neolane]
 ---
+
 JSSP pages are server-side public web pages in Adobe Campaign Classic. Here are some info about it. It will result in pages with  the .jssp extension.
 
 <!--more-->
@@ -14,7 +15,7 @@ JSSP come from a custom implementation of the Java JSSP project, [description an
 
 Note: Adobe Campaign Classic JSSP are built on top of the JSSP initial project, so many JSSP methods are not available.
 
-## Create a simple test JSSP page
+## Basic JSSP page
 
 Create a JSSP in any JSSP folder. The JSSP name will define the URL:
 
@@ -50,7 +51,35 @@ response.setContentType("text/html;charset=utf-8");
 
 ![todo](/assets/images/2018/11/html-render-in-restlet-client-with-content-type.jpg)
 
-## Develop a Read/GET Recipient JSON API
+## Existing ACC web portal
+
+Accessible via `https://myinstance/view/home`, with source code in `xtk:dashboardNavigation.js`.
+
+
+- `NL.ns('NL.Dashboard')`
+- `NL.require('/nl/core/shared/core.js')`
+- `NL.Dashboard.init(request, response, options, callback)`
+  - `NL.require("/nl/core/shared/dashboard.js")`
+  - `var jsspContext = new NL.JSSPContext(request)`
+  - `jsspContext.checkAuthentication(response)`
+  - `if(!options.noClientOutput)`
+    - `<!DOCTYPE html PUBLIC><html><head>`
+    - `NL.client.deps()` from `depman.js`
+      - `<!-- deps in mode " + mode.name + '/' + this.lang + " -->` (`<!-- deps in mode min/en -->`)
+      - `<script src='" + fn + extraQS + "'"`, examples:
+        - `/nl/gen/min/WA-70839cda0b8c2a1d4b025f0ca36ccd71.js` for `JSON2, NL.QueryDef, NL.Cookie...`
+        - `/nl/gen/min/WA-en-cf461481d56f1e56aa870f98218b501b.js` for stringgroup
+        - `/nl/gen/min/nlsrc-5958223c29a2051c0944e40651cd2548.js` for `jquery-ui, NL.Widgets, NL.UI...`
+        - `/nl/gen/min/nlsrc-en-42e5495a630485dbd63f8ddcd2169a9b.js` for stringgroup
+      - `<!-- END deps in mode " + mode.name + " -->` (`<!-- END deps in mode min -->`)
+    - `controller = new NL.UI.Controller({pageController: true})`
+    - `jsspContext.genClientSessionInitCode()`
+      - `var nls = NL.session;`
+      -  `nls.buildNumber = `
+      - `document.__securitytoken = "' + NL.JS.escape(newSecurityToken) + '";'`
+    - `var dashboardContext = {`
+
+## Advanced: GET JSON API to get Recipient via JSSP
 
 ```js
 <%
@@ -169,7 +198,7 @@ document.write(JSON.stringify(result));
 ![](/assets/images/2020/adobe-campaign-jssp-get-api.jpg)
 
 
-## Develop a Update/POST Recipient JSON API
+## Advanced: POST JSON API to update Recipient via JSSP
 
 ```js
 <% 
